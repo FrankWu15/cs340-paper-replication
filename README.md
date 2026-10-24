@@ -9,7 +9,7 @@ Macau University of Science and Technology, CS340 Research Paper Replication (AY
 | GitHub | 姓名 Name | 学号 Student ID |
 |---|---|---|
 | FrankWu15 | 吴德诚 Wu Decheng | 1240012684 |
-| Dreamingzzz318 | 朱奕铭 Zhu Yiming | 1240012557 |
+| DreamingZhu111 | 朱奕铭 Zhu Yiming | 1240012557 |
 | icecream1293 | 李振炜 Li Zhenwei | 1240012318 |
 | Semliii | 许汝轩 Xu Ruxuan | 1240011357 |
 
