@@ -1,6 +1,6 @@
-# 1240012318 · CS340 论文复现
+# 李振炜 1240012318
 
-复现对象：*Understanding Real-World Concurrency Bugs in Go*（ASPLOS'19）
+CS340 论文复现 —— *Understanding Real-World Concurrency Bugs in Go*（ASPLOS'19）
 
 本目录存放当日交付物，按日期分层，不改动仓库根目录原有的 `README.md` 与 `复现方案.md`。
 

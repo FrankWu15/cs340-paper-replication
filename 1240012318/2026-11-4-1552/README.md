@@ -1,5 +1,7 @@
 # ASPLOS'19 Go 并发 bug 论文复现 · 归档
 
+李振炜 1240012318
+
 论文：*Understanding Real-World Concurrency Bugs in Go*（ASPLOS'19）
 归档：2026-11-04 · 只读快照，可整体打包交付
 
