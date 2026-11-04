@@ -44,48 +44,63 @@ repro/
 └── out/                        报告与中间结果
 ```
 
-## 环境（本机已就绪）
+## 环境（路径不再写死）
 
-| 用途 | 路径 |
-|---|---|
-| **上游仓库（6 个）** | `C:/Users/Li/Desktop/机器学习/output/repos/{boltdb,etcd,grpc-go,docker,cockroachdb,kubernetes}` |
-| 现代 Go（编译 goast） | `C:/gs/toolchain/go1.27.3/go` — windows/amd64 |
-| 旧版 Go（编译老代码） | `C:/gs/toolchain/go1.10.8/go` — windows/amd64 |
-| 可执行文件 | `C:/gs/bin`（**不要放在 Desktop 下跑**，见下） |
-| GOPATH | `C:/gs/gopath`（旧工具链用，`GO111MODULE=off`） |
-| 日志 | `C:/gs/logs`（`repos.tsv`、`pin_exact.tsv`、各仓库 clone 错误日志） |
+项目内所有路径都由 `scripts/_paths.sh` 从仓库布局推导，换机器、换目录名都不用改脚本：
 
-> 仓库和工具链故意分开放：仓库属于项目数据，跟脚本、报告一起放 `team/` 便于整体备份；而**自编译的可执行文件放 Desktop 下会被系统策略拒绝读写**，所以 `bin/`、`toolchain/` 留在 `C:/gs`。仓库里的 shell 脚本会自动按「脚本位置往上两级 + `/repos`」定位，不用手改路径。
+| 用途 | 默认位置 | 覆盖方式 |
+|---|---|---|
+| 上游仓库（6 个） | 项目根下的 `6app/`（或 `repos/`） | 环境变量 `REPO_ROOT` |
+| pin 表、克隆日志 | `repro/logs/` | `LOG_DIR` |
+| 报告与中间结果 | `repro/out/` | `OUT_DIR` |
+| 二进制（goast 等） | 系统临时目录 | `BIN_DIR` |
+| Go 工具链 | `PATH` 里的 `go` | `GO_MODERN` / `GO_LEGACY` |
+
+机器相关的那几项写在 `repro/local.env`，**该文件不进版本库**：
+
+```bash
+cp repro/local.env.example repro/local.env   # 然后按本机情况改
+```
+
+本机（Windows）的实测值在 `local.env.example` 里已作为示例列出。
+
+> 关于「二进制为什么不放在项目目录」：这台 Windows 上，放在 Desktop 下的自编译 exe 会被系统策略拒绝读写文件（`winapi error #5`）。所以 `BIN_DIR` 指向 `C:/gs/bin`，由 `local.env` 指定；Linux 上没有这个限制，`local.env.example` 里给了 `$HOME/.local/bin` 的写法。
 
 > 机器原有的 `C:\Program Files (x86)\Go` 是 **go1.27.3 windows/386**，32 位，不支持 `-race`，P5 不能用它。已另装 amd64 版本，不动原安装。
 
-## 五步跑通
+## 一键跑通
+
+在项目根目录（不是 `repro/`）执行：
 
 ```bash
-cd repro
+./run.sh help          # 列出所有目标
+./run.sh check-pins    # 先确认 6 个仓库停在 repo.lock.tsv 的 commit 上
 
-# P0：解析 artifact（已跑过，可重跑）
-python scripts/00_parse_artifact.py
-python scripts/00_env_report.py --static
+./run.sh parse         # P0  artifact -> data/*.csv
+./run.sh env-report    # P0  环境与快照汇总 -> out/p0_env_report.md
+./run.sh goast         # 编译 AST 统计器
+./run.sh mine          # P1  6 个仓库关键词挖掘
+./run.sh static        # P2  6 个仓库静态原语统计
+```
 
-# P0：克隆仓库（已跑过，存在即跳过）
-bash scripts/00_setup_repos.sh
-bash scripts/00_pin_exact.sh    # 把 HEAD 精确钉到论文的 commit 数
+Linux 上有 `make` 的话，`make <同名目标>` 等价。
 
-# P1：关键词挖掘
-python scripts/01_mine_commits.py --repo ../repos/etcd --app etcd \
-    --until 2018-05-21 --out out/commits_etcd.csv
+单独跑某一个仓库时用原始脚本，参数如下：
 
-# P2：静态统计（先编译 goast 到 C:/gs/bin）
-export GOROOT=C:/gs/toolchain/go1.27.3/go
-go build -o C:/gs/bin/goast.exe ./tools/goast
-python scripts/02_static_metrics.py --repo ../repos/etcd --app etcd \
-    --goast-cmd C:/gs/bin/goast.exe --out out/static_etcd.json
+```bash
+# P1：关键词挖掘（单仓库）
+python repro/scripts/01_mine_commits.py --repo 6app/etcd --app etcd \
+    --until 2018-05-21 --out repro/out/commits_etcd.csv
+
+# P2：静态统计（单仓库）
+python repro/scripts/02_static_metrics.py --repo 6app/etcd --app etcd \
+    --goast-cmd "$BIN_DIR/goast.exe" --out repro/out/static_etcd.json
 
 # P4：复现单个 bug（示例：BoltDB 死锁）
-./scripts/05_repro.sh --repo ../repos/boltdb --app boltdb --bug-id boltdb#392 \
+./repro/scripts/05_repro.sh --repo 6app/boltdb --app boltdb --bug-id boltdb#392 \
     --commit <buggy_commit> --build "GO111MODULE=off go build ./cmd/bolt" \
-    --run "./bolt bench -n 1000" --runs 30 --timeout 60 --out out/repro_boltdb.csv
+    --run "./bolt bench -n 1000" --runs 30 --timeout 60 --out repro/out/repro_boltdb.csv
+```
 
 # P6：统计
 python scripts/04_stats_figures.py --bugs data/bugs_master.csv --outdir out
@@ -103,7 +118,7 @@ python scripts/04_stats_figures.py --bugs data/bugs_master.csv --outdir out
 |---|---|---|
 | Desktop 下运行自编译 exe | `winapi error #5`，读任何文件都失败 | 二进制放 `C:/gs/bin` 运行 |
 | `core.autocrlf=true`（系统默认） | 补丁行号错位，P4 diff 定位失效 | 克隆时 `-c core.autocrlf=false`，并写入仓库 config |
-| 深路径 | Kubernetes 路径超 260 字符 | `core.longpaths=true` + 仓库放 `C:/gs`（短 ASCII 路径） |
+| 深路径 | Kubernetes 路径超 260 字符 | `core.longpaths=true`（Git 走 `\\?\` 前缀），项目路径本身已无法再缩短 |
 | 32 位 Go | `-race` 不受支持 | 另装 amd64 工具链 |
 | `bolt` 主包不是根包 | `go build .` 出 `.a` 归档而非 exe | 编译 `./cmd/bolt` |
 | 代理对 curl/schannel | TLS 握手失败 | 用 git（OpenSSL）或走阿里云镜像 |
