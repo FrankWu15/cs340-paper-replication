@@ -1,0 +1,128 @@
+# 复现配置：项目清单 / 关键词 / 静态统计口径
+# 论文：Understanding Real-World Concurrency Bugs in Go (ASPLOS'19)
+
+# 论文的数据收集截止日 = 2018-05-21（来源：artifact 的 bug table.xlsx / application 表 Date 列，
+# Excel 序列号 43241，六个项目一致）。取 --before=2018-05-22 才能包含 05-21 全天。
+# 校准证据：BoltDB 在该切点恰好 816 个 commit，与论文 Table 1 完全相同。
+snapshot_before: "2018-05-22"
+snapshot_date: "2018-05-21"
+
+# 仓库位置不再写死：留空则由 scripts/_paths.sh 在项目根下自动探测
+# （依次找 repos/、6app/、upstream-repos/、src/），也可用环境变量 REPO_ROOT 覆盖。
+# 工具链与二进制目录属"机器相关设置"，写在 repro/local.env（不进版本库，模板见 local.env.example）。
+repos_root: ""      # 空 = 自动探测
+bin_dir: ""        # 空 = 取 local.env 的 BIN_DIR
+toolchains:
+  modern: ""    # 空 = 取 local.env 的 GO_MODERN（未配置则用 PATH 里的 go）
+  legacy: ""    # 空 = 取 local.env 的 GO_LEGACY
+
+apps:
+  docker:
+    repo: https://github.com/moby/moby.git
+    kind: container
+    lang: go
+    clonedir: "{repos_root}/docker"
+    paper_loc: "786174"
+  kubernetes:
+    repo: https://github.com/kubernetes/kubernetes.git
+    kind: orchestrator
+    lang: go
+    clonedir: "{repos_root}/kubernetes"
+    paper_loc: "2297729"
+  etcd:
+    repo: https://github.com/etcd-io/etcd.git
+    kind: kvstore
+    lang: go
+    clonedir: "{repos_root}/etcd"
+    paper_loc: "441999"
+  cockroachdb:
+    repo: https://github.com/cockroachdb/cockroach.git
+    kind: database
+    lang: go
+    clonedir: "{repos_root}/cockroachdb"
+    paper_loc: "520967"
+  grpc-go:
+    repo: https://github.com/grpc/grpc-go.git
+    kind: rpc
+    lang: go
+    clonedir: "{repos_root}/grpc-go"
+    paper_loc: "53076"
+  boltdb:
+    repo: https://github.com/boltdb/bolt.git
+    kind: database
+    lang: go
+    clonedir: "{repos_root}/boltdb"
+    paper_loc: "9060"
+
+# C/C++ 对照组，仅用于 Table 2 / Table 4 的横向比较
+controls:
+  grpc-c:
+    repo: https://github.com/grpc/grpc.git
+    lang: cpp
+    clonedir: "{repos_root}/grpc"
+    paper_loc: "140K"
+    notes: "论文：仅 5 个线程创建点、0.03/KLOC、仅用 lock、746 处 lock 使用"
+
+# P1 关键词。context/once/goroutine leak 是 Go 特有的，
+# 其余沿用传统并发 bug 研究（Lu et al. ASPLOS'08 / TSE'12 等）的关键词表。
+keywords:
+  - race
+  - deadlock
+  - synchronization
+  - concurrency
+  - lock
+  - mutex
+  - atomic
+  - compete
+  - context
+  - once
+  - goroutine leak
+
+# 标注枚举（必须与论文 Table 5/6/7/9/10 的类别一一对应）
+labels:
+  behavior: [blocking, non-blocking]
+  cause:
+    shared_memory: [mutex, rwmutex, wait, waitgroup, cond, atomic, anonymous_fn, library]
+    message_passing: [chan, chan_with_other, messaging_lib]
+  # 注意：blocking 与 non-blocking 的修复策略枚举不同（论文 Table 7 vs Table 10）
+  fix_strategy:
+    blocking: [adds, moves, changes, removes, misc]
+    non_blocking: [timing, bypass, data_private, misc]
+  fix_primitive: [mutex, rwmutex, atomic, once, waitgroup, cond, chan, lib, none]
+
+# 静态统计口径。口径必须冻结，否则数字与论文不可比。
+# 论文未公开工具，以下为"同方法重实现"的定义。
+static_rules:
+  go_stmt:
+    normal: "GoStmt 且 Call.Fun 不是 FuncLit"
+    anonymous: "GoStmt 且 Call.Fun 是 FuncLit"
+  mutex: "sync.Mutex|RWMutex 类型变量上的 Lock/Unlock/RLock/RUnlock 调用次数"
+  atomic: "atomic.<fn> 选择子调用次数"
+  once: "Once.Do 调用次数"
+  waitgroup: "WaitGroup.Add|Done|Wait 调用次数"
+  cond: "Cond.Wait|Signal|Broadcast 调用次数"
+  chan:
+    make: "make(chan ...)"
+    send: "SendStmt"
+    recv: "UnaryExpr{Op: ARROW}"
+    note: "论文中 chan 口径未细化；建议三者求和并在报告中注明，否则 chan 占比会系统性偏低"
+  misc: "context.* / io.Pipe 等 Go 特有消息传递库"
+  exclude: ["vendor/**", "**/*_test.go"]   # 与论文口径对齐前请确认，测试代码会影响分母
+
+# P3 动态测量
+dynamic:
+  benchmarks: [g_sync_ping_pong, sync_ping_pong, qps_unconstrained]
+  compare_policy: "same_number_of_requests"   # gRPC-C 更快，不能比相同时长
+  go_trace: "runtime/trace（goroutine 起止时间）+ NumGoroutine 采样交叉验证"
+  c_thread_sample_ms: 100
+
+# P5 检测器评测
+detectors:
+  deadlock:
+    how: "直接运行，抓 'fatal error: all goroutines are asleep - deadlock!'"
+    runs_per_bug: 1
+    paper_expect: "2/21"
+  race:
+    how: "go build -race"
+    runs_per_bug: 100
+    paper_expect: "10/20（traditional 7/13, anon 3/4, lib 0/2, chan 0/1）"
