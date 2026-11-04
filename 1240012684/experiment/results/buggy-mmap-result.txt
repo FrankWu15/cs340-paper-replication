@@ -1,0 +1,20 @@
+Database opened.
+Version: BUGGY
+Readers: 16, Writes: 1200, Value size: 64 KB
+Starting concurrent workload...
+writer: 100/1200, database size: 8.58 MB
+writer: 200/1200, database size: 16.54 MB
+writer: 300/1200, database size: 24.25 MB
+writer: 400/1200, database size: 32.66 MB
+writer: 500/1200, database size: 41.01 MB
+writer: 600/1200, database size: 49.04 MB
+writer: 700/1200, database size: 56.56 MB
+writer: 800/1200, database size: 64.46 MB
+writer: 900/1200, database size: 72.36 MB
+writer: 1000/1200, database size: 80.20 MB
+writer: 1100/1200, database size: 88.55 MB
+writer: 1200/1200, database size: 96.26 MB
+
+Workload completed.
+Read transactions completed: 56009
+RESULT: COMPLETED
