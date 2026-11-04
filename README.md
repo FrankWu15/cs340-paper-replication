@@ -35,6 +35,27 @@ original license and attribution. We claim no authorship over any upstream code.
 - 最终答辩 Final presentation: 2026-12-01
 - 每周 commit 检查 Weekly TA check: 每周日 23:59 / Every Sunday 23:59
 
+## 协作约定 / Commit convention
+
+课程按周检查每个人的实质性提交，**commit message 必须带学号 + 姓名**，否则该周的贡献无法认定。
+
+Each commit message ends with a signature line:
+
+```
+Student: 1240012318 李振炜 (Li Zhenwei)
+```
+
+One-time setup per clone (use the email bound to your own GitHub account, so the commit links
+to your profile):
+
+```bash
+git config user.name  "<你的姓名拼音>"
+git config user.email "<你 GitHub 账号绑定的邮箱>"
+```
+
+Branching: work on `main` is fine for this size of project. Rebase before pushing if the
+remote has moved; do not force-push a commit that someone else has built on.
+
 ---
 
 ## 1. Claims under test
