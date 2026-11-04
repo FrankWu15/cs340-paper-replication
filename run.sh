@@ -57,6 +57,12 @@ case "${1:-help}" in
     "$PY" repro/scripts/check_pins.py
     ;;
 
+  test)
+    "$PY" repro/scripts/check_pins.py || exit 1
+    "$PY" repro/scripts/00_parse_artifact.py || exit 1
+    echo "[ok] 冒烟测试通过"
+    ;;
+
   parse)
     "$PY" repro/scripts/00_parse_artifact.py
     ;;
