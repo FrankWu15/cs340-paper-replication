@@ -1,0 +1,7 @@
+app	cut_commit	cut_count	exact_commit	exact_count	paper	delta	kind
+boltdb	fd01fc79c553	816	fd01fc79c553	816	816	+0	exact
+etcd	7940113906db	14107	346589edd1dc	14101	14101	+0	exact
+grpc-go	c16e07b13065	2531	f66923519395	2528	2528	+0	exact
+docker	da99009bbb11	35160	9bd5d9912f0c	35149	35149	+0	exact
+cockroachdb	7c7818fd6d8e	29526	cc4511e1be86	29485	29485	+0	exact
+kubernetes	e85b81bbee09	65725	1f0d9505790c	65684	65684	+0	exact

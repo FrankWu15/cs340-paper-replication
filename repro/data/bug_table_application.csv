@@ -1,0 +1,7 @@
+﻿colA,app.,Stars,Commits,Contributors,LOC,concurrency bugs,#non-deadlock,popular rank(stars),Start,Date,Description
+1,docker,48975,35149,1767,786174,21,25,1,2014-02-10,2018-05-21,a collaborative project for the container ecosystem to assemble container-based systems
+2,Kubernetes,36581,65684,1679,2297729,17,17,2,2014-06-06,2018-05-21,"an open source system for managing containerized applications across multiple hosts; providing basic mechanisms for deployment, maintenance, and scaling of applications"
+3,etcd,18417,14101,436,441999,21,17,10,2013-06-06,2018-05-21,a distributed reliable key-value store
+4,cockroachdb,13461,29485,197,520967,12,16,22,2014-02-05,2018-05-21,a cloud-native SQL database
+5,grpc,5594,2528,148,53076,11,12,94,2015-01-16,2018-05-21,"A high performance, open source, general RPC framework that puts mobile and HTTP/2 first."
+6,boltdb,8530,816,98,9060,3,2,54,2013-12-20,2018-05-21,"The goal of the project is to provide a simple, fast, and reliable database for projects that don't require a full database server such as Postgres or MySQL."

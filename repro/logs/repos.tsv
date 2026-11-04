@@ -1,0 +1,7 @@
+app	commit	date	commits	paper_commits	diff	mode	checked_out
+boltdb	fd01fc79c553	2018-03-02	816	816	+0	full	1
+etcd	346589edd1dc	2018-05-21	14101	14101	+0	full	1
+grpc-go	f66923519395	2018-05-21	2528	2528	+0	full	1
+docker	9bd5d9912f0c	2018-05-22	35149	35149	+0	treeless	1
+cockroachdb	cc4511e1be86	2018-05-22	29485	29485	+0	treeless	0
+kubernetes	1f0d9505790c	2018-05-22	65684	65684	+0	treeless	0
