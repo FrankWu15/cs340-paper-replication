@@ -25,22 +25,24 @@
 
 ### P4 复现结果
 
-| bug               | 类型   | buggy 侧（3 次）                         | fixed 侧（3 次） |
-|-------------------|--------|------------------------------------------|------------------|
-| `boltdb#341`      | 非阻塞 | `Close()` 0ms 返回，`Commit` SIGSEGV     | 阻塞 159~168ms   |
-| `boltdb@7fb06fee` | 非阻塞 | 失败率 80~100%（10 次）                  | 失败率 0~10%     |
-| `grpc#793`        | 阻塞   | TIMEOUT ×3，卡在 `server.go:318`         | PASS ×3          |
-| `grpc#1293`       | 阻塞   | FAIL ×3                                  | PASS ×3          |
-| `grpc#1424`       | 阻塞   | FAIL ×3，`doneChan` 永不关闭             | PASS ×3          |
-| `grpc#1687`       | 非阻塞 | FAIL ×3，`panic: send on closed channel` | PASS ×3          |
+| bug               | 类型   | buggy 侧                                 | fixed 侧     |
+|-------------------|--------|------------------------------------------|--------------|
+| `boltdb#341`      | 非阻塞 | `Close()` 立即返回，closeMs=0            | 阻塞 159ms   |
+| `boltdb@7fb06fee` | 非阻塞 | 失败率 80~100%（10 次）                  | 失败率 0~10% |
+| `grpc#793`        | 阻塞   | TIMEOUT ×3 卡在 server.go:318            | PASS ×3      |
+| `grpc#1293`       | 阻塞   | FAIL ×3                                  | PASS ×3      |
+| `grpc#1424`       | 阻塞   | FAIL ×3，`doneChan` 永不关闭             | PASS ×3      |
+| `grpc#1687`       | 非阻塞 | FAIL ×3，`panic: send on closed channel` | PASS ×3      |
 
-四条 grpc 的 buggy 侧异常率与 fixed 侧通过率均为 3/3，判定依据是 `p4_case.sh`
-输出的 `SUMMARY` 行；截图含完整命令行参数与两侧逐次结果，位于
-`results/shots/`：
+重复次数按 bug 性质区分：`boltdb#341` 是确定性探针，两侧各 1 次；`boltdb@7fb06fee`
+属并发竞争，按论文 §4 的做法统计 10 次；四条 grpc 两侧各 3 次。判定依据是
+`VERDICT=` 行（boltdb）与 `SUMMARY` 行（grpc）。截图含完整命令行、`checkout`
+切换记录与逐次结果，位于 `results/shots/`：
 
 ```text
-grpc793_repro.png    grpc1293_repro.png
-grpc1424_repro.png   grpc1687_repro.png
+boltdb341_buggy.png    boltdb341_fixed.png    boltdb7fb06_run4.png
+grpc793_repro.png      grpc1293_repro.png
+grpc1424_repro.png     grpc1687_repro.png
 ```
 
 ### 未完成 / 待查

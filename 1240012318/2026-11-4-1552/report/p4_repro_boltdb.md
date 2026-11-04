@@ -72,13 +72,16 @@ db.Close()          // 调用的是 TestDB.Close() → MustCheck() → Update() 
 
 ## 7. 证据与复跑
 
-`results/shots/` 三张截图取自真实终端会话录制（`script(1)` 录 pty 原始字节流，去控制字符后渲染）：
+`results/shots/` 中 boltdb 相关截图取自真实终端会话：
 
-| 文件                    | 内容                                               |
-|-------------------------|----------------------------------------------------|
-| `boltdb_2of2.png`       | 主脚本一轮：两条 VERDICT、10 轮统计、`RESULT: 2/2` |
-| `boltdb341_sigsegv.png` | buggy 崩溃栈 vs fixed 阻塞对照                     |
-| `boltdb7fb06_race.png`  | `DATA RACE` 与 `functional_test.go:57` 断言现场    |
+| 文件                   | 内容                                                           |
+|------------------------|----------------------------------------------------------------|
+| `boltdb341_buggy.png`  | `55af28c` 侧探针：`VERDICT=BUG close_returned_early closeMs=0` |
+| `boltdb341_fixed.png`  | `c69cb102` 侧探针：`VERDICT=OK close_waited closeMs=159`       |
+| `boltdb7fb06_run4.png` | 第 4 轮并发测试：`invalid page type: meta` panic 现场          |
+
+两张 #341 截图的提示符、`git checkout` 切换输出、`go run` 输出与 `tee` 落盘路径均完整可见，
+可直接核对「切到 `55af28c` 得 BUG、切到 `c69cb102` 得 OK」这一对照关系。
 
 原始日志在 `results/logs/`：`boltdb_341_buggy/fixed.log`（判定输出）、
 `boltdb_341_sigsegv_evidence.log`（完整崩溃栈）、
