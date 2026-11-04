@@ -1,0 +1,23 @@
+{
+  "go_stmt_normal": 51,
+  "go_stmt_anonymous": 307,
+  "mutex": 353,
+  "lock_calls": 2343,
+  "atomic": 396,
+  "once": 16,
+  "waitgroup": 304,
+  "cond": 5,
+  "chan_make": 493,
+  "chan_send": 501,
+  "chan_recv": 1106,
+  "select": 393,
+  "misc_pool": 18,
+  "misc_context": 3615,
+  "files": 1739,
+  "lines": 692280,
+  "parse_errors": 1,
+  "parse_error_files": [
+    "6app\\cockroachdb\\pkg\\cmd\\prereqs\\testdata\\src\\example.com\\a\\invalid.go: parse: 6app\\cockroachdb\\pkg\\cmd\\prereqs\\testdata\\src\\example.com\\a\\invalid.go:17:1: expected declaration, found dfasdg"
+  ],
+  "root": "6app/cockroachdb"
+}

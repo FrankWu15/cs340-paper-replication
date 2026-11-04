@@ -1,0 +1,19 @@
+{
+  "go_stmt_normal": 56,
+  "go_stmt_anonymous": 118,
+  "mutex": 639,
+  "lock_calls": 715,
+  "atomic": 75,
+  "once": 9,
+  "waitgroup": 104,
+  "cond": 8,
+  "chan_make": 125,
+  "chan_send": 74,
+  "chan_recv": 265,
+  "select": 121,
+  "misc": 587,
+  "files": 216,
+  "lines": 69156,
+  "parse_errors": 0,
+  "root": "6app/grpc-go"
+}

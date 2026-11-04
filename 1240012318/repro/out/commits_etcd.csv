@@ -1,0 +1,415 @@
+﻿app,commit,date,subject,matched_keywords
+etcd,7088d2bf52c249ecdac708329e7a705dda53f742,2018-05-14,"etcdserver/api/v3rpc: clean up, read lock on 'prevKV'",lock
+etcd,f3d9a85697943831f1c7f416c50b2ff7e9e47e15,2018-05-03,"wal: add warnings on fsync, flock fail paths",lock
+etcd,2bb1a268b33436a45fc19043bd159982bedd214b,2018-05-03,pkg/fileutil: clarify flock errors,lock
+etcd,6cf3dae93e138255c93b7995b4a07307b986817f,2018-05-01,etcdserver/api/v3rpc: fix race in stream error logging,race
+etcd,54827d47eed8f943f26fa989b963ce6126ccb873,2018-04-27,pkg/idutil: use count field as atomic variable,atomic
+etcd,f176427791da54267e96277d7d6666c72214d9b2,2018-03-29,mvcc: Clone the key index for compaction and lock on each item,lock
+etcd,cc778746fcf730cfab6e86e62fe874af678c087e,2018-04-16,"embed: support 'io-discard' for logging, fix racey logging setup",race
+etcd,0a92ba66fa3b610e8806df15f2eddc8a5c745b81,2018-04-12,functional/tester: fix racey map writes,race
+etcd,10bf0283be6f22022e6303322d9b0936d26c722d,2018-04-12,etcdserver/stats: make all fields guarded by mutex.,mutex
+etcd,ba59bb2c2b852f2d519221680b434a35f31b00a4,2018-04-11,etcdserver/stats: fix stats data race.,race
+etcd,6c40b2b5d4c138be212e924707b8e307bc475f68,2018-03-16,mvcc/backend: defrag to block concurrent read requests while resetting tx,lock
+etcd,fbe6767570a30fea5a1af31229394aaace3f01e0,2018-02-26,rafthttp: make 'ActiveSince' non-blocking on write lock,lock
+etcd,48221166987b183e8122e03d7c8c956056a6e07a,2018-01-25,lease: Change lease Mutex to RWMutex,mutex
+etcd,b5d5ce4b803855f456beca7878469867aed68a48,2018-01-16,Gopkg.lock: initial commit,lock
+etcd,5b2f5150d9c15315c590e8dc12ff24d9f507ddf4,2018-01-02,etcdserver/api/v3rpc: set grpclog once,once
+etcd,b2a15ec327ead1caf6d6983092dae17e09c88dd1,2018-01-01,pkg/expect: fix deadlock in mac OS,deadlock|lock
+etcd,1880cf8da239899ef27e61e46caf68eb87cfac06,2017-12-21,clientv3/leasing: fix racey waitSession,race
+etcd,f6f3a9ca69a6b94ac72a41f05174feb8e252dac0,2017-12-14,clientv3: document context to 'Watch' API,context
+etcd,e833b7c2d888f0b7cf60f349f5eac845bed1fc23,2017-12-15,clientv3: document context to 'Snapshot' API,context
+etcd,1f191a0e34943286474eb78c58fe24277c2b1ca4,2017-12-14,auth: use NewIncomingContext for 'WithRoot',context
+etcd,9bd07c91deda498c6ce36b1733376b4b3ce5ee3d,2017-12-07,integration: test GracefulStop on secure embedded server,race
+etcd,552b58dcfb3afe3b05024cfdde3ca8933c3365c9,2017-12-07,embed: only gracefully shutdown insecure grpc.Server,race
+etcd,a9105b5a8dbf47bd52221c2516f2ee87d4472dec,2017-11-27,clientv3: document context timeout error with server-side clock skew,lock|context
+etcd,0d0e8e78f780ce123ce0b7606dd538265444f734,2017-11-27,clientv3/integration: handle server-side context timeouts from clock-drift,lock|context
+etcd,f649132a5a41afee02a29c36d826e789bd144684,2017-11-21,"auth, etcdserver: follow the correct usage of context",context
+etcd,f48fe8ecda44f14b8f6f7e7b96d83de83dad6eff,2017-11-06,api/v3rpc: do not convert server context error to grpc/*status.statusError,context
+etcd,38942a2a51c638983501bbc5b362e9f1831537fe,2017-11-06,auth: clean up mutex lock/unlocks,lock|mutex
+etcd,aaf4a70cd0e8f043a79b9fd307e2401965ddaea6,2017-10-27,etcdctl v3: e2e test for the --once option to the lease keep-alive command,once
+etcd,cb188d0b26ec63574af176e68eebc71f9cef186a,2017-10-27,etcdctl v3: adds the --once option to the lease keep-alive command,once
+etcd,8fa35216b056710689756ca1587cc0909f1cba67,2017-10-25,clientv3/integration: Get with context timeout,context
+etcd,e80b2474fa60dba981b531079893035af090b809,2017-10-11,etcdctl/ctlv3: inherit/update flags only once in 'check' command,once
+etcd,5096b4ed5d3c68aebefd2e9016a071d580c56c71,2017-10-09,clientv3/ordering: compare and update prevRev atomically,atomic
+etcd,9154b31bf35f15cc8eca42faadcb044dfd1b9f18,2017-10-05,mvcc: move 'keyi' define before holding locks,lock
+etcd,69031e3a6dc701b24e7dedfb56735122076437be,2017-10-03,clientv3/ordering: acquire setPrevRev mutex only when needed,mutex
+etcd,636815909de973ebf50e0bbf08162ea64d2b57ec,2017-09-26,clientv3/integration: match context errors to stopped server,context
+etcd,640c0e6ff470d6baee8474c516ef233b531286e1,2017-09-08,tools/benchmark: replace 'golang.org/x/net/context' with 'context',context
+etcd,24498ea167f3c4dcd9762f8f5712a82fd445df88,2017-09-06,test: mask 'nil Context' for staticcheck,context
+etcd,9a726b424db125c94264efc6e0cd471bd2f427c8,2017-09-06,*: fix leaky context creation with cancel,context
+etcd,f65aee0759633966e0e1052d0c18079da551d24e,2017-09-06,*: replace 'golang.org/x/net/context' with 'context',context
+etcd,15c3c1be2852b5b1e18bcea371ecde51deb98b19,2017-09-05,*: replace 'grpc.ErrClientConnTimeout' with 'context.DeadlineExceeded',context
+etcd,54fcdb4b5ceea6fe0e858071efc3f46806407cfc,2017-08-27,pkg/wait: change list's lock to RWMutex,lock|mutex
+etcd,b206afc4a74ac026eb5d497398732ee64dc0e493,2017-08-22,concurrency: fix STM example to add to balance,concurrency
+etcd,1d195521c7792da4d4c2494f346343d46cd5a8c6,2017-08-22,concurrency: retry snapshot serializable stm if writes since first header rev,concurrency
+etcd,35b11bf438e61618c3fa908c9a6513856c56b967,2017-08-17,auth: replace NewContext with NewOutgoingContext,context
+etcd,9c21eefd097821283bac30a223ed9ea1f088745c,2017-08-05,etcdctl: add ttl flag for lock command,lock
+etcd,5072530a802e543c14e844cf9cbdb535fde63c7d,2017-08-03,e2e: remove SIGQUIT debugging for elect and lock,lock
+etcd,b7b31e57702917793c3c546e385e7af0675d2eff,2017-08-02,concurrency: add examples,concurrency
+etcd,b89ef7e295313ab9820395fe6fc44693b832f878,2017-08-01,clientv3/integration: match context canceled on client close,context
+etcd,8385c6682a92399ea42b5f46e1eb7ea2643f4c86,2017-07-30,clientv3/integration: test client puts at most once on bad connection,once
+etcd,1c75c383a1e54fd607870ad68b678089820831ed,2017-08-01,clientv3: use FromOutgoingContext to bucket watches,context
+etcd,fca56f132a2eae42158f29e78787236a5a24e074,2017-07-26,ordering: use x/net/context and add doc.go,context
+etcd,fe1ddab714e206d9afbfd2e349a4f4439791b55a,2017-07-19,wal: fall back to closing wal if locked dir rename fails,lock
+etcd,68eb96e985d1f70aedfc219a28d48a6a97f2516a,2017-06-19,dev-guide: clarify concepts in local_cluster doc,once
+etcd,4df1970188003e6e8745901c36079aa45a3d0e25,2017-07-06,concurrency: fix typo in Serializable godoc,concurrency
+etcd,c678dcbd91721b17d52ef39afb3104444f14deac,2017-06-27,compactor: Fix data race in revision compactor test,race
+etcd,7fffd8b827941ec1c88cee9ac6251a1b2f31e2e5,2017-06-22,concurrency: comment the default stm isolation level is serializable snapshot,concurrency
+etcd,5e059fd8dca7907c034d1d4b2458e755548a4a5e,2017-05-08,*: use metadata Incoming/OutgoingContext,context
+etcd,f5b96991a1b2a580febff307e0a11356c0fbebae,2017-06-15,concurrency: fetch current lock holder when creating waitlist key,concurrency|lock
+etcd,0506f49f9e4ddb2053e55c526f2373915e571b14,2017-05-03,backend: don't hold boltdb read txn lock on cursor scanning,lock
+etcd,643c2a310d437d6e30d78804ad521a33901e2763,2017-05-24,etcdctl: support exec on lock,lock
+etcd,8f0d4092c3c0c22fdfdac4cceb66577efd7e70b7,2017-05-16,e2e: Stop() lock/elect etcdctl process if Close times out,lock
+etcd,6526097bfc38ebda2c1d93d195ac87b3b70bdf44,2017-05-15,benchmark: add rpc locks to stm benchmark,lock
+etcd,b9f5a00b13536dd2cc6a06fe21abb99edece997c,2017-05-04,e2e: more debugging output for lock and elect etcdctl tests,lock
+etcd,00da3ca72596c3d6b6ed64bf7028bc01fc12ba6a,2017-05-10,integration: add lock and election services to proxy tests,lock
+etcd,713e006bc68b4b7129be29d8d8ebebc64acec574,2017-05-10,adpater: adapters for lock and election services,lock
+etcd,fd01db9e6033651926a9092a63b79fff923ef189,2017-05-10,"grpcproxy, etcdmain: add lock and election services to proxy",lock
+etcd,b44bd6d2a9d769e2ce81cb839384a40bc876f144,2017-05-10,etcd-runner: fix race on nextc,race
+etcd,87d99fe0387ee1df1cf1811d88d37331939ef4ae,2017-05-09,etcd-runner: remove mutex on validate() and release() in global.go,mutex
+etcd,7d21d6c894aee7c444f81876f8fc0968c02bfbd8,2017-05-04,embed: gracefully close peer handlers on shutdown,race
+etcd,31d5d610fc48578275e4a62e0960fa3fb8f224cd,2017-05-03,concurrency: provide old STM functions as deprecated,concurrency
+etcd,43e5f892f6f0a14e9a53b64cf77baa93f42a7a90,2017-04-28,clientv3: don't race on upc/downc/switch endpoints in balancer,race
+etcd,b0e9d24fb6f20685253d339dce018daf1de54d9f,2017-05-01,embed: fix blocking Close before gRPC server start,lock
+etcd,50f29bd6618e600e00f36a98ac8969fa6dfed14b,2017-04-25,concurrency: use current revisions for election,concurrency
+etcd,debc69e1f2b1cb9193a6d8452ac0ea25c86c5ca8,2017-04-25,etcd-runner: pass in lock name as a command arg for lock_racer.,race|lock
+etcd,327f09fcb47e9356a7c06c18406ca8b423dce32c,2017-04-25,etcdserver: do not block on raft stopping,lock
+etcd,f224d74ed7dedab69e242fa5b5703e7ec7b7bb09,2017-04-10,concurrency: use new lease interface in session,concurrency
+etcd,c1300c81b3272728c983839f7ef7da28e0fbc5be,2017-04-21,concurrency: clarify Observe semantics; only fetches subsequence,concurrency
+etcd,85e87e8f6bfefd5069f3576db75a07b09c461b00,2017-04-21,netutil: use 'context' and ctx-ize TCP addr resolution,context
+etcd,bfd5f38af3e4fc783967e8cb034c242c73cbcedf,2017-04-20,vendor: use 'x/net/trace' with std 'context',race|context
+etcd,da1bba8f395a10a2623e5982333dbcf56ce60dfb,2017-04-20,vendor: update 'golang.org/x/time/rate' with context,context
+etcd,5161b747991da9137ac33868a1a68478b9149d75,2017-04-18,pkg/debugutil: add 'mutex' profiler (Go 1.8+),mutex
+etcd,8ffd58fb3b9d7051b466a1f08fbd76ae948e2981,2017-04-14,mvcc/backend: remove t.tx.DB()==nil checks with GracefulStop,race
+etcd,c407e097e2f3a7953082aa32e26fbfaf6fcaff67,2017-04-14,embed: gracefully shut down gRPC server,race
+etcd,fdf7798137a230b29fd34b2248c75ac6993eba83,2017-04-14,auth: fix race on stopping simple token keeper,race
+etcd,18bccb42859f012d1a57a4f0a83a38ca7338544e,2017-04-12,auth: protect simpleToken with single mutex and check if enabled,mutex
+etcd,2030c850710a1c912521c18d0e25cef8f46bc215,2017-04-10,test: ignore v3electionpb and v3lockpb for static checks,lock
+etcd,93594006dff269452b52cbd59080cd863a9fc0fd,2017-04-10,embed: register grpc-gateway endpoints for v3lock and v3election,lock
+etcd,78a5eb79b510eb497deddd1a76f5153bc4b202d2,2017-04-10,*: add swagger and grpc-gateway assets for v3lock and v3election,lock
+etcd,4b4f5be74adafbef0392cf56e1c8128d41748505,2017-03-30,concurrency: don't skip leader updates in Observe(),concurrency
+etcd,80c1b9c13afe3b64374938a27415f29e5a0158a9,2017-03-30,concurrency: support resuming elections if leadership already held,concurrency
+etcd,d1ae4cd5bddbd674b3add566104e03d7b689cd32,2017-03-30,concurrency: only delete on election resignation if create revision matches,concurrency
+etcd,4b5bb7f212237f580a0684d28b7992c5940e7483,2017-03-30,concurrency: return v3.GetResponse for Election.Leader(),concurrency
+etcd,a6cab69c8875dfbabb1fa70ff61b069b95c62e0f,2017-03-30,concurrency: expose leader revision and proclaim headers for election,concurrency
+etcd,42d56d5ef722bb5f29d8af490b87f6d7b0999149,2017-04-04,lease: acquire BatchTx lock in fakeDeleter,lock
+etcd,3edd36315d1f57c76deed13b5aacfa6403ff4dc0,2017-04-04,auth: use atomic access to 'authStore.revision',atomic
+etcd,8ad935ef2ceb1400c84a9950ccd843711678235f,2017-03-31,etcdserver: use cancelable context for server initiated requests,context
+etcd,26abd25cd347d2afd483b7b5b5322632d1a2758e,2017-03-23,mvcc/backend: hold 'readTx.Lock' until completing bolt.Tx reset,lock
+etcd,b36734f1d3e0a34394bcbb59f8e5085d37a49a60,2017-03-14,clientv3: synchronize on goroutines in TestBalancerDoNotBlockOnClose,lock
+etcd,276039e835dab0fd0875e55c6b24e885501d9a8e,2017-03-10,integration: add TestMutexWaitsOnCurrentHolder test,mutex
+etcd,1b1fabef8ffec606909f01c3983300fff539f214,2017-03-13,auth: get rid of deadlocking channel passing scheme in simpleTokenTTL,deadlock|lock
+etcd,300323fa500073e7a6eb0619066d285ba224494c,2017-03-07,integration: test grpc lock service,lock
+etcd,ad1a790116796725c411a7df49a01ed371269666,2017-03-07,embed: serve lock api,lock
+etcd,c737bf3d2a634e627ecd1429e6e6ffcf5b66bedf,2017-03-07,scripts: generate lock service rpc stubs,lock
+etcd,47cd9d02774c0877d8f2d6b29a0ec2736e432087,2017-03-06,v3lock: server-side api for locking,lock
+etcd,d51c8bb6406a03b4d8401493a79db55a459a5751,2017-03-07,concurrency: support returning response header for mutex,concurrency|mutex
+etcd,7a25257fb27c178522ed0c9041b2fdf79113d4f0,2017-03-08,clientv3: close balancer to avoid goroutine leak in balancer_test.go,goroutine leak
+etcd,3f187a103bae69219d56d1d23049a5e458b55e09,2017-03-06,vendor: lock down some soft dependencies,lock
+etcd,3296c15a3249dc59e6eb782e3ef107061ff1bad1,2017-03-01,test: run unused and gosimple over all packages at once,once
+etcd,c4f1e64de70232359e354ed599fa84ee52e08448,2017-02-27,embed: enable debug endpoint if Debug is set and add net.trace events,race
+etcd,c9452c6ad4ea4a7a5706b09e18694162a1ad4016,2017-02-16,clientv3: let user provide a client context through Config,context
+etcd,8cb5e05fc904c7a7e629ded2e28ab7d214eff627,2017-02-14,clientv3: KeepAliveOnce returns ErrLeaseNotFound if TTL <= 0,once
+etcd,1fe2a9b124b06b6af84521ec0ccd7827b86c6821,2017-02-10,Revert 'Merge pull request #7139 from heyitsanthony/proxy-rlock',lock
+etcd,9def4cb9febc0a12026eeac72c4815f0a5efe021,2017-02-02,*: Use http.Request.WithContext instead of Cancel,context
+etcd,2656b594bbf1bd10b3b2a0c2328cbd12dddcb4b9,2017-02-01,rafthttp: use http.Request.WithContext instead of Cancel,context
+etcd,56286ccd2924896fe8a7766dd7a5f8441ca3ab31,2017-01-24,clientv3: use DialContext,context
+etcd,a2c44a8b65e16cd7bab91f40e801c148e6239716,2017-01-25,clientv3: test closing client cancels blocking dials,lock
+etcd,8695511153ca9be7eeee0907d6378d9af11eaab9,2016-12-29,concurrency: STM snapshot isolation level,concurrency
+etcd,8604d1863b4463fe1d40258c83922d8d50703299,2016-12-29,concurrency: STM WithPrefetch option,concurrency
+etcd,a81234a25bb7b619f7e386f52bd08198a02de8f0,2016-12-29,concurrency: extend STM interface to Get from any of a list of keys,concurrency
+etcd,59880a0ab851f1041b7440b7f62df7df5ff6b884,2016-12-16,concurrency: variadic stm options,concurrency
+etcd,acec15ebc6f57541d7abdd9fa6aa98dda0801e04,2017-01-18,clientv3/concurrency: fix rev comparison on concurrent key deletion,concurrency
+etcd,5e3b20e70c44fffda981c49446aaba433e13379c,2017-01-12,clientv3: don't reset stream on keepaliveonce or revoke failure,once
+etcd,e179225f2869f14e591ce16d5c76c35ca6741551,2017-01-04,grpcproxy: tear down watch when client context is done,context
+etcd,b5cde6b321543f21c3a84dda7b0e999c0daf733f,2016-12-28,lease: use atomics for accessing lease expiry,atomic
+etcd,7b7feb46fcf13da75f93797740ffc6034bb585ff,2016-12-16,leasehttp: buffer error channel to prevent goroutine leak,goroutine leak
+etcd,de58a9c73378a57489eb3eb7bfc2db7a37069096,2016-12-08,scripts: use glide update if repo exists in glide.lock,lock
+etcd,3fd1d951f88ac1131f7c94352971db2ccb825058,2016-12-05,etcdserver: time out when readStateC is blocking,lock
+etcd,91ff6f30b50a14158ec10cdd24836d775a336f52,2016-12-05,grpcproxy: fix deadlock in watchbroadcast,deadlock|lock
+etcd,62398954e48d4d424038bd3a45477d260996eca3,2016-12-05,grpcproxy: lock store when getting size,lock
+etcd,60908c64a66335679884cf02f34f81af155c3ea0,2016-11-30,grpcproxy: fix race between coalesce and bcast on nextrev,race
+etcd,d680b8b5fb5ccc2d23997503f94fc8c0bba84ab9,2016-11-28,grpcproxy: fix race between watch ranges delete() and broadcasts empty(),race
+etcd,2ccba33dd1c55102a8675ef0310906dc990320a8,2016-11-21,functional-tester: add withBlock() to grpc dial,lock
+etcd,bc6f5ad53e77c0e829bb336e270c67bc7dad4965,2016-11-21,raft: fix test case for data race,race
+etcd,7618fdd1d642e47cac70c03f637b0fd798a53a6e,2016-11-18,grpcproxy: fix deadlock on watch broadcasts stop,deadlock|lock
+etcd,c931f4d164d33e27fa58653f45c781b274be7ff8,2016-11-02,"leasehttp: use graceful close, add tests, remove TODO",race
+etcd,c33d04fb54b216b7350d1d09178776db427727c0,2016-11-01,etcdserver: print out warning when waiting for file lock,lock
+etcd,de008c8a4ac327eee481fcc0245f55de7b393351,2016-10-23,client: prevent deadlock in Sync,deadlock|lock
+etcd,f38a5d19a8652c5db9f7f48a1bacbdd38a631139,2016-10-21,concurrency: add WithContext option to sessions,concurrency|context
+etcd,1e330a90c77d14fbf3af7e4a47e6ab064eedd0c9,2016-10-20,concurrency: terminate session.Close if revoke takes longer than TTL,concurrency
+etcd,bd1985d84b1ca2a0ebc6fd098453ccd99af021a9,2016-10-21,grpcproxy: fix race on watcher revision,race
+etcd,f2af08f5aa7e8885162843fd7a4f68dbf5cf87c1,2016-10-05,etcdctl: remove superfluous session in lock command,lock
+etcd,06d5cf2d52490249c4c6f5cb8a1296e1c3a30f69,2016-10-05,clientv3: fix race on watch initial revision,race
+etcd,e285f599e2669bd6a9f1aad648724da7a89ec7cd,2016-10-04,clientv3: only return closing error to watcher if context is not canceled,context
+etcd,5b5065811802e975a5f5e4d313f3ce0ba55233c7,2016-09-23,clientv3: simplify watch synchronization,synchronization
+etcd,f4ec303d1b5043ee2dfa1b760d87f80d706f651b,2016-09-28,wal/wal.go: modified WAL.SaveSnapshot to do the Marshal before aquiring the mutex,mutex
+etcd,deef16b376b7db1b3b5383d0b325f79e947de987,2016-09-19,integration: test client watchers with overlapped context cancels,context
+etcd,9b1fe45853cefb6372ad220322e043560fcb5684,2016-09-13,concurrency: use create max revision for locks and elections,concurrency|lock
+etcd,9b91e96510e16d44711f73ebbbed53e68a5361de,2016-09-13,integration: fix rwmutex test to check write locking,lock|mutex
+etcd,9f829fdab7c3470dedd5c9eccfa3a27fb9415453,2016-09-13,recipes: fix rwmutex so locking works,lock|mutex
+etcd,1aec483e42bd2746475d1914be4b0cd760d183ef,2016-09-08,clientv3: use correct context in toErr (lease),context
+etcd,56cfe40184f89443bf17f79ed66046eb294b123c,2016-09-03,grpcproxy: fix a data race,race
+etcd,d3ecebd14ead383ad5af06f3f50b9ada54ecd24e,2016-09-01,grpcproxy: shut down watcher proxy when client context is done,context
+etcd,b982c80c14d2809534759404703b398fdfdf5d55,2016-08-31,grpcproxy: fix data race,race
+etcd,5b60be96269132ef07de6dbf20d85095c3837a79,2016-08-31,integration: fix live lock in issue3699,lock
+etcd,9497e9678cdc64785847993c96ff2748e09ef9a1,2016-08-28,clientv3/concurrency: allow election on prefixes of keys.,concurrency
+etcd,86bf2bc4435b26f740f15573f57e26bda7039695,2016-08-29,grpcproxy: fix recursive Context method,context
+etcd,1437388f7768f2fc6feeb93728deabedfe306286,2016-08-27,mvcc: force commit and hash should be atomic for getting hash,atomic
+etcd,af4f82228cae6c4eed715768e4977fb42f769452,2016-08-23,wal: hold file lock while renaming WAL directory on non-Windows,lock
+etcd,159c8ee6e0f164c6909aefc544a8e65f05fc512f,2016-08-24,Documentation: update links for unaligned 64-bit atomics issue,atomic
+etcd,784c4446d96035094e87340a56a2e0c4b6711824,2016-08-19,rafthttp: fix race in TestStreamWriterAttachOutgoingConn,race
+etcd,8db4f5b8e122674d51b8991eda8511143a492bbf,2016-08-19,pkg/wait: change wait time to use logical clock,lock
+etcd,10c9e238f0788626582eaa1903ed7ab5480cdcdb,2016-08-17,integration: fix race in TestDoubleBarrierFailover,race
+etcd,fb00a32b86d5aed31cb714da7372fe8f079bb431,2016-08-16,integration: fix races in global proxies,race
+etcd,f91f7dfb91be09e9220701a8d2b3e2d26102b004,2016-08-16,v2http: fix tests to use new clockwork,lock
+etcd,3f0f4bfee71aa6080fa38a16b81bd0246b7b72d8,2016-08-16,vendor: clockwork v0.1.0,lock
+etcd,3eadf964f4c41301f15fe687d43e4f6c2dfeab9f,2016-08-12,clientv3: use failfast and retry wrappers for at-most-once rpcs,once
+etcd,911c8442b7fa6668ba40c82679ac2f8380a8120c,2016-08-14,rafthttp: fix race between streamReader.stop() and connection closer,race
+etcd,429d5ab20b18d90dd007eebb386aecca3f8b1d25,2016-08-12,clientv3: only block on New() when DialTimeout > 0,lock
+etcd,5e651a0d0d23785a68503a337059ba00d967e2a1,2016-08-09,clientv3: close watcher stream once all watchers detach,once
+etcd,06da46c4ee73884ae4586cf784eeed3e2a3e0ab9,2016-07-27,etcdserver: apply serialized requests outside auth apply lock,lock
+etcd,76a99fa1c3250221d144a60ede653d8e63193f49,2016-07-27,compactor: fix race in TestPeriodic,race
+etcd,cfe09d34b87e8cfce0c769239b45e67338024a4a,2016-07-27,etcdserver: don't race when waiting for store in TestSnapshot,race
+etcd,de2c3ec3db50eb79c18d6fe0cba6cf02864c8726,2016-07-26,"etcdserver, api, membership: don't race on setting version",race
+etcd,82ddeb38b48deff9f9744e649af0cf3d47710e77,2016-07-20,integration: fix race in TestV3WatchMultipleEventsTxnSynced,race
+etcd,e177d9eda23f2eefc3ec61b3fa8ec30aab3c076e,2016-07-19,clientv3/integration: fix race in TestWatchCompactRevision,race
+etcd,ceb9fe4822bda2552a6dc3430ba894b6679ccddc,2016-07-14,"etcd-tester: stop stress before compact, fix races",race
+etcd,c36a40ca15dd758ea25662773c51cc4263fad9f6,2016-07-12,raft: introduce top-level context in message struct,context
+etcd,f78d4713ea195c494b427b93be1d6fc40ac169fb,2016-07-08,etcdserver: atomic access alignment,atomic
+etcd,90889ebc0f179f8ae506ed1925fc061edae18017,2016-07-08,raftpb: atomic access alignment,atomic
+etcd,df94f58462204ee843bcd0ea469990a4f904a9aa,2016-07-08,raft: atomic access alignment,atomic
+etcd,427496ebb887f2e2c474b2be2df1dd703502fce9,2016-07-07,v3rpc: lock progress and prevKV map correctly,lock
+etcd,5991209c2dce3816db8663e24d69485b5e0874ad,2016-07-02,wal: release wal locks before renaming directory on init,lock
+etcd,6a489618950e6351d3c8b6b58e8495828aaae98c,2016-06-24,"raft: len(entries) before Lock, use firstIndex",lock
+etcd,aafb2e94309b9556f8a813be9afbd2cd1cc7166f,2016-06-22,etcdserver: add lock to authApplier so serialized requests don't race,race|lock
+etcd,848f5395363f03c64d14688085e61df8fbf5adb7,2016-06-16,raft: make tick unblock and fix potential live lock,lock
+etcd,bd5e1ea1c0e474772fbca602426977f1fb05960a,2016-06-08,e2e: fix race in ranging test tables,race
+etcd,5f5a203e27386f0f9fd323f54a54da36c45d712c,2016-06-02,clientv3: don't hold client lock while dialing,lock
+etcd,500296d0fbee166066cf188cb416fc529d77613e,2016-06-03,raft: fix TestNodeStepUnblock,lock
+etcd,1d8813052292e6053957fae01d080fde9717f3fc,2016-05-31,clientv3: fix deadlock on Get with concurrent Close,deadlock|lock
+etcd,51551abef5a1e2b3a6eccdee4de534d273a17161,2016-05-31,"concurrency, benchmark: read-committed STM isolation policy",concurrency
+etcd,f34a9350c3c7c815ccf9d8d1dde10227a03ce8bc,2016-03-22,benchmark: benchmark stm workload with distributed mutex,mutex
+etcd,09e8f5782e91a3287c5f38b190f7b74e93bb2049,2016-05-31,v3rpc: fix race on closing watcher stream ctrl channel,race
+etcd,ffd3cb78d4b7aeab4b2fcb75f8c99e54bc8b45df,2016-05-24,store: use Rlock when GET,lock
+etcd,394ce5f3b8d946c0b68931e6af3a2f78a6359a43,2016-05-20,mvcc: move blocked unsynced watchers to victim list,lock
+etcd,5984e4636497a8f8057609fbc529dfb408463bc8,2016-05-19,mvcc: move blocked sync watcher work to victim list,lock
+etcd,fa1e40c1209162e82f5a7225efed095cb95b8b69,2016-05-19,clientv3/concurrency: preallocate slice in stm,concurrency
+etcd,120020fa9c3d4b6c98d7beb863ac4c6bfe4d499b,2016-05-13,clientv3/concurrency: use session id for election keys to avoid deadlock,deadlock|concurrency|lock
+etcd,393725fe5f9179b255659af6311e4198c471b56d,2016-05-12,"clientv3/concurrency: ctx-ize Leader(), Resign(), and Unlock()",concurrency|lock
+etcd,17391336af3a303a511d30c00ef192223fb5d02e,2016-05-11,wal: atomically initialize wal directory,atomic
+etcd,cd9e6a1d4f8b2a083d2947fee3f986e5ee55e0ee,2016-05-04,wal: lock WAL file while repairing,lock
+etcd,c5af1d7a88c44af6a23137c9af94eb5cd3337d2f,2016-05-04,rafthttp: fix race on peer status activeSince,race
+etcd,a76f5f5ed251456d360d332258bcc4937d1c2494,2016-05-04,httpproxy: fix race on getting close notifier channel,race
+etcd,8b52fd0d2dc7be3e68270d051cb921ab21e89fb3,2016-05-02,clientv3: gracefully handle watcher resume on compacted revision,race
+etcd,30a9229f38fbdf91d5a058c97dd3de05e4e162d2,2016-04-26,clientv3: check stream context in lease keep alive send loop,context
+etcd,22797c718504868665b78f143a595138cb521edf,2016-04-26,clientv3/concurrency: use session lease id for mutex keys,concurrency|mutex
+etcd,cbd79c666e077358402c5fd083bd968da43bf15e,2016-04-23,clientv3: keepaliveonce should have a per call ctx,once
+etcd,59c5110b73b7a3ce4dc3f2c5b947c99f310014bf,2016-04-22,raft: fix detected race in node.go,race
+etcd,24077fb3f6ac4e0efb467a1e010f16894c665a67,2016-04-22,etcdserver: remove a data race of ServerStat,race
+etcd,c0cf44f1348631ed3c6e6a7885caa1a60ebe9db0,2016-04-21,backedn: protect backend access with lock,lock
+etcd,01be6933c6662e270dfc80597db5836e1f2439c5,2016-04-14,test: check races on rafthttp,race
+etcd,8763bd1e97f87b6dc7dbc5efd345d035cc4fa924,2016-04-12,e2e: etcdctlv3 lock test,lock
+etcd,e3fd2464143a0b187534beabe06595f469d0025f,2016-04-11,clientv3: fix KeepAliveOnce return error message,once
+etcd,4d2d2cabb9b0dcaa16ffd17e6d53a745740f3468,2016-04-07,etcdserver: fix race on consistent index,race
+etcd,7fffd6ffd2b21a6fac62355ee4e11b7b6f715c24,2016-03-31,etcd-dump-logs: don't try to acquire wal file locks,lock
+etcd,161bc5e19c925aa97c5f40f03f180d7cafb76c36,2016-03-28,clientv3: fix race when setting grpc Logger,race
+etcd,0c137b344b491a2ecdc9511012901a9a673c70a2,2016-03-28,rafthttp: do not block on proposal,lock
+etcd,4bdfc0a46d28f35462a312e1b51a771764321442,2016-03-27,clientv3: fix race on writing watch channel over return channel,race
+etcd,5ee85bea7ca62fe4bf4ab5866ff9862abb42a6bc,2016-03-27,v3rpc: fix race on watch progress map,race
+etcd,813afc3d11464706ca176f31518c6693a9a249bd,2016-03-27,rafthttp: fix race between AddRemote and Send,race
+etcd,91dc6b29a6e000375ba47181db1bfcf8ba92daad,2016-03-27,clientv3/integration: fix race when setting progress report interval,race
+etcd,2c83362e63e6b796ea988442483673056c567455,2016-03-27,clientv3: fix race in KV reconnection logic,race
+etcd,e129223dbebaa5a13b9564dea27fdcd5bbebb317,2016-03-27,clientv3: fix race in watcher resume,race
+etcd,47db0a2f2e147e4789fc451e509a752a663606c5,2016-03-27,test: add race detection to clientv3 integration tests,race
+etcd,3f1a1c319202c91173399c22e0eec14e086fd4e9,2016-03-26,pkg/fileutil: lock file on Windows,lock
+etcd,877030ea9db5ac17cdd8e1a71632fe5cdfbd39e9,2016-03-24,pkg/fileutil: fix linux file locks over NFS,lock
+etcd,cdb7cfd74b3b7e854e5376bcddfe5e48a79e8bef,2016-03-21,etcdmain: fix blocking m.Server closure,lock
+etcd,5bba7731997ae22b27a559187f52d9cca9d10e8e,2016-03-18,pkg/testutil: drop go1.4 goroutine leak exception,goroutine leak
+etcd,4e4f0ab6198a9113ec20edd171e4dcc933c2ffb4,2016-03-18,clientv3/concurrency: fix godoc,concurrency
+etcd,7397e14c0ac636477ab48dbacd88ac5e3ed1a75e,2016-03-14,"fileutil, wal: refactor file locking",lock
+etcd,bc37a320621bb40d25021f0e384dc293d535cec2,2016-03-11,clientv3/concurrency: software transactional memory,concurrency
+etcd,3a3ddaa195e5c82096cc0770b7742a43f98fe127,2016-03-11,authentication.md: fix formatting of fenced code block,lock
+etcd,a44645e13dd938221172aa2a7ca1455d25bd09d0,2016-03-10,etcdserver: align 64-bit atomics on 8-byte boundary,atomic
+etcd,dd01ab6dc08ccf331799bdfc8f472ba156e1052e,2016-03-09,storage/backend: align fields used for atomic ops,atomic
+etcd,d21d2e6624bc5400e52baa45804668f5f9b6a161,2016-03-07,clientv3: don't deadlock on Close with broken connection,deadlock|lock
+etcd,360aafec76b1ad977c294dea18332bbcd58c765c,2016-03-03,clientv3: include a context in Client,context
+etcd,16c35167dfd026c57e993876bcd7b5e0a1d08df9,2016-03-03,clientv3: do not reconnect on request context cancellation,context
+etcd,6d3f172c6e924500f62013d722f656f45022479f,2016-03-03,clientv3/concurrency: don't poll in mutex lock on early prior key delete,concurrency|lock|mutex
+etcd,3327858a5466496c322c4c182d8cdf4779f73b46,2016-02-29,clientv3/concurrency: move election recipe into clientv3,concurrency
+etcd,ed44bb00f8745e1fade98dac74bb597c477f3909,2016-02-23,etcdctlv3: lock command,lock
+etcd,d4b2044eb19b8d74b786c70a54bd0c0aed578dbe,2016-02-23,clientv3/concurrency: Mutex,concurrency|mutex
+etcd,20b4336cdb8b7e2911ac541b0ac794cccdc8f44d,2016-02-23,clientv3/concurrency: Session,concurrency
+etcd,a524d5bdb731d454ead74e1ec88a2ef86fcd9f7b,2016-02-21,etcdserver: fix race in TestTriggerSnap,race
+etcd,50ad1814773642f3e2086849992510d83e1dc041,2016-02-20,clientv3: support context cancellation on lease keep alives,context
+etcd,af225e74337ed8a009d7471f92dfadffab86759d,2016-02-17,v3rpc: don't race on current watcher header revision,race
+etcd,56318f5433867430e3d89601d026f7e97058f1c0,2016-02-16,rafthttp: add necessary locking,lock
+etcd,0cf9cde1b437ebe175dffeff5c1a28d29a34c80e,2016-02-16,"etcdserver, auth: remove obsolete mutex",mutex
+etcd,0f7f375043a1d4462ded83a311dcc115d96f1dd5,2016-02-12,contrib/recipes: fix revision race in double barrier,race
+etcd,870e4c2681376242ea3ec487501b944280dbfa09,2016-02-11,*: fix schedule.Wait race,race
+etcd,ef86b0972c5ec5a07d1ba58792a65010ea672983,2016-02-05,Documentation: add more context on the v3 API,context
+etcd,6bbb916b477eaba4fd516beace26f16d73855509,2016-02-05,e2e: fix race in etcdctl watch tests,race
+etcd,26c645f04964fb6fb24a5cce73c3b998f71d5f2b,2016-02-05,storage/backend: set initial db size to avoid potential deadlock,deadlock|lock
+etcd,ae5161382bbf99097eaadd15017d1aaaf4ac79b3,2016-02-02,storage: release tx lock until finish using the readonly bytes,lock
+etcd,72b31d6fdc68be2f0a1756b03f5ada71516eeca1,2016-02-02,pkg/testutil: more aggressive goroutine stack trace coalescing,race
+etcd,8431801814fecac48793da6a5d87cb61daeedef9,2016-02-01,lease: fix lease init race,race
+etcd,7e0a5b8ed7c973860997203ef15170d4f954bb9b,2016-01-19,integration: fix race in WatchFromCurrentRevision,race
+etcd,497bbd3010efa1de2b4cc7226767ff9490690d91,2016-01-14,*: FatalStack to stacktrace tests after timeout,race
+etcd,54c905f87f1936f6ef1292b5187d07aa210ebf78,2016-01-12,testutil: fix data race in RecorderBuffered,race
+etcd,f22ea70c14d9cf5fbeb0462e6478761405fc972e,2016-01-07,lease: unlock before another batch operation,lock
+etcd,838328b0570a4cf5874143ff7719639b11b813ad,2016-01-04,etcdserver: fix racey WaitSchedule() tests to wait for recorder actions,race
+etcd,7339abc79eb9c5829bb7252e0669059d35bf2a23,2016-01-04,storage: fix watchable_store notify to hash-lookup once,once
+etcd,78b0b8a4a072ec9edb4a80b83aa22bc0ea82b85e,2015-12-22,storage: range all unsynced at once,once
+etcd,b7cf2385e6874d07f32f183007e50f4448b7e3a2,2015-12-19,"contrib/raftexample: add test, fix dead lock on proposal channel",lock
+etcd,84d777305d2a0884ae5e9a64092a295dab771cb8,2015-12-21,storage: use only one mutex for store struct,mutex
+etcd,b126ff77fb43f2917b2e908c8f9c3611a14efaaf,2015-12-19,tests: only check for go1.5+ once,once
+etcd,af2569c2d852e20f1e6670d7e068fa4e9065500d,2015-12-16,"storage, test: unlock transaction in the retry loop",lock
+etcd,be3e87b2383c1fee8db12f34f69bae9ca7eb809a,2015-12-14,pkg/fileutil: make TestLockAndUnlock less flaky on CI,lock
+etcd,c4cbaf5c2a3b12cf44a8d44c8324f8843c7fac3a,2015-12-10,etcdsever: swap kv pointer atomically,atomic
+etcd,d7a027e476130efded2005f0b381cd5b283d2978,2015-12-09,store: fix data race when modify event in watchHub.,race
+etcd,cb9a3e04b141d150a370f1e6329428b621742041,2015-11-27,client: fix goroutine leak in unreleased context,context|goroutine leak
+etcd,2f74f76025021b462075c597179b819498ef9d7b,2015-11-09,storage: remove the event concept from key-value layer,once
+etcd,a8e6e71bf9a75328ab6204a6848890af93b5f738,2015-10-26,*: fix various data races detected by race detector,race
+etcd,336d177c82a062d6cd02a5f9fb0926e693f01071,2015-10-26,rafthttp: fix data races detected by go race detector,race
+etcd,ab5df57ecf9f52a026e45b8df3b884f33b17b7c2,2015-10-13,etcdserver: fix raft state machine may block,lock
+etcd,c97dda766ea9623b41c36bd56143241726d8b4e1,2015-09-29,storage: hold batchTx lock during KV txn,lock
+etcd,de1a16e0f107c4e1ffcc7128f7f343baf9631e30,2015-09-30,pkg/transport: fix a data race in TestReadWriteTimeoutDialer,race
+etcd,33a0df3e33cd855f6e35dcbf96f49edcee6ff2fd,2015-09-29,etcdctl: use a context with -total-timeout in simple commands,context
+etcd,5d033c22afdf947649b680ed7ad3c1527432ca9e,2015-09-25,pkg/transport: fix a data race in TestWriteReadTimeoutListener,race
+etcd,4113509828cc925b11dbff857f0e3ee95b097f57,2015-09-22,storage/watchable_store: defer to Unlock s.mu,lock
+etcd,1f0fb3d9aa5dcc932e9dabbbf771495944f59584,2015-09-14,etcdserver: forbid to unset v3 demo once used,once
+etcd,6974fc63ed8754537252289d6d5fcc64b45b5ac1,2015-09-10,etcdserver: avoid deadlock caused by adding members with wrong peer URLs,deadlock|lock
+etcd,cc362ccdad91e00a7cdcc756ffe55118ebe195d7,2015-08-10,raft: set logger to raft so log context such as multinode groupID can be logged,context
+etcd,a1ef699aebbe7ebb4da2f90a42e0f612eec08384,2015-08-11,client: return context.DeadlineExceeded instead of ClusterError,context
+etcd,1b894c6b0b8c0689c8c276c0d29367b52cd702de,2015-08-08,test: race detector doesn't work on armv7l,race
+etcd,fb1951204c9972d0a4364e24a6f2cd5900b7f2f2,2015-08-08,etcdserver: move atomics to make etcd work on arm64,atomic
+etcd,78af793338535af557bf104ba44ac2e2e746709e,2015-08-03,client: return context canceled error correctly,context
+etcd,f38187bbdb6ae8d94c30500b25bada742b74b057,2015-08-05,client: return context.Canceled error when user cancels the request,context
+etcd,5e31854afd3da752f68736d8e7b798c72bbe4a00,2015-06-17,proxy: use atomic operations for requestCanceled flag,atomic
+etcd,864ce5f946e1923900ba6fdb01921987451e7982,2015-06-16,proxy: handle canceled proxy request gracefully,race
+etcd,7716bdf981ed6316f32a009ce5c3f537de10cc5e,2015-06-16,client: fix TestSimpleHTTPClientDoCancelContextResponseBodyClosed,context
+etcd,7723b91c06493a4d7f79aace0d6803084ec863ff,2015-06-12,pkg/fileutil: wait longer for relock,lock
+etcd,c21cc5b39bc5cc1bb87f47e4d645facfcadc392f,2015-06-11,rafthttp: fix TestStopBlockedPipeline,lock
+etcd,7f8925e17270ab960a30863d2dfc42fe19e0c381,2015-06-02,rafthttp: fix pipeline.stop may block,lock
+etcd,fb12a4e412fee79c8c59277f7e49d5cca5ed901f,2015-05-22,storage: fix a deadlock in batch tx,deadlock|lock
+etcd,2e8c932ab09a429a650370ffa79a5a9fd2190543,2015-05-11,pkg/fileutil: add plan9 lockfile support,lock
+etcd,bfd4a29f675f14f2abfc6b2b599a5a30634ba63f,2015-04-28,docs: fix code block formatting,lock
+etcd,39c7060d3bb99b99b099a3515ec3d7b11b86c93d,2015-04-24,pkg/fileutil: add filelock support for solaris,lock
+etcd,c6de464587a21b815f00451316adea3588a075cc,2015-04-03,raft: lock storage when compact it,lock
+etcd,73adb201661d9f391c88b4b7b826f01dfa69449a,2015-03-30,*: update context pkg,context
+etcd,b66eb3d81c32fe55c43544223a97169259336c5e,2015-03-09,wal: fix ReleaseLockTo,lock
+etcd,ab72c3ec88efc84f4759e749c5fe57875b1ce4e5,2015-03-05,wal: do not race reader and writer,race
+etcd,ee8325d62cef4feebcb52d9e7c43b66013bfdebd,2015-02-26,test: not run race test on rafthttp pkg,race
+etcd,a4dab7ad7583c81300f5c75471e29321d2779858,2015-02-26,*: do not block etcdserver when encoding store into json,lock
+etcd,ae062a0825a4100d0cf9ac7c8bb0fa1ca69c6814,2015-01-29,client: move lock so MembersAPI.List doesn't deadlock,deadlock|lock
+etcd,6fd105d5540ba9b41dbcac722ac9d3b3736cf576,2015-01-28,client: document using a custom context,context
+etcd,99d63eb62e8d65ad9e5b6942522e464fca25a0df,2015-01-26,client: protect httpClusterClient with RWMutex,mutex
+etcd,feaabde125372e70bd384d949d8a2f0a318bf68b,2015-01-28,Godeps: bump golang.org/x/net/context to b8c11bbe,context
+etcd,04bd06d20b60d106d99db9001eddfc809c4e62ba,2015-02-14,etcdserver: move the mutex before what it guards,mutex
+etcd,8bf795dc3cd6af42ffd738310ec769ee7879b486,2015-02-13,"etcdmain/osutil: shutdown gracefully, interrupt handling",race
+etcd,9bdc343b7c75fb2d2b4c5836b83f3ec2186a041f,2015-01-09,wal: add ReleaseLockTo test,lock
+etcd,896bac1f76e7d30dad99257b1c6b494dbb5c1558,2014-12-18,raft: flush the commit to fix a race in test,race
+etcd,a5923e5b007744db21e26d73ab18471052c3a24a,2014-12-18,apologize profusely about locking on windows,lock
+etcd,a0d72fb00c5ab2d1a48fd7d9ce35349aa1ba3db1,2014-12-18,Fix building the lock on windows,lock
+etcd,ea94d19147dcd1d022f1b1cdf0925d7374981309,2014-12-12,*: lock the in using files; do not purge locked the wal files,lock
+etcd,793cb095b03ef70e05d87e76932829ba1524556e,2014-12-05,store: fix race in watcher_hub,race
+etcd,16f9fd63ab8d7069ec536e96d5adc71a76b66023,2014-11-30,doc: add etcd-lock into libraries-and-tools.md,lock
+etcd,9a728a127a10f6aa85cff53b6c78880450f04bba,2014-11-20,dep: bump golang.org/x/net/context,context
+etcd,8bf71d796e23cb19a31f6e2a85121b4ad7dcf378,2014-11-13,*: gracefully stop etcdserver,race
+etcd,2cedf127d481bbbfae138445ebbcbcb025d208f4,2014-11-12,"raft: block Stop() on n.done, support idempotency",lock
+etcd,014ef0f52d9530e54826150ba9da79f1d15b7da0,2014-11-07,etcdserver: fix data race in cluster,race
+etcd,211c5e3e29de0652a7655ef25333f510e22d1ac9,2014-11-05,etcdserver: fix data race in Cluster struct,race
+etcd,4d40816a90db91fb5ce01cfea40d5c6fc5797582,2014-11-04,etcdserver: refactor non-blocking check for sync tests,lock
+etcd,17c6f21d6827dafa13cd6e8dbe6f63b96db25224,2014-10-31,client: elevate context to caller of KeysAPI,context
+etcd,f0760d6246dd50f22beb3258aad40c15d95a024b,2014-10-31,client: elevate context to caller of MembersAPI,context
+etcd,e77f8e311cee29dc512983ab4c14b4ca3fb226bd,2014-10-26,etcdserver: parse context error for better message,context
+etcd,f7a0d5387b665feb0e113fa5814406c938665ae6,2014-10-16,etcdserver: stop server gracefully,race
+etcd,1456ae4453115f1823d2a71aa4d6347ec085c46c,2014-10-16,store: restore minExpireTime check and advance FakeClock appropriately,lock
+etcd,e0801360d3196ccf1d71b1118e5dd037ec0e992d,2014-10-16,godep: update clockwork dependency,lock
+etcd,ec18e46641b3b56481a4042e5d44c8b2b875fffb,2014-10-16,etcdserver/etcdhttp: switch to using fake clock,lock
+etcd,3134658deddd2da3f13c90e9883bf3e358536075,2014-10-16,store: switch to fake clock,lock
+etcd,47c2421f7b10e9ae0fe2b30b2fe6f23aa5403f10,2014-10-16,godeps: add clockwork,lock
+etcd,de3bf588764a8dd9af23102a290106c10c52ff60,2014-10-15,discovery: switch to fake clock,lock
+etcd,da64e7509c48ee11dfffee6462fc843ac5318254,2014-10-17,etcdserver/stats: lock on leaderstats too,lock
+etcd,233e940410b87a6893181705a4794df24be04d5d,2014-10-16,etcdserver: copy stats instead of marshaling with lock,lock
+etcd,c28907ba95dc808dd33594fa7f0a2836afd62c8a,2014-10-16,etcdserver: fix race and improve stats interfaces,race
+etcd,c30b82b59623dea12f8c48527564db35995734d3,2014-10-16,etcdserver: fix data race in retrieving self stats,race
+etcd,782d91f2d9219d82481a3d419f77f79d11f3b8a8,2014-10-16,etcdserver: fix data race in leaderStats.Followers,race
+etcd,eb72bdc3d281d82e73767c0cb68d5db9124bdc8c,2014-10-16,stats: fix data race when recording send result,race
+etcd,0319b033ea4d1dfd5a9153a8f89b1fb8f3ac6064,2014-10-07,etcdserver/raft: set context for bootstrap addnode entries,context
+etcd,5587e0d73fecfabc98293f1f566c6f190923c90c,2014-10-06,"raft: compact takes index and nodes parameters Before this commit, compact always compact log at current appliedindex of raft. This prevents us from doing non-blocking snapshot since we have to make snapshot and compact atomically. To prepare for non-blocking snapshot, this commit make compact supports index and nodes parameters. After completing snapshot, the applier should call compact with the snapshot index and the nodes at snapshot index to do a compaction at snapsohot index.",lock|atomic
+etcd,ddc30c0a336eb00096e5886da4dea3e6a4177ac8,2014-09-23,"etcdserver: use Context to communicate timeout, and add tests",context
+etcd,e97134e767bd5a00480c69ce0d68b3e8c07d0393,2014-09-22,etcdserver: eliminate race in sync test,race
+etcd,0ad0e24a863bdba09596c6c13e038f3613dceca4,2014-09-17,etcdserver: use Action to fix possible data race,race
+etcd,79b8153eac5d26477a09736b018234c790a94abb,2014-09-14,test: test with race by default,race
+etcd,b261a5edc1c87964bf99cda8f3e911bef4b6ae68,2014-09-11,raft: test node block proposal,lock
+etcd,44acd57ea465bc2103a3fd63f063e904217ac1bb,2014-09-09,etcdserver: remove superfluous context,context
+etcd,cbec48e8f6bb1da4f9fce9127c29a60438338de3,2014-09-05,etcdhttp: non-blocking sender,lock
+etcd,d844377ca62dd877744aac33bfcf1b81c87c1eea,2014-09-03,*: vendor context,context
+etcd,6d720fb33f07aea67814c9cf5049f4705f605ae5,2014-08-31,raft: replace Context with Stop,context
+etcd,f8be54b41659573a359ed4be6b0c29568e21046a,2014-08-29,...deadlocked...,deadlock|lock
+etcd,665af7188837399aae79aa14a5cb163feb92e390,2014-08-27,etcdserver/etcdhttp: apply in single goroutine to avoid race,race
+etcd,30fa11934541bd020455ede5e7147fec533b5066,2014-08-26,etcdserver: use context.TODO(),context
+etcd,d2b99aa7c9719b5a5f322bf0fe68d47f03615a4f,2014-08-26,etcdserver: note that apply may need Context,context
+etcd,481e229ad4d0a60b5811ffde76928b39232f9f0f,2014-08-25,raft: unblock progress by deproitizing proposals in Step,lock
+etcd,dd7aa95379072b81ab35b1597eae1c000c48b390,2014-08-23,raft: remove atomicInt,atomic
+etcd,61a413c219e7d6fa66385b612f11d120664b72d9,2014-08-22,raft: block ReadState until state updates,lock
+etcd,6e6d81f094d5d99cd59bee1e57e7ab81d8ce5b05,2014-08-22,raft: copy ents to avoid races,race
+etcd,cc1b4b7ef08031ea83dacd58097cf023cb0667b4,2014-08-08,etcd: no more mutex,mutex
+etcd,d9ff56d7b777c798ec80609c2374687ae8ac55e5,2014-08-08,etcd: cleanup locking in run,lock
+etcd,b49cbc959b26407c91d49bfe05e54760205c6ee6,2014-07-22,etcd: fix start test goroutine leak,goroutine leak
+etcd,0b77b42cad99623940c93c5d3b80503de665c198,2014-07-18,standby: fix leader var race,race
+etcd,2e59635bea6a105581087bb93f68186f35cb0263,2014-07-18,etcd: fix a race in peer.go,race
+etcd,e709f1b572ce330452a6964c94caec308c161d1a,2014-07-18,server: fix possible race when switching mode,race
+etcd,da19964959329bdf1e879fab33e58ef392db660a,2014-07-16,etcd: fix mode change race,race
+etcd,8ea840c19ad03846ec81f118dfcb184817801dcf,2014-07-16,store: fix index data race,race
+etcd,7adb765660aa7548017583bcb338c5398c7c6fca,2014-07-16,etcd: fix datarace in peer.go,race
+etcd,0886e0ddf40062d271f8b4997afccb1210b38978,2014-07-10,raft: change term to atomicInt,atomic
+etcd,e11c7f35b485c84351632f8214c7677cd8887d85,2014-07-10,raft: add atomicInt,atomic
+etcd,284e76f0da5e2ba9453fc262572d9b54a535a5a6,2014-07-10,etcd: fix data race in transporter,race
+etcd,3f435571d30b02d60f6cb598a2373747c7998052,2014-07-10,raft: atomic load id,atomic
+etcd,45500c5e7b4bbbf4f3259f9d3e0969c0af695560,2014-05-18,raft: test candidate concede,once
+etcd,f734ba9974b0921ce4ca4fa2a07320736da12921,2014-08-15,Add .dockerignore to avoid including .git in docker build context,context
+etcd,aaedf32c0404744bb1318e0be33019edb40041cb,2014-05-20,fix(test/remove_node_test.go) fix a deadlock in the test,deadlock|lock
+etcd,71679bcf56f213c327a2e4c591380efd17d3c945,2014-05-16,feat(standby_server): make atomic move for file,atomic
+etcd,d2a2cc13b07ee03a120361cdc8c18f22a6346a0b,2014-05-15,fixed typo for etcd lock examples,lock
+etcd,e55512f60bca19b204ae69847e5ff0cf1df9b507,2014-04-02,fix(peer_server): graceful stop for peer server run,race
+etcd,d73390a67470f4b99f7f1d340b275231d0cd7414,2014-04-14,fix(server): avoid race conditions in Run/Stop,race
+etcd,bc70cdc242cc9f60358192289f30054f1e7807ca,2014-04-11,tests(snapshot_test) loose the timing assumption for snapshot test Test run slowly on drone after open race option.,race
+etcd,dce461dbd72d7d4ef49d41b3cc1d7f6f7bb61aae,2014-04-11,tests(test.sh) open race option,race
+etcd,fc84da29e81dd7180cf21f6c256684039c2ae636,2014-04-10,fix(internal_version_test.go) protect the checkedVersion by a lock,lock
+etcd,2817baf3f8081aad37de03be46d125f1a8bac437,2014-04-10,fix(discovery_test.go) protect the garbageHandler by a lock,lock
+etcd,af87fa40c2a31faed2c63e4a429786cdcf35f244,2014-04-10,fix(registry.go) protect the peer and proxy map in the registry by lock,lock
+etcd,6d08976cbe17c46cb8f58a336926b6cbb1e99b01,2014-04-10,fix(raft_server_stats.go) protect raft stats by a lock,lock
+etcd,85301dbc4e65f7057dec4c37abdde805887e9d64,2014-03-24,Add mod/lock timeout.,lock
+etcd,a20ce3e7a57dcd2348466c3fce52d1d4246fee22,2014-03-23,doc(api) correct release lock curl command,lock
+etcd,69adb7843398b4792dbfd7698a94cf3acc59bedd,2014-02-26,fix(transporter): CancelRequest doesn't work on HTTPS connections blocked,lock
+etcd,dde2b718507ee86303760aeaafeb9b95df0305de,2014-02-22,fix(mod/lock): correct watch index to remove cpu load,lock
+etcd,1273875a009aba47eaac506257192758de53849b,2014-01-22,fix(mod/lock): Use CreatedIndex in the first node to watch,lock
+etcd,4c2942f9f948d74795d201ac2153d50d84c61cf9,2014-01-22,fix(mod/lock): Use dedicated channel to shutdown goroutine properly,lock
+etcd,cde184fdbfb31a2c8a0abd75f5ce1a8a3f675dc0,2014-01-13,Fix mod/lock and mod/leader return error codes.,lock
+etcd,b0cdf7356581c5788f32acc57315f4ddeb01937d,2014-01-10,feat(logging): Add VeryVeryVerbose opt to control raft trace info,race
+etcd,8597904bc26f5b89057dcf7533ed36cd9ed62097,2014-01-10,feat(stream watchers) fix locking issue,lock
+etcd,5266968b612f4f560cc967915c7dc817cd46c66d,2013-12-30,docs(README.md) fix wrong index value in lock section,lock
+etcd,59ccefee0f43d5c96b776f21d57952b129425b14,2013-12-28,fix(watchhub.go) add a lock to protect the hashmap,lock
+etcd,c3b4d10b745f5795f26a08274259e8c8221a5878,2013-12-22,fix(README): fixup lock docs,lock
+etcd,985db7838c725ef087b2a9b72151231891596c50,2013-12-20,bump(github.com/gorilla/context): a08edd30ad9e104612741163dc087a613829a23c,context
+etcd,412f56f9712c5df648e195ac5029d59444039e36,2013-12-13,fix(README): cleanup lock documentation,lock
+etcd,4bec461db1ba41fc1d661971c658924520084dbc,2013-12-07,Refactor mod/lock.,lock
+etcd,0867b33de50c39b4c6dc0ec328f496a9b90c0342,2013-12-05,fix(Dockerfile): reverted unneeded changes fix(server/config.go): ensured params are changeable from config file and env fix(server/server.go): removed unnecessary debug line fix(server/timeout.go): removed a commented block style(server/transporter.go): put explicit vars to replace timeout expressions style(tests/server_utils.go): ran gofmt to clean up indenting,lock
+etcd,b784ced5175d77d2ce17657f71ebb3858f4dafda,2013-12-04,Update mod/lock versioning.,lock
+etcd,e76b7d1e8b1a2bde0d63e84fe2bd63f9480bb745,2013-12-04,Add mod/lock version.,lock
+etcd,f3d438a93fb10443fb303361ff5ea37181357425,2013-12-04,Add mod/lock connection monitoring.,lock
+etcd,d8e9838c382cf826b24471077b12a15934bdf8b0,2013-11-29,Lock testing.,lock
+etcd,22c2935ddb3ab7ce5e642a43abb114f3778cc866,2013-11-27,Initial mod_lock acquire.,lock
+etcd,32861246b974f2c1678c1f10b2b10f7f580a5df7,2013-11-27,mod/lock,lock
+etcd,228754a99ca5641bf2e43158c4b93f64b0b91d2b,2013-11-19,mod_lock,lock
+etcd,1a27c9de6709f844a3c9fc0c6d77b19e0f14874a,2013-10-13,Add github.com/gorilla/context.,context
+etcd,8475d9878e62a492461a03fbefc91c101664312f,2013-10-13,bump(github.com/gorilla/context): 708054d61e5a2918b9f4e9700000ee611dcf03f5,context
+etcd,255e14a5c416b06a84f6a4dd76f189e867ba01ea,2013-10-09,"refactor command.go,server.go: add raftWrapper as context, totally get rid of reference in command.go",context
+etcd,48e6137f469f6130181cb4c3171b8ba8b4ac1358,2013-10-07,fix node.go race between expire and update,race
+etcd,a07802a34756ed218a5009240e520fdfd3b884b5,2013-10-07,refactor node.go; use once,once
+etcd,558d30f33f785902e87eee062ba47f183656a59c,2013-09-30,simplify lock,lock
+etcd,b8ac1d082b7045aeffcfcba5825dbebc3e27a12a,2013-09-30,"fix race between Expire() and others, fix UpdateTTL(), modified watcher to catch Expire()",race
+etcd,ac9801f5702045badcf9b4dbff00cf469dd148c0,2013-08-15,Concurrent GET requests should not block.,lock
+etcd,b71811375b71a6bd6393b3728d4b0dd0377d9447,2013-08-13,fix race,race

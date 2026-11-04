@@ -1,0 +1,46 @@
+{
+  "app": "cockroachdb",
+  "repo": "C:\\Users\\Li\\Desktop\\work-app\\操作系统\\output\\6app\\cockroachdb",
+  "kloc": 484.6,
+  "kloc_source": "raw_lines(fallback)",
+  "raw_counts": {
+    "go_stmt_normal": 26,
+    "go_stmt_anonymous": 122,
+    "mutex": 267,
+    "lock_calls": 1614,
+    "atomic": 211,
+    "once": 13,
+    "waitgroup": 90,
+    "cond": 5,
+    "chan_make": 154,
+    "chan_send": 171,
+    "chan_recv": 534,
+    "select": 239,
+    "misc": 592,
+    "files": 1177,
+    "lines": 484643,
+    "parse_errors": 1,
+    "parse_error_files": [
+      "C:\\Users\\Li\\Desktop\\work-app\\操作系统\\output\\6app\\cockroachdb\\pkg\\cmd\\prereqs\\testdata\\src\\example.com\\a\\invalid.go: parse: C:\\Users\\Li\\Desktop\\work-app\\操作系统\\output\\6app\\cockroachdb\\pkg\\cmd\\prereqs\\testdata\\src\\example.com\\a\\invalid.go:17:1: expected declaration, found dfasdg"
+    ],
+    "root": "C:\\Users\\Li\\Desktop\\work-app\\操作系统\\output\\6app\\cockroachdb"
+  },
+  "goroutine_sites_total": 148,
+  "goroutine_sites_normal": 26,
+  "goroutine_sites_anonymous": 122,
+  "goroutine_sites_per_kloc": 0.305,
+  "primitives_total": 3384,
+  "shared_memory_pct": 57.12,
+  "message_passing_pct": 42.88,
+  "pct": {
+    "lock_calls": 47.7,
+    "mutex_strict": 7.89,
+    "atomic": 6.24,
+    "once": 0.38,
+    "waitgroup": 2.66,
+    "cond": 0.15,
+    "chan": 25.38,
+    "misc": 17.49
+  },
+  "primitives_per_kloc": 6.98
+}

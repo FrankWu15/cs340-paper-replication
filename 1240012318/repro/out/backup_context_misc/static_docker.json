@@ -1,0 +1,43 @@
+{
+  "app": "docker",
+  "repo": "C:\\Users\\Li\\Desktop\\work-app\\操作系统\\output\\6app\\docker",
+  "kloc": 133.6,
+  "kloc_source": "raw_lines(fallback)",
+  "raw_counts": {
+    "go_stmt_normal": 35,
+    "go_stmt_anonymous": 112,
+    "mutex": 484,
+    "lock_calls": 1029,
+    "atomic": 21,
+    "once": 14,
+    "waitgroup": 40,
+    "cond": 0,
+    "chan_make": 135,
+    "chan_send": 130,
+    "chan_recv": 286,
+    "select": 140,
+    "misc": 221,
+    "files": 1067,
+    "lines": 133597,
+    "parse_errors": 0,
+    "root": "C:\\Users\\Li\\Desktop\\work-app\\操作系统\\output\\6app\\docker"
+  },
+  "goroutine_sites_total": 147,
+  "goroutine_sites_normal": 35,
+  "goroutine_sites_anonymous": 112,
+  "goroutine_sites_per_kloc": 1.1,
+  "primitives_total": 1876,
+  "shared_memory_pct": 58.85,
+  "message_passing_pct": 41.15,
+  "pct": {
+    "lock_calls": 54.85,
+    "mutex_strict": 25.8,
+    "atomic": 1.12,
+    "once": 0.75,
+    "waitgroup": 2.13,
+    "cond": 0.0,
+    "chan": 29.37,
+    "misc": 11.78
+  },
+  "primitives_per_kloc": 14.04
+}

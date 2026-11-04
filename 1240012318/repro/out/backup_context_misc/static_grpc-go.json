@@ -1,0 +1,43 @@
+{
+  "app": "grpc-go",
+  "repo": "C:\\Users\\Li\\Desktop\\work-app\\操作系统\\output\\6app\\grpc-go",
+  "kloc": 44.3,
+  "kloc_source": "raw_lines(fallback)",
+  "raw_counts": {
+    "go_stmt_normal": 14,
+    "go_stmt_anonymous": 34,
+    "mutex": 479,
+    "lock_calls": 485,
+    "atomic": 52,
+    "once": 9,
+    "waitgroup": 33,
+    "cond": 8,
+    "chan_make": 61,
+    "chan_send": 33,
+    "chan_recv": 143,
+    "select": 84,
+    "misc": 84,
+    "files": 156,
+    "lines": 44256,
+    "parse_errors": 0,
+    "root": "C:\\Users\\Li\\Desktop\\work-app\\操作系统\\output\\6app\\grpc-go"
+  },
+  "goroutine_sites_total": 48,
+  "goroutine_sites_normal": 14,
+  "goroutine_sites_anonymous": 34,
+  "goroutine_sites_per_kloc": 1.085,
+  "primitives_total": 908,
+  "shared_memory_pct": 64.65,
+  "message_passing_pct": 35.35,
+  "pct": {
+    "lock_calls": 53.41,
+    "mutex_strict": 52.75,
+    "atomic": 5.73,
+    "once": 0.99,
+    "waitgroup": 3.63,
+    "cond": 0.88,
+    "chan": 26.1,
+    "misc": 9.25
+  },
+  "primitives_per_kloc": 20.52
+}

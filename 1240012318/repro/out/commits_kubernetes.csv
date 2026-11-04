@@ -1,0 +1,840 @@
+﻿app,commit,date,subject,matched_keywords
+kubernetes,5e8e570dbda6ed89af9bc2e0a05e3d94bfdfcb61,2018-05-19,Use Dial with context,context
+kubernetes,7ea612db162c65eca16a00b6b5cd83a93bd05b1d,2018-05-17,remove request context.WithUID,context
+kubernetes,1fc99a248159eb051bf1853b5556717130339b04,2018-05-09,don't block e2e namespace cleanup checks on metrics.k8s.io API group,lock
+kubernetes,1f4f22f72d523143dbae510ce11beb22b50e9100,2018-05-03,don't block creation on lack of delete powers,lock
+kubernetes,7f93d11f9e202bd91bfcc471f538ee806588e325,2018-04-23,Add RESTMapper to ControllerContext and make it generic for controllers,context
+kubernetes,79d30b1ad623c4e71b8d9ed33f4b18cc353908c7,2018-04-25,Hide EquivalenceCache mutex from users.,mutex
+kubernetes,02d657827c8bf6ed2062b905a2660c5f2c021f02,2018-04-20,Test race condition in equivalence cache.,race
+kubernetes,b01657d0c74827e596169ba8317ff5d5d0afb6d8,2018-04-24,refactor device plugin grpc dial with dialcontext,context
+kubernetes,c846d5fe6307a8fe765e1282f1896d19540b2e0f,2018-04-24,Fix race between stopping old and starting new endpoint,race
+kubernetes,54fd2aaefd11e12a3ecb6d1a1326f04cdc8ea1a3,2018-04-24,replace request.Context with context.Context,context
+kubernetes,9a5ce379fea1f18bad0910890fa4a3c9dd0879f4,2018-04-18,[e2e ingress-gce] Fix race condition for appending services and ingresses,race
+kubernetes,c1b19fce903675b82e9fdd1befcc5f5d658bfe78,2018-04-12,avoid dobule RLock() in cpumanager,lock
+kubernetes,d55d1b6fbeeabfcb16be71a2830ff69dce7cad96,2018-03-30,[kubeadm] fix mirror-pod hash race condition,race
+kubernetes,0050bcfc9e7f729466278b229f3f6731d33fbcd7,2018-04-19,fix csi data race in csi_attacher_test.go,race
+kubernetes,8ea88a5092c767fc3141512db924fd0435f7670e,2018-04-18,Remove request context mapper,context
+kubernetes,6b940fd5d412be1422eb85fabf9fa89975fbd0dc,2018-04-17,bzl: build --config unit should build with race enabled,race
+kubernetes,0ee71f0cc2380854e22c7027f13f1bb41c139c41,2018-02-15,Add binding error message for volumeMode:Block unsupported case,lock
+kubernetes,fcbb64b93dfb633f880bad9ed1771201843b8e7e,2018-02-14,avoid race condition in device manager and plugin startup/shutdown,race
+kubernetes,f3ba7f95585cdcce19579d757dadbf3c8a9f8e0b,2018-03-12,apiserver: cancel context on timeout in WithTimeoutForNonLongRunningRequests,context
+kubernetes,ca9d1f728b2bc08b3f8cb35f3b32ffdf4c12d765,2018-04-05,apimachinery duct tape: handle empty unstructured GV in versioning codec gracefully,race
+kubernetes,b3da74034342d62998a0621252c0ebd4c303f437,2018-04-04,move http2 test into ingress context. use helper method,context
+kubernetes,6a79d9e67b5f3ae38974dd2f8a6908e954ad1603,2018-04-05,fluentd-elasticsearc addon: allow graceful shutdown in fluentd-es image.,race
+kubernetes,9f906618f04baceaf923e873530f9741e80ad2cb,2018-04-04,apiserver: enforce shared RequestContextMapper in delegation chain,context
+kubernetes,3f73ccfcde3bc1ff9bb24d3ec9f3154feb97e166,2018-03-07,add test case for request context mapper,context
+kubernetes,564d53f71b3fb52e956e4bece12483e4ba3f6248,2018-03-06,optimize requestcontext: use RWMutex and atomic.Value,mutex|atomic|context
+kubernetes,4e877f5585f1c4c22a6b552f3094ffb006741134,2018-04-03,Fixes incorrect atomic usage,atomic
+kubernetes,b56226342759dc3f06e3788dcc480c65b79243db,2018-03-30,Avoid data races in unit tests,race
+kubernetes,eecef462c83dd411034a25359db00d0bedee264c,2018-03-29,remove unused code in securitycontext,context
+kubernetes,202c6b68ee4ec36128bc4aa2a2cee0514d108258,2018-03-25,Use inclien func to ensure unlock is executed,lock
+kubernetes,b84ad8828b6ffe0dd289f69e395968eabb9fbeaa,2018-03-14,Use RaceFreeFakeWatcher in ObjectTracker,race
+kubernetes,70e45eccf27726f0e63dd1024924ccc7e2cd35a0,2018-02-28,Replace 'golang.org/x/net/context' with 'context',context
+kubernetes,4e6a430bce34b7de0e7a26fba8a5ed9c5f0441ad,2018-03-20,`--force` only takes effect when `--grace-period=0`,race
+kubernetes,9bd006de40b670c6e4fb444fd042e9bf0ef916dd,2018-03-12,Fix issue with race condition during pod deletion,race
+kubernetes,e07a944c49622284a67cf44a98b83818ee464fdb,2018-03-12,"add Get/Set methods, mutex on instanceGroupAttrs.",mutex
+kubernetes,806f6772c6ccc0d852a2120631f6938ae09a3118,2018-03-13,Add atomic writer subpath e2e tests,atomic
+kubernetes,5514a1f4dd60b35b4b9d4915744ec65aab40938f,2018-03-05,Fixes the races around devicemanager Allocate() and endpoint deletion.,race
+kubernetes,5cc841a337fe2a8bcfe29450a6bc4650d9e348c2,2018-03-08,Use inline func to fix deadlock,deadlock|lock
+kubernetes,410b7240260d1015b7fecf3b100a71e46a6ed08a,2018-03-02,Add grace period to volume_io tests,race
+kubernetes,da29bd2cbe3e40d52f6bbd71ebcf642e34035605,2018-03-06,Fix data race in node lifecycle controller,race
+kubernetes,5110db5087513801fc5946abcbd73c44e692b2c8,2018-03-05,Lock subPath volumes,lock
+kubernetes,53c6ea6d487aab0c3aabd648a8f2df3b9e8f5c3b,2018-01-17,update aws plugin for block support,lock
+kubernetes,4812f9e5d8828197e1293a56e913000ed9533fe4,2018-02-14,Added local storage e2e test for VolumeMode: block,lock
+kubernetes,2c0129cd148289bfbfba84d0d100c15df822f143,2018-01-22,update GCE plugin for block support,lock
+kubernetes,ddefff0c69d97c6e374fef7b2a623528bfee77a5,2018-01-30,podtolerationrestriction: fix informer race in test,race
+kubernetes,afbe47a382d01a5372988a71717fa6633e3817c7,2018-02-22,Log warning message when failed to remove rbd lock,lock
+kubernetes,f3324a6c26a11c8d18007820517bde106a0dc237,2018-02-22,add lock before detaching azure disk,lock
+kubernetes,38387aec0db3eda3a7debb4558a223ac92a41389,2018-02-20,Fix race in healthchecking etcds leading to crashes,race
+kubernetes,b2342ae9d942af2f6bf572aeb71cce6acaac218b,2018-02-19,Fix typos in configmaplock,lock
+kubernetes,c232a0165ab7835e9b29509889ab8b1ac7d109c5,2018-02-14,Fix DownwardAPI refresh race.,race
+kubernetes,9342eff20deb535c3133114b286079ab9180cf28,2018-02-14,rename func ValidatePodSecurityContext to ValidatePod,context
+kubernetes,be482ad51c21d493f4b83de9aa06c511a552b5b1,2018-02-13,Add a test case for the race in #59822,race
+kubernetes,6dcd56549af43cb2bc7537e920e44bdf595d9835,2018-02-06,Use full instanceID as lun lock key,lock
+kubernetes,6fd8903af354c6c6d4d479102132b7cdd5451665,2017-12-27,"Add ipset binary for IPVS, context: https://github.com/kubernetes/kubernetes/issues/57321",context
+kubernetes,e155582662f80a491d84428c902a4fc78b93f345,2018-02-08,Avoid race condition when updating equivalence cache.,race
+kubernetes,5e38d785a20099a108693ee70676a3cf46d48c49,2018-02-08,make context the first arg in AddInstanceHook/RemoveInstanceHook,context
+kubernetes,4b398a6d8d910c2566cc514908514db841a0a84c,2018-02-08,"generate mocked methods with context as the first arg, because golint",context
+kubernetes,76c1828c1cabb2a546c05dc0cc957e05662934d7,2018-02-08,Mark kubemark images w/ random tags to avoid race b/w runs,race
+kubernetes,21abc9e105808fd5133488487aa289f6c4d367de,2018-01-31,validation_test.go: move test cases for AllowPrivilegeEscalation option from TestValidatePodSpec to TestValidateSecurityContext.,context
+kubernetes,8b8b85604a8b57dd65cf28fbd7e59a6d87e76244,2018-01-29,Initial local PV block device plugin checkin.,lock
+kubernetes,e18e8ec3c0d5f3e792d3ae4835dda2cff8cbf5b2,2018-02-02,Add context to all relevant cloud APIs,context
+kubernetes,95f04eebeebb685318232a2e6d1360e08b58a50e,2018-02-05,Fix local PV node affinity tests and only run once,once
+kubernetes,8b03e77aec6fe9496edf51ba11d580c460e8fb5e,2018-01-31,Add comments about potential race in delta fifo.,race
+kubernetes,2d050b85493f15ac75908aff4acae9533c311542,2018-01-29,Fix race condition in fake runtime test.,race
+kubernetes,dcb9b4b591e8cb078d21f8cadc80603754856220,2017-12-16,By default block service proxy to external IP addresses. Service proxy uses redirects to Pods instead of direct access.,lock
+kubernetes,534eb3dfbd734dd44357e97dcb10fdf3b1ce5880,2018-01-05,trace patch operations,race
+kubernetes,25238441fdbf7383e45c05613ec15aab13a5bcb5,2018-01-15,uniquify resource lock identities,lock
+kubernetes,b4e09237850925d71d887996ac6b6fcb590ff026,2017-12-18,Rework method of updating atomic-updated data volumes,atomic
+kubernetes,99f507a68bd347dfe91cb47dbfc2e71a3a4e0179,2018-01-10,Introduce METADATA_CONCEALMENT_NO_FIREWALL to prevent firewall from being set,once
+kubernetes,c38e7589a46eabfaa613d5a1bb34d881218d362d,2018-01-16,set fsGroup by securityContext.fsGroup in azure file,context
+kubernetes,9c847fc4d6d5f86ddc17e7717e9357e4b0a54caa,2018-01-16,Call Dial in blocking mode,lock
+kubernetes,d77d20dd54777f95cbe88815ea47ec0bdf31332e,2018-01-16,fix azure TestGetInstanceIDByNodeName data race,race
+kubernetes,010a127314a935d8d038f8dd4559fc5b249813e4,2018-01-10,Fix quota controller worker deadlock,deadlock|lock
+kubernetes,a6d979dd88141f362e48c49e7407d8187c3047da,2017-10-28,Block volumes Support: iSCSI plugin update,lock
+kubernetes,3a461afaf59085e587a91430db756bc68ff9182b,2018-01-08,pkg/securitycontext/util_test.go(TestAddNoNewPrivileges): update tests.,context
+kubernetes,792a2299362ebadc9ca68c72347884330db23b2a,2017-12-04,forbid unnamed context,context
+kubernetes,335c5d959fbcb019d249f50e8642c608803be215,2017-11-30,Adding support for Block Volume to rbd plugin,lock
+kubernetes,b196301b67195b66fb28a12feef767ab86383a02,2018-01-03,RBD Plugin: Fix comments and remove unnecessary locking code.,lock
+kubernetes,bfa462a8c013d8bfd6a86ea004315ef7fc9db168,2017-12-28,optimize volumeResizeMap lock,lock
+kubernetes,a532ecd7041f59962f8fb29d4628be07edb02741,2017-12-04,Use race='off' mode instead of disabling race feature,race
+kubernetes,cc4d2cbe9d80e75796b7bfd7444caa0030ea8d7c,2017-12-23,Fix a race in the endpoint.go,race
+kubernetes,9247ff7e21c4b08e64d364daf2aa069093e1db79,2017-12-20,Update nfsprovisioner image to v1.0.9 to fix annotation race with pv controller,race
+kubernetes,a91e2dc4d2f7b8cb4b24b281bed704e633d2b9e5,2017-12-20,security_context_test.go(TestVerifyRunAsNonRoot): add more test cases.,context
+kubernetes,42b01beaca349200cc5c8dbf20e70faa7ae2c27a,2017-12-19,Cacher stopLock should be unlocked,lock
+kubernetes,1443b1bd1f7518ca375d3bfd729d9a42e3e23972,2017-12-13,Update detach logic for block volume if devicePath is empty,lock
+kubernetes,0acf12a4e82f89fbc0648c5e41078ce46924f667,2017-11-14,Move 'DefaultTerminationGracePeriodSeconds' into a separate const group,race
+kubernetes,e31ed07a9cf60fbf9cecfbd5938e09d85d53d086,2017-12-05,also check pod securityContextt hostNetwork in exec admission controller,context
+kubernetes,def22b796ca93118fe0ab667e2a0015565441c0c,2017-12-04,Use hostname for CCM resource lock id,lock
+kubernetes,943040d8278884e6d33ad3ca06ccdb236e2dcf8c,2017-12-05,outdent err block,lock
+kubernetes,0512f2b44814018ad0756862639b327a63625b7a,2017-11-29,security_context_test.go(TestVerifyRunAsNonRoot): remove unused variables.,context
+kubernetes,2ca9a3185ca23a86b6c40f3a8d9eaea738183459,2017-11-08,Configure metadata concealment iptables rules in node startup.,once
+kubernetes,a62d07ce2aaf669b3cf48d8c4a23134fe0515d9c,2017-11-27,Add a GC deadlock note,deadlock|lock
+kubernetes,d89f58fcc8a5e84e32417d413962ee70e7db488a,2017-11-27,Fix GC sync race condition,race
+kubernetes,6034ef48a9868f8240e8add51ae1701622b525cd,2017-11-22,Fix deadlock of writing file on node.,deadlock|lock
+kubernetes,1eb4e7945334aef36893fe8a0e7fb8fb19ffc398,2017-10-23,"Extends deviceplugin to gracefully handle full device plugin lifecycle. - Instead of using cm.capacity field to communicate device plugin resource capacity, this PR changes to use an explicit cm.GetDevicePluginResourceCapacity() function that returns device plugin resource capacity as well as any inactive device plugin resource. Kubelet syncNodeStatus call this function during its periodic run to update node status capacity and allocatable. After this call, device plugin can remove the inactive device plugin resource from its allDevices field as the update is already pushed to API server. - Extends device plugin checkpoint data to record registered resources so that we can finish resource removing even upon kubelet restarts. - Passes sourcesReady from kubelet to device plugin to avoid removing inactive pods during grace period of kubelet restart.",race
+kubernetes,334a0f0620949ce443e68f90a82610b9e59a6d0f,2017-11-04,Block Volume: cmdline printer update,lock
+kubernetes,224d39b06bb93f8ca798de6b43e5da6c47ec0b99,2017-08-30,Block volumes Support: FC plugin update,lock
+kubernetes,8903e8cd857a725cf43dfd6710bb740413105479,2017-09-07,"BlockVolumesSupport: CRI, VolumeManager and OperationExecutor changes",lock
+kubernetes,ff961163aaa1994e2cf61d3d8c820ade2cf7c0b6,2017-11-16,"clean up retry logic, since we try at least once",once
+kubernetes,3e342077d597f7a972ceaff0f06379686bb040a3,2017-11-19,Fix potential unexpected object mutation that can lead to data races,race
+kubernetes,0117006a5413275df127477acd644e5040d409ed,2017-11-16,Revert 'Add options for mounting SCSI or NVMe local SSD though Block or Filesystem and do all of that with UUID',lock
+kubernetes,6e3f8f38908ec9c1d54825467403bbbc0a834e30,2017-11-16,deviceplugin: fix race when multiple plugins are registered,race
+kubernetes,4e74211aaf546271f5b7d5670b419b92efa48f3f,2017-11-15,pkg/securitycontext/util.go(InternalDetermineEffectiveSecurityContext): remove unused function.,context
+kubernetes,a4a3c7938a9241210160f7a7500fadb049ade338,2017-11-10,CreateContainerSecurityContext: rename; modify its arguments intead of returning a copy.,context
+kubernetes,a31a14924ddd4ee7fe804dd9133645f5af651f57,2017-11-10,CreatePodSecurityContext: rename; modify its arguments instead of returning a copy.,context
+kubernetes,e853f3e75fd6bdc39264ddf11e586726d35634dc,2017-11-13,"fix bug: without Unlock in error case, and remove unrelated test cases",lock
+kubernetes,22b04c828bb5c3fed0218e198fa470cafd0b78e2,2017-10-26,Append --feature-gates option iff TestContext.FeatureGates is not nil,context
+kubernetes,db4f0de28075f34bb4bfa8d821ad25cd3a7eba1f,2017-11-02,gracefully shutdown apiserver after all non-long running requests finish,race
+kubernetes,c8a12b8045c25b37e66a3c46b93939fe3a63d5c7,2017-11-08,Fixes service controller update race condition,race
+kubernetes,df4f693b3bcd687a4d1bb6e177d4baaf36261319,2017-11-08,Fix data race in TestCRD,race
+kubernetes,b0291f90d1ea0c22230c6bb464ddb3233b09c3b3,2017-11-07,code-generators: remove distinction of 1st and 2nd comment block for tags,lock
+kubernetes,a30c0f477d9d4813a08e0abdc7b9029bd4a29287,2017-11-06,apiserver: fix Cacher.Stop() race,race
+kubernetes,7b7135ef79462cb983f3c10fa8c885b4435032bb,2017-11-06,	remove unused function in keymutex_test.go file 	modified:   pkg/util/keymutex/keymutex_test.go,mutex
+kubernetes,6bca31cb4939da005ddc090841f09878e47e0928,2017-11-02,implement SafeWaitGroup without race issue,race
+kubernetes,590e626939b97ce8630faead285abef3f1d37fdc,2017-11-05,Add support for configmap resource lock type to CCM,lock
+kubernetes,0cddb6b0973f50c9f5bce59e02986d855975aaef,2017-11-02,Disable the grace termination period for the calico/node pod,race
+kubernetes,d87f3c6cc1a6c4f3845e775632a440fde1aafd9d,2017-11-01,Improve cronjob concurrency policy doc,concurrency
+kubernetes,d27a5a444e32ae37abf7983adeb4fa224e112d06,2017-10-31,Error for missing context is no longer altered,context
+kubernetes,d735f660bcc67f18cf747368910acf61d1dc8930,2017-10-31,Describe IPBlock for NetworkPolicyIngressRule.,lock
+kubernetes,256d6cc83a0f1550eb8b30837498911326dc8480,2017-10-30,kubenet: yield lock while executing CNI plugin.,lock
+kubernetes,f6a89df3fb719f4db565c7dade63575ccbdb3031,2017-10-30,Revert 'audit backend run shutdown gracefully after http handler finish',race
+kubernetes,f42686081bff88e44b339562c4927775f4439671,2017-10-20,audit backend run shutdown gracefully after http handler finish,race
+kubernetes,40b135de0c506aa97f049e8ad2b69904d3529d78,2017-10-27,Metadata concealment e2e,once
+kubernetes,9f2b0188bc839f3dd3bedd38a0e53ca34eafcac1,2017-10-27,Fix ENABLE_METADATA_CONCEALMENT firewall rules to respect true/false,once
+kubernetes,adc338d3304f46b599f877ac2722e356a2090eea,2017-10-12,Remove all traces of federation,race
+kubernetes,f2af1af82fceacddf6958b31b1946d204c313574,2017-10-24,"RBD Plugin: No need to acquire advisory lock any more! With central attachdetach controller, we don't need to lock the image any more. But for backward compatibility, we should:",lock
+kubernetes,dd7ad4b7380b6085fec0adeabae35716e85f482d,2017-10-20,Modify serve-hostname image to handle graceful termination,race
+kubernetes,d515f0e3d2a2b3afc53fc839d6df6f34ed76c3bf,2017-10-23,Revert 'update gRPC to pick up data race fix',race
+kubernetes,e0032af91628a2eb38c3cd04d39611df4232cecd,2017-10-16,bump device plugin version to v1alpha2 to reflect the change to AllocateResponce API,once
+kubernetes,acbe62cff5fdd8f72fe24bf0ec196bf60bc1ef14,2017-10-19,Speed up volume tests by reducing pod grace period,race
+kubernetes,3ee03fd033ad38c33fa21573d220940f5181bbfa,2017-10-12,Enable metadata concealment for tests,once
+kubernetes,b97f838280c68ca7e2f0af5da81630b6e41ad79c,2017-10-16,review: condense 2 Contexts into 1,context
+kubernetes,99e9ec120c723784b7ae5744dfee53c8a22b3451,2017-10-12,update Godeps grpc to pick up data race fix,race
+kubernetes,a5f722e181420cec5ef5533a111487034a713d7b,2017-10-14,PodSecurityPolicy: avoid unnecessary securitycontext mutation,context
+kubernetes,b6a750c1f6ed6b6b3f4672460ab8d096dc51eaa1,2017-10-14,SecurityContext: Add accessors/mutators for effective container security context,context
+kubernetes,c279a53ca05c5b3eb76ab579fd16de68be819876,2017-10-12,Optimize random string generator to avoid multiple locks & use bitmasking,lock
+kubernetes,3707b10b9f7b9555a1542d1d07b2ec4086d1de10,2017-10-11,The DBusFakeConnection should have locks to prevent races,race|lock
+kubernetes,414c3104ca63eed5a28deb02103d30e65677b29a,2017-10-10,Make sure we use rwlocks not just RLock,lock
+kubernetes,cd75007b3b0d61ac6fa3430bb8bf1ab1f79bbc88,2017-06-30,Support completions for kubectl config rename-context,context
+kubernetes,1eddab3313baa86321d24f5968a7777387ad4db4,2017-10-02,remove containers of deleted pods once all containers have exited,once
+kubernetes,69b5e0ab67f0d93eba81d9446d62aedb1bb65354,2017-09-27,Revert 'Make kubelet touch iptables lock file during initialization',lock
+kubernetes,1c85a63366c3aded26edec1c9393b5f54d4a121b,2017-09-26,Remove touch-lock init container from kube-proxy,lock
+kubernetes,c4ca2c734963afd442ff6c43631d004092ea74e8,2017-09-27,Modify traces in deletion handler,race
+kubernetes,5953a182cf06a339f3d45d1b67d526055181ff9e,2017-09-25,"Fixes the flaky TestDevicePluginReRegistration. In the current test, there is a race that the new device plugin endpoint may not be added to the device plugin manager endpoints at the time when we call manager.Devices(). Added the checking and waiting for endpoint updates before calling manager.Devices() in the test.",race
+kubernetes,26d87e49cbbc4caa9e0eef47fce9115c1f43566e,2017-09-23,Add a negotiate method media type for use in explicit contexts,context
+kubernetes,55692c52e1d6f3922bf4af2b6cbe2b0eef886fbd,2017-09-21,Make feature gate enablement checks lock-free,lock
+kubernetes,d4676b67539419aced720772b13f556de8065fc1,2017-09-13,Enable go race detection for bazel tests.,race
+kubernetes,5d864aa3c25177c35343dd1afd17d25b968441a8,2017-09-11,Add concurrency to cloud CIDR allocator & make it non-blocking on NodeSpec updates,concurrency|lock
+kubernetes,34dccc5d2a7c10ba8a3cf43c3273d66ec2491f35,2017-09-15,Fixes some races in deviceplugin manager_test.go and manager.go.,race
+kubernetes,6089cadab3d136455b1b4376d819464fb0d2379a,2017-09-15,Add extra steps to delete resource handler trace,race
+kubernetes,e79ce0a50d5595205d45908c713730965a5b21f9,2017-09-14,[fluentd-gcp addon] Remove trimming e2e tests out of blocking suites,lock
+kubernetes,da01c6d3a25e3dc9ab0626da375bfbe5958c058b,2017-08-25,Ignore pods for quota that exceed deletion grace period,race
+kubernetes,2572ea50e05fa2ce2e9f09d02337a012cc6be7dc,2017-09-05,add permissions to workload controllers to block owners,lock
+kubernetes,8ca6d9994e51e6b7efd53ee5239928b4cd9f24bf,2017-08-29,Sync local APIService objects once,once
+kubernetes,6d040812f001feaa39bab8ffa58d094c2e1d3e72,2017-09-05,check block owner ref on finalizers subresource,lock
+kubernetes,676b95e09761f22d53dcd6259a6feb0dc9a4ffcf,2017-09-01,Gracefully handle permission errors when attempting to create firewall rules,race
+kubernetes,d77295677b62bcc791b9f38febc2bf438ac55c95,2017-07-07,Fixes grace period in delete,race
+kubernetes,483ee1853bf5041897897a6c983480984aaaec28,2017-09-01,Do not mutate original object even temporarily to avoid data races,race
+kubernetes,253b047d89eac2b5a3074ece31842a8e1c4302d2,2017-08-24,update GC controller to wait until controllers have been initialized once,once
+kubernetes,e58da7bb7c1800ffd4f24cf77c2e3f3cdfcdf906,2017-08-14,c-go cache: Use diskv TempDir to get atomic write,atomic
+kubernetes,5abbd0f96fa4c3e9b2ff29cb5610c5d46ea427e8,2017-08-25,Fix swallowed error in tests for flocker package,lock
+kubernetes,30325cd580af08e13a0ebc89252842eb955fd94e,2017-08-08,c-go: Update diskv to get atomic fs cache write,atomic
+kubernetes,98a7311afcf13f78273f0bb101786f5dd1431cd7,2017-08-24,"Block instance identity, block recursive=true",lock
+kubernetes,02735c3fb25aa1f014cfbcde0690802262b40f25,2017-08-24,IPBlock generated code,lock
+kubernetes,b75dc93dd40e60df14886e7f251479001a5c2283,2017-08-19,Add IPBlock to NetworkPolicy,lock
+kubernetes,5334e164c742088adada5c375e9c44fb1f3ee29d,2017-08-21,Fix GC integration test race,race
+kubernetes,c08091699c566d3b6be2f3729a82b52fea469242,2017-08-17,kubeadm: Fix self-hosting race condition,race
+kubernetes,7798d32fc787d79da617914259d9285e558054f7,2017-08-15,Implement batching audit webhook graceful shutdown,race
+kubernetes,bf01fa2f0010ae02d1ef3369ea268a2b4241619d,2017-07-19,Use seccomp from security context,context
+kubernetes,f3150c9c8c24aac0b23a6486275adebae25b30ce,2017-07-19,Support seccomp profile from container's security context,context
+kubernetes,7e7a811717769fe2af76d02d96a9b6980dcdaac9,2017-08-12,Cleanup locking in configz,lock
+kubernetes,3eee17bf99d3bc2a5efc96856cbdf1bdee8e9804,2017-08-08,Refactor TestUpdateClusterRace and TestUpdateClusterStatusOK,race
+kubernetes,88e64e61ce3e99ef8ba6cc195431ffe49007e347,2017-08-12,Refactor updateClusterStatus to reduce locking,lock
+kubernetes,60514d3d664244299b42e8f6af0c2212b0cee632,2017-08-09,Use zero TerminationGracePeriodSeconds in fixture,race
+kubernetes,2eafc562fa7abe707dc33a567c80692be9d6a0d0,2017-08-08,Block on master-creation step for large clusters (>50 nodes) in kube-up,lock
+kubernetes,4a08a693b754740148bd75d040a7bfa6be1a3d30,2017-08-03,fix data race in storage (during addition),race
+kubernetes,ea39971b7ca9f4009b201981bdc49c328a3f2877,2017-07-21,Remove traces of go2idl,race
+kubernetes,25bc76dae4cf1128a150ac352795d7973bc0dd4e,2017-07-23,Do not try run preStop hook when the gracePeriod is 0 Add UT for lifeCycle hooks,race
+kubernetes,6d8f2dddec9b2693fce1488c61fd60e3b2212ded,2017-08-01,fed/clustercontroller: fix race when updating data,race
+kubernetes,11d96c174ed0349d67b4808c618b95bc563535b9,2017-07-28,certificate manager: close existing client conns once cert rotates,once
+kubernetes,1c2feb02fa8b1a5a8c9f6f091c12eada5e0b0738,2017-07-31,gce: make append_or_replace.. atomic,atomic
+kubernetes,ed46466b9595c033bee1423b7d547074e3c15cca,2017-07-21,FC volume plugin: remove block device at DetachDisk,lock
+kubernetes,9f7468599e486c5f1f2a1954a0d4afb1a9862da7,2017-06-04,kubectl config get-contexts: sort output,context
+kubernetes,809a0abb31910f1e32b9976bba2f4e1540f19278,2017-07-27,set k8s master charm state to blocked if the services appear to be failing,lock
+kubernetes,b45f2861a2f78209aaa39b15f3f3313946d29f5d,2017-07-26,Add termination gracePeriod,race
+kubernetes,14e014ac06d40b53008c7cbb3c8a30596f3b07bf,2017-07-20,Better message if we dont find appropriate BlockStorage API,lock
+kubernetes,7c531ecc13005554d3fbc7be75dd9aab4c10a73e,2017-07-22,Do not spin forever if kubectl drain races with other removal,race
+kubernetes,345f875c51c0acd909f206b855d158b8e3adbbb3,2017-07-21,fix race in proxy unit test,race
+kubernetes,e02fec7b2196890ea456f858c02cfbcd822e395d,2017-07-19,fix leader-elect-resource-lock's description,lock
+kubernetes,d0205c8b9fbe7fd75273884b9c32ca61d1a54405,2017-07-19,Add seccomp profile in sandbox security context,context
+kubernetes,abc7c4cf10620df322ae317dbe7e4ab8bdf9bc04,2017-05-22,"Add AzureFile,Flex,Flocker volume source to describe printer.",lock
+kubernetes,d789615902ead2a112ad24fbfebe95285b87004b,2017-05-27,Shared Informer Run blocks until all goroutines finish,lock
+kubernetes,31ac1d8e6bfd5c04bc374d8bf1b1248bfad6b570,2017-07-17,Move seccomp from anntations to security context,context
+kubernetes,e6ad8f8e4896604e43785b7c2b97417d08929059,2017-07-10,dockershim: clean up unused security context code,context
+kubernetes,8de419b19fc8044c8fb230b854039055e7eecb42,2017-07-05,expose lock release error from iptables util,lock
+kubernetes,c3fbec766366d98e434acd44e84f2a4fb4f64a6d,2017-07-04,Properly nest code blocks,lock
+kubernetes,29030d2b42cae3a5ca4e000ec3306f4c0a67a6c0,2017-07-04,'rbd: image xxx is locked by other nodes' is misleading,lock
+kubernetes,faf7dff7630156ae3f5af6ba973c37917b205049,2017-06-28,Add traceroute logging on connection failure,race
+kubernetes,f43060ea411acb03a6d4f9b5de0bb8bf520eb6b9,2017-06-09,Construct history once and pass around in DaemonSet sync loop,once
+kubernetes,d5c9d27ed763dfc312e3c2f3f234f08253fb64e4,2017-06-08,Make kubelet touch iptables lock file during initialization,lock
+kubernetes,79d3d795b512de861c01847fe75c4fc43d2d4f2d,2017-06-08,Removed a race condition from ResourceConsumer.,race
+kubernetes,64f77ebfb75cee4db80b402103d5ef0957aa8f0f,2017-06-06,enable race detection on integration tests,race
+kubernetes,3fd4e16eb0f8ae18182d7e11644d72b2bb34aff0,2017-06-06,Block on projected volume data fetch failure,lock
+kubernetes,6a380e8831b42e88cbd15fc31efddcd287098d88,2017-05-22,Add iptables lock-file mount to kube-proxy manifest,lock
+kubernetes,475916cc59f8d9fbbb925da15fc4f81ce2e2f4c8,2017-06-01,complete the controller context for init funcs,context
+kubernetes,23ef37d9ce6cbf49f54e4bd5828bc4c52a52eb14,2017-06-01,Add KernelDeadlock condition to hollow NPD,deadlock|lock
+kubernetes,18bf8f8616cc978cf83db800b9ccfb6910ea9895,2017-05-31,redudant if-block in validation code,lock
+kubernetes,e2718f3bc59261362912e6ad2ffba362d40440f5,2017-05-30,"fix crossbuild, verify container restarts, and restart only once",once
+kubernetes,83fec5bafbda5066d741fa08ce03544bca5e8eca,2017-05-19,Add `kubeclt config rename-context`,context
+kubernetes,2c886e93e9d389e2db83e722a6f188be6d56828c,2017-05-23,kubefed: Use StoraceClassName class field for etcd pvc,race
+kubernetes,46e9b522fdbc14184539c57d3ba0380a7d7aa69f,2017-05-25,Make BoundedFrequencyRunner Run() really non-blocking,lock
+kubernetes,3153ca2815c5a596adec770392248573c7e448b7,2017-05-21,Inject clock through flowcontrol,lock
+kubernetes,1fb55a567d82d58ed5dc2abb5693e9571313fee8,2017-05-23,Update RBAC policy for configmap locked leader leasing.,lock
+kubernetes,5324dcb37b61a49356f4fe753e9ebd9b676f318e,2017-05-24,"Remove hardcode for blocksize, use stat(), fixes test failure on SLES",lock
+kubernetes,c5019bf6962475ffff94ef4993bdc651b79f650c,2017-05-23,remove init blocks from all admission plugins,lock
+kubernetes,ce942d19c378ecd335e7e158e30cdc184f9d6184,2017-05-17,audit: wire through non-nil context everywhere,context
+kubernetes,0b5bcb021932355b3ff7c2b45fb579f4adad84bf,2017-05-13,audit: add audit event to the context and fill in handlers,context
+kubernetes,25f0fe1adb199697565487b9dfacc4ed8ecdccbb,2017-05-22,Pass Context to GenerateLink,context
+kubernetes,3e095d12b4f152a45b593927804e2e7b8816239a,2017-05-19,Refactor move of client-go/util/clock to apimachinery,lock
+kubernetes,8013212db54e95050c622675c6706cce5de42b45,2017-05-19,Move client-go/util/clock to apimachinery/pkg/util/clock,lock
+kubernetes,3f8d6e921065ea7e11922b4db3d3542740b40ef7,2017-05-18,Change all the existing admission init blocks to call a Register function,lock
+kubernetes,9f098a9c1aa22eb7b9df0da53d3a14cd958631cd,2017-05-16,add context around test,context
+kubernetes,1173c84ad9c313c2a81cfb249a2e635b2fa2f77b,2017-05-12,Update to plumb through configurable locking on different resource types.,lock
+kubernetes,a2248a2bcde6407a12d2fe4fa9638f6c4b697058,2017-05-05,Add lock type flags for controller-manager leadership election,lock
+kubernetes,a4624a0e75e5fb6b75f7f0d38f7f74d02d625820,2017-05-10,util/iptables: fix cross-build failures due to syscall.Flock(),lock
+kubernetes,f39afd4eeb8f6b4a960e0c7c6292cf399b98a4ce,2017-05-12,Differentiate update/create message on set-context,context
+kubernetes,8f967c929fccb4b932fba2110ac2c7f816883873,2017-05-05,hack/cluster: map /run/xtables.lock into containerized kubelet filesystem,lock
+kubernetes,951b2d922b24d0c002c92f7b62d9863f0acb02fe,2017-05-01,move securitycontext from dockertools to dockershim,context
+kubernetes,04e2deeb287f7d60372ed853a75acfff3668cedc,2017-05-01,Prevent deadlock on azure zone fetch in presence of failure,deadlock|lock
+kubernetes,ac76766a923b17d83f3fba32d71856d9b79ceec5,2017-05-01,CRI: move apparmor annotations to container security context,context
+kubernetes,eb6949a53e6d96590e3cb2ea5abc4d0988953fff,2017-04-21,Change locking mechanism in kube-proxy,lock
+kubernetes,3d0391864ed0a96ac37046e6021a7fa6b9fab313,2017-04-25,apimachinery/pkg/util/wait: Fix potential goroutine leak in pollInternal().,goroutine leak
+kubernetes,c7677a47531fc6ac9c378b3e35d1039a75cae558,2017-04-24,util/iptables: grab iptables locks if iptables-restore doesn't support --wait,lock
+kubernetes,e21da839e533e3c8f49fe5d08c643512533d8d34,2017-04-14,extract content-generation concern from `ensureHostsFile`,once
+kubernetes,e443277d58e3ff1f0701ab97a1f4932389c27847,2017-04-14,Define const annotation variable once Move annotation to package imported by both pkg/volume and pkg/volume/validation,once
+kubernetes,c82b537bee2d50b8f6c9ca79217ab65a43363a60,2017-03-02,Job: Always set BlockOwnerDeletion in ControllerRef.,lock
+kubernetes,2a49281b55278bb6932e8862304cff0becaaabf3,2017-04-19,Fix traces for get requests,race
+kubernetes,4e682fdaa4e3d968bb81e80d7a4890fbf7ec4e6c,2017-03-02,CronJob: Always set BlockOwnerDeletion in ControllerRef.,lock
+kubernetes,9d7a8df5eea3a6f06f9023fa191fb031e2fc483d,2017-03-24,add gc admission plugin that prevents user who doesn't have delete permission of the owner from setting blockOwnerDeletion,lock
+kubernetes,c9535869fcf4677bdde181c19159aa426dafbbbc,2017-04-12,Bugfix: cloud-controller-manager routeController.run() block in WaitForCacheSync,lock
+kubernetes,515987db3f039f5f19c3f6292af072b937aacdd7,2017-03-09,Change the PEM block type to use the constant,lock
+kubernetes,5af5378fce5824fa5eb8b4e07d299d1117429c1f,2017-04-05,Default FEDERATION_KUBE_CONTEXT to FEDERATION_NAME in federation e2e up/down scripts.,context
+kubernetes,5812c876f77daa45234107150a77c852c0d50b52,2017-04-05,kuberuntime: set namespsace options regardless of security context,context
+kubernetes,56c1baae01b5d7fea7055b3a0ac2b58f7699daf4,2017-03-31,unit test for kubectl config use-context,context
+kubernetes,4517a73e98f82324f9b75bb43fbbaac77687abc3,2017-03-13,[Federation] Fix a typo in the ReplicaSet E2E test: s/extrace/extract/,race
+kubernetes,ee23bb1b3cf6656e23909acfbd2487062eb8ace9,2017-03-25,unit test for kubectl config set-context,context
+kubernetes,0ab9f6fe5567c22eab8f255684e8d3a85a5774ec,2017-03-08,"fix createProvisionedPV result err judgenment bug When ctrl.kubeClient.Core().PersistentVolumes().Create(volume) returns no err, but storeVolumeUpdate() failed, we save PV sucessfully ,but here err is not nil, we should not run the codes next in block if err != nil {} same in the deletion retries below",lock
+kubernetes,2c05bb533635cce090ab4e6499bfd1e724a71b52,2017-01-12,Support for v1/v2/autoprobe openstack cinder blockstorage,lock
+kubernetes,0b9233648e573b498e3ff343760ef5e969c63147,2017-03-20,Deflake TestSyncDeploymentDeletionRace,race
+kubernetes,b4b8fdbca32211fd193ca5475294b861371b3956,2017-03-10,GC: Fix re-adoption race when orphaning dependents.,race
+kubernetes,6898bc60ce2d9fca73f7ec9d46cd187f8cad6c4b,2017-03-17,Attach/detach controller: fix potential race in constructor,race
+kubernetes,e729c57534bbb9e8f356485366ce4493079ce569,2017-03-07,Add the ability to lock on ConfigMaps to support HA for self hosted components w/o locking on an endpoint which has a series of issues.,lock
+kubernetes,a489bd26740136aed04b2a67bc14562c74dc06d3,2017-03-10,pkg/util/flock: Fix the flock so it actually locks.,lock
+kubernetes,8ebc6e91f89b3426bcda3f861bd33ca0b6c11320,2017-03-12,print warning when delete current context,context
+kubernetes,8328a66bdfa7712925c729beb6f722f179f8d418,2017-03-08,dockershim: Fix the race condition in ListPodSandbox,race
+kubernetes,6f70b977ff6c6f9ba7ba1971d38ce3bd49243266,2017-03-01,apiserver: Add non-blocking run method to simplify testing,lock
+kubernetes,97c363a3e084b0d66bda638d3a645ddf80e12d1c,2017-03-02,DaemonSet: Always set BlockOwnerDeletion in ControllerRef.,lock
+kubernetes,7f4e5c567695b50c2dd974b78e7b148323922c51,2017-03-07,Use namespace from context,context
+kubernetes,b011529d8a1486bc2316a049db35759086d2994b,2017-02-28,Add pprof trace support,race
+kubernetes,364dbc0ca52ecfa619c31c4b9d30573a0016a362,2017-03-06,Revert 'Revert 'Pods pending due to insufficient OIR should get scheduled once sufficient OIR becomes available.'',once
+kubernetes,111b9ce9b5a13203ddfe7bd14f1fd4bb7444cc30,2017-03-03,Deployment: Fix data race in unit tests.,race
+kubernetes,37534b66df9874cf34990a8d5e2470b1f74f6c80,2017-03-02,Deployment: Always set BlockOwnerDeletion in ControllerRef.,lock
+kubernetes,60758f3ffffa1d6146287a27dd7677b6d9fea7d4,2017-03-06,Revert 'Pods pending due to insufficient OIR should get scheduled once sufficient OIR becomes available.',once
+kubernetes,6679a5a31f9b4b5a7247e92c1ec8e69e9ad1a35b,2017-03-02,StatefulSet: Always set BlockOwnerDeletion in ControllerRef.,lock
+kubernetes,a46b04dc78d396d1e8a81d86402d41c3ee160dea,2017-03-02,Support context completion for kubectl config use-context,context
+kubernetes,fa135fa4a689687b685ed042af7a37edb0ee328f,2017-02-28,Fix godep race in local builds,race
+kubernetes,34e02c9989dd577a8daf375f276c7e26ebe3b58f,2017-02-27,add kube-env variable to block traffic to metadataserver,lock
+kubernetes,f6300555f4c105f60c5a4cb0a0cdfc01899b833d,2017-02-27,Don't log context or full request URI due to security concerns,context|once
+kubernetes,4da41ca56c163b00ed4c71c73a694a3366d770f0,2017-02-25,Support --context flag completion for kubectl,context
+kubernetes,3e3cfcc97b16f8e114031d78ba6399030ff1e708,2017-02-24,Don't restrict etcd on self host installs b/c a clipped etcd can have weird behaviors once it is loaded,once
+kubernetes,71406aa4a63bb7ae165fdca73313f6c1bac79578,2017-02-16,force rbd image unlock if the image is not used,lock
+kubernetes,5633d7423a5227d1830f0e663dfd20e7dc6cd4e8,2016-12-12,kubelet: add network plugin manager with per-pod operation locking,lock
+kubernetes,cdb48fb6a0acf8ccd981df7f10826ab5ebafbd0a,2017-02-09,adding e2e test for storage class diskformat verification adding govmomi dep to test/e2e/BUILD adding golang.org/x/net/context to e2e deps addressed review comments addressed 2nd round of review comments,context
+kubernetes,0fdb33b25e3cb207705f225aec7d30b900dd1e89,2017-01-27,Add NewTimer mockability to Clock,lock
+kubernetes,26c0fe32d0c717a5bccc168ed320265ec5331a79,2017-02-07,Cleanup federation components and wait for it only once in a test cycle.,once
+kubernetes,7655cabcf180b7b6d47c93bc452151805f7fc7fc,2017-01-31,Refactor federated services tests a bit to move a test that requires no cluster creation to a separate block.,lock
+kubernetes,d8205df17129f71057c6531cf1d82bd7770448bb,2017-02-01,Make DeltaFIFO Resync atomic,atomic
+kubernetes,ff124c4aecd958023c3e68d6ae67ca1945f0ecc1,2017-01-27,Allow reading ECDSA key files containing parameter blocks,lock
+kubernetes,a12c6617739e783d2885a8666dae82e6c144948c,2017-01-24,pkg/util: move trace.go to k8s.io/apiserver/pkg/util/trace,race
+kubernetes,4506f4c2d054eac15fbb902ed12ca949339ad1e1,2017-01-26,securitycontext: move docker-specific logic into kubelet/dockertools,context
+kubernetes,f4d4b2c5780206cfc3d949341c85b8911dc0927c,2017-01-26,Temporary disable federation kubectl tests for secrets to unblock merge queue,lock
+kubernetes,a7f52b276ff5c4b6857b442b5ff15f74b8e23768,2017-01-25,Add test shell stack traces,race
+kubernetes,506e71485f81988c94acad65d2c88a3cfdccfe7c,2017-01-21,controller: old pods should block deployment completeness,lock
+kubernetes,59fef371b1d907542ac69c151f6ecbaa87f95c2e,2017-01-03,"log cfgzErr if err happened We need to log err info when err info returned by initConfigz(),no matter what the result of utilconfig.DefaultFeatureGate.DynamicKubeletConfig() is and whether s.RunOnce is true or not. We should log the initKubeletConfigSync() err info too.",once
+kubernetes,45904776302a3845584b5ab71b1780e0601bdd5c,2017-01-09,Disable TestValidOpenAPISpec when -race test flag exists,race
+kubernetes,e10d4cbd2eb463bb35483a5b85051615f5377ba8,2017-01-09,tolerate clock change in throttle testing,lock
+kubernetes,f12a6c161896119f3e1ae303e48fdb03a1a28604,2017-01-06,use fake clock in lruexpiration cache test,lock
+kubernetes,6f3212f831e13b61f06c771430cf0d91bc3bd929,2016-12-14,cleanup flocker in /tmp,lock
+kubernetes,ce11f74961ecc63bcddb8e62b4f7f00676cbb157,2016-12-14,cleanup flockerVolumeTest in /tmp,lock
+kubernetes,9183940293d431fe778199da6d81b246d4fdf32d,2016-12-14,cleanup atomic-write temp directories,atomic
+kubernetes,87dd990bb7a4b81ea76eea8f828d9ac9e4ffe777,2017-01-02,"Move pkg/api.{Context,RequestContextMapper} into pkg/genericapiserver/api/request",context
+kubernetes,3bb75064fb409dc0a7c9c2431b73e3d3c628b6d8,2016-12-12,"fix GetVolumeInUse() function Since we just want to get volume name info, each volume name just need to added once. desiredStateOfWorld.GetVolumesToMount() will return volume and pod binding info, if one volume is mounted to several pods, the volume name will be return several times. That is not what we want in this function. We can add a new function to only get the volume name info or judge whether the volume name is added to the desiredVolumesMap array.",once
+kubernetes,64f5b050a1defb3ea5b09b8e2582ac51796ca7f2,2016-12-25,Fix race in service nodeport allocator repair loop,race
+kubernetes,0777ecd030a296ba93188e2e7341af617e7ff21c,2016-12-02,Fix race in service IP allocation repair loop,race
+kubernetes,00123c343b7f8c76f6492ca20e4df592d97218a4,2016-11-21,add test functions in context_test.go add test functions in context_test.go( pkg/api/context_test.go),context
+kubernetes,d19a1109e2b383bd5bf12fb19e5c3a2e890dfd88,2016-12-05,controller: sync deployments once they don't overlap anymore,once
+kubernetes,3a6593c9f19c0d1e1e8f94e75a5a116960c89ede,2016-12-16,Revert 'daemonset: bail out after we enqueue once',once
+kubernetes,8070548ebee2ded468d8fd6342f6615f2852af4f,2016-12-08,Add Context() to enable per-request cancellation,context
+kubernetes,3a311a2bc2b5be904ca1f13bd3e28152b47c74ec,2016-12-14,daemonset: bail out after we enqueue once,once
+kubernetes,96850dc6005a88bb9a49415d013953cec3497942,2016-12-13,Set --anonymous-auth to false on v1.5 clusters to preserve the locked-down v1.4 behaviour,lock
+kubernetes,2e9dd13aee1c4323078e4143d958fcb9bbb9a358,2016-12-13,Move recreate evicted test to Basic StatefulSet functionality block,lock
+kubernetes,c1cede22cf722a9ecf7a1755c428e1e87ecc018f,2016-12-08,"Use the `serviceShard` variable in the service shard block, not the `service` variable.",lock
+kubernetes,e94d2fdc4e37d03b9650b54e7ab008e526e75db9,2016-12-08,HPA e2e tests: fixed problem w/blocking channel.,lock
+kubernetes,38a63e388d434af3bbb2d3f4fcedd75345d64480,2016-12-02,Set kernel.softlockup_panic =1 based on the flag.,lock
+kubernetes,991674380b7773d73afaeafeac6242bf3b6e6001,2016-10-25,Fix resync goroutine leak in ListAndWatch,goroutine leak
+kubernetes,14730841f3c1cbfe508554a7fd73065fa59392f7,2016-12-01,Fix logic in graceful deletion if existing grace period was 0,race
+kubernetes,19c9860bb3786a10516217a048b2279e80a934e4,2016-11-24,fix if condition question in kubelet run() function here variable err returned by function NewForConfig(&eventClientConfig) if CreateAPIServerClientConfig() function is executed correctly. We should use else instead of if. Or put block (if err != nil)  to block (if err == nil) above,lock
+kubernetes,4f3d0e3bde114269650781020d9b05cbd428d4ba,2016-11-18,more dependencies packages: pkg/metrics pkg/credentialprovider pkg/security pkg/securitycontext pkg/serviceaccount pkg/storage pkg/fieldpath,context
+kubernetes,7cdb6b169d88f592a0fa6880d10549750a346473,2016-11-21,"When --grace-period=0 is provided, wait for deletion",race
+kubernetes,f2bab13043322583dbcf2bc0e97fe85b69678613,2016-11-17,Remove 0 terminationGracePeriodSeconds from statefulset manifests,race
+kubernetes,fcca86d875456012418e5f4ff5bb9fe696981f99,2016-11-14,context.Context should be the first parameter of a function in vsphere,context
+kubernetes,846cd2d66ac63ce3bc4cb0e9a5daa2f13c405ec2,2016-11-01,Append newline to the 'deleted context ... ' and 'deleted cluster ...' message,context
+kubernetes,005f5cd21e07924b32cca33cf101de295a50c0c8,2016-11-15,[Federation][join-flags] Add flags for cluster context and secret names while joining clusters to federation.,context
+kubernetes,76755034a168c3ebd0dba57944847cb443c03d29,2016-11-15,Fix recycler pod deletion race.,race
+kubernetes,19dd9c12713fbfe706f5250d185f99f0485b97ce,2016-11-15,Reduce to folks with context,context
+kubernetes,1aeecd7847d057165717e10d5c6c1fd466c6ddfa,2016-11-15,Reduce to people with context,context
+kubernetes,5bcaa09a5a8ba9de70918a6db2babd0fb219fb21,2016-11-15,Trim to folks with context,context
+kubernetes,4caa6e0b7812be59c70608fa520ae1001e1c07be,2016-11-15,Trim down to the folks I think have real context,context
+kubernetes,f3a5057968d127ac89635f0cb733804f4361d27a,2016-11-14,"Fix SA2003, deferred Lock right after locking",lock
+kubernetes,5a6cd558c23657977ea4cb9103aa51d068c3fe57,2016-11-11,Fix race condition in gcp auth provider plugin,race
+kubernetes,f5cac3469e2e1524724c634cce9af6c44bc5f578,2016-11-09,Add traces to etcd3 code,race
+kubernetes,647b826d697abdc50aa4808fa21604c9f6fe80a4,2016-11-07,Fix a data race condition in federation namespace controller,race
+kubernetes,3aee57d4ae87d6cc6ce8a8386738287664210139,2016-11-04,Add security context support in dockershim,context
+kubernetes,3df60eb1638c09b565047bc61a5697c25b34c86f,2016-11-04,Implement security context in kuberuntime,context
+kubernetes,453391ea8802747670fd7fc608ce4ad5c1d3ba1d,2016-11-04,CRI: add security context for sandbox/container,context
+kubernetes,cbe0787ca4bd37138de291db486bd9cbc80bc556,2016-10-24,Describe graceful deletion in more detail,race
+kubernetes,4855917bc3b4c763722d16b2b962f5469a5fbe61,2016-11-04,Fix possible race in operationNotSupportedCache,race
+kubernetes,4722cb299b58e33cd515ccfb09c59f505f9ce714,2016-10-24,Remove GetRootContext from VolumeHost,context
+kubernetes,2224e80dd7ba8ed8238afcefa64777d8c0cf4c84,2016-11-03,Fix race when two provisioner create two PVs for a single claim.,race
+kubernetes,bfae67409303cbbd5c0c4f443a56dae922cf2f51,2016-11-02,Retry 'godep restore' once in verify-dockerized.sh,once
+kubernetes,eb197134861665731dc756bbf60d769d37427ea7,2016-10-22,"kubelet calls GetDirFsInfo(root directory) instead of using GetFsInfo(root label). Reverted #33520, and changed e2e test context to use nodefs",context
+kubernetes,54feed4e418a280ddb3df81d16274b1dec1e84ac,2016-10-25,"Enable remote dockershim by default. Once the grpc integration is stablized, I'll remove the temporary knob and configure container runtime endpoint in all test suite.",once
+kubernetes,69d7297a372b71378e936eea53293f61380a0075,2016-10-24,Remove use of RootContext in empty_dir.go,context
+kubernetes,04e50ae119b5db0551854f0eb6693e7faa0ed70b,2016-10-26,Reduce lock contention in watchCache,lock
+kubernetes,feaeb2a25c5f215eb05016c0b06d35ab0cdcf8fb,2016-10-21,Do not log stack trace for the error http.StatusBadRequest (400).,race
+kubernetes,e7befa2a14f0786f405f6e127c11cddf8d26b8ca,2016-10-14,Only wait for cache syncs once in NodeController,once
+kubernetes,cc2550c4e1546fe41e7370c0b25fa11e44ca6bdd,2016-10-13,e2e: don't require minimum availability once scaling takes place,once
+kubernetes,3dddd34d3a1d83b49d89ed0622558976e623fbd4,2016-10-11,Fix race condition in test with git server startup,race
+kubernetes,9b77f7f97bd1963e9ca6cb1e8fdc9367d3539cd6,2016-10-10,Use DeleteOptions.GarbageCollectionPolicy and OwnerReference.BlockOwnerDeletion,lock
+kubernetes,e033c5fe7bcfff96f00d11baf00b0d093337906c,2016-10-07,Use RaceFreeFakeWatcher in federation controllers helper and ingress controller,race
+kubernetes,46cc47e324e3faa5242181b5c12949051d85c778,2016-10-07,Race free version of FakeWatcher,race
+kubernetes,f2b8b08651815336d51a0fe6d7bdd270f2bdcf51,2016-10-05,Turn down hootloop logs in priorities.  Hit once cluster is near capacity,once
+kubernetes,120363be72a2ae9203587cd9765dc936bbecd002,2016-10-02,add OwnerReference.BlockSynchronousGC,lock
+kubernetes,3e55d4d6bd8847791f7119fbd669b5b1d7bc575e,2016-09-29,Bump up addon kube-dns to v20 for graceful termination,race
+kubernetes,7381e9ac37bbfdf5e7979c554adae57835dc19bf,2016-07-15,Refactor: separate KubeletClient & ConnectionInfoGetter concepts,once
+kubernetes,10cbaf7ce064ff34c724d205f724cbb9c7f6308a,2016-09-26,Store RequestInfo in Context,context
+kubernetes,cd0897801b556935cd5219a92cb22b155f2ebb6b,2016-09-27,Refactor flocker volume plugin,lock
+kubernetes,6f2af39021fade5f3730516ab15f7eb4102706d5,2016-08-01,Updates godep for pkg/volume/flocker,lock
+kubernetes,1c11047ffbcc02525b1355315a51cda0d2e54d53,2016-08-01,Adds datasetUUID for referencing flocker datasets,lock
+kubernetes,6cb0db2651cd179ff6b58c1116dd97c737cbfb30,2016-09-26,Allow testing LRUExpireCache with fake clock,lock
+kubernetes,3d1263d2cf7ed98b89aae56a0983738d8cc77c08,2016-09-24,Use fakeclock in fake docker client.,lock
+kubernetes,acf0a5264a1a8fb885279d2586329fbbc3438190,2016-09-23,Prune unused parameters and call only once,once
+kubernetes,690a06b9b8f7c0c76e5b68ff273a5f9443f7849e,2016-09-23,Handle review comments for Fix goroutine leak in federation service controller,goroutine leak
+kubernetes,d8ff4870cb5d55973e6fb5ee8c081cae30c83478,2016-09-21,Fix goroutine leak in federation service controller,goroutine leak
+kubernetes,0898f62b5ced332e66f0594931624a23cbe6f364,2016-09-22,Add locking around apiGroupsForDiscovery,lock
+kubernetes,14cad206f5b4a56276ba7f35ce2710266abb8c0f,2016-09-15,Fix race conditino in setting node statusUpdateNeeded flag,race
+kubernetes,9c2705a5a23433c7cb3f63c9dad780433e909d80,2016-09-22,Apiserver don't log stacktrace when proxying,race
+kubernetes,4b45bc1fa776fb95afb6cb0231dd0dc4ddc5b8e0,2016-09-19,test: use low terminationGracePeriod for deployment test,race
+kubernetes,05d0c720f198ef88ad2caff0ad69c586bdd115f8,2016-09-13,the lockfile should be handled after function return,lock
+kubernetes,b97b685b96a5e55fd7764e4e0849822640f0912b,2016-09-15,prevent printing of stack trace when proxying 304 requests in api gateway,race
+kubernetes,efaceb28cce760e6be3f7d0b9abf880e92a5bf82,2016-09-07,Fix race condition in updating attached volume between master and node,race
+kubernetes,fcf8853dd7cb7772f8ef85838cff841514acfe25,2016-09-08,make sure finalizer prevents deletion on storage that supports graceful deletion,race
+kubernetes,88e17d74780c27fd90c94cc2f0942789637b17cf,2016-08-31,Require force when using grace period or timeout,race
+kubernetes,ff017839c76b5d263ca080d8f05b73d77f932f78,2016-09-07,Log an event when container runtime exceeds grace-period during eviction,race
+kubernetes,0bd475676b90322bfca03ca3c359c2a7df8161d6,2016-09-08,LRUExpireCache#Get requires write lock,lock
+kubernetes,e0779df721a52b4187a2af896f4faf058168d17a,2016-09-06,Fix race in DeltaFIFO,race
+kubernetes,1ece902d9fd51ec34ad2c35ce73711d2009013dc,2016-09-02,Fix the race check after an overlapping deployment is deleted,race
+kubernetes,9481354d77cd491cb4b0e98db3a51a1758cdf0f8,2016-09-01,Fix race in scheduledjob e2e,race
+kubernetes,bde2324eb98fbb18b39056344895196818d68c88,2016-09-01,Support graceful termination in kube-dns,race
+kubernetes,cc64faf209a709093713e2231f40469afe903678,2016-08-08,Added printing of clarification for `object creation` request in case of object is in the process of graceful deletion,race
+kubernetes,e9cad12e5fd2677cc345e48fb1ceee44be220447,2016-09-01,Add a check in ConfirmUsable() to validate the contextName,context
+kubernetes,94c9997daf62f460226ccf1c0e47394bda79bf60,2016-08-31,Make a scheduler predicates test resiliant to race for scheduledCondition,race
+kubernetes,29edf627785a2eaaf63a2d34d91b3a51f3eefeaf,2016-08-31,change sourcesSeenLock to sync.RWMutex,lock|mutex
+kubernetes,90557ec56c83a3e2e307b77a4f7b7f97dbb5cff8,2016-08-16,Handle overlapping deployments gracefully,race
+kubernetes,87a370f67c5c82a1687fd603b5c986b19f2bc576,2016-08-23,Increase request timeout based on termination grace period,race
+kubernetes,387f9ea9526bd57ceff8beacdcda8568dbc36421,2016-08-21,Fix data race in PVC Run/Stop methods,race
+kubernetes,992afd9c45f6f266cb753f96ddae4b54786dd789,2016-08-19,let rate_limiter_helper use sync.Once,once
+kubernetes,517b2f400cf4633e89a9646b9662e025de304889,2016-08-19,Adds myself to flocker volume plugin owners,lock
+kubernetes,edc598a35977bdb61cda922878492f306a42111f,2016-08-18,Do not hold the lock for a long time,lock
+kubernetes,c9b28416b718fc016f2c54402200892d900f7bb5,2016-08-18,increase GC concurrency to 100,concurrency
+kubernetes,70deeb0ae43027acbdcaef212f494bd451201642,2016-08-18,node not exist during node status update should not block others,lock
+kubernetes,e54d974a123c2b7e4452b4ba535873cacaeb81dc,2016-07-05,ResourcePrinter should pass all versions at once,once
+kubernetes,5f8366aac3094ee8dc5b560829130ecb1eb6b04d,2016-07-04,Convert() should accept the new conversion Context value,context
+kubernetes,f82746e038c3c1a624c9f86dbc0c8cf32b7c2b32,2016-08-18,move benchmark tag from context to it,context
+kubernetes,681d153050930f67945fc308ad10566ec299edd5,2016-08-18,Fix deadlock possibility in federated informer,deadlock|lock
+kubernetes,3e69c5a9b8ce72ec81b9e853e32d19302a1564c3,2016-08-17,queueActionLocked requires write lock,lock
+kubernetes,8ff00d17d82832422d428d4b39d8282378403216,2016-08-16,Add e2e tests that check for wrapped volume race,race
+kubernetes,4db004972ad943b7f2db36e6039a3166b5e925df,2016-08-08,Plumb context to strategy methods,context
+kubernetes,1c135406717a0683c65c442df6b01e588e4316e3,2016-08-05,get workers length shoud use RLock,lock
+kubernetes,9abdf719b862e921f4a94505cee14aed36d3c5e7,2016-08-04,Add a verbosity concept to kubernetes scripts,once
+kubernetes,e9b0454a9df1d4a889a168b623abcfadbf3d6d47,2016-08-03,optimize lock of runtimeState stuct,lock
+kubernetes,1ca99119fdcc45da1b1363059d8c420395130175,2016-08-02,pkg/controller/garbagecollector: simplify mutexes.,mutex
+kubernetes,20ae1b87ccf58c69dccd56fb5026e3f1e6f7c9ff,2016-07-30,Fix error msg in kubectl config get-contexts,context
+kubernetes,82c700c89673bae8459a14477c3a1527ae295c83,2016-07-29,"Add get/delete cluster, delete context to kubectl",context
+kubernetes,9a02bffe6d293d26167fd88561f199eb8f62702c,2016-07-27,Update acquire to use newer JitterUntil vs. sleep with 0 timer which may have caused a race in Until.,race
+kubernetes,d6427cd0d798c1cea8381a9c52de417438f99a1d,2016-07-28,"kubelet: use util/iptables, which uses -w (lock wait) where safe",lock
+kubernetes,842f15c3c62a510f3b1718bf1f086b8951533999,2016-07-28,Fix race condition found in JitterUntil.,race
+kubernetes,cb14b35bdeb6ce66bb7d835e30eb298cf77233b3,2016-05-25,Refactor util clock into it's own pkg,lock
+kubernetes,df1e925143daf34199b55ffb91d0598244888cce,2016-07-27,Fix wrapped volume race,race
+kubernetes,76aab29ede96b495a815ba865eb628284644284d,2016-07-26,pkg/controller/node/nodecontroller: simplify mutex,mutex
+kubernetes,97b9ebc989265faefb7fb23eef8703280afcfc05,2016-07-06,Clarify newline formatting for release note blocks.,lock
+kubernetes,fc6d38baa2a0739f43af1d4284bfd31c430dc44c,2016-07-20,Avoid locking when computing predicates.,lock
+kubernetes,97b9c73bf1ef6d8c94e1b36c8fa665520ba84eb5,2016-06-29,e2e: test for scaling+rolling out a deployment at once,once
+kubernetes,dbba1347c3ae24bd46dccfd0725a5c525c505c77,2016-07-18,volume/flocker: plug time.Ticker resource leak,lock
+kubernetes,2132ecc28d3cd5c026fb2410a9ccf4f21e199ebe,2016-07-10,Allow a FIFO client to requeue under lock,lock
+kubernetes,ada37c21638b8adc2301d0dd95d2af9a5fd4da26,2016-07-05,allow lock acquisition injection for quota admission,lock
+kubernetes,e0ce987f4e8d923faf977ddca0bc5c9d2fc9b894,2016-07-05,Add command 'kubectl config get-contexts',context
+kubernetes,2a5914d61c3eadb84ec54e339ddee9ac7a505a51,2016-06-16,Fix logic of consecutive DELETE calls when gracefull deletion is enabled,race
+kubernetes,aa472ff734d9261ac96a85c35b8bcec5e956a3dd,2016-06-05,cacher: replace usable lock with conditional variable,lock
+kubernetes,1882a789ac4afdd91a04b77a04bbf3cdcc3f3654,2016-07-01,Move ungraceful PD tests out of flaky,race
+kubernetes,02e29a98b88bb36b2c9f0b4bc83cd33d73e96aa6,2016-06-30,reverted the code from 23688 that cause race condition with older version of Go,race
+kubernetes,65180ea25a4594c794dc14c47193559f9fb27dae,2016-05-19,Fix problems with container restarts and flocker,lock
+kubernetes,00576278b520ee1c1fb5e86d4ba14501956fd633,2016-06-29,Lock all possible kubecfg files at the beginning of ModifyConfig.,lock
+kubernetes,e94242ed19f39596e908a155d1549912627235ab,2016-06-28,Add two pd tests with default grace period,race
+kubernetes,06082b1bdf4c9ff93e5acf33da49f0b091a47d3e,2016-06-28,Fixed goroutinemap race on Wait(),race
+kubernetes,88e2a31978a793207c539d29b6f9e25404ac5cf8,2016-06-24,Adding lock files for kubeconfig updating,lock
+kubernetes,038b8797c4307e91c32866e730639061a54d6efc,2016-06-23,Calculating the disk usage based on available bytes instead of usage bytes to account for reserved blocks in image GC,lock
+kubernetes,ab4a65c10a526356c7e3ff0326b55556e99a43df,2016-06-21,Remove all traces of travis.,race
+kubernetes,3ec2b19611bb5bce4578a91343515d814f47cf91,2016-06-20,Fix block-local err bug in service_helper.go,lock
+kubernetes,4329ba700fdbd4eb8913f9cd9b2842195747bc57,2016-06-20,rkt: Refactor grace termination period.,race
+kubernetes,9026195614245538630c62a950c99de7baad370d,2016-06-15,Updating the code to fix the context name before using it as secret and cluster names,context
+kubernetes,fe14beb980316c0a056019ca3e5d698fd0e4ffc3,2016-06-16,"Move Patch, AtomicPut and MasterService tests to test/integration.",atomic
+kubernetes,7cf7717d4c6612828a336d84158cd438d541fb7d,2016-06-17,Move the slow part of the test into a Slow block.,lock
+kubernetes,5d702a32c14a764397d9d1dd96ed4e994b47072d,2016-06-14,Fix race in informer,race
+kubernetes,9b2b763ab0300c8e3077b26d79910c926ecb22d4,2016-06-13,Fixing references to federated-context and federation-e2e,context
+kubernetes,0d05ece797f1c8799a5c65c03411940d89227c79,2016-06-13,Make it blocks in NodeProblemDetector e2e test serial.,lock
+kubernetes,764df2e096333e79fedf31dace1a71510218af5d,2016-06-07,Listing pods only once when getting pods for RS in deployment,once
+kubernetes,d4eb48c0bb85bf8ceb4edce744971e0cc9dcf69a,2016-06-08,add TestPopReleaseLock,lock
+kubernetes,308201acb0e1515dab33b015c05ca31e40662aa0,2016-06-08,processor listener: fix locking in pop(),lock
+kubernetes,8596d25ad51d622e4471080a94524fead3154464,2016-06-06,rkt: Fix incomplete selinux context string when the option is partial.,context
+kubernetes,394db3b407c55c8fc910ca6ba0cb1f005213697e,2016-06-06,Fix traces,race
+kubernetes,07f8d025c886316afd5e4642f34baa846e11c571,2016-06-04,Remove SecurityContextDeny from aws configurations,context
+kubernetes,36f704c975abd35475cdfbf068eeac45baf4dbbb,2016-06-02,List RSes only once when getting old+new RSes in deployment controller,once
+kubernetes,2ced966cd52226d90c97660e8a24019fc0e0f668,2016-06-01,List RSes once when getting old/new RSes in deployment e2e tests,once
+kubernetes,ee74cc4354d3201b6095fec805e5c5a95700a54f,2016-06-01,Fix fake event recorder race,race
+kubernetes,2d43e4549e76ab1444f6febbecdd159d3dc0c40b,2016-06-01,Fix data race in volume controller unit test.,race
+kubernetes,1d40f471b4c4e9a7da9616cabfbc7727a022ad19,2016-05-23,rkt: Fix docker auth config save directory to avoid race.,race
+kubernetes,3c345abafd024853d8ff0fb332db6076cfc610c5,2016-05-27,Fix DATA RACE in unit tests: reconciler_test.go,race
+kubernetes,feaa3aba82520437503a4602c3badd2b84e5d15f,2016-05-26,Retry concurrency exceptions in e2e/kubectl.go.  Fixes #26138,concurrency
+kubernetes,e5320c606302cf3ec6c5a15a29b0335045848451,2016-05-26,Temporarily disable node-problem-detector to unblock #26351,lock
+kubernetes,73947cc5aa6a107bde9e4ce463ad9bbe69d78253,2016-05-20,"Large changes to the docker deployment. Added kube-addon-manager as a static pod. The addon-manager deploys kube-proxy as a DaemonSet as well as Dashboard and DNS automatically. SecurityContextDeny is removed from the manifests. Also, the turnup.sh and turndown.sh scripts are removed because we don't need them anymore, they're covered by the online documentation",context
+kubernetes,2a1d3faf08c93e235f3c644d6fc197f8f7743a95,2016-05-17,kubelet support for max grace period during soft eviction,race
+kubernetes,f307e97f8709b65abbbdd99859c201ac0c1cc36a,2016-05-05,kubelet: Add --exit-on-lock-contention flag,lock
+kubernetes,ebe56f5ff97ad050af6726658231ea6f444cd5d0,2016-05-06,Extend the current secrets mounting to volume implementation with key to path mapping. The key to path mapping allows pod to specify different name (thus location) of each secret. At the same time refactor the volume plugin to use AtomicWritter to project secrets to files in a volume.,atomic
+kubernetes,7452bc3f5bc26ab0a1d72e59faf4660a528e0549,2016-05-16,Tune traces thresholds in etcdHelper,race
+kubernetes,d6354a54addb7c3fbfde92a0fc7c2a6d36261a45,2016-05-10,Add kubelet flag for eviction max pod grace period,race
+kubernetes,327c9486e1bca592935b9d72ab60a4b1487c7b9b,2016-05-13,Add traces to ReplicationController,race
+kubernetes,04dc71f959a3a075de026e431a389950e11068f4,2016-05-05,retain read only root file system in determineEffectiveSecurityContext,context
+kubernetes,3573903a8d798981014f433a60dcec085ee5e348,2016-05-09,modify kubenet mutex and add timer,mutex
+kubernetes,97f4647dc3d8cf46c2b66b89a31c758a6edfb57c,2016-05-08,etcd3/watcher: fix goroutine leak if ctx is canceled,goroutine leak
+kubernetes,817abc3213c7248bbbda3e5aca73d8b0b4b823a4,2016-05-03,"Kill our atomic pkg, now that 1.6 is req'd",atomic
+kubernetes,7bab6999d408a120f962841f4ca1dd37b80f2490,2016-04-26,Allow KillPod to take a gracePeriodOverride,race
+kubernetes,0e05f704f36271603a6051ebcc77ab7ac43be361,2016-05-06,Trace.Step() performs an unnecessary ref,race
+kubernetes,67747ca08fc899f680d4192e0556a11ff341ea67,2016-05-03,allow equality to avoid flaky on clock,lock
+kubernetes,3118b0c6c4f2b663da730c8fa2602319f73e7702,2016-05-02,Update docs to describe new PR release-note block parsing.,lock
+kubernetes,4cca5b2290aa1fea32ea8ddf7b2c99cf19c556ae,2016-04-29,Use fake clock in TestGetPodsToSync to fix flake.,lock
+kubernetes,272066321ca8ee57ad87d13e45ac0f68364342f6,2016-04-21,Refactor downward API volume to use AtomicWriter,atomic
+kubernetes,6f940a1a78b0ba24d494ae050f6504e3bcf10a9a,2016-04-28,Reduce LOC in security context tests,context
+kubernetes,23bcbbfacab3a7c5374d785b057fd4f29f6c42ae,2016-04-25,Add braces around environment variable names,race
+kubernetes,1491e6c6623a2b7ba7e465533110a334538034bd,2016-04-28,cluster/aws: Add option for kubeconfig context,context
+kubernetes,e01825bfeebed42af5fe08b2264e0d6413955e36,2016-04-15,Add blocking suites to daily summary,lock
+kubernetes,7059717c780efb447e58d611b56de06f5c55a95f,2016-04-26,Use zone from the test context for static IPs.,context
+kubernetes,1993bf901ae950a46bb7bfabb435db5d4df21064,2016-04-19,reuse goproxy pod and avoid race between kubectl exec and goproxy readiness,race
+kubernetes,c8470c49ac60ed59104ed44c6584e2ae4bf14724,2016-04-26,add mutex for kubenet,mutex
+kubernetes,ea53fd7697e3e94d155d83a543359d1ef4433912,2016-04-25,Incorrect attribute - docs - pod-security-context,context
+kubernetes,b0f4517e65f0a4c61696390ef78a45ac799d178b,2016-04-22,etcd3/watcher: cancelling context shouldn't return error,context
+kubernetes,ba4d74f3c7933c94afcdad0db039655d814b49fb,2016-02-24,"Added Block Storage support to Rackspace provider, improved Node discovery.",lock
+kubernetes,c5a64c1f44826a0ba9b8af0826c4c1b9c50263bf,2016-04-20,Add locks in HPA test,lock
+kubernetes,80901a554272f73c323a4a07868ccbfb51a805fb,2016-04-20,Add traces to scheduler,race
+kubernetes,cba5e84fd1a9a6ce14a60ab46b1ba87f3aa221f3,2016-04-19,Fix goroutine leak in ssh-tunnel healthcheck.,goroutine leak
+kubernetes,2f43fbc6c76d2a103a1b8a2fdc15d55ae62513c9,2016-04-05,bump up etcd dep to fix watcher race,race
+kubernetes,bf097ea233126a4d63f99cec25cdcc27f907794b,2016-04-06,fake util.clock tick,lock
+kubernetes,696423e0444c962899e07859a6fbeb5e4c4cb664,2016-03-23,"Vet fixes, mostly pass lock by value errors.",lock
+kubernetes,3a4beb1ef1742d590f3c37b330e6a8dedee7e192,2016-04-04,Set CLOUDSDK_CORE_PRINT_UNHANDLED_TRACEBACKS on GCE e2e runs.,race
+kubernetes,9e0ebc27736e9bff45d98bd30192ba0d77c66131,2016-04-04,Remove SecurityContextDeny from vagrant setup,context
+kubernetes,f43f398cadb86fb50b80171bea816daf9057e415,2016-04-01,AWS kube-up: Allow BLOCK_DEVICE_MAPPINGS_BASE to be empty,lock
+kubernetes,6ace15eb7329c5f299e6ae89bfd68e44dbb0e3e6,2016-03-31,Comment out racey part of the multi-scheduler test.,race
+kubernetes,674d08309277019863a9e03a66baf682545afcec,2016-03-31,temporarily disable goroutine calls to testing.T.Logf to avoid race,race
+kubernetes,c1596e671178b59baae81d0ca777165b78720ee4,2016-03-23,Update guestbook examples; replace RC concepts with Deployment,once
+kubernetes,9de33fc42538d5a8b04fde8f5f9db364cbadce22,2016-03-29,Run node test jobs every 30 minutes instead of daily.  This is critical for the kubelet e2e as it is a merge queue blocker.,lock
+kubernetes,1471a5b96b9ce8e93137a9fcd2750705f01b0b3b,2016-03-24,Fix scheduler_test race,race
+kubernetes,d6e15665091512711ccf2576e918908c70f1623a,2016-03-11,Refector deadlock into detector pkg,deadlock|lock
+kubernetes,f5c631e22088ccceecf9d23120e2dc940cab40b0,2016-03-16,kubernetes/kubernetes#23034 Fix controller-manager race condition issue which cause endpoints flush during restart,race
+kubernetes,655048add93058fc0ef1bcc71447124ca49f16e2,2016-03-12,Decrease verbosity of namespace controller trace logging,race
+kubernetes,f8e1404f871cff0f7c0f0c88cc4d11d008252e1c,2016-03-09,e2e: seperate wait for termination notice and graceful termination,race
+kubernetes,4846c1e1b22f4e7557a1c22b10cf77a3f5fd284c,2016-03-01,pleg: add an internal clock for testability,lock
+kubernetes,a482789cc0b98bd42d63b42f270f2899ee1d0957,2016-02-29,Workaround proxy deadlock in metrics gatherer.,deadlock|lock
+kubernetes,859f6b13fa3ccb73a3017106ed105a0be0fb951c,2016-02-28,Don't double count graceful deletion.,race
+kubernetes,26471d57235a14f76487673330ef7b39f609a8ac,2016-02-27,Remove sentinel file from atomic writer,atomic
+kubernetes,375b4ca8d6703fb0383c1290e0bfe7494e52a181,2016-02-26,Revert 'Revert 20202. Use other measures to prevent race in test-cmd.sh',race
+kubernetes,c1a7e280a36ab0ec1a54c73fae2a1ee33c4c4e57,2016-02-26,fix pod eviction for gracefully terminationg pods,race
+kubernetes,4ce5f68ed08b191d15580142d7261df622106b08,2016-02-26,Protect against race conditions in the service controller.,race
+kubernetes,a238d90d496dbe9d519aec69a21713760421d3e0,2016-02-10,Remove the SecurityContextDeny admission controller so that the testing environment matches the production environment. This was removed from config-default.sh in #16986.,context
+kubernetes,45eb83583319f78d7d24cb0fe848c76a337204fa,2016-02-23,Lock across item expiration in the ttl store.,lock
+kubernetes,4097cfe0225643466be54a17ecc8f63c7a79276e,2016-02-24,"fake backoff implementation for speeding up flakey test, fake Clock Test for sleep",lock
+kubernetes,7e50fa6df00fd9d2d5b850b3f8bf514f51436428,2016-02-23,Update DeploymentReaper.Stop to use ObservedGeneration to remove race condition,race
+kubernetes,7900f1dda67657f8fde0df53edf8a415d4d19163,2016-02-24,fix argv[0] of executor args; move conntrack args to minion block,lock
+kubernetes,dbfb6c01692ef4427399dad823a0f3f2ac42d5ee,2016-02-23,Set RC's pod template TerminationGracePeriodSeconds to 0 in test-cmd.sh test data,race
+kubernetes,30e75be5a917fe6bd12026e8a75be5eef695cb9a,2016-02-22,Update flocker-go godep to pick up new LICENSE file.,lock
+kubernetes,15d44d182a024f9da4ccc91d56a0a976f3bd715e,2016-02-17,Fix possible data race in prober,race
+kubernetes,3fb020b28d1fb386de923adcf5fbbea74b075cde,2016-02-19,Fix a locking bug in the cacher.,lock
+kubernetes,7823d615e842f194c3bfb9e8097583b758109df5,2016-02-01,put block/unblock network function into util,lock
+kubernetes,7de6a253839fe0c46bea71905b1e59d7ea5935ce,2016-02-16,Identify runtime's cgroups periodically to avoid race with runtime uptime. The runtime could also move between cgroups.,race
+kubernetes,c618ec2303e7d578b011cc89c57b323680eee4ae,2016-02-16,Tweaks to Flocker description,lock
+kubernetes,e5e691ed5ff259da7505d863165eceda3f3fc23a,2016-02-11,Default lockfile to empty string while alpha,lock
+kubernetes,cc967972a1391b35e2bd3f36459d381df937f3a6,2016-02-11,Run atomic_writer_test only on linux,atomic
+kubernetes,214d0189113347a5475c227feff23330196613f5,2016-02-11,Fix deadlock in nettest webserver,deadlock|lock
+kubernetes,b750ea678fd8774e85e465110c6bc9ab3634e45c,2016-01-30,Generalize atomically updating projections into volumes,atomic
+kubernetes,e8cbb762e2888b8f7a4049f015ee04bcbc4b0f4d,2016-02-07,e2e SecurityContext tests wrong volume dir,context
+kubernetes,d3639aff7397dd0f0d3553b82043401ff834a356,2016-02-05,Fix deadlock in watch cache,deadlock|lock
+kubernetes,fdf6a0f61c354928e4d9329841328ab52d37ab00,2016-01-26,skip update when deleting with grace-period=0,race
+kubernetes,220163f67de05890dd57b2ed6f2b02362f633a78,2016-02-02,Fixed races in Cinder volume attach/detach.,race
+kubernetes,4a7d70aef1016c3f1a1ea07398ec56cf1fdce68a,2016-02-01,extend fake clock,lock
+kubernetes,5f6f6acec7f68a245ee8fcf68f5694a54fd66534,2016-01-28,"Deprecated soon: override /etc/init.d/docker file on containervm image, so that we can unblock docker 1.10 validation.",lock
+kubernetes,c9f4f7827307c3e79fdca39545ef8c7a3df3e6b9,2016-01-26,reuse fake clock in the kube repo for kubelet unit tests,lock
+kubernetes,0b50f6c5135bd71de97948dcf9db2f294324e08e,2016-01-21,store and return deep copies of pod objects to avoid data races,race
+kubernetes,f1535a0d4c3cc199f9a64a9625fa953be3b383a7,2016-01-19,Don't handle graceful deletion of mirror pods in status manager,race
+kubernetes,70fceeff9271cfafe7acf204ff23f851541c0f7a,2016-01-19,Relabel Security Context e2e,context
+kubernetes,01829432db07431689cfc0942a15e2dc58bf1fe6,2015-11-24,update pod status once node becomes NotReady,once
+kubernetes,6c36b611ea9185ceb11314f626fe22999fc2d4fa,2016-01-13,Add lock in density test,lock
+kubernetes,0581aeb805dc16aab74985e51135a3f9a3221beb,2015-12-22,initial commit to refacter flocker example docs,lock
+kubernetes,52739bc82b22933aeed00c9b2f04eafbd86240c8,2016-01-11,Add kubectl config current-context,context
+kubernetes,27934da9ccb1fd8134823345365f3e6e58a15f0d,2015-11-20,Validate uids and gids for securitycontext,context
+kubernetes,dd9301ede92679626ce94c7198d50dbc6831fa69,2016-01-07,Fix data race by eliminating concurrency in test,race|concurrency
+kubernetes,24c44e7a8eec0806c25967ba712c8c80828fa853,2016-01-05,optimize ListRoutes to fetch instances only once per call,once
+kubernetes,884dc5c9e5ef7df0679e68a6a98c7ac1d8bcffa4,2015-12-29,"Put TerminationGracePeriod, DeletionGracePeriod and PreStopHandler to docker labels",race
+kubernetes,c8ad31161b3868f0de14265be4b35b59ac8fc00f,2015-12-30,Workaround races while closing etcd server.,race
+kubernetes,6e92ddf9e1061d0d83bec6a1505b9dee28667aac,2015-12-28,"Cleanup pod print in dockertools/manager.go, prober/prober.go and runonce.go",once
+kubernetes,fb11173f6fca43837d2f7de3320aeede7dc3a49d,2015-12-28,Stop flocking for gcloud updates.,lock
+kubernetes,ec70eb16f330097740edc6fa31353689d5616db0,2015-12-28,Graceul termination in Cacher,race
+kubernetes,41c783503997dbc4df10a9934a630b74829d4bb3,2015-12-22,Fix race in watch tests,race
+kubernetes,6297232112debed49f44078e78e0950731d9e495,2015-12-21,Fix race in EtcdWatcher,race
+kubernetes,e3311aa93ac6c3ad89d648129fc351aa5eae1e5a,2015-12-18,Fix data race on cancel variable in etcd code,race
+kubernetes,0fecf965b4844af057e5eabc6cb2e233dd64ab5c,2015-11-14,Change how one-of blocks are validated,lock
+kubernetes,c0e96123008536b256e4a73f90612c1646961b50,2015-12-16,increase grace period for elasticsearch cluster to elect master,race
+kubernetes,facb0a5c42c3c80f90b8c65b8fbcfd81d04d8584,2015-12-15,Concurrency fixes for prober tests,concurrency
+kubernetes,a63ab34163ab95a19664909f9a366940eaa4d729,2015-12-14,Update etcd godep to fix golang 1.5.1 data race,race
+kubernetes,207fb721b9dda5e32022317cacef1c2daab5a0a6,2015-12-09,Godeps: bump go-oidc to fix the race in tests.,race
+kubernetes,6a7e8861c24203cc5f6e9d6ab4e37e95c6b9d7cf,2015-12-10,Fix data-race in reflector test in Go 1.5.1,race
+kubernetes,5405a5d98df40c10335ab641738be9aa372e25fe,2015-10-24,Move atomic_value into folder,atomic
+kubernetes,34c063cfe16792808890c482c0e79ed6625d5a81,2015-12-02,"attempt recycling once, fail pv permanently",once
+kubernetes,eb551f388caaa41827b57967d908ac57e76c6e16,2015-12-10,Fix potential data race,race
+kubernetes,32794b18f06acb1a5adbbc616433209eef32f856,2015-12-09,Fix data race in prober test,race
+kubernetes,788218d7bb951c84695995f16a72b7df2c4b2726,2015-12-03,Better traces for api calls.,race
+kubernetes,0736d5c89385c67f93e43b454992ad21fdb17b8e,2015-12-01,Better traces in list operations.,race
+kubernetes,02a11f7a2e8b6d3dcf14a6764c57cc9329f2c8df,2015-12-02,Merge pull request #53 from mesosphere/jdef_fix_executor_state_locks,lock
+kubernetes,81b9097a801cded4762bb2dedb531c9d74477751,2015-12-01,kubelet runonce: create data dirs,once
+kubernetes,0521481655b2ead465f801711162ed9553ec9cb3,2015-11-27,client request metrics should be registered only once,once
+kubernetes,1dcd2502741b72bf7bed85d88a9b1970ae7f2360,2015-11-06,Refactor the deadlock detector for testing.  Add a test.,deadlock|lock
+kubernetes,208d65ab596b80644437578cede135a30f1a2599,2015-11-12,kube-down gracefully,race
+kubernetes,0584f9ba7a590d16979813af4a8a982e2fd60b22,2015-11-04,"Create mirrorPod in runOnce to update API before syncPod + Fix #14992 + 'When deploying a pod using an on-disk kubelet manifest (a la /etc/kubernetes/manifests), it appears that the network plugin setUpPod is notified of the new pod before the apiserver.'",once
+kubernetes,ed0e919da602a1d44c735bb5b0d324312204a4e5,2015-11-02,"Add kubectl edit, annotate, autoscale concept to deployment document",once
+kubernetes,b9b8cf7fff297df724d9236240e84ba1fd97537e,2015-10-28,Fixed race condition in pv binder,race
+kubernetes,26338dcd4d7c2b5f7d60b1cca905c252638bcf28,2015-10-25,Move independent concepts out of scheduler plugin in their own files,once
+kubernetes,5f4570b764313b7d9ba254a49f1b83bb9e16246c,2015-09-25,handling locks and update tests. Fail node if network is not initialized,lock
+kubernetes,c511db911361ea28fe80a7d96a1064b1ab17209b,2015-11-06,Add a deadlock watchdog,deadlock|lock
+kubernetes,ff88cc4df96357f3c842fb9302de418c424be07a,2015-11-02,Allow security context in GCE clusters,context
+kubernetes,9b00b7ef354725ffa57b3087c8add1990183f205,2015-11-05,Avoid MockPodsListWatch deadlock of blocked channel while lock is hold,deadlock|lock
+kubernetes,d55666043bf00a30c0698c5dbbd1645769f91c34,2015-11-02,Fix last current-context command in cluster/common.sh,context
+kubernetes,8ecfd967d59697e23d98804e330c572044d1bdb2,2015-11-02,use current-context from .kube/config when getting cluster credentials,context
+kubernetes,3d7dd82bf65079847ad9ab5250011280852a6afd,2015-10-30,Clean trace of 'Minion',race
+kubernetes,ce35bb420811e2b2c8c020892d0a106e2d2f7aa0,2015-10-30,Remove trace of 'kubectl stop',race
+kubernetes,9a2089adc8b60e9a33ca59cdc931e21d956f1ff8,2015-10-23,Concurrency fixes in status.Manager,concurrency
+kubernetes,187c32a74a7c258fc5ed078bd1cc3327d77edee9,2015-10-27,Wait for docker termination when creating network bridges. Currently we might have data races.,race
+kubernetes,eaf8dbcb00abedf347e00e137850166a2cdcc100,2015-10-23,Indent 'GRACE' column in pod dump of test output,race
+kubernetes,19115b2a222a4bdf4555a39dc721ed6dfdd9fc56,2015-10-21,Fix GCE Cloudprovider waitForOp bug and make GCE attach/detach atomic operations.,atomic
+kubernetes,7c3c0485f794dd233ed28504fda6e8250f760068,2015-10-22,"Remove nonblocking on flock, update comment.",lock
+kubernetes,bf572908693dcfb55da652bb9814bac3b2c2d5c5,2015-10-21,Revert the flock command to the working version and add a warning,lock
+kubernetes,393e2bc0195343c83933aa0cf1c02e854fe8779b,2015-10-20,Inline some SecurityContext fields into PodSecurityContext,context
+kubernetes,a5bedd4cf4ce718631e263aca97c07340ec97f9e,2015-10-21,Revert 'Revert 'Fix 'flock' command in hack/jenkins/e2e.sh'',lock
+kubernetes,d00bf0c48cfc6267dece92d70c7ef9ea31761361,2015-10-20,'Force events to be non-blocking on the client side',lock
+kubernetes,ac686d753662974390973be9dd749a22c3e1cb95,2015-10-19,don't gracefully delete terminated pods,race
+kubernetes,d11a3930c0118106547a253ce17a41cc791558bd,2015-10-17,Remove race of ClusterDns e2e frontend test and starting pod,race
+kubernetes,d4602bb909c918258080478afe45e2a8ebaf7732,2015-10-17,Remove race of waitForRCPodsRunning Running check and internal pod store,race
+kubernetes,d6fcc332af3a33f5541a6f146467dccff7567062,2015-10-16,Codecgen output for stdinOnce,once
+kubernetes,e929baf91adcd6ef14dd4adffb3acbadd64781b7,2015-10-03,"Support stdinOnce, which allows run-once STDIN injection",once
+kubernetes,d5aea32d0792f8dced90d47a48277741315545c0,2015-10-16,Solve race between scheduler and kubelet about new node labels,race
+kubernetes,df246991e0f3497e9d7bed992585bfda012181f0,2015-10-15,"avoid blocking on full-pipe conditions for procs that write to stdout, which we continue to ignore",lock
+kubernetes,0e296c3dcd018cfbfdb80eddcbf55ea9d7d31f67,2015-10-14,"while deleting pod on terminal task status update, delete with grace_period=0 as the corresponding pod is already gone",race
+kubernetes,7d02ea9bb742d0bd0728d644399fb36cdbabc6c3,2015-10-13,Fix race condition for consuming podIP via downward API.,race
+kubernetes,2a2a2d79ff4531b32e2bebd2afa9107365d272d9,2015-10-09,New etcd client modifications part 1 (context support) This commit plumbs contexts which are needed for the new client.,context
+kubernetes,29c607bed672db124462f1b20dc75cc03ced436d,2015-10-09,"Only use static IPs for GCE forwarding rules while creating or updating them, not in the steady state once they've been created. This makes it much less likely that users will run into static IP quota issues.",once
+kubernetes,9136d49dc9090142b7ad2838af91703666713d76,2015-10-07,400 HTTP should not result in a stack trace printed,race
+kubernetes,fb04edea3a46bb32245c7730d053fd74d1ce2ae2,2015-10-07,Replace rkt --grace-period and --expire-prepared with gcPolicy.MinAge,race
+kubernetes,a7c06e57acb69edc561cd747823d459705ec3350,2015-10-06,flocker unit test should clean up after itself,lock
+kubernetes,c41eda73094ce5df8494548a8dce0c6b008effb5,2015-10-08,kube-down gracefully,race
+kubernetes,7999e72659192da204905b46cbe97c3eb3996f85,2015-10-02,Fix potential goroutine leaks in pollers,goroutine leak
+kubernetes,227dd8211933913986f63568f8765f499fb0f42b,2015-09-14,Add PodSecurityContext and backward compatibility tests,context
+kubernetes,2feb54ce4097d6efbeb957ea0473b3394ee82002,2015-10-02,"Add utility function for errors that runs multiple functions that errors as goroutines, blocks until they're all done executing, and combines the results into an Aggregate error.",lock
+kubernetes,41e2a4c40f1705da172723db56c4d294afb66bc9,2015-09-29,make patch handle conflicts gracefully,race
+kubernetes,3d4b76d7226452aa785d2c028c6e388bb539aace,2015-10-05,Add option to allow security context in local cluster,context
+kubernetes,42c84954fd4946ff1c41ee43523cbc53ee7f2a97,2015-09-23,"executor,scheduler: make launchGracePeriod configurable",race
+kubernetes,330f12b6604191b5f49c2bb35c8d8b30fc94d1bd,2015-10-01,Use REJECT instead of DROP when blocking node,lock
+kubernetes,29dd7e3bb80e8a80bb9f37437066cab1575ceb8d,2015-10-01,Fix race condition in DaemonSet controller. Fixes #14693.,race
+kubernetes,74e57e85f15e94d404f36e67a0d6dcfca1b14a63,2015-09-24,Pass all changes of DeletionTimestamp and DeletionGracePeriodSeconds to kubelet,race
+kubernetes,fa39c2b0321a1d63665b24559746f9323c2f4fb7,2015-09-25,Add flocker volume plugin,lock
+kubernetes,40bb24d69217d457fc89f66dfcb0cfac96c53b56,2015-09-30,Revert 'Fix 'flock' command in hack/jenkins/e2e.sh',lock
+kubernetes,cf31d16d947ac42dc4467216577aef5c56df7e79,2015-09-30,Fix 'flock' command in hack/jenkins/e2e.sh,lock
+kubernetes,4dc9df91d8f54503bdccce845c179f687b9c1776,2015-09-29,Fix race condition in kubectl run --attach,race
+kubernetes,67746908e55eae7579fb9341772a9126d955acee,2015-09-26,"Deleting gracefully terminating, not-scheduled pre-scheduled pods",race
+kubernetes,011db554e5e1be73577bd5b6a7028210dec28036,2015-09-26,Simplify fake controller lock,lock
+kubernetes,f75a4d914aa60cc35abd7426c8ca63624612f82c,2015-09-25,"clean up DATA RACE from Fatalf; avoid returning too early, actually wait for deeply nested actions to complete (flake)",race
+kubernetes,0c70062d670d5303aa81f9a31b9915c092a5ee93,2015-09-24,Proposal for pod level security context and backward compatibility,context
+kubernetes,40247acb0f812a16f4e5950b0f55c91ca9958c55,2015-09-23,Fix a race in pod backoff.,race
+kubernetes,ec2605a7586018f8cea8eadf6e1c6ead667d32b6,2015-09-24,"wait for some grace period for kill proc to die, upgrading from SIGTERM to SIGKILL if needed - refactor kill signal escalation into separate func for easier unit testing - added unit test for signal escalation",race
+kubernetes,ec427f22b16f8819a81442696f3f08e6de4a228b,2015-09-24,Disable race detection for all integration tests,race
+kubernetes,d3379e72bee9ebf5194d445343f42c5743ae8a7e,2015-09-23,Turn off race detection in the etcd tools test as etcd client isn't thread safe,race
+kubernetes,8319a5c8222f3819770f8d6b7a1b1ea9e8f2352d,2015-09-23,Replace testDocker with container.fakeRuntime in runonce_test,once
+kubernetes,be57b2871e74d6a16b042e36abcb1a70270472cd,2015-09-17,Watch pods in executor and tell kubelet about graceful terminations,race
+kubernetes,80a37fbca4e81db655c41628bfdc88035da6edd3,2015-09-20,Fix race in lifecycle admission test,race
+kubernetes,c4bc4e26becbbb1c58b4b57e6c691fe6ea9e7f40,2015-09-19,kube-down gracefully when api-server is no longer accessible,race
+kubernetes,267cc9de91e6f8dc4daed0b46fbe2ac96f8e332e,2015-09-18,serialize access to active with a lock,lock
+kubernetes,cda68cbeb5a2c35e13eb9548576cdbdb57022092,2015-09-15,Revert 'Lower the grace period for Pod eviction for e2e clusters',race
+kubernetes,645c9153d43f8254fec8f796ce20c4234d2063f5,2015-09-11,Lower the grace period for Pod eviction for e2e clusters,race
+kubernetes,d15de72a92c8841d069b1265e433eb52edc29822,2015-08-25,Fix race condition in controller_test,race
+kubernetes,ad243edaa3bfcefbb69ab3ff42cb6fe39938599d,2015-08-22,Fix race condition in watch,race
+kubernetes,23133a734476f2590457e87240ab25c2dccb8522,2015-09-09,Define lock coding convention,lock
+kubernetes,d22a29cf6646c91c9ea507345f78f3df4c8a20bd,2015-09-08,Block apiserver startup on certificate,lock
+kubernetes,98b954c74cb2035388ddcb6356422e95f4ebc7a7,2015-09-07,Add a mutex to assure atomicity of reat_limited queue operations and remove 'leaky' version of it,mutex|atomic
+kubernetes,9fc8a79e37c1eb752a29623c88e8c98409ea4315,2015-09-01,Revert 'Revert 'Don't take the proxy mutex in the traffic path'',mutex
+kubernetes,a20d7ca481e638ba1d35568e9fdfd29311fe6b2b,2015-09-01,Revert 'Don't take the proxy mutex in the traffic path',mutex
+kubernetes,2d1133de980c080d2107bcb188a48b5c65fd3b5f,2015-09-01,Fix two broken codeblocks in Guestbook example,lock
+kubernetes,f0a9badd2d50548544a0b53fef8cbf1e4852c5bc,2015-08-28,Don't take the proxy mutex in the traffic path,mutex
+kubernetes,4ff66bd70ad128d05f26ad9615e48ed5d167ee23,2015-08-21,Fix race exposing pod IP via downward API,race
+kubernetes,a5fa5673e217a80c7d0948314e21da8215df7022,2015-06-27,"rewrite Process implementation from scratch, unskip previously failing test: - fix races in unit tests - fix flaky singleActionEndsProcess test; further simplify Process impl - fix flakey error handling in processAdapter - eliminate time-based test assertions",race
+kubernetes,f9590a33fde93176653d8805cbe7435d78cd3463,2015-08-19,Enable graceful deletion by enabling pods,race
+kubernetes,05b205bab6591f9767a8223b391c1a62e976c9a2,2015-08-28,Revert 'Volume Plugin for Cinder; Openstack Block Storage',lock
+kubernetes,49921ada74a7727f2943a5d86e4e433e6d76f96b,2015-08-27,Configure lower NFS grace period.,race
+kubernetes,a12b7edc42c5c06a2e7d9f381975658692951d5a,2015-08-25,Fix deadlock in Cacher on etcd error,deadlock|lock
+kubernetes,f5c4a3e7a68680a2186c1138adfe23a46e50bb97,2015-08-19,Handle graceful termination in the Kubelet,race
+kubernetes,02dbb95447bad3286e00822d2f5931d62a095872,2015-08-19,Add TerminationGracePeriodSeconds to API,race
+kubernetes,9267f829eb8fc7928d974481a97f0fc65f2a64ef,2015-08-19,Update tests to prepare for graceful deletion,race
+kubernetes,9ee7b76bbac4bc8c86af3045f0e9d5ff16c44593,2015-08-19,Allow testing graceful shutdown via network-tester,race
+kubernetes,90bf334fd1e2f37e14a232c1d4d901188be1a305,2015-08-17,Fix deadlock in the cacher,deadlock|lock
+kubernetes,08e6a43c1d019c097ecf2075185dbb988627afab,2015-08-18,Revert 'Merge pull request #9165 from smarterclayton/graceful',race
+kubernetes,edb108802d05f17c3c534a2c2a7d2909f365132a,2015-07-30,Handle gracefully terminated pods in node controller,race
+kubernetes,89f1f3b1b8ec99d7efb0ed800b35828962b76317,2015-07-27,Alter graceful deletion to not use TTL,race
+kubernetes,b842a7dd1584afb627e2f77bbedf87c86a6f1f20,2015-06-02,Revert 'Revert 'Gracefully delete pods from the Kubelet'',race
+kubernetes,8ddef456796f9b8042417f0d3477999bc8781174,2015-08-17,Fix issue 10587; update SecurityContext godoc,context
+kubernetes,bb31cd29ea006c9f1e6d1a41ebcab603fc6bb330,2015-08-10,- fixed the defencing of the rbd lock,lock
+kubernetes,7a73f3cdb832182e03f705d0e1e68617d2fb2214,2015-08-06,Fix typo in security context proposal,context
+kubernetes,092d407a48c46cded617ce4e36a166ac940b11c4,2015-07-09,AWS: Fix race in security-group read/create,race
+kubernetes,d7bace23ffc341b8824a1f63d34926dadbd7e7c6,2015-07-09,AWS: Fix race-condition in tagging of security group,race
+kubernetes,0d4851a4ef7ded3db0d807643330092536dd1a3e,2015-07-24,Ansible updates for Atomic.,atomic
+kubernetes,234f3ed81441a931fc3c5e0101a5e455d4e6f4d9,2015-07-19,Make GCE PD attach block on pending detach. Retry on detach/attach errors.,lock
+kubernetes,ef5c07cf611da80f79a4386af0b3f673f42216bd,2015-07-23,added the blank line before the ``` block,lock
+kubernetes,8deb06f8d37127c1cdb7cddd4db67fab8d989a64,2015-07-19,Add JSON type to code block for labels documentation,lock
+kubernetes,3c55bd85ef147a3d2c7982c57cf4ecbfabd33f44,2015-07-18,Fix JSON code block formatting for annotations doc,lock
+kubernetes,8172551763d2a54bc5a04bb4bf4cf003bf8cf658,2015-07-17,Fix the munger for code blocks - ticks at start of line,lock
+kubernetes,e98c8e7685f4475e091f9186606098039c2fc250,2015-07-15,Fix deadlocks and race conditions in mesos master election notifier,race|deadlock|lock
+kubernetes,dd7345b25fa117f24f421052059a36869e4bc25a,2015-07-11,Fix offer+pod races in mesos scheduler plugin test,race
+kubernetes,0728c08a1ec25e4fe8d63608d5f391d3316e9975,2015-07-11,Fix scheduler race,race
+kubernetes,95cd66d3a0e217ec79fecceb22ef098a4116f53d,2015-07-10,use 'lines []string' for updateMacroBlock,lock
+kubernetes,d306738bec2a8d79e23936797f2c5b2f76104f8f,2015-07-03,Salt: re-remove comment block,lock
+kubernetes,191528b782c918c6ec6ba5aebeb1f574d478444f,2015-07-03,Salt: Add service block for kube-proxy for systemd,lock
+kubernetes,da0bc5f690ba507798aea0ee10672eebd6f9513c,2015-07-08,Remove race in setting/reading kubelet.podCIDR,race
+kubernetes,7ec1a69cf1b576b73d473a998579123cba57e7a1,2015-07-07,Update document of security context,context
+kubernetes,86640ab3e3319bcc81a487181db2636f7e0bf6c7,2015-07-03,"e2e: For AWS, block master by (hard-coded) IP",lock
+kubernetes,25007421bab64edfcc50d5636919cd696386365a,2015-07-03,Salt: re-remove comment block,lock
+kubernetes,a5b3c73ac4505448afe47859493f5915bb24a024,2015-07-03,Salt: Add service block for kube-proxy for systemd,lock
+kubernetes,efa76b72ae4c5d50b1ba416638e0097651fc0bd3,2015-07-02,Run the build once during presubmit,once
+kubernetes,aea34037349eb87b140cc577de349bbd2c3fd19f,2015-06-29,make use-context return error when context does not exist,context
+kubernetes,ea2d617944a6da116563359550b11e6c8895df34,2015-06-29,Don't hold lock while opening new sshTunnels.,lock
+kubernetes,601b00db693acd52ed2691f5d13b236a19c0da48,2015-06-26,Don't block etcd client,lock
+kubernetes,45ac0cf25e9b7def174cef4003275365054c5457,2015-06-26,Don't block etcd client,lock
+kubernetes,6ddfa512def149ed110490ee2ea161b60b39b392,2015-06-24,Revert 'Revert 'Fix the race between configuring cbr0 and restarting static pods'',race
+kubernetes,fd0a95dd12d0c09e61a09b8d73de1a7799a0246c,2015-06-24,Revert 'Fix the race between configuring cbr0 and restarting static pods',race
+kubernetes,64ad3e17ad15cd0f9a4fd86706eec1c572033254,2015-06-20,Fix deadlock,deadlock|lock
+kubernetes,4126622388d9901343f2c623c76fc12bbae831be,2015-06-18,fix locking around ssh tunnels,lock
+kubernetes,de1f246e891fd6794185373f3d3722f80e1048d5,2015-06-16,Fix benign data race in pod workers.,race
+kubernetes,34a0bccd2ede6231e4cac79bc7f34149c1dd45c0,2015-06-16,Stop supporting TRACE proxy requests,race
+kubernetes,1fb90686df643b90152eeb91155d272a0be5b951,2015-06-15,remove broken ginkgo Done concept from tests,once
+kubernetes,615e4f99a7d9ecb3e0d3f05d5e5615db7bec3178,2015-06-15,Fix mesos plugin-test race,race
+kubernetes,270a4875b0812bd3da297cb8139b7af4961f419c,2015-06-12,fix intermittent deadlock w/ nested concurrent action scheduling and give each delegate its own errOnce,deadlock|lock|once
+kubernetes,d52cef11a425d7ee2c6b1436a2be7872f5815b7c,2015-06-01,add v1 tests to hack/test-go; let default value of Container.SecurityContext to be nil,context
+kubernetes,ff6947625d4a89f6b21327c768e81232c6cf54cd,2015-06-01,add v1 tests to hack/test-go; let default value of Container.SecurityContext to be nil,context
+kubernetes,98115facfdfc206278a38a586bcc1fbc62a46bfd,2015-06-02,Revert 'Gracefully delete pods from the Kubelet',race
+kubernetes,f12a68cd60ccfe2f0926386df771805c0993d783,2015-06-01,Apply fix for #8642 to GracefulDeletion,race
+kubernetes,cfb122a3bfed706559150c55f5306f0688953e5d,2015-05-21,Enable network-tester to test graceful deletion,race
+kubernetes,72ee028cab61493d2180782114a1e54281b5b4d1,2015-05-21,Gracefully delete pods from the Kubelet,race
+kubernetes,79a2a4f18db9d16789df51ebdf2bc1b009e80f38,2015-05-28,Fix the race when monit is used to monitor services which are also started at boot time via init.d at boot time.,race
+kubernetes,eb14b68a9ca0836a5c4e9cd8ff8cddf44a60a024,2015-05-28,Improve tracing information by deleting traces from etcd cache and adding information to traces from generic registry.,race
+kubernetes,4a800fd10ea2eb1bd2f424994c6d33b5716940d0,2015-04-07,add rados block device(rbd) volume plugin,lock
+kubernetes,2473a814121eb17146e51f06df4ff94648e2684d,2015-05-19,Add mutex lock to cleanupStaleStickySessions,lock|mutex
+kubernetes,b79fae5d7108592f51ed3237cf628adf47a28ec7,2015-05-15,"Revert 'Revert 'Once again, use native Ginkgo test runner instead of cmd/e2e.''",once
+kubernetes,7e96aec477a229c954b8748bfbca01709d68831f,2015-05-15,Fix some races/multi-thread access in the reboot test.,race
+kubernetes,67da1ac0c80eea4f9cc097eee745967b230eae4e,2015-05-15,"Revert 'Once again, use native Ginkgo test runner instead of cmd/e2e.'",once
+kubernetes,86b023fdd6386a3c2a15d6bde38868b450647c6c,2015-05-01,"Once again, use native Ginkgo test runner instead of cmd/e2e.",once
+kubernetes,c5b1508774163920a70180e63414633569267bce,2015-05-11,"Make MIG deletion during GCE kube down blocking, so that subseqent template deletion doesn't fail.",lock
+kubernetes,50de4d00813ca4c60056ddf50e9eaaa049f3f8bd,2015-05-08,Add cache with multiple shards to decrease lock contention,lock
+kubernetes,d59f3aeef12aee4ea17c847b47c7567e10c95ea7,2015-05-07,Fix wrong link for security context,context
+kubernetes,fd65427e28dac5675a6c287e11eb581d537f6f10,2015-05-04,API Server - pass path name in context of create request for subresource,context
+kubernetes,a6b06f49320daa257e1707ab4a8b2bdac2cae985,2015-05-06,Fix link to service accounts doc in security context doc,context
+kubernetes,292d33e33c12161c687257fc470298f49680ba72,2015-05-05,Add synchronization around nodeMap,synchronization
+kubernetes,875e83a7415a8fff5d3fa4645b93551f96b12c89,2015-05-05,"Revert 'Revert 'Security context - types, kubelet, admission''",context
+kubernetes,f48904fd5e45d58362ac0466d47e7b046027c61e,2015-05-05,"Revert 'Security context - types, kubelet, admission'",context
+kubernetes,982bf19c205045259cf778ce4fe99df849daa20d,2015-05-05,security context initial implementation - squash,context
+kubernetes,864e12d99581c152db0066125d70343808271966,2015-05-01,Retry once and requeue on failure to update status.Replicas,once
+kubernetes,11a2dc496fef202470058e439a4983d592cfffba,2015-04-28,Added TerminationGracePeriod field to PodSpec and grace-period flag to kubectl stop,race
+kubernetes,c848fa447ddc02fa457543497f15ee2129e8e14e,2015-04-28,kubelet: Refactor isPodRunning() in runonce.go,once
+kubernetes,f26df6a98389b8ba94b2dbb3e20c74575cae96d1,2015-04-16,"renamed exported symbol for pvOrderedIndex, added locks, remove go routine for sync funcs",lock
+kubernetes,be34714cb14113b1c14b8a6af71c8a27c2dbb44b,2015-04-21,Use --host option even if kubecontext is not provided.,context
+kubernetes,13a38f3e52d2b5de513d04373095149bd1f2c7e3,2015-04-18,Made NamespaceManager.Run indempotent and added graceful shutdown,race
+kubernetes,d5f02b2970c15254f3f795caf8a1cc900aeea475,2015-04-17,Use flock around gcloud component update to avoid race,race|lock
+kubernetes,2fd87597a43629ba6aa5d2406dc1737f83e5f6b1,2015-04-16,Fix data race in kubelet_test.go,race
+kubernetes,d1668b1dfaad7cdd360d9357103f8d79677c69c1,2015-04-15,Vagrant should not block on daemons that moved to pods,lock
+kubernetes,967405f0bb749878e85ba79c24e514aec4d4a6d0,2015-04-15,Fix locking issue in pod manager,lock
+kubernetes,fc08a0a71b7a8b00271da28c14c4d0897c502988,2015-04-09,"Do service creation/update/deletion work in a pool of goroutines, protecting each service with a lock to ensure that no two goroutines will process a service at the same time. This is needed to avoid weird race conditions.",race|lock
+kubernetes,6b28a69a1b08ac59c284c1b02c8038b1d048ee7a,2015-04-12,Clarify comments describing how GuaranteedUpdate() (previously AtomicUpdate() works. Closes #6626.,atomic
+kubernetes,c98e89fca0a188997737a3acdd913f39920a7e31,2015-04-10,Set rootcontext of emptyDir tmpfs mounts correctly,context
+kubernetes,395d69641ebcbd0fb466629d6aa461a45e57d854,2015-04-10,fix race,race
+kubernetes,9711e771c50fa1e7f7fa99e0dfa9b9a358bdb8f3,2015-04-07,"Rename AWSPersistentDisk -> AWSElasticBlockStore, aws-pd -> aws-ebs",lock
+kubernetes,2b5cad6acf86a0bac367ae5f8b93eb60e92dc720,2015-04-08,Improve kubelet logging around startup. This might help detect any lockup issues during startup.,lock
+kubernetes,62984f9beeb82b53b0b40c7856e1a25666f36f42,2015-04-08,Fix a race in the integration tests.,race
+kubernetes,88735f1d90156d41bc6620fa83c25add26e353ed,2015-04-05,"E2E : Density tests - explicit concurrency, parameterization, generalization of test pattern.",concurrency
+kubernetes,70be667cf862d305e644d5079485c5c3932ece4c,2015-04-01,add a blocking accept method to RateLimiter,lock
+kubernetes,c2b670513c0e42e5befc8f1660602bec19e5cb40,2015-03-31,Introduce concept of a default limit,once
+kubernetes,005da75f4a0f082adecb74e2dc980183c9f4e327,2015-04-01,Make the build faster - call 'go install' once,once
+kubernetes,267ef26b0f6117b69bcc53ce7d1e3ea16a76637f,2015-03-26,Do not block admission if namespace already exists,lock
+kubernetes,0804a5c8234496ce388647e63cef0eb57deab590,2015-03-25,Fix race in integration test,race
+kubernetes,0d0fb5f07b113c4ca382631dbf7165663c56a003,2015-03-19,Kubelet: per-pod workers should avoid grabbing the pod array lock,lock
+kubernetes,428d2263e5966e830ce9c1172b48da05d8ce0e44,2015-03-04,Graceful deletion of resources,race
+kubernetes,3a3b950009469cb665c8dd3fdcc4dc36a2a79df2,2015-03-18,Fix data race in imageManager test.,race
+kubernetes,39211af25e9bacb3b82af88c197663b3e21323a0,2015-03-18,Declare kubectl validate flag once,once
+kubernetes,6e8a8b741ab455711d38873456c782e7d4637c24,2015-03-18,Kubelet: simplify the lock acquring pattern,lock
+kubernetes,0e485310cf16eb72864ada400b1849a35642c33d,2015-03-13,Lock access and update to Kubelet pods.,lock
+kubernetes,dca3db0a509565f291e182472be7ade5d94d64c0,2015-03-12,Speedup pkg/kubelet/runonce_test.go,once
+kubernetes,cc3a433a7abc89d2f766d4c87eaae9448e3dc091,2015-03-11,fix goroutine leak,goroutine leak
+kubernetes,576bbb565ebf2912616c2277aa6c283caaa5a6fb,2015-03-03,Stop logging stack traces for 4xx requests,race
+kubernetes,b73662ac953eb0c8a6de0c8b719c3318739f7826,2015-02-23,Update links to security contexts and service accounts to point to actual docs instead of pull requests now that those proposals have been merged,context
+kubernetes,a6d975c9291456b44504e60e55abb1e49b66ab45,2015-02-23,Remove pullLock from Kubelet.,lock
+kubernetes,d6fb8ce05acce3bedf0b59995bf666ee78febe96,2015-02-22,Don't lock readinessStates on concurrent reads.,lock
+kubernetes,87a41b0934092df2f7aaadd1646c1e5299300bfc,2015-02-21,"Improve vagrant reliablility, fix race condition with openvswitch and docker",race
+kubernetes,9f10f7714b7e5d7dd5c0441ad95383c0751f3942,2015-02-18,Fix the e2e --times flag for running tests more than once. Fixes #4555.,once
+kubernetes,aa32f1b2ce45ce986c7fa0d5d22f3ea6c780ca9d,2015-02-13,Retry #4337: Make gce kubeconfig context include project,context
+kubernetes,083ce268e02a4cf22cbb27fe172d42fef88c2d49,2015-02-11,"Put user in context, map requests to context above resthandler layer",context
+kubernetes,ec66e5147e965576efb0b3cfaa7e0fe3e68010ea,2015-02-11,Add user helper methods to context,context
+kubernetes,e2ec52bfdfea64c9319353b5da9856fa2399d894,2015-02-12,Revert 'Make gce's kubeconfig context include the gce project',context
+kubernetes,6813683ee233e243bb537dce9fed92a47628607d,2015-02-11,Allow AtomicUpdate() to surface the error when the key doesn't exist,atomic
+kubernetes,549504dffff3e04fa81cdcb442b1549611fe84f9,2015-02-11,Don't fail get-password when no current-context.,context
+kubernetes,7b34d6ef8e08924ff17408023db736ac51eb819c,2015-02-11,The namespace context for a get of an individual namespace is the namespace,context
+kubernetes,3da5d27ab23b96e0b40206f28052571f1367843c,2015-02-11,Make gce's kubeconfig context include the gce project,context
+kubernetes,3d6c9fc9e8326cf027cde2f2b2f78c46f619f0a3,2015-02-06,Fix gce_pd to only use safe_format_and_mount when mounting block devices.,lock
+kubernetes,783e1de5bb07b59299c6d2da30a109187f74efe6,2015-02-05,Add some locking to prevent go data race logic from tripping.,race|lock
+kubernetes,70237e9cc608be1c3aece3ac7ed8b421cf21cb53,2015-02-05,Changed to return in the success case testing testContext instead of using an else statement.  #4162,context
+kubernetes,3b5ea74a4800f2c388698db1fe2b268002736b3d,2015-02-03,Fix a race in kube-proxy causing runaways,race
+kubernetes,42175b433ab25ee42140b5c6f84cc542bf69ecc7,2015-01-30,Make master index optional when master is used in other contexts,context
+kubernetes,b0dd0a8d0b6202dc2c7bea53fc9a16363a49cd6d,2015-01-30,Handle missing auth file gracefully in kubelet,race
+kubernetes,8b72dd9000c7315aa93143d79aea60d571a875f1,2015-01-22,[Proposal] Security Contexts,context
+kubernetes,3acd101ef9d0927676097aedd66bd5eceba86ff4,2015-01-22,Remove bitrotted proof-of-concept generators.,once
+kubernetes,9ba6525597a3005236b48463533f61a35c6c374a,2015-01-15,Report project and zone only once,once
+kubernetes,702a6f96b45318254728e034c84ba5ce4effe6a7,2015-01-10,Improve client recording of events such that clients are (1) less likely to drop events if the master is unavailable (2) less likely to have goroutines block while trying to record an event.,lock
+kubernetes,dcd11761e74d777319cbf4a51c14236f52761e97,2015-01-09,Reenable Coverage and Race detection for travis and integration test,race
+kubernetes,95dd2d7ca6c6ce5fe228055d775a7fa7b8ea215c,2015-01-07,reuse function; never ever unlock without defer,lock
+kubernetes,880ecef6fe3a6058bb57008f6dea90ec0e9bc095,2015-01-07,Move locks on watch to allow testing blocking,lock
+kubernetes,7c69570663b0cf2ba508c6303ca03c947b42e893,2015-01-07,"Add a lock around the other docker pull. Fixes e2e (I hope), certainly passes e2e in my client.",lock
+kubernetes,733e12e19b6a749efa562b72c31d5475c85fe011,2015-01-06,Revert 'Avoid race between image pull and garbage collect',race
+kubernetes,6f14e2e210965494be5638f1d39584d920dd9d12,2014-12-31,Avoid race between image pull and garbage collect,race
+kubernetes,9f37c9d4112a0311f725137b6cd0fba5db4c394d,2014-12-23,contrib/git-sync: add atomic checkout,atomic
+kubernetes,691623551324825d9043c849bfd46295e61115b6,2014-12-22,Make locking simpler,lock
+kubernetes,545d87d554e293b6bc11096ccaca0b4535146930,2014-12-22,Move clock to util,lock
+kubernetes,4833b88af4643006a8d12b949abc20749ffa3e55,2014-12-18,Fix the e2e test to remove a race.,race
+kubernetes,71fc5940f10ff0cbb9f7c8c19fa34121a28eb4c0,2014-12-17,suppress unnecessary stacktrace when http status code is redirect related.,race
+kubernetes,7da0378f3c6526d998cd205539382bb89d500e0e,2014-12-16,"Track the sources that the kubelet has seen, and only delete pods when every source has been seen at least once.",once
+kubernetes,f27bfc52cebd358d39aaede1cbc780d501f28ac3,2014-12-16,"fix Godeps.json; upgrade context, html, and websocket packages",context
+kubernetes,d2ff21d3d5bb3768755f51a77c92ac9c26301a0f,2014-12-16,"Wait for not pending, not for running. When failures occur, we go to 'Terminated' which can cause indefinite blocking.",lock
+kubernetes,909f82f463180dd360a2108aa525547ea603b05c,2014-12-01,Proxy: Avoid log error.  Simplify locking.,lock
+kubernetes,0c2a4302f5a43fd7d00906856650e998622c2213,2014-12-02,Fix race that drops the first event on restart.,race
+kubernetes,175ca37bc78dd7f0c081cf67e9855998962f8d86,2014-11-25,trace-bash flag for e2e.go,race
+kubernetes,5cf483737ed448f728da150dd3835f775da7cd8d,2014-11-12,Fix HTML characters in code block,lock
+kubernetes,dbf28cbe5130e794b5540971f4e734277d2f72d5,2014-11-02,Lock the output format version based on user input,lock
+kubernetes,a6246301127409cf01260efe997928e1f9d5c785,2014-11-01,Add some blocking so that we don't generate identical UUIDs for API objects.,lock
+kubernetes,cf4fd8753ff13429a650f66e32e2ab8183b6eac5,2014-10-31,Fix a missing lock in the fake etcd client.,lock
+kubernetes,070c6c044090229068db43b61257f7ada5d15043,2014-10-29,Fix missing portalNets in tests once and for all by adding a default.,once
+kubernetes,0a202354b9176e04b4999bae70ab108c9f4db127,2014-10-21,Fix race between syncPod and syncPods,race
+kubernetes,14c3b9d90094a75a4acc9bf88862a7c130809069,2014-10-10,runonce: handle inspect error,once
+kubernetes,6cd0c261b339572d824b1469e59a206155046398,2014-10-09,runonce: better container state detection,once
+kubernetes,15c5012933f1243bae64367223fd3ceeba12be8f,2014-10-15,Add lock to fake handler to avoid races.,race|lock
+kubernetes,2bd88d4544bc826737bad6d92b7d7d3caced3cb8,2014-10-14,"Remove OnceAndForever util, create a Run() method on MinionController.",once
+kubernetes,b8d2f0819248ece3448118851615991a7c215f27,2014-10-14,Fix race condition in start-up of salt-minion and salt-master,race
+kubernetes,42f63241830d1fc87da75765a68a09e1baa2886c,2014-10-09,Use pointer for struct holding lock.,lock
+kubernetes,0fc5e68207dee957f3a15c45cde61f208433eddf,2014-10-08,runonce: isPodRunning returns no error,once
+kubernetes,dbb2342688e968feb4dd470badb5624be3683953,2014-10-08,runonce: list kubelet container between each iteration,once
+kubernetes,fa1dcd0a8bbe02d7eb82d3afac2b83ba547f51c7,2014-10-03,kubelet: add basic test for runonce,once
+kubernetes,f91162cf789ac6742e4aa822a2542ab14454f909,2014-10-01,"kubelet: add --runonce flag, exits after starting pod from the manifest",once
+kubernetes,fc67d822c67a82a042e54ea15e7546571c6247f5,2014-10-02,Add context as parameter to client interface functions,context
+kubernetes,e032c3075c728911eb540b53099af0dc3005cf22,2014-09-29,Fix examples test by setting a context prior to validation,context
+kubernetes,0312d80ffa9faafc93172f6a68d430c5e84a67c1,2014-09-29,Update test cases to use default context,context
+kubernetes,02e1a2e79d72f99bc493fd13fc5678c6f50f10d6,2014-09-30,Update unit tests to pass a context on client create,context
+kubernetes,b7b1193919b2cd015be9beb6eb14920d9d7799fe,2014-09-30,Add context object to kubecfg/client,context
+kubernetes,ee19ba186d19904434a8f48fa2fb221535201fef,2014-09-26,Update to use api.Context,context
+kubernetes,be85ad7a3d7ef95bcec54481e9977aebced45d58,2014-09-25,Add context object in test cases flows,context
+kubernetes,3e685674e7dafde891d3e5088fbce655429db30f,2014-09-25,Add context object to interfaces,context
+kubernetes,dd9c562769ebdbea98559b9e000ea61da2c06aa4,2014-09-20,Get rid of un-needed lock,lock
+kubernetes,54e0af8b9685a5d157420b7d62af5187b59b6c13,2014-09-18,Allow -race to be disabled in test-go.sh,race
+kubernetes,29cf1a783b84d45927f7100470737f90bb9e3e2f,2014-09-18,Initial add of a walkthrough of basic Kubernetes concepts.,once
+kubernetes,b9dcfbad761db2ad9ae27847f6f794286872b0c7,2014-09-15,pkg/watch: deadlock test,deadlock|lock
+kubernetes,435e0b73bb99862f9dedf56a50260ff3dfef14ff,2014-09-15,pkg/watch: fix potential deadlock,deadlock|lock
+kubernetes,69b359b68970674b06b856be48d124a01c162235,2014-09-09,Don't stack trace on 301s,race
+kubernetes,d397d64b9e650746ebbccb4d1e4c709ec5362db8,2014-09-09,go test -cover -race is fixed now,race
+kubernetes,6a624a2b4feebe51cf2acd165e860604fe7f1aba,2014-09-02,try to fix data race,race
+kubernetes,3354cfb6d579722401136809ab4161d236225f1c,2014-09-02,"Disable running travis at tip, it's finding a bunch of races that don't seem to be our fault",race
+kubernetes,d83091ea5202759e9aadb157f4382870d01eb1ef,2014-08-26,"Fix a flake by extending the time out, so we don't race a go routine. Empirically this eliminates a flake.",race
+kubernetes,23fc00be5c0585ce90a637ab84dc55302e261d13,2014-08-25,Fix a race in proxy.,race
+kubernetes,de1480fd2f35a679171cb09c8cebf6f2c4d8844b,2014-08-20,Make rolling update be blocking.,lock
+kubernetes,ee91a19f90b793ff7f04a4f8a617451efcf859e0,2014-08-14,Pass obj with lock by reference.  Methods->funcs. Fixes 'lock passed by value' issues raised by 'go vet'.,lock
+kubernetes,2e02967acae23126402560a246bafc16d364a52d,2014-08-06,Avoid data race in Proxier.OnUpdate,race
+kubernetes,c7947abd9c9729ea491fcd583be8a585cc90f30e,2014-08-06,Revert 'Revert 'Use atomic create in EtcdHelper.AtomicUpdate'',atomic
+kubernetes,73b64aa490e6ae4cc9f5c0026e0d6f8bf03bbdf5,2014-08-05,Revert 'Use atomic create in EtcdHelper.AtomicUpdate',atomic
+kubernetes,cf117d5b485cbd2470498bd7fa9f4560487a1b8c,2014-08-04,Add test for EtcdHelper.AtomicUpdate concurrent create,atomic
+kubernetes,3f9ec452e48633a404c7c72ffded07f6255b7ace,2014-07-30,use atomic create in EtcdHelper.AtomicUpdate,atomic
+kubernetes,b3e5f40988124cc4a1c03e91cd96f8d685d4d854,2014-08-04,Fix bug where debug 'return' prevented whole TestAtomicUpdate run,atomic
+kubernetes,325f9ef0051b9039555877acbfb8b30e9a907e4b,2014-08-03,Make create atomic on etcd for Services/ReplControllers,atomic
+kubernetes,1101c00014574d2680a7053643a411f6927c5884,2014-08-01,Make updates atomic from the client side.,atomic
+kubernetes,d4a5ba863ddebf03096898218e5032a059a14b74,2014-07-31,Add test for AtomicUpdate,atomic
+kubernetes,a3771c90425cff6809e6a4f3e6b396632bb826d8,2014-07-31,AtomicUpdate should use api.Encode,atomic
+kubernetes,1a3e4f8bafc0449358b9e61026d127ae78c95c4c,2014-07-26,Add some more synchronization.,synchronization
+kubernetes,ae0baf3fab184cb9ae02fe1e5c789e362a0f138e,2014-07-24,Make replication controller synchronizations independent.,synchronization
+kubernetes,1f78b0fc6fe497dc2bcee755cc28369756ac41d0,2014-07-23,Fix reslice and data races in kubelet fake_docker_client,race
+kubernetes,bf0cbac7ec7db632db4ee7424bb25287208fd06e,2014-07-18,Add a sleep to work around apparent races with salt.,race
+kubernetes,9a9d140a8a0a9824d54fe6c48d967b8032e7123e,2014-07-11,-cover causes races in Go 1.2,race
+kubernetes,1816a63d55af2938f823ba844331638bcd7c3098,2014-07-11,proxy: lock should be above the fields it protects.,lock
+kubernetes,b351578ddd14fc09d03448fa41f8806e9b24d8d2,2014-07-02,fix data race in config.go. This is a hard one.,race
+kubernetes,aa808a650585daf17dcbcd13d4d68e7398d4dfd9,2014-07-02,fix data race introduced by 1798e0f,race
+kubernetes,0a97e514b3d11826471bc14ce21e6dfe6493ec83,2014-07-02,turn on race detector by default,race
+kubernetes,e13e31866da18fb03f5439da54c1b48e5a70f72c,2014-07-02,fix data races in controller,race
+kubernetes,3b9735d787523b3f3d70bd50e635dac36c2d0e43,2014-07-02,"Test atomic PUTs, and make them work.",atomic
+kubernetes,a6144f656c864e0cbea4ecf2005d885d06d6677e,2014-06-30,"Move etcd helpers to tools package so they can depend on api package. Add ResourceVersion, hook it up to etcd index to get atomic PUTs.",atomic
+kubernetes,17bad028cee8d57c93768959f1ee4231e6e7a19c,2014-07-01,Fixed the data race found in kubelet_test.go,race
+kubernetes,1798e0fea381a35fb84d25552f112a73023ea104,2014-07-01,Make each pod synchronization async.,synchronization
+kubernetes,7f9d66525a321bc5ebfa9665f6fe85d2a45f9c15,2014-07-01,remove lock for broadcast,lock
+kubernetes,62055090b491e971bf24b69ef54a83ca0f93b8fd,2014-06-30,fix data races in controller,race
+kubernetes,f99a50ba6933e2a9376e75aa4d7d3a4b7faac38d,2014-06-30,use mutex instead of rwmutex,mutex
+kubernetes,3083a33e5f974d1bbc4372ee23ce5ec2892900ef,2014-06-30,pkg/registry now passed race detector.,race
+kubernetes,999ea50c2ace3e2f3a760482d1fc8d6ed7a92f5f,2014-06-27,Cleanup to use AtomicUpdate.,atomic
+kubernetes,529870d12150b05387dbb18c51c62523f69df2a1,2014-06-27,Generic atomic update code,atomic
+kubernetes,b25f950362185f7d561bcfbf013088b08f6f533c,2014-06-26,"Use etcd compare and swap to update the list of pods, to remove a race.",race
+kubernetes,1b94f7b244b78b0f79362a709ffe5c39506da167,2014-06-17,Fix race,race
+kubernetes,3737b4e4e208b550d8aa255592b8893fbb0c0bef,2014-06-17,Fix bad lock handling.,lock
+kubernetes,3072ccf088a5317e8a7d1fe8a47a08c71e960cbd,2014-06-17,"When the apiserver panics, log a stacktrace.",race

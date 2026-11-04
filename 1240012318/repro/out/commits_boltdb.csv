@@ -1,0 +1,16 @@
+﻿app,commit,date,subject,matched_keywords
+boltdb,ac86fb9530495de6b1664bb5783c98ab905b8cfb,2016-10-31,Fix return statement inside else block at the end of function and gofmt windows file,lock
+boltdb,220b61e988ecf0a1667943fde98513583b8c1338,2016-02-29,move to separate lock file on windows,lock
+boltdb,082efcc23e41f42d15f9e90f4e079fdb793e997f,2015-12-21,Introduce InitialMmapSize to prevent deadlock,deadlock|lock
+boltdb,1cb787ee7bfebef44baf98158967a37735e65790,2015-09-14,windows: implement file locking,lock
+boltdb,2f4ba1c5331c044ed8c2743b791d5bedf0efa54b,2015-08-21,"solaris: fix issues with mmap, munmap, madvise and flock",lock
+boltdb,fda75748b51d0dade234b5f6438bc8a2f8d71d23,2015-05-18,use a shared lock in read-only mode,lock
+boltdb,71f28eaecbebd00604d87bb1de0dae8fcfa54bbd,2015-04-22,cmd/bolt: remove duplicate blockProfile flag,lock
+boltdb,00ee0da5289dd5aaf9263ee39c8082ff3a9557c7,2014-06-21,"Add Open() options, flock timeout.",lock
+boltdb,defdb743cdca840890fea24c3111a7bffe5cc0a3,2014-06-13,Fix deadlock on remmap.,deadlock|lock
+boltdb,02cd971daafd228bcb682e270ae9c00dbd11b5b2,2014-04-11,Fix race detector CI.,race
+boltdb,1eacfa948968c483d3232e4ca8e0a32df39f81e9,2014-04-02,Add advisory file locking.,lock
+boltdb,f45f1ed8d4abb610333db8f86ce0e3a1b0808c1a,2014-03-25,Fix DB.Copy() meta lock and partial write checks.,lock
+boltdb,459b8eb4ab16516974ff616196e4a2593ecbb7b7,2014-02-16,Read-only transactional block.,lock
+boltdb,7fb06feea4012543b6a1b0726a09e9a4c4a84933,2014-02-15,Add parallel usage test and race detector.,race
+boltdb,56b825fb56a29da6e460475fcd5a98feb795f194,2014-02-15,Add transactional blocks.,lock

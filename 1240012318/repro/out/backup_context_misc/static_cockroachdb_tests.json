@@ -1,0 +1,19 @@
+{
+  "go_stmt_normal": 51,
+  "go_stmt_anonymous": 307,
+  "mutex": 353,
+  "lock_calls": 2343,
+  "atomic": 396,
+  "once": 16,
+  "waitgroup": 304,
+  "cond": 5,
+  "chan_make": 493,
+  "chan_send": 501,
+  "chan_recv": 1106,
+  "select": 393,
+  "misc": 3616,
+  "files": 1739,
+  "lines": 692280,
+  "parse_errors": 1,
+  "root": "6app/cockroachdb"
+}

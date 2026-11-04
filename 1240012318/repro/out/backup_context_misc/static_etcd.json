@@ -1,0 +1,43 @@
+{
+  "app": "etcd",
+  "repo": "C:\\Users\\Li\\Desktop\\work-app\\操作系统\\output\\6app\\etcd",
+  "kloc": 132.5,
+  "kloc_source": "raw_lines(fallback)",
+  "raw_counts": {
+    "go_stmt_normal": 62,
+    "go_stmt_anonymous": 208,
+    "mutex": 757,
+    "lock_calls": 1066,
+    "atomic": 61,
+    "once": 11,
+    "waitgroup": 122,
+    "cond": 0,
+    "chan_make": 248,
+    "chan_send": 211,
+    "chan_recv": 652,
+    "select": 297,
+    "misc": 339,
+    "files": 576,
+    "lines": 132511,
+    "parse_errors": 0,
+    "root": "C:\\Users\\Li\\Desktop\\work-app\\操作系统\\output\\6app\\etcd"
+  },
+  "goroutine_sites_total": 270,
+  "goroutine_sites_normal": 62,
+  "goroutine_sites_anonymous": 208,
+  "goroutine_sites_per_kloc": 2.038,
+  "primitives_total": 2710,
+  "shared_memory_pct": 46.49,
+  "message_passing_pct": 53.51,
+  "pct": {
+    "lock_calls": 39.34,
+    "mutex_strict": 27.93,
+    "atomic": 2.25,
+    "once": 0.41,
+    "waitgroup": 4.5,
+    "cond": 0.0,
+    "chan": 41.0,
+    "misc": 12.51
+  },
+  "primitives_per_kloc": 20.45
+}

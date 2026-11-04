@@ -1,0 +1,1128 @@
+﻿app,commit,date,subject,matched_keywords
+cockroachdb,a77ec802d5671f56f3ed6930bb7b71d21a95f095,2018-05-20,storage: Refactor maybeCampaignOnWakeLocked for testability,lock
+cockroachdb,888a70b5d3795d8afa76220fb358bec00d926046,2018-05-17,storage: deal with txn wait queue race,race
+cockroachdb,7d7f31d9f4f2e4c6ea03e27169197f02871a9798,2018-05-17,storage: ensure non-expired context before each liveness update attempt,context
+cockroachdb,129113c651f79d9f165f5798ac6a5a4fe4f54cad,2018-05-17,util: fix `retry.WithMaxAttempts` context cancelled before run.,context
+cockroachdb,e284ef2f6233368343fb94772c05483204cd00fb,2018-04-26,tracing: output span stats in SHOW TRACE,race
+cockroachdb,248b38ec9559a704cf9ce91c4d33de0214bea8ed,2018-05-16,storage: fix use of context with closed trace,race|context
+cockroachdb,d073e19c3eed19536f237c0a796184d85ced2f8d,2018-04-11,sql: make `SHOW TRACE FOR <QUERY>` work with distsql,race
+cockroachdb,7055cc8d96883bda2f69bb1fe8bc7512b2543132,2018-05-14,storage: fix deadlock in consistency queue,deadlock|lock
+cockroachdb,25361e881c1ffe2d066f091d0f9cfa704925be31,2018-05-12,roachtest: deflake clock/jump/small_forward_enabled,lock
+cockroachdb,ec1abbe85bf9d863418c73a3c76360d6a7b65800,2018-05-11,roachtest: make the clock jump and clock monotonic tests subtests,lock
+cockroachdb,a6a082b741edfca61ec09447808e7193242dd770,2018-05-02,build: unbreak testrace build by avoiding gotestdashi,race
+cockroachdb,4147f96c9d8274d9f4f889bf16139483c4e1f21b,2018-05-02,build: ensure TeamCity captures scoped logs in test[race],race
+cockroachdb,4d7ad426250c10a92f5c8278a0a078731ef5abc4,2018-04-30,sql: fail gracefully on unsupported multi-arg aggregations,race
+cockroachdb,453029fcd991849c0e27b71863183a9b9fb3f494,2018-04-28,roachtest: Run ntp commands with sudo in clock tests,lock
+cockroachdb,c27063b15b35dd74fd88ec5a742c9c43b3f4c59f,2018-04-27,roachtest: Skip clock tests,lock
+cockroachdb,17dcc8a0877a62aef7df6bbd298d736b24466659,2018-04-25,server: Improve locking in metric/status recorder,lock
+cockroachdb,0cd73504a12fddf723c8be09018e106bdf7b9486,2018-04-24,roachtest: Add roachtest for clock jumps and monotonicity,lock
+cockroachdb,ee9b845210cd682e6189c71562539096eaa3b6a0,2018-04-26,sql: avoid context-insensitive retry loop in SHOW CLUSTER SETTING,context
+cockroachdb,705a63bbbf2e9978b497ac69aa09f15311452f4a,2018-04-20,sql: remove span numbers from show trace tests,race
+cockroachdb,464ec953d579be4b4e79a1fb7a021bf79a279cd5,2018-04-15,compactor: don't block during suggestion in Start(),lock
+cockroachdb,b4a032eaa5893d3327ad4814921cd5f850c8d23d,2018-04-13,sql/jobs: fix race in tests,race
+cockroachdb,6015b7966baabab8e211627db9b9f3c215e53f05,2018-04-04,distsql: collect tableReader stats and output to trace,race
+cockroachdb,ad766346448259cd0e49ac7f680637967b818e0e,2018-04-11,workloadccl/allccl: skip tpcc validation test under short and race,race
+cockroachdb,f61d7ee167a3c592ac0b1f04e28eea98238d7358,2018-04-05,server: pass contexts though diagnostic reporting,context
+cockroachdb,b8ac473b36457bf9c4185109117d4f6bde6b8b9c,2018-03-30,distsqlrun: make the sorter return trace data on error,race
+cockroachdb,5c7b7705f90a17469c71dada2d2dc155bac92978,2018-03-26,storage: fix lease application race condition,race
+cockroachdb,112d01f62dc9b33912b917728731fe482a1eaca5,2018-03-29,storage: fix multiTestContext.addStore race,race|context
+cockroachdb,f9f1bd5858993fc638c9574b4c4732d70aa9bbe6,2018-03-21,backupccl: unlock mu on failed assertion,lock
+cockroachdb,5c48377fa008f72b4b72e557a93daa8e66cb9112,2018-03-20,opt/constraint: tweak KeyContext,context
+cockroachdb,024d8d42d5c7a318b57c4e5bf7348b9545fe1b3d,2018-03-16,sql: Fix deadlock in schema changes with retriable errors,deadlock|lock
+cockroachdb,1969baac0f8ce974064736bc87722793feb8ae75,2018-03-18,sql: fix trace of keys being deleted,race
+cockroachdb,788bb934552c00b09f573dfbf4e46ba6bc96bb5d,2018-03-14,sql: skip documentation for SHOW EXPERIMENTAL_REPLICA TRACE,race
+cockroachdb,ffdd2ae54e03a56f4dba91bb0ae7acc995046992,2018-03-07,sql/jobs: improve logic during context cancelation,context
+cockroachdb,edafd1f63fe6b0ab9ec5803be27265d8e18b2ea8,2018-03-09,util/hlc: option to panic on clock jumps,lock
+cockroachdb,0c865fdb2f779209ee16703657a9936019dca9f4,2018-03-13,build: Enable rocksdb assertions in race CI builds,race
+cockroachdb,1375acb1e107819bd310b983802ce05f875e7410,2018-03-08,roachtest-nightly: update block header,lock
+cockroachdb,3de4d0df4ea7415764dd8adc8e2957879e9dd4ad,2018-03-08,ui: Move Clock Offset graph to runtime dashboard and display per node,lock
+cockroachdb,3de394a1adedac02ebdd7a9d43a5f8105cafbc24,2018-03-08,Update the show trace bnf,race
+cockroachdb,63943cb71f4a2caaa453d24551dd71ac5f95d05a,2018-03-07,"workload,workloadccl: stop using the *Context methods in sql/database",context
+cockroachdb,d904e77817644cd96b6e7bb7c2e66e3456543ca0,2018-03-06,sql: allow 'gossip on capacity change' span in TestTrace,race
+cockroachdb,be4364b2422d5d6fb782e2d9954517e9029ba337,2018-03-02,workload: remove run.go concurrency flag,concurrency
+cockroachdb,74f9d77435f01b3eec4cdcae0323ff3d096fcea3,2018-02-27,kv: distsender quits early if context is cancelled,context
+cockroachdb,82cd58d667b1f56b8137a86ae29a7310bd925234,2018-03-01,sql: allow 'request range lease' span in TestTrace,race
+cockroachdb,32f3327eb35dc48aeb355014781325ddd87d59eb,2018-02-28,sql: fix TestReleaseAcquireByNameDeadlock,deadlock|lock
+cockroachdb,0eab75eb0b5016e2fe8dabebcc8a068211cfaff3,2018-02-28,cli: make cockroach user atomic,atomic
+cockroachdb,6d5405ce3daafb7787c5ee1f309fbae32d51e6aa,2018-02-27,opt: pass SemaContext and EvalContext to optbuilder,context
+cockroachdb,a5a38889603032bae465eb869c4d7a64b2cf314b,2018-02-26,storage: avoid duplicate locking in multiTestContext replication code,lock|context
+cockroachdb,a9f96539e4d1074d360a5e72ae00456c73de9372,2018-02-23,sql: restore the functionality of sql.trace.session_eventlog.enabled,race
+cockroachdb,94b8c1ce5c16e818619e655e4e41be41ba156ea7,2018-02-23,sql: reintroduce the functionality of sql.trace.txn.enable_threshold,race
+cockroachdb,68577d7427c5e8ebc27e9e5d4b2eabe4dec1edc3,2018-02-15,storage: transfer raft leadership and wait grace period when draining,race
+cockroachdb,efecf1ead70f2776772e2a2b54c7d50a8d81a582,2018-02-14,storage: fix getRaftLeader in multiTestContext,context
+cockroachdb,fd43d8b326b5d4a19986d84c3d003684435de471,2018-02-22,sql: remove 'sql txn implicit' traces,race
+cockroachdb,7e570c7310ea4f2e54dab75d52e237c45a8998a8,2018-02-22,kv: rename txn hearbeat trace to 'heartbeat txn',race
+cockroachdb,86ac3b4f767cfe546f7a942468bc822a2cea261c,2018-02-16,sql: replace IndexedVarHelper in EvalContext with IndexedVarContainer,context
+cockroachdb,5c80e1529064e95c4e3fd3f57160d3ff2626c79b,2018-02-16,sql: replace IndexedVarHelper in SemaContext with IndexedVarContainer,context
+cockroachdb,d8327ab40153982cc12cd7bc0beab8f5d35588e5,2018-02-13,kv: avoid race with coordinator heartbeat start / stop,race
+cockroachdb,6844caeb84d975a64bbecb8cb83450aec00e5902,2018-02-08,ui: use withRouter HOC instead of context hack,context
+cockroachdb,9e793cd2a56336c9b8b8bbf3968ab4899f0ba4f7,2018-02-06,sql: block inserts/updates into computed columns,lock
+cockroachdb,07f1afaa0a5349b11967bdd4c78a99f161d0710a,2018-01-29,workloadccl: chunk and concurrency write CSVs in fixture store,concurrency
+cockroachdb,8fb6dfb76813a88e7e35136ac29de6ce87c88db7,2018-02-06,"storage/engine: remove COCKROACH_ROCKSDB_{BLOCK_SIZE,WAL_TTL} envvars",lock
+cockroachdb,78e0043a00d81b302d54a95c34e489ee54e74619,2018-01-30,Revert 'sql: work around lack of runtime/trace in gccgo',race
+cockroachdb,21f83733a790bf2cdfe5787a4631582540a20c32,2018-01-29,sql: block session for database name cache updates,lock
+cockroachdb,1c1b49c8f7175d7c6a2c84885a817483b0b14b41,2017-11-28,distsql: add a graceful draining option to the server,race
+cockroachdb,08463fefd8864c689fbee483d7173fd6911e4e46,2017-12-19,server: plumb drain context down,context
+cockroachdb,2c2e7efcefc52aeecc3eee4b095e272e75701d13,2018-01-25,sql: plumb context through authorization methods.,context
+cockroachdb,fc4fa78cd29f817d898f7c7ab36caa2b42181f17,2018-01-25,build: only run testrace on directories containing go files,race
+cockroachdb,105bed85777379194c4130b1d695c53e545e17dd,2018-01-21,kv: fix race condition,race
+cockroachdb,9ce86b47edb47f70d77f89d7b0c30649e50ed84b,2018-01-18,storage: increase splitQueue's max concurrency,concurrency
+cockroachdb,1ff043e42f79f2c8b951360ecc73bfacdf48bd65,2018-01-19,sql: avoid a race condition in the handling of ORDER BY,race
+cockroachdb,93f88bdc64b995ceccbc87fdf7c821b1133902d7,2018-01-17,storage: pull *Clock out of all Queue and Scanner methods,lock
+cockroachdb,baca83a246fdf187bb34e069b886421107958c5c,2018-01-11,ui: add graphs for clock offset mean and stddev,lock
+cockroachdb,a031ddcfed34f2555dd9b60a905d2eddc7f8a0ae,2018-01-12,sql: deflake show_trace_replica logic test,race
+cockroachdb,a1a9b98edc4634ca52df76ad05ef17eecb0a59b3,2018-01-09,sql: add SHOW EXPERIMENTAL_REPLICA TRACE,race
+cockroachdb,a1e47bbb797ffec348ec7524c3bedd9eedd5be1a,2018-01-09,sql: Give access to the ExecutorConfig through the ExtendedEvalContext,context
+cockroachdb,3436bb8d16c3cfd8c47bff2f9bf39a1ef915cf4c,2018-01-08,sql: speed up make stressrace for TestDistBackfill,race
+cockroachdb,b104379eed115c0e634dac1a451eaa5d34fe4f83,2018-01-04,storage/tscache: reduce testing rounds for race builds,race
+cockroachdb,6832c81fdb3219ece3a1b0bc5b9ece272c680920,2017-12-21,util/fsm: Thread context.Contexts into Transition.Actions,context
+cockroachdb,5f1b75c0f194b658d0d0d2d99cbd961aef0dfe83,2018-01-03,build: ignore files not ending in .go for testrace,race
+cockroachdb,39525b09512bb28f24761b595bdf14fdc056ae13,2017-12-29,sql/distsqlrun: remove context argument from Processor.Run,context
+cockroachdb,53c9556cec906b43b971cbbca4caad5647c48def,2017-11-04,sql: link to the caller context in pgerror.Error for parse errors,context
+cockroachdb,d95ffea37e56b4befb8b3379c082926e8415f7ef,2017-12-28,build: fix race skip grep invocation,race
+cockroachdb,19f7778aca90676162ff44d6b99bedfd79765df6,2017-12-28,build: only run testrace on changed packages,race
+cockroachdb,02daf3ea66e328feb0c0384c0defb1404ae16216,2017-12-28,sql: speed up race builds of TestRaceWithBackfill,race
+cockroachdb,3ede9b0c4d1711a23e25d828ca05e1d294ccf527,2017-12-21,cli: topologically sort the structs in context.go,context
+cockroachdb,3dbe1dae8e734a27df53591f882efcd1543de9cd,2017-12-24,*: replace golang.org/x/net/context with stdlib context,context
+cockroachdb,622586f9dd20708fc0029105daa5bf707c445f3c,2017-12-19,"security,server: speed up bcrypt during race tests",race
+cockroachdb,bda143f308308df8783ac214dd88acb34caa7cf5,2017-12-15,sql/distsqlrun: avoid repeated EvalContext allocation (again),context
+cockroachdb,b999045b9b55c68c59faab12be776c526c11f617,2017-12-09,storage: respect context deadline in idAllocator.Allocate,context
+cockroachdb,45f8c5b74a357fca739a7610ac64f3356a33cbe9,2017-12-15,sql/distsqlrun: avoid repeated EvalContext allocation,context
+cockroachdb,e2b0f7b777345fd55ae78e102d675def9354fe06,2017-12-13,storage: Write HardState atomically with committing splits,atomic
+cockroachdb,90c359f5776098d2b1bc6a94340418cfebb50b87,2017-12-13,build: fix testlogicrace invocation,race
+cockroachdb,3ac7f3cb6640505c2277703b96093d85e6e166c2,2017-12-11,sql/jobs: fix races in TestRegistryResumeExpiredLease,race
+cockroachdb,e9a2221b1b074b3489852a90f2d9b099362c4edd,2017-12-07,"sql,server: Plumb EvalContextTestingKnobs",context
+cockroachdb,0d9d8617e3ae16bfedfb576a53daefbaa1ab0db9,2017-12-07,libroach: use #pragma once instead of include guards.,once
+cockroachdb,b60b093f9e4ebc4f7f8ce8676ce4f51f741e220c,2017-12-06,sql: trace schema changes,race
+cockroachdb,7f7ef4b8482126bfdb1f316817570822a4e7bdff,2017-12-02,storage: use background context for async lease requests,context
+cockroachdb,119e41a75855b268db086ccf937169e4f0691d5c,2017-12-03,kv: Indicate need for lock to be held in method name,lock
+cockroachdb,e29588c75df4f3fd3518407a4fb33a84e35c64e7,2017-11-23,util: only add preemption points in specific race tests,race
+cockroachdb,e289000334ec9d91f39c8d4e253a019b4fd11338,2017-11-29,cli: remove stopperContext,context
+cockroachdb,7a3cdaa01834915a05dbd027e7d131dddcca8ea5,2017-11-28,cli: don't mix contexts and stoppers,context
+cockroachdb,d48bbe5afdbe5ffc72b051ab4795e78b5879d71c,2017-11-28,tscache: remove unnecessary atomic operations,atomic
+cockroachdb,0921e3df048c64c3f805185ec687305b8ce7ce87,2017-11-27,sql: new variant SHOW COMPACT TRACE for common cases,race
+cockroachdb,fbc5d6bdcdb6cdaa771ade9ec11b7aa697728a54,2017-11-22,sql: plumb an evalContext in runParams for local execution,context
+cockroachdb,6945f81471fc739a898aef1a7aead00a57fa0d3f,2017-11-20,sql: remove the planner reference from traceNode,race
+cockroachdb,e755d54412807a0395fcfb2fbda22a3bcabfed1c,2017-11-22,rpc: Remove old locking workaround for removing connection,lock
+cockroachdb,98be8ed1adf0f9ee40e4ba18d3933d8d0d8edccb,2017-11-20,sql: support SHOW TRACE FOR SELECT ... AS OF SYSTEM TIME,race
+cockroachdb,fe7a59e99a3c54f498003334ea081427851724ac,2017-11-18,Gopkg.lock: actually anchor go-ole properly,lock
+cockroachdb,9ff537641b5a6c3c77e872916a4b88879117e655,2017-11-16,storage: remove timedMutex,mutex
+cockroachdb,2195165c8a4046fcd2a85a3b86446d0fbc2ed7ad,2017-11-15,kv: collect traces from RPCs returning errors,race
+cockroachdb,5fb86f62e14a92b85822eba5b753e3c396c3c165,2017-11-14,sql: do not leak traces in lease renewal,race
+cockroachdb,e4590a96666298d9d495bf17f5f0fbe9ab08abbf,2017-11-09,distsqlrun: copy EvalContext from FlowCtx,context
+cockroachdb,4edda446686e8d6cd358c1db685bf27aaf680a06,2017-11-13,storage: avoid data race in destroyStatus,race
+cockroachdb,926c277944ca222a74f1cee4df7d16a84aa19dcb,2017-11-10,build: avoid initializing submodules more than once,once
+cockroachdb,5675afa12a3c91667f96e85bbb15253b6bdc90e1,2017-11-09,server: turn off more tracebacks during tests,race
+cockroachdb,7ffa043468e0f69f8d2dc6377c8434a56395edf0,2017-11-08,tscache: limit concurrency in TestIntervalSklConcurrency race tests,race|concurrency
+cockroachdb,b7217eaa1ed62de59fa8e53040ab371b920d9c93,2017-11-02,tscache: improve TestIntervalSklConcurrency,concurrency
+cockroachdb,79cd7a03898bc6e5188d74ace509861716cca421,2017-11-07,storage: move EvalContext to new batcheval package,context
+cockroachdb,874e112ddeb8c77e9cfe3d6dd4068909ad86ab9a,2017-11-07,sql: add test for KV TRACE with COUNT(*),race
+cockroachdb,6579d6405211dcd1947427cc573ccc1f47bb14c2,2017-11-06,storage: make ReplicaEvalContext the interface,context
+cockroachdb,8cbec82454080921ed7ee3cfb26fdac536a8b76a,2017-11-01,sql: EvalContext gets a ptr to PlaceholderInfo,context
+cockroachdb,1772f11d02133244fc91ec65d8d21c1ce9f67dbd,2017-11-01,sqlccl: lock temp storage against concurrent IMPORTs,lock
+cockroachdb,aa545ca2e026c5eac6957dfefaa06ae251e93d24,2017-10-25,storage: allocate the slice just once,once
+cockroachdb,c2159607bfc339ae7145a2cedd529e72a8903b53,2017-11-01,sqlccl: use checkpoint to lock out concurrent ops,lock
+cockroachdb,951b5a2b90fa69c7badcb3055cf7034a620c5bd6,2017-10-23,sql: plumb EvalContext into Datum methods,context
+cockroachdb,4086826e22e2c98e543aadd6598f00c9a3665872,2017-10-30,storage: interface *Replica to ReplicaEvalContext,context
+cockroachdb,a3866648749f06f7239e773efe6ccd236dbd1b1d,2017-10-29,storage: Don't ignore quiesceLocked's return value,lock
+cockroachdb,9c10b690e5f1e0d1f61c41eaaf9bf09ca8418a55,2017-10-26,integrating PM concerns earlier on in RFC process (#18732),once
+cockroachdb,99b3492742c85bc193d2b64f54e614e3e1984c07,2017-10-26,sql: remove traceKV from RowFetcher.NextRowDecoded,race
+cockroachdb,6a49d1cfdc3b3da88f28bf6644508b851f49a214,2017-10-25,"server,sql: Refactor distSQLPlanner to only be initialized once",once
+cockroachdb,b05b7c64e51ee4e823296dbb4dd33bdcce8f2d5d,2017-10-24,util/contextutil: silence overly verbose log message,context
+cockroachdb,8fe14a893e51bb15b029bd34396c422b1bde471c,2017-10-24,util/hlc: improve comments on Clock.Update to reflect reality.,lock
+cockroachdb,eb79d4b45d451d9efdee3fe0b8fb9309d8351b51,2017-10-23,ui: prevent Node from infecting Docker's stdout with non-blocking I/O,lock
+cockroachdb,4ac40a1f600c6218fdc72372c86b12f5c05add8a,2017-10-23,storage: avoid unnecessary clock updates and access to clock mutex,lock|mutex
+cockroachdb,2c4f8ea8221ee6b79f4dc3ee23d27add3acc1736,2017-10-23,contextutil: add cancellation info log,context
+cockroachdb,27491f66ffcd51013b012855598d64a6e2498c47,2017-10-23,storage: return error from split/merge lock acquisition,lock
+cockroachdb,22661596176605a4644e81e82ef58a895d03c8ea,2017-10-18,storage: Add trace event when split queue can't find valid split key,race
+cockroachdb,34c7465664becdbfd4e9d5cbd59dbb1e999f023c,2017-10-19,storage: Avoid proposing commands if context is canceled,context
+cockroachdb,43045a54ef5ab0d3b9d247ced3d72a7e8be6a0d0,2017-10-18,server: avoid generating 2MB of stack traces during `go test -v`,race
+cockroachdb,7fbd36c99c9eff964df020518a79b5129a7a40c4,2017-10-12,storage : fix bug for the testrace of TestSystemZoneConfigs,race
+cockroachdb,9e79ce6c619df9b6632f1e3299ecdb0a030551d0,2017-10-11,storage: handleRaftReady without releasing lock when possible,lock
+cockroachdb,eb853d110789b533c92f9f36d4ab088da2cca941,2017-10-09,sql: make traceNode message conditional,race
+cockroachdb,717f6ec303c68ff6cd18ef49d904fd9f246461a2,2017-10-03,sql: don't enable 'kv tracing' for SHOW TRACE FOR <stmt>,race
+cockroachdb,0745932f6cd9fe936f3da7a3368bc039a80d40e9,2017-10-05,sql: fix stopping of trace recording,race
+cockroachdb,e437e430a3b79933562df8024d7a1617fe3f1fcf,2017-10-06,build: separate out race logic tests,race
+cockroachdb,7400b07b43c5eed0e6fc46c822cddfbb0e346c2c,2017-10-05,build: Increase testrace timeout to allow for logic tests taking longer,race
+cockroachdb,ad95366e4af5d2057c3ea57cd6fe04bd23d2a4bc,2017-10-04,docgen: handle missing jar more gracefully,race
+cockroachdb,6befe17d8d6e795c78ff14861deb11556e7e630d,2017-10-04,rsg: limit generate_series; unblock repeat,lock
+cockroachdb,d604615e2448ae3fb52be788068e2a81f4fbb4ba,2017-10-03,sql: bugfix to show trace for select count,race
+cockroachdb,2438f250b55c33cd696eb33678ebd91bcfff75d1,2017-10-03,vendor: bump dep and re-sync with lock,lock
+cockroachdb,7c6f8a72720d83633ba849a31cca2d176e2e8423,2017-10-03,docs: use clock offset consistently,lock
+cockroachdb,b71deb0939bb29d1c07d90a83b8d3e861cff6567,2017-09-30,sql: don't capture contextHolder closure in EvalContext,context
+cockroachdb,ece95e7b11cc7190925407b87fcc527aa129653f,2017-09-27,storage: try to annotate context with replica in HandleRaftResponse,context
+cockroachdb,6c72bf8b73409650702ffb2c711f3ddf6a163d4d,2017-09-26,storage: fix data race in RequestLeaseRequest.Lease,race
+cockroachdb,00b1edda03c87bc53434f81a6d7f72f845264595,2017-09-25,Gopkg.lock: fix dep breakage,lock
+cockroachdb,9884cede4a61ccb4149b84123c2da340a860e68a,2017-09-25,storage: fix race found by TestRemovePlaceholderRace,race
+cockroachdb,aeb233035e240d69e26d721d8ec6a40d8fe87ea8,2017-09-21,sql: deflake TestTrace,race
+cockroachdb,71ccf1c3b94f6a54b99f096dc2d5850fe361b80c,2017-09-21,storage: short-circuit GC queue when context expires,context
+cockroachdb,ad4238571c2f82a5c833ba98aa5f9b3ca8be186a,2017-09-19,sql: plumb traceKV into kvfetcher for scans,race
+cockroachdb,c9438e04dacdec3cafb0de3e0129d6bb417bd886,2017-09-20,storage: avoid trace use-after-finish,race
+cockroachdb,75225bec33449f22d68bc84e577e8fa173adb30e,2017-09-18,sql: fix SHOW [KV] TRACE on IPv6 systems,race
+cockroachdb,a8327837d35b00858fbb828d0d360003bbd397ac,2017-09-18,sql/sqlbase: plumb traceKV into fk operations,race
+cockroachdb,1e12450bc77ccafa583f649120ef2fc25f11096c,2017-09-15,server: Provide a more useful error if init is run more than once,once
+cockroachdb,a34c08c8b4437385826a2a900b7d9ced43ed33de,2017-09-12,sql/jobs: avoid race in TestRegistryResumeExpiredLease,race
+cockroachdb,23aeafae7dca421186230134e8d7e2fb5bf7afc3,2017-09-07,sql: add string repr for CopyDataBlock stmt,lock
+cockroachdb,48e4e205e52f153d852d2b9a6831431a7d8df464,2017-09-07,storage: Retry heartbeats in TestReplicaGCRace that can be dropped,race
+cockroachdb,917a0e45386812d8a5e3296e35efca0cfabedf98,2017-09-08,storage: Fix lock ordering in TestRemovedReplicaTombstone,lock
+cockroachdb,4786f9134dabc06558a0f3c88376f5bdb54aa07a,2017-09-07,Format code blocks consistently,lock
+cockroachdb,940e29b3e49db8a961a05b170834255cdb969882,2017-09-05,sql: reuse cluster for all TestTrace sub-tests,race
+cockroachdb,b2e749c84b73d7cad0f1e0313f6ae0ea86e418e0,2017-09-05,storage: Fix off-by-one error in getEstimatedBehindCountRLocked,lock
+cockroachdb,078cee395b25ab6853d8bdb4b5ec8d6b5fab8f50,2017-09-04,kv: avoid race when using Stopper.RunWorker,race
+cockroachdb,1e0d355264f8bfe6d3d9377bcf81333f7a20d8f9,2017-09-03,storage: avoid data race on context span,race|context
+cockroachdb,f4857593d5426c3d07373f27b5fa8014440ee936,2017-09-01,sql/parser: document full outer joins in contextual help,context
+cockroachdb,e2eefc7a40e284106fa05685ceaa19cc63c5c6f9,2017-08-31,cli/sql: propose contextual help upon syntax errors.,context
+cockroachdb,31addc540c315cc7da899f498f6e010aaca77c1e,2017-08-31,cli/sql: enable contextual help without leaving the current statement,context
+cockroachdb,a74287f0cb83d8c927197494312ff9d534f6640f,2017-08-31,log: Include raft functions in sentry stacktraces,race
+cockroachdb,bc90130de387717ed6e53bac0ba3e9e36e0d794c,2017-08-30,settings: enable net/trace initially,race
+cockroachdb,cc97669854300d7f6a17485c2126679cb810d624,2017-08-28,libroach: fix specification of RocksDB block cache,lock
+cockroachdb,ba129b376616044a1a3c0df4ace8dec935395b17,2017-08-24,storage: trace pushee status after push,race
+cockroachdb,c92af32586840fb4de3c2167d6685a8af5a26245,2017-08-23,distsqlrun: Fix RowChannel race in outbox upon context cancellation.,race|context
+cockroachdb,57708358bb291c4dd18d84dca1f517f8e4611623,2017-08-23,kv: allow context cancellation in RangeCache for follower requests,context
+cockroachdb,4900d33165a4e67b208f215e02788f44314c0919,2017-08-23,kv: plumb contexts in RangeCache tests,context
+cockroachdb,6721baa91108cb33d59b9b2834ecf3b5cc180014,2017-08-23,libroach: reserve 1 memtable from the block cache,lock
+cockroachdb,a8d0d25bc4826ad4ce6123cb2f10760ad24d0418,2017-08-16,testing: ReplayProtectionFilterWrapper shouldn't block on non-replays,lock
+cockroachdb,fe96a81d00b673d39d2864c1ba81d61dc8816c92,2017-08-09,"sql, distsqlrun: Add tests for distsql cancellation. Also wrap 'context cancelled' errors and replace them with a 'query execution cancelled' error.",context
+cockroachdb,766702d997ef8f0998d81da4e2373c1fee8fbd74,2017-08-22,storage: only fire slow timers once,once
+cockroachdb,6da1509e2df7c4e3125c01514550b8a8eebc81c8,2017-08-21,"server, settings, util/log: add a cluster setting to block vmodule requests",lock
+cockroachdb,868f08fb91101cac9fac6d237014fbd315f4a71d,2017-08-21,sql: fix flaky TestTrace,race
+cockroachdb,b15554f2eaff56a62fe877a76428da5c045f51c4,2017-08-21,storage: avoid timer deadlock in quotaPool,deadlock|lock
+cockroachdb,88920b411626d4ec9bfd64d2f5ab793842204e6b,2017-08-20,acceptance: avoid startup races by listing all nodes in --join,race
+cockroachdb,991efcf855074030749d5fda6d28d52829a3f848,2017-08-17,distsql: fix external storage race condition,race
+cockroachdb,4fdabe09bf64dc51e038e2a2b77cb15e42760fc2,2017-08-14,fixup! atomic.Value,atomic
+cockroachdb,4f6c19b734cea58f07ef851bec78e58e9bf9b9e3,2017-08-10,acceptance: run terraform init & lock down provider versions,lock
+cockroachdb,8f40b575398ce4dd843bd880f6dde2f44d749a5e,2017-08-09,sql/parser: produce context-sensitive help during error recovery.,context
+cockroachdb,aa62f477205b06d65a4722c8919affbde92ca053,2017-08-09,storage: Annotate store contexts better for multiTestContext tests,context
+cockroachdb,29b665be348ac5d948fddf80d3d0b94b615955f8,2017-08-09,testutils: Include stack trace in SucceedsSoon failures,race
+cockroachdb,e85d2850d0c82ebcd4c4987bb960bb7d35ff3201,2017-08-08,storage: retry when test code wins the race against raft,race
+cockroachdb,40383de3d1b4ededbe477c92ddd43d9d7c9ab2f7,2017-08-08,sql: protect tableState.dropped using a mutex,mutex
+cockroachdb,a0d0d26baeaf5a6143b70598145d87425a9d3212,2017-08-04,sql: fix flake in TestTrace/ShowTraceForSplitBatch,race
+cockroachdb,514517c460e18091ba06479e1a92200243b3093a,2017-08-02,storage/engine: remove LockOSThread,lock
+cockroachdb,381d837827b717490a5104ceded9598e37b5780d,2017-08-02,sql/jobs: fix race in TestRegistryCancel,race
+cockroachdb,41a7d3435e2f240dddbcbf51bf89a4a2891f83e5,2017-08-01,sql/jobs: fix race in TestRegistryResume,race
+cockroachdb,5a54e4407d382510989f6aa99b8ad006d16ebdb2,2017-07-25,sql: Cancel txn context on query cancellation.,context
+cockroachdb,1d1b701c6c2058a4328bc7b9ffd4b991eb9f4838,2017-08-01,sql: fix race condition in index backfiller,race
+cockroachdb,15016b15e31c2f2971ef0a2d11da1e3884b8a82f,2017-08-01,storage/engine: skip TestConcurrentBatch for race builds,race
+cockroachdb,34577ecf767eb8bea8030e0848c8c13f4b9019f6,2017-08-01,storage: defer unlock to prevent test deadlock,deadlock|lock
+cockroachdb,4ba5fb310092eaec7b2f398b49e574a6da03eace,2017-08-01,build: avoid Git race condition when computing build tag,race
+cockroachdb,1bcbcf087119bc209a92289d588ee00a162fa681,2017-07-28,distsql: add deadlock test,deadlock|lock
+cockroachdb,c226ff20612ce476a6fee7a4c5ad9c1c9bd55747,2017-07-26,kv: more efficient trace spans,race
+cockroachdb,9cca0d13b10ca7c37b67520d35bf67b544d1a6cf,2017-07-25,storage: plumb some contexts,context
+cockroachdb,7ca57b6cce19339e811fafc0421b90b978f098e0,2017-07-21,sqlccl: rework split+scatter+import concurrency in RESTORE,concurrency
+cockroachdb,b77e81ace7a08270ae38531addec4af15674787c,2017-07-24,sql: Temporarily revert per-statement context forking to address memory leak.,context
+cockroachdb,e92e1d03dea000d714386c5497953f95c7629ab3,2017-07-17,"server, sql: Add CANCEL QUERY statement that cancels context and sets a cancelled flag.",context
+cockroachdb,cdbfe8935537522f55bf6e7934a4a18570909afa,2017-07-23,retry: avoid use of nil context,context
+cockroachdb,d5a604c99d9e9741f7f2242de204abde1b47c2d9,2017-07-19,sqlccl: fix data race while checkpointing backup,race
+cockroachdb,6515f70c27d5c24a148a263daebfe1e4d3b45243,2017-07-17,"storage: in race build, assert HardState integrity",race
+cockroachdb,71cfc7b20e0cb81de3a2b5c38bd107547d5a66c3,2017-07-17,util: expose (and use) RaceEnabled boolean,race
+cockroachdb,b257dd6048adcfc051dcbdf94f0fd771dddb3e7e,2017-07-12,sql: split away TestDropWhileBackfill from TestRaceWIthBackfill,race
+cockroachdb,907c2167994856f9b6882edb80a1a2f06fccac12,2017-07-12,storage: avoid cancelled context during async lease renewal,context
+cockroachdb,bdb7d8941188d5f68e52f1b7507f3efe1cf12c1f,2017-07-12,distsql: fix race in listenForDrainSignalFromConsumer,race
+cockroachdb,ac9f85b7cc5b6ab89dfef834b455942e82931e6b,2017-07-10,storage: lock Replica.mu in ReplicaEvalContext.Term,lock|context
+cockroachdb,ef3005d3c32e82a7444fb69d20f63f0a5773bb78,2017-06-16,storage: Use separate locks when updating our own liveness,lock
+cockroachdb,2d56d60c321e07b4b861d158330cca2ff5d70394,2017-07-07,build: Add Dockerfile for building a rhel-atomic image,atomic
+cockroachdb,40669dda455113224fc9616697e59f6e94590cbf,2017-07-07,rpc: Slightly clarify the clock offset suicide error message,lock
+cockroachdb,9bcfcf6e3c09b506fc9ae08ec2b3a7c41945360c,2017-07-06,tracing: add some missing Tracer.Close calls,race
+cockroachdb,1a202dad03005aae92ba48aa6481dfb0be71e51a,2017-07-06,storage: expose experimental clockless reads mode,lock
+cockroachdb,fbbbee745f34613bbc5bea398ebb5b72091cb151,2017-07-06,storage: trace event based on real proposal size,race
+cockroachdb,fec5c51dba876a0f7cdd1c0c700deaa49fe53972,2017-07-06,storage: Deflake TestSplitSnapshotRace_SnapshotWins,race
+cockroachdb,a64b86bad0ae294f4bc143a001378d4549ae206d,2017-07-06,tracing: start net/trace span in ChildSpan,race
+cockroachdb,0f5d893f778ab5aca6657ebd7c009c0249d5cb45,2017-06-30,sql: make txnState.State an atomic,atomic
+cockroachdb,9c6105c50607022e90174895fef27f5ffcdc3f6c,2017-06-29,sql: acquire read lock for session transaction,lock
+cockroachdb,9831c3feb47f4ed8f198c6301239089480f8420a,2017-05-19,rpc: change rpc.Context.conns to a sync.Map,context
+cockroachdb,1e200614ab77e1ef24df32a8d95ecf4fd1d4b9cf,2017-06-15,build: Set --concurrency in jepsen tests,concurrency
+cockroachdb,e7067cce57dcb15bcf73680a2aa4ec3007159403,2017-03-10,storage: give Storage.replicaQueues its own mutex,mutex
+cockroachdb,7538ea07390a7b042536af11e3f9c0a8f78fd51b,2017-06-28,sql: clean up the schema definition of crdb_internal.session_trace,race
+cockroachdb,5ad2e2e32aa5575ebb5bd67078070858fdce13a2,2017-06-26,tracing: improve shadow tracer infrastructure,race
+cockroachdb,bb68127412d8fbe9c0f24554783836c2415af1a5,2017-06-26,pgwire: plumb some contexts,context
+cockroachdb,2a81232e4bd9978b3a334269b0018ca7af862089,2017-06-22,sql: replace all EXPLAIN(DEBUG) tests to use SHOW KV TRACE FOR instead,race
+cockroachdb,9d8c4410e7fdfd4f5cff87646b8458ac19ac2c72,2017-06-21,tracing: flush lightstep tracer,race
+cockroachdb,a3b3018436d62dcbcd74c6f2219ed067c0ba298f,2017-06-20,sql: introduce SHOW [SESSION] KV TRACE [FOR ...],race
+cockroachdb,63889134ee4d8ab9a3ede6adb46ef663e6bd31c2,2017-06-20,sql: fix two bugs in SHOW TRACE FOR,race
+cockroachdb,0ceb39355a90c5b99cef2634f500942bd33e410b,2017-06-20,sql: ensure every session trace entry has a txnId,race
+cockroachdb,dde5025641abd2409df88a9419adc1f1a06446c8,2017-06-19,sqlbase: add a clarifying comment about the traceKV argument,race
+cockroachdb,7af0d9930a576df765a7346d19f5d16ff286aaff,2017-06-17,storage: fix a trace event message,race
+cockroachdb,796742323eeee5c3afeb8e8a5955f9b8f7cd575d,2017-06-19,vendor: remove unused github.com/opentracing/basictracer-go,race
+cockroachdb,a17bc3ee3481dc32734f533e85dbdf964e3da3cc,2017-06-17,storage: guess last gc in trace output only when possible,race
+cockroachdb,12fc13949c30bb7b045bffbfd384da144535abaa,2017-06-16,sqlbase: plumb a context through processKV(),context
+cockroachdb,981f4da500017168d831823fb250231c15720313,2017-06-16,log: remove basictracer from tests,race
+cockroachdb,4f283cababbf3f29b4cccbbd6b079f25f3464c06,2017-06-14,sql: simplify SHOW TRACE FOR to use session tracing,race
+cockroachdb,b5fec74209afbada4e81368004a9116108b69e88,2017-06-14,"sql: introduce SHOW SESSION TRACE, replace EXPLAIN(TRACE) by SHOW TRACE FOR",race
+cockroachdb,5f0f159395bf897e665db8f3611cfc14b0c04f2b,2017-06-11,storage: provide locking for RaftMessageResponseStream,lock
+cockroachdb,871e85d0f5f30af80ad12b49db03a9ec463fc1a9,2017-06-08,storage: plumb context to requestLeaseAsync,context
+cockroachdb,e0a0b3e153d2909a0ec4d3683572b5700f57cd1c,2017-06-08,sqlccl: up TestBackupRestoreSystemJobs timeout for race builds,race
+cockroachdb,eace0dd0734e2bd62ada1f4e77ddaca2decd24e5,2017-06-07,storage: deflake TestRaftRemoveRace,race
+cockroachdb,d5b7980b1f457d272fbe36e676e4faf6a57eb6b0,2017-04-14,storage: improve high contention performance under deadlock scenarios,deadlock|lock
+cockroachdb,21b6f74255f22314845e26950d27a569c0789bdf,2017-04-25,sql: introduce MakeTestingEvalContext,context
+cockroachdb,31a69f60190008d6f8b539b78803ea5bfa688648,2017-05-30,tracing: control net/trace via cluster setting,race
+cockroachdb,49a443e2443bc4e012f6e481aedbaa7b499c3a25,2017-05-31,storage: De-flake TestRemovePlaceholderRace,race
+cockroachdb,eb3f195bb6cc1c567deab2d8530c9f4d5d6a6060,2017-05-31,migrations: Handle CPut unexpected value errors gracefully,race
+cockroachdb,115c2e19e1c11620b4f33dd6531af6fa4e8defd2,2017-05-18,storage: add another mutex for mtc.nodeIDtoAddr,mutex
+cockroachdb,e0a18c97a3d7c7fe36a99a695574a44daa9623a0,2017-05-26,storage: disable key access assertions in non-race builds #16131,race
+cockroachdb,95b890e5dbc991482e9055a271ae08a15bdb608d,2017-05-25,sql: centralize knowledge of system config locking,lock
+cockroachdb,d7254e8665adf32815389951d87059f4a20f2d66,2017-05-25,storage: add raft path trace points,race
+cockroachdb,64428954ffe46f51106033c3ec51e8a1e73f0cab,2017-05-25,"storage: use prefix iterator in evalGC, add trace",race
+cockroachdb,f86fc711456069f57adaf7f2e8b1516a8a3671d0,2017-05-25,log: Allow for disable stack traces from log.Fatal in tests,race
+cockroachdb,d54dd9396a151d137e03eff6c4732c366450a67b,2017-05-19,tracing: replace most tracing infrastructure with a custom tracer,race
+cockroachdb,e18aa2469b305b918abc9b766e95080b5641f014,2017-05-22,cmd/github-post: increase the number of context lines,context
+cockroachdb,e44ca3ba0e3fa3618d68aa940b42032df43de3d6,2017-05-17,cmd/github-post: post top stack traces on Fatal or panic,race
+cockroachdb,41dd98031fa5edf2093c95ee19f352cee1a648ef,2017-05-15,storage: Update locking comments replica_raftstorage.go,lock
+cockroachdb,f7c65ff0fa0f03f24d1503aaa235fd1b7d8ab42e,2017-05-15,"build: disable RocksDB assertions, except on race builds",race
+cockroachdb,3df6065286c55629fdfeb7c4a588f38ee8b0d645,2017-05-09,sql/parser: delete unused field SelectClause.Lock,lock
+cockroachdb,69b48717a543ac56b1404ba9ed99f29ddc24242d,2017-05-09,storage: plumb contexts,context
+cockroachdb,27dd36526f3b1ba703988591299de7a5edd5d151,2017-05-04,storage: bring comments on TestLeaseExtensionNotBlockedByRead up to date,lock
+cockroachdb,549631bf732a31772aa20a6ea03d0a43dc7fc986,2017-05-02,"sql, distsql: marshall EvalContext members through distsql requests",context
+cockroachdb,0a29383877a630ae88515aeeaf2f981c44a35387,2017-05-02,server: Use non-annotated context in warning about running insecurely,context
+cockroachdb,41fefab66f63424885dad8fc3bc671164b1838e7,2017-05-01,kv: include the destination replica in trace messages,race
+cockroachdb,74f95668e42db6cd7e63da8f2b5bb00c91039750,2017-04-28,release-upload: upload race binaries,race
+cockroachdb,1c90f7daea7e5768cf10fea59b671456f4ab524f,2017-04-28,build: make tarball extraction atomic,atomic
+cockroachdb,b85abb5bb85c5896775feacbdbbbb7687345195f,2017-04-26,storage: annotate the context used for draining,context
+cockroachdb,3ea8fd7428d606d9cdfd048e516f5822a5847bae,2017-04-26,build: don't (fail to) build musl race binaries,race
+cockroachdb,065b23287762882921cb311bf8a760a67a9e3ea5,2017-04-25,glide.lock: update dependencies,lock
+cockroachdb,23e54a2a68e37a86aa6182b1c5603d0b990d7f43,2017-04-25,distsql: don't set trace context if tracing is disabled,race|context
+cockroachdb,d91a9c3395733a2220a6bdedb2faeb89020724b5,2017-04-23,distsql: fix memory monitor race condition,race
+cockroachdb,fd0c7a8e87c45c1c782a4043a1aba7e73f7fd658,2017-04-21,docs: clean-ups/improvements to the docs 'contexts' & 'life of a query',context
+cockroachdb,139fd1eaf580c55d4e7115d01f9c1e82aa8a366d,2017-03-17,docs: add a document to explain how/when to use context.Context,context
+cockroachdb,38ea059502843e84b54f5ba35a3ce9039c36a220,2017-04-20,settings: switch to only sync/atomic updates,atomic
+cockroachdb,fea52745fab77aff6dfbbd30df8f7ee3eaa1d8a4,2017-04-20,"settings: switch StringSetting to atomic, match others",atomic
+cockroachdb,8607d832baff7c1d1b846f7ed6c598843833687c,2017-04-19,*: make RunTask and RunWorker pass their context through,context
+cockroachdb,08c1c09792d220cf11278c2b15ca66796412ac74,2017-04-18,*: report panics in context; more context plumbing,context
+cockroachdb,f1b77800d9424e05c70a10661d17b6861b9f261d,2017-04-17,sql: rip out the SQL event log from the session context,context
+cockroachdb,d1384906beaf15527b93a403763f0a1d09f028f5,2017-04-17,storage: Splits get write locks on the entire span,lock
+cockroachdb,d409ef05ccc612fc718f63562bfabe59f6b6704b,2017-04-14,sql: fix a context for EXPLAIN(DISTSQL),context
+cockroachdb,5f99fa7d91c08db1fce690353205ef424f9f7597,2017-04-14,server: Protect non-thread safe prometheus exporter with mutex,mutex
+cockroachdb,9a68241bc81cee4719d2a0e49d79d0fa7cc23934,2017-04-13,storage: bump the default COCKROACH_SCHEDULER_CONCURRENCY to 8*NumCPU,concurrency
+cockroachdb,b4f0b233ce9483e794fb51683e525fd1c0a79d1d,2017-04-12,build: actually use GORACE flag,race
+cockroachdb,0d6406a1917899fb13916f9db4624dc2cbff2555,2017-03-29,sql: use context where available in deleteNode,context
+cockroachdb,6992a4005183674b02ffb6715ba00082fe3c6a70,2017-04-09,acceptance: enforce clock offsets in client,lock
+cockroachdb,53a012ef55b487681335945096b668a02d556dfa,2017-04-10,sql: re-enable SHOW TRANSACTION outside of explicit txn blocks,lock
+cockroachdb,b95257a23062f1c6af77e28bbabc314802a67f03,2017-04-09,build: Increase RACETIMEOUT,race
+cockroachdb,a6d98b4b7f30b84e00aa867105a711b8be452fcf,2017-04-03,storage: Remove propEvalKV synchronization hack,synchronization
+cockroachdb,a683ea660ac9005d57b9c4bed5f4e6f665aa57d7,2017-04-06,sql: access transaction anchor key under lock,lock
+cockroachdb,324c6e1cbdd18366ec08f8f9bc5cad14d66e7441,2017-04-05,server: lock down /debug to localhost only by default,lock
+cockroachdb,4ae3c93d7bd3952b7077d3fea8760354be609cea,2017-04-05,storage: unskip TestStoreRangeSplitRaceUninitializedRHS,race
+cockroachdb,0bbb5b8d0a51a131faeb1f8f84977746711f04a4,2017-04-04,storage: Annotate contexts with replica in Store.startGossip,context
+cockroachdb,b670dbfb05149e94972b4df036ad8c28d7a7b75f,2017-04-04,sql: ignore 'backwards' system.jobs progress to avoid locks,lock
+cockroachdb,1eb7a7791333365d6e1e521ffe8e99020d7c79d0,2017-04-03,cli: Attempt to remove race causing `cockroach quit` flakes,race
+cockroachdb,3fc5c8182cfaa4884b5b763291ce8214888704c7,2017-04-04,timeutil: add high precision clock on Windows,lock
+cockroachdb,2a50a4e379a061b5482af10a26a3b1f42ad3f2a9,2017-04-03,testing: halt on first error in testrace,race
+cockroachdb,9136c163e6dd3706c8c9c6d1443fbe73d0b6b3cc,2017-03-27,storage: Check SpanSet access in ReplicaEvalContext,context
+cockroachdb,4bd053cc15d8d2805e770c1305e964f4a2f2b31c,2017-03-29,storage/engine: narrow `extern 'C'` block,lock
+cockroachdb,b8fa9b5fed59cc33df95a626bc5db92bd2388cbc,2017-03-30,gossip: lock down the protocol to prevent illegal joining of multiple clusters,lock
+cockroachdb,7aae258b37321776f539fcd0301b235a3e53a166,2017-03-30,glock-diff-parser: rm,lock
+cockroachdb,7a1bbbeff98525858792aeab5ad043358ba888a9,2017-03-29,vendor: remove glock,lock
+cockroachdb,b17583fa31f286d3795293b20a62c7371d097e01,2017-03-28,"rpc: unexport Context.Heartbeat{Interval,Timeout}",context
+cockroachdb,6e1b7996671fb08d839bfa5484c237e81eb47f56,2017-03-22,storage: Indirect all Replica access through a new ReplicaEvalContext,context
+cockroachdb,2ac3d0b33396bbd0d8a9d660509bcb6882a679cf,2017-03-23,storage: update multiTestContext to use AdminChangeReplicas,context
+cockroachdb,fb70767281c215970007d3dde793f0c1714cad32,2017-03-22,sql: use a correct context during decimal datum checking,context
+cockroachdb,0cd25b59fe3fd4c81cbfa8cdce68644c3cd59a78,2017-03-20,kv: clean up context usage in split_test,context
+cockroachdb,730938283f67727a1f55251ee1e89630dda60b30,2017-03-19,sql: Delete proof-of-concept test using serverutils.StartServer,once
+cockroachdb,69d7c1e1f54d5b52c349434c8e963b97668c0771,2017-03-13,cli: use context.Background in cobra.Cmd functions,context
+cockroachdb,b0dda421cfad476afc4a9134e151efefb3aab6f9,2017-03-13,all: use ctx instead of of context.TODO when available,context
+cockroachdb,4fcde5fbba357ee5d2b76ee837dab6d2c3c5add1,2017-03-15,sql/parser: Store PlaceholderInfo by value in SemaContext,context
+cockroachdb,13af79e1533e7872cb7dddffd66ee4520a485369,2017-03-15,internal/client: remove Txn.Context,context
+cockroachdb,506a3f8a5dfd9d202b720ae52ee1226c827aaf31,2017-03-16,storageccl: retry CreateBlockBlob az call too,lock
+cockroachdb,548e4ebf3f2f5f377be8a8fe55519acfff88a809,2017-03-13,sql: check that Publish() increments the table version once,once
+cockroachdb,d8e34bf46c8f7563755859dbdc12dbd6b0bcc783,2017-03-15,sql: plumb and use contexts in backfill.go,context
+cockroachdb,aa3deb2d4b0aa4b70089ce376fa5c45d51f16970,2017-03-13,sqlccl: retry azure block and blocklist upload 3 times,lock
+cockroachdb,633c6a20afd2333249b02e79c281803bc9c9c4ec,2017-03-10,sql/parser: Add EvalContext as parameter to Datum.Compare,context
+cockroachdb,21854868cc5445caa281e21427cdd72e9e4eeca6,2017-02-24,client: Give client.DB its very own clock,lock
+cockroachdb,d818a298d469be4710ebd0906731075929fb5833,2017-03-10,"storageccl: make block IDs fixed length, avoid hiding err in chuckReader",lock
+cockroachdb,acb35baa1397368348f68149543306aea4f6d1fc,2017-03-09,sql: Move spammy trace messages for sql memory allocation to V(2),race
+cockroachdb,c4b5349a0a386318445a59b338e3043f8571616a,2017-02-26,sql: change explanation in explainTraceNode,race
+cockroachdb,86fbc17cf5f3d0fbabf9af973ac0e1d05b33416d,2017-02-17,sql: plumb contexts high and wide around sql,context
+cockroachdb,c0d61836ecf4ccb3232cc8e1f3b428b1cd07dc0c,2017-03-08,"kv,distsqlrun,server: don't try to join a non-existent remote trace",race
+cockroachdb,4b52122a622c12a509da78a876c8f638ad5a1263,2017-03-07,ccl/storageccl: fix azure block writing,lock
+cockroachdb,48da6d7adea24036861ac7ee9accdde3bd673708,2017-03-05,sql: add context to planner used by schema change backfill,context
+cockroachdb,543b3bf06f8b0d9c686e151a8556b872669918cd,2017-03-06,storage: plumb context into the allocator,context
+cockroachdb,d30dcff5ee539b86b88ee9aab44cc9e4d1dc99e6,2017-03-01,sql: fix nil span with COCKROACH_TRACE_SQL,race
+cockroachdb,9860a4a61d274263ce10b693736c2e5c4b1d2d9d,2017-02-28,distsqlrun: fix a context usage,context
+cockroachdb,a50b677777456aa8a320e1e70137ba0f8163a129,2017-02-24,storage: avoid blocking forever on CollectChecksum operations,lock
+cockroachdb,764b78731b9d027b65297d1d55d668ba656e7ffb,2017-02-23,storage: use a manual clock to more correctly control the test,lock
+cockroachdb,a221840f072c41aa582870ee935f21dfd775823b,2017-02-23,storage: remove Replica.mu lock requirement from ProposalData.finish,lock
+cockroachdb,4004c8e78beffa3397615473e8dab2b2ba01a2a7,2017-02-23,storage: Replica.requiresExpiringLease requires a reader-lock,lock
+cockroachdb,4b78c4eabb094b9bf237f0314c86d6238021098b,2017-02-21,"storage: use RWMutex for {Store,Replica}.mu",mutex
+cockroachdb,928e31490dab22210db867b368eb89e245398fd8,2017-02-20,server: Move heartbeatCallback under mutex,mutex
+cockroachdb,683ce86b1684dc509daf186c094de41ba431bb1b,2017-02-16,sql: fix race in TestRaceWithBackfill,race
+cockroachdb,0db55e8fba4476b9ad2839265f8f61797ee8213c,2017-02-14,sql: change TestRaceWithBackfill to run against a cluster,race
+cockroachdb,4dac42d17474518b3376430862751247b353fe56,2017-02-14,distsqlrun: fix race writing to firstErr,race
+cockroachdb,15b336f5df67020ddbb7abf2c4452b2735cf7841,2017-02-14,distsqlrun: implement diagram block for backfiller,lock
+cockroachdb,b9cc92b45cbb7156017823de23c961a092057513,2017-02-08,distsql: remove stored context from FlowCtx and processors,context
+cockroachdb,49036d23c3c66aa2c039a661589092efa6c97eed,2017-02-08,sql: no-op pg_advisory_lock functions,lock
+cockroachdb,5eeb5e10e6f28ef5b21fa0ff8129b81138274ab4,2017-02-03,storage: Split the StorePool's mutex into two,mutex
+cockroachdb,248bbe2c6cd499b9082726b64c65d333e92c6ba2,2017-02-07,kv: remove race about finishing a Transport.SendNext() span,race
+cockroachdb,9fc28b0658b3b23a87c6d9903e81b9f03a2572a1,2017-02-01,storage: prevent deadlocking recursive heartbeats in mtc.expireLeases,deadlock|lock
+cockroachdb,420353e65ba359d2e89987df2f618cdb81dab298,2017-02-06,util/log: create a cached annotated version of context.Background,context
+cockroachdb,dea76bb24b8115498a2f30162c14814439a64ab2,2017-02-03,storage: remove mutex timing histograms,mutex
+cockroachdb,43971961bf2cfc5febceeb2e6fcebfb6a13d1b93,2016-10-14,sql: rework how EXPLAIN(TRACE) works,race
+cockroachdb,e67fc5c747ea7692e5cef4ea036c07bdf97205bb,2016-09-25,sql: switch TRACE_SQL to use the new-style Recorder on the client-side,race
+cockroachdb,317427c07caadd7c0541a805fe67150aa9bb9d3e,2017-02-05,cli: add COCKROACH_MUTEX_PROFILE_RATE to enable go1.8 mutex profiles,mutex
+cockroachdb,d5186114a17c6258d2a04d0e96a1afa6e7c70586,2017-02-03,util/tracer: pass the span name to EnsureContext,race|context
+cockroachdb,c4fa8385d43fba40dc01a28d77c059604062a5df,2017-02-02,storage: Don't record timedMutex.lockedAt when disabled,lock|mutex
+cockroachdb,892eebe490a58bb711a2225cb184bdaf85ee7f15,2017-02-02,storage: Disable timed mutex by default,mutex
+cockroachdb,c15ded2f7e28e74c954dc48ce42fdab7247e728a,2017-02-02,storage: remove unnecessary locking,lock
+cockroachdb,8df967612a64cca68dc9264a3828190bd3f7920f,2017-02-02,gossip: Fix data race in gossip test,race
+cockroachdb,d4c05170500a687a1f3937988226e325185fee1e,2017-02-02,sql: Skip flaky TestRaceWithBackfill,race
+cockroachdb,8a8bf7d612ea69408edc044fa436e076c11c85dd,2017-01-31,storage: add COCKROACH_DISABLE_TIMED_MUTEX env var,mutex
+cockroachdb,60463aba925258a8d7efcd9416eb3bdf1399f4dc,2017-01-31,storage: unexport TimedMutex,mutex
+cockroachdb,1b8596c2270901e6bafa9e14d672f3eb129625b8,2017-01-31,"storage,util/syncutil: move TimedMutex into the storage package",mutex
+cockroachdb,f579d1914cd179c29d636849ec40c3375a9048b9,2017-01-28,util: fix GetSmallTrace(),race
+cockroachdb,9bf770cd8f6eaff5441b80d3aec1a5614e8747e1,2017-01-27,sql: fix go1.8 goroutine leaks,goroutine leak
+cockroachdb,fff27aedabafe20cef57f75905fe340cab48c2a4,2017-01-27,testutils/testcluster: fix go1.8 goroutine leak in test,goroutine leak
+cockroachdb,e6853a36005dc4ba7ac6530a56983342523f902a,2017-01-25,cli: fix a race condition bug.,race
+cockroachdb,9e374075e35a44a8d8a8b86f0479fcdf33c9e1d6,2017-01-23,Makefile: always `go install` glock,lock
+cockroachdb,2cd8d8f25d291dcdc8926ea1ae9e466a76f4eee3,2017-01-06,storage: remove risk of lock reacquisition in proposalData.endCmds,lock
+cockroachdb,732b742b5356f17e44c7c9d4f2c1c5cfbb1c9a32,2017-01-20,gossip: Add locking around missed call to startClientLocked in test,lock
+cockroachdb,5aa3683df97d885adda4e6baed8375fd25ff8b8e,2017-01-19,gossip: Fix a couple data races in tests,race
+cockroachdb,fef3626248cc9595b52b32c81d4299936c267423,2017-01-13,gossip: Fix hasOutgoingLocked to consider pending connections,lock
+cockroachdb,e0f3e96df588e1e4626ddc3e2d3cca1f376443f1,2017-01-13,gossip: Fix race allowing multiple incoming conns from same address,race
+cockroachdb,b57e35990be564fc6c6fedf0db984633489710da,2017-01-13,gossip: Suffix all methods that need g.mu held with Locked,lock
+cockroachdb,6838bc588f676edd1527229ecdfe8fe5774626a7,2017-01-17,sql: skip test with race,race
+cockroachdb,998a35cf561bb01ae59fd2b87659061644073aba,2017-01-17,sql: fix lease manager lock ordering,lock
+cockroachdb,6aae0b74a6fc4ab25d70304ad7cffd509720b339,2017-01-06,cli: Clean up context.TODOs in start.go,context
+cockroachdb,2ecacb49b9d9cb3462c809b9b8609b11e5efe6bc,2017-01-06,server: Make node initialization respect stoppers and contexts,context
+cockroachdb,6f08ff1f93d43be45f70a790caf0aa6e0ce96211,2017-01-13,storage: add timing information to Replica.destroyDataRaftMuLocked,lock
+cockroachdb,f078b051003e1003de8fec36a0e4b9de5278800c,2017-01-11,storage: remove the timeout for context in node liveness heartbeats,context
+cockroachdb,3b199f68af6463b92d0c592a48d8fab8009c1f98,2017-01-03,sql: fix TestRaceWithBackfill,race
+cockroachdb,f2951555820d29dcbc5ad962915ed1168ab3ab85,2017-01-03,log: quieten TestTrace.,race
+cockroachdb,f6b1787ad892cfc94ef8a7587a31633afd55b96b,2017-01-02,sql: disable TestRaceWithBackfill,race
+cockroachdb,573aa0dbac631c95713fe6f4665edaac9dbc4264,2016-12-24,storage: Fix a race introduced by #12561,race
+cockroachdb,25c5701141c56ec3a4befc75c8a990fc523a2674,2016-12-15,util: improve smalltrace output,race
+cockroachdb,5dd15230d971f085ba464388c4b7ac949121e275,2016-12-20,util/log: overwrite log tags with tags from an AmbientContext,context
+cockroachdb,026f64514c85f6b060959abbe192379387ead82c,2016-12-21,kv: fork context span for async GRPC transport,context
+cockroachdb,4b0748f9fd06555a79b98208354b00ab0f28d9cd,2016-12-20,storage: Deflake TestSplitSnapshotRace_SplitWins (and others),race
+cockroachdb,a3d89377ab53ca9929816803152b5e7353cc0b11,2016-12-19,sql: separate concerns in the EXPLAIN logic.,once
+cockroachdb,860d110eba7701997c344f40143775e63a31fa8e,2016-12-20,storage_test: Plumb context into expireLeases,context
+cockroachdb,71c867dc9d8f92b80d15f767af406cb0f150f8c1,2016-12-15,distsql: fix WaitGroup race,race
+cockroachdb,cc6ada61ef66ad41c4808dcb2ac44dd7910eaec9,2016-12-13,*: remove various stored contexts,context
+cockroachdb,87021fe7beb15a6ce0c2b589bc67a17cec22e58d,2016-12-13,stop: Include stack trace in log message when Stop is called,race
+cockroachdb,4f9106c2e67c98d46a3596c51ce08f89d807b481,2016-12-13,gitattributes: prevent git automerging glide.lock,lock
+cockroachdb,aa384af5ac429fb4cae8f6b04efa0dd6f7404a2b,2016-12-08,storage: fix race condition in multiTestContext,race|context
+cockroachdb,acc1db59cd6e49bffdb414fbdc8f2a2895f57d23,2016-11-29,sql: give EvalContext a limited planner,context
+cockroachdb,5a45942ceec9f6b881581012456a28e8cd583e97,2016-12-05,client: change Example_txnSnowballTrace to TestTxnSnowballTrace,race
+cockroachdb,af5b4e630760d34a4e1defa01f61f5f6bf0a36f9,2016-12-05,kv: Move lock and protected field into anonymous txnMu struct field,lock
+cockroachdb,e103f89059b3de5ebd9e9bba010fe7e3577d99b6,2016-12-03,storage: avoid storing stopper on testContext,context
+cockroachdb,2e61cfa67d9ae35eb3637ea05517ffb4bc591599,2016-12-01,"glide.yaml: return go-deadlock to upstream, update x/net",deadlock|lock
+cockroachdb,d06f57cceede53cee5ff85a5bdfe489f8a34ad63,2016-12-01,syncutil: use forked go-deadlock for real,deadlock|lock
+cockroachdb,09045ccbf5078bd47ba9d133bad7d545a59f00a8,2016-12-01,storage: fix race in time series maintenance test,race
+cockroachdb,e211b841387ca2b3f52858a1054c9bbd12045591,2016-11-30,gossip: Fix bootstrap race in TestGossipStorageCleanup,race
+cockroachdb,e78927513169ee199445344436ac193200d7741e,2016-11-30,acceptance: avoid nil clock,lock
+cockroachdb,7616e16b962aed499202e2f89c7202f2ab95a99f,2016-11-20,acceptance: plumb contexts and improve stopper discipline,context
+cockroachdb,92c4e26c67fe1d423abf5802613c9222123683d2,2016-11-28,storage: fix a bug in placeholder locking,lock
+cockroachdb,b37ff18723ad3c3817a352768166c4496f2591ec,2016-11-28,storage: Always nil out unreachable remotes in tickRaftMuLocked,lock
+cockroachdb,1e589204513d7210d147fa2dedc527246b549376,2016-11-25,storage: Avoid nil pointer dereference in tickRaftMuLocked,lock
+cockroachdb,9fe2b599eab5a00e95e53b5fcdcfe7a1da71c7e8,2016-11-25,Makefile: remove errant reference to github.com/tamird/glock,lock
+cockroachdb,3229e1190ab3fac08dc3fba45f289d086b1a6bac,2016-11-22,GLOCKFILE: update dependencies,lock
+cockroachdb,29d46132b24d35ff7e2f8c9fbd99a4ceedf5fb1a,2016-11-22,storage: plumb a context through replica removal,context
+cockroachdb,1f6aeafe70aadbae7801fb8df21f08e54b5ccf04,2016-11-19,util/syncutil: re-enable deadlock detection,deadlock|lock
+cockroachdb,a6a38c2939c8dc2a874de8aa7a984e8429311a16,2016-11-21,storage: Fix a race in TestSkipLargeReplicaSnapshot.,race
+cockroachdb,a42b6bf3a148fbfcc463a93651c6d28baf5f5328,2016-11-21,syncutil: Introduce TimedMutex.AssertHeld,mutex
+cockroachdb,d2ce527a1c4a81230d66168d14cc968b5f9ba5ed,2016-11-20,cli: disable backtrace,race
+cockroachdb,f1a5c19125c65129b966fbdc0e6408e8df214aba,2016-11-18,kv: fix goroutine leak on shutdown,goroutine leak
+cockroachdb,ca1a0be08552b40aaa61cff9656c341a8359f8f2,2016-11-18,kv: fix race condition in replicate_queue with lastLeaseTransfer time,race
+cockroachdb,c624a95406481477471f0489f09240854332386c,2016-11-18,GLOCKFILE: update dependencies,lock
+cockroachdb,7f79e2e7d45768213e8753e7e96f04d055726810,2016-11-17,storage: Never trip circuit breakers in multiTestContext tests,context
+cockroachdb,3f466aae81530e2bf88d571c52e2ccbb06b23c95,2016-11-17,storage: return context error,context
+cockroachdb,718687f4aedf9106498831118066b456457fe11f,2016-11-16,GLOCKFILE: Pull in circuitbreaker bug fix,lock
+cockroachdb,d39496b9ba6889c74560f08966fcc7dea61fdc3c,2016-11-16,kv: don't block forever on panic in DistSender,lock
+cockroachdb,2ff5c10fc943f71accaf21d3ef108f0f22c353b4,2016-11-15,server: Fix race in node.writeSummaries,race
+cockroachdb,6de927081deb5697f43f3840769fa1d9ba32d4e9,2016-11-15,GLOCKFILE: update dependencies,lock
+cockroachdb,32bcb86ea6ab88d9846c2eacbf8cc0190f2ee64e,2016-11-15,storage: Remove TestRangeDescriptorSnapshotRace,race
+cockroachdb,875be84bc98fddb5f3fce96c302cf94d6db44e7c,2016-11-14,storage: Call evaluateProposal only once,once
+cockroachdb,19e6a349a19847721d5653d667de7bc2a28fe0cc,2016-11-09,storage: avoid tiny race,race
+cockroachdb,e770c5d2019cd11bb8bb63e17eb93142d4dba213,2016-11-09,storage: use annotated contexts in test utility functions,context
+cockroachdb,ab5299346fb2ef596a59cc6f8fff20a99baea638,2016-11-08,storage: annotate contexts instead of manually logging,context
+cockroachdb,e955b271ff65736ca4aefa141ad0121a0ac0b8e3,2016-11-07,sql: don't pass a nil clock in kv_test,lock
+cockroachdb,465b7cded2814d372f869644117fb12d2c34e853,2016-11-08,sql: fix explainTraceNode Columns,race
+cockroachdb,1dadcb6d0d6c8b18f34b63a3b4c54bf8b1b70b3e,2016-11-07,sql: deflake TestBackupRestoreOnce,once
+cockroachdb,8db00cff630308779d2cd7241aa51e7978835e36,2016-11-03,acceptance: better context cancellation discipline,context
+cockroachdb,dda3ee2e33078c349e913b65fa97b1ccecd17f78,2016-10-31,kv: add a comment about wanting cancellable contexts in TxnCoordSender,context
+cockroachdb,27bdb0705b065d30c6c9ef425e6fb2ad5269e601,2016-11-05,storage: Check context cancellation before the command queue,context
+cockroachdb,6996001cd01b6810c92c048379ef6a4aa284bea5,2016-11-05,storage: Check for context cancellation in Store retry loop,context
+cockroachdb,1d59f01c9b3523f31d8415ecbd1096d0b51fbbc6,2016-11-03,GLOCKFILE: update dependencies,lock
+cockroachdb,409bdc8e79b8023e8bf98b5f1db5c1773a132876,2016-11-03,acceptance: use a cancelable context in checkRangeReplication,context
+cockroachdb,ecd4e0585d63388344c94279c55a5a402a953eb8,2016-11-03,cmd/internal/localcluster: fix rpc.NewContext call,context
+cockroachdb,809149d9c833c8d6a32f4d0f66ca9fa67173a698,2016-11-02,storage: eager GC for replicas blocking snapshots,lock
+cockroachdb,0541f752316d4a690d1f1378b29baf311b32742c,2016-11-01,"rpc,util/hlc: forbid trivial clocks",lock
+cockroachdb,5571e149243854322a61365f64456ba31a5145aa,2016-10-26,sql: fix TestRaceWithBackfill,race
+cockroachdb,f92e2429a7f48acb557bb6072b28b86ba8c5b56b,2016-10-27,util: stopper.RunLimitedAsyncTask honors context,context
+cockroachdb,27e863d90ab0660494778f1c35966cc5ddc38e32,2016-10-27,storage: fix deadlock in coalesced heartbeats.,deadlock|lock
+cockroachdb,a6f4077f6142a822c402fb942043cbe7e89207a8,2016-10-27,tracing: remove infrastructure for storing a Tracer in contexts,race|context
+cockroachdb,f4bf63eb62e31e3abcad4eb8a3f918092361097c,2016-10-27,kv: use AmbientContext in dist_sender,context
+cockroachdb,103dc8c2cc19176a391861544f18a1f4dd3c77ec,2016-10-26,storage: deflake TestRaftRemoveRace,race
+cockroachdb,4cfb89f4c8416f66a894652f90701679e30fcf9c,2016-10-26,sql: extract local variable to avoid races,race
+cockroachdb,a477ff10d983ba2bcf0caf9865882161b3e43a6a,2016-10-25,Re-merge ambiguous commit error PR with locking fixes,lock
+cockroachdb,d6509d904f8991b8818b91c9bc1d48fb1adc4a0c,2016-10-26,status: avoid holding mutex over network i/o,mutex
+cockroachdb,d4cbfc7c77e21b555172e7a8ae228f1e6c067516,2016-10-26,storage: move prometheusExporter outside of lock,lock
+cockroachdb,41526e2569ce25715e2422df7640a8d3c686d942,2016-10-24,storage: evaluate proposals without lock,lock
+cockroachdb,4323ad270f881002fb3d6bec607021d06c356ec3,2016-09-22,storage: don't use the clock max offset when clearin the timestamp cache,lock
+cockroachdb,a2177081a7b1c1b7b8b571cb392b90c391b40c96,2016-10-24,rpc: tolerate clock offsets up to 80% of maximum,lock
+cockroachdb,eeb8d0cbcb53f4f7c63994639f4486dcf2cf72ef,2016-10-24,rpc: export clock-offset metrics,lock
+cockroachdb,aa620d2d8edd889b5f007036e9b3a164a9e24646,2016-10-08,server: take engines out or Server.Context,context
+cockroachdb,316de5f26671c2e31dab728d448b6cd14cb1aa2d,2016-10-18,storage: Protect CommandQueue with its own mutex,mutex
+cockroachdb,4d98f816045e186b5e08e07b22754021fe817eba,2016-10-23,gossip: only store AmbientContext in server,context
+cockroachdb,59fd1966a76261cdf7a659b118476f5daf23bdea,2016-10-23,sql: ensure side-effects of db.Txn() are set once in backfill.go,once
+cockroachdb,9aa09e768890db2cfc279d203d74c169bdcb3b55,2016-10-21,storage: use AmbientContext in StorePool,context
+cockroachdb,a50ace26164d29d8b36325fd87e4423f31df0b22,2016-10-21,storage: use AmbientContext in RaftTransport,context
+cockroachdb,38e9acdfc494103b7ffc1ad4e42a49db04ca3b52,2016-10-21,distsql: use AmbientContext in DistSQLServer,context
+cockroachdb,87a62ab7e3397a3bbc8eee569665f16f506977b4,2016-10-21,kv: use AmbientContext in TxnCoordSender,context
+cockroachdb,3f29d40a9335d9a196c09fee001b3fc8e6cc9833,2016-10-19,sql/pgwire: plumb good logging contexts through pgwire.Server.,context
+cockroachdb,6a0c9d0d0c3cc8ae80cc295efbcd191f22aa6d4e,2016-10-19,sql: dump the SQL trace to the proper context.,race|context
+cockroachdb,f1da85b863a52e23a75df2a9c009cbe934a6bb31,2016-10-18,storage: use AmbientContext in replicaScanner,context
+cockroachdb,07fa2be80a1550d5eca648c7125c7f8ba717669c,2016-10-18,storage: use AmbientContext in Replica,context
+cockroachdb,fdf6b64fad28bbb84f57e30d2ca43a798c1cc1fe,2016-10-15,"storage: use AmbientContext in StoreConfig, queues",context
+cockroachdb,14efbf9478bc82e303ef4a7c2503f7073fb3040f,2016-10-18,GLOCKFILE: add github.com/cockroachdb/build-utils/cmd/...,lock
+cockroachdb,ab6493abebb3d31832fbba7b3639db53dac0e4ee,2016-10-17,GLOCKFILE: update dependencies,lock
+cockroachdb,987fcd1d80638c28c2db810841ff75eb60264569,2016-10-17,GLOCKFILE: add a new command for generating github diff links,lock
+cockroachdb,c2857052dc21940244471dc5e39089330dea9292,2016-10-17,GLOCKFILE: remove go2xunit,lock
+cockroachdb,99e68002879e78c45dda641da60ec3490f9471e9,2016-10-17,sql: list kvs when TestRaceWithBackfill fails,race
+cockroachdb,23f8e5d21def4737d288ec80f3198f9a2d665052,2016-10-15,sql: use AmbientContext in Executor,context
+cockroachdb,7cd45dfd31cca98a43bd2fdbbd5beb3f98a6674f,2016-10-15,rpc: pass AmbientContext to rpc context,context
+cockroachdb,03f4543a1fbb8d086023b4e47c540d348d434671,2016-10-14,server: use AmbientContext and fix contexts in statusServer,context
+cockroachdb,d86fbba119628e6ed9f7605f493589d43a5dd08a,2016-10-13,gossip: replace stored contexts with AmbientContext,context
+cockroachdb,ba8aba0d019e7715ee4cb4c47a8914b06ba45211,2016-10-13,log: better support for event log in AmbientContext,context
+cockroachdb,5c4777fcb68d757cde7d89a107a7ca3eece798fd,2016-10-12,ts: use AmbientContext in ts.Server,context
+cockroachdb,fd3a97203366b332c27180f7afbfde32618d3372,2016-10-12,ts: use AmbientContext in poller,context
+cockroachdb,939f3bf71d2ede44fd51fa32ce9c568068c923f0,2016-10-13,storage: deflake TestRaftBlockedReplica (again),lock
+cockroachdb,ed6a100ba38dd51b0888b9a3d3ac6bdbb26c528c,2016-10-13,log: do not deadlock on failed symlink,deadlock|lock
+cockroachdb,11f6a6ae423d4b1cdfdbf99d2005baf8315ccf59,2016-10-12,server: replace stored context with AmbientContext,context
+cockroachdb,0958cdfb36469c5c10fc11bf3beda34511c2cc63,2016-10-11,log: AmbientContext helper for annotating contexts,context
+cockroachdb,3b56d4ab03b215d0b67fd9ba2ff899cbd16b026f,2016-10-12,rename base.Context to base.Config,context
+cockroachdb,1e21271c3830c4d7337193a6194c884b7547d877,2016-10-12,server: rename Context to Config,context
+cockroachdb,c9b915b8311881eebfe5215520c340a1031118ee,2016-10-12,storage: deflake TestRaftBlockedReplica,lock
+cockroachdb,c95e008d0a46761dbd3c679499369d2790974b90,2016-10-11,proto: rename trace to trace_context,race|context
+cockroachdb,3fbae6b568cf359e621e201931daa1daadccd2b5,2016-10-11,GLOCKFILE: update glock,lock
+cockroachdb,829dda7b8d8d8b6bb3e9fae8a5c780f3ac4cf4b5,2016-10-07,util/tracing: Span -> SpanContextCarrier,context
+cockroachdb,fef11f5b3f01847c70c005943da99cf77f3e2262,2016-10-10,storage: update hlc.Clock once per batch,lock|once
+cockroachdb,3e92ac22b859d3c413b9f0b12acf9a770daa3835,2016-10-11,all: change some context.Background()s to TODO(),context
+cockroachdb,0beb6b2c0cd87ffece2a44db6e3587fd2c857d30,2016-10-10,storage: improve logging context in SendSnapshot,context
+cockroachdb,6578ab4b2f21dcbfb19eff6e7fa0f1159e037be0,2016-10-10,storage: make raftScheduler.mu a TimedMutex,mutex
+cockroachdb,d9c34a4c44b4815df3ceae04338b0f9020ffa615,2016-10-10,storage: narrow Replica.mu locking in Replica.TruncateLog,lock
+cockroachdb,75a882a16044bce41cf16b6a3d2831068753fe6d,2016-10-10,GLOCKFILE: bump hdrhistogram,lock
+cockroachdb,7fb95438c073ddff82b3d8bd0c5ae6e1f051ea80,2016-10-05,storage: lock raftMu in Replica.proposeRaftCommand,lock
+cockroachdb,08fce72b218e3d009760a691c81db0674a32375f,2016-09-22,storage: correct ConfChangeContext comment,context
+cockroachdb,c6f81d23c0e75b897bad5daea541e3aa59a517d9,2016-10-07,GLOCKFILE: remove dependency on github.com/stretchr/testify,lock
+cockroachdb,4cd1899d5c19277a383d7b03e7c68c5382f88b55,2016-10-07,GLOCKFILE: use upstream's goyacc,lock
+cockroachdb,2a3f51962f840f29b55d619542a1a16b92017b7a,2016-10-07,tracing: set max events for net/trace,race
+cockroachdb,aca48c0a81d9471b30a402c51805fb6104c4fa59,2016-10-07,storage: 'fix' mutex timing metrics,mutex
+cockroachdb,05e76099416278afdc0f332433af569f6d16b573,2016-10-07,ui: clarify mutex timing tooltip,mutex
+cockroachdb,a15150ee9caf84b56a6cae8ff293af292c802b79,2016-10-07,storage: remove mutex wrappers,mutex
+cockroachdb,90102f65345272fb461fde373331db773abac793,2016-10-06,stability: metrics and better messages for TimedMutex,mutex
+cockroachdb,e62197ca02df076fdde5656a865e54bd6731af7c,2016-10-05,tracing: temporarily reduce the number of events in net/trace,race
+cockroachdb,9a3ae2f1f3cccbe4b0374b84a790551c9e33e498,2016-10-05,build: produce race-enabled test binaries,race
+cockroachdb,6b953dfad17926e27e199a51ed15eaf1a6fcdf24,2016-10-03,GLOCKFILE: update deps,lock
+cockroachdb,b022781bf3481e016d8d8e14831f3403f89de45b,2016-10-03,storage: rename StoreContext to StoreConfig,context
+cockroachdb,0fb0d5b90dacce4a1bff6d6e151d6f87da4a5e5d,2016-10-03,GLOCKFILE: update dependencies,lock
+cockroachdb,86d6bd594c5f00326c599934e79a1c9ea4d9c3a7,2016-09-29,storage: fix data race in TestReplicasByKey,race
+cockroachdb,bd2c22755741b90550a63f7d6c0b1c32550eaed9,2016-09-29,storage: gossipFirstRange{Locked->},lock
+cockroachdb,1978d289da17b5590253792228f411b73ab87db6,2016-09-28,syncutil: disable deadlock detection,deadlock|lock
+cockroachdb,3039f8b1bd85bb9d8c6a59f68fdb0580bcc4b310,2016-09-28,tracing: better basictracer options,race
+cockroachdb,8842b346bf75fb03729e57381233fca0f51ed0a8,2016-10-01,storage: fix a few contexts,context
+cockroachdb,42dd2be5ad36b050fab559a3c2335df1a9ba5a76,2016-09-30,storage: use time-tracking mutex,mutex
+cockroachdb,7c4e53ae29866c1606cf9b1d5bd7beb76556cc01,2016-09-30,"server: Fix debug page 'trace' link, which said 'heap'",race
+cockroachdb,8a9bda94df44ceffd51d4523733a7a9ed0f4b202,2016-09-28,rpc: enforce max clock offset across nodes in a cluster,lock
+cockroachdb,8fa23b5bf805c3962ae478d7d02fe53f9687fa09,2016-09-26,*: pass real contexts near transactions,context
+cockroachdb,32f67afbc604399af4d005548707091e88d2e574,2016-09-24,storage: plumb context to Stores,context
+cockroachdb,ae48cef84155c84fb95a575f514d74654061bf4c,2016-09-24,storage: plumb context to RaftTransport,context
+cockroachdb,a8b77c74950c9ba8850f2437e0c6f6461c41497c,2016-09-24,storage: fix some misc context.TODO()s,context
+cockroachdb,a8a42fc740122c5a51316ebc1c1b43c86c673fcd,2016-09-24,storage: plumb context to idAllocator,context
+cockroachdb,0ff3e8d7c61ddbec168493e08d529a2c0dfee109,2016-09-24,storage: plumb context to queues,context
+cockroachdb,8cc91ae05aae607e50698fd874f6b6793a9a8560,2016-09-24,storage: plumb context to StorePool,context
+cockroachdb,81ed75f4ba866f523d94731074b6635f48753929,2016-09-24,storage: plumb context to replicaScanner,context
+cockroachdb,9dc0167b7d376c326b9831dc79b031b075766d45,2016-09-24,"storage: use context in Admin{Split,Merge}",context
+cockroachdb,0e0f886e725c8dc225591d36f9fc5b916db6684d,2016-09-23,kv: Limit time spent in race-exposing loop,race
+cockroachdb,894a8012fe0fed2a8b65934c268584e0b02886ba,2016-09-22,Makefile: increase RACETIMEOUT to 10m,race
+cockroachdb,fa89a43943b49fa2cec2228e3cab90217b004dd0,2016-09-21,storage: trace on lease acquisition success,race
+cockroachdb,4a4c70154344da96cab88e6eb261925b8e0cb5b4,2016-09-19,kv: plumb context to range cache,context
+cockroachdb,e0588efc2f3d963b4db26d52fe3d6696d67a5345,2016-09-19,storage: use queue's ctx as base context for queue ops,context
+cockroachdb,a7e2596b73041fc591d3cd2ea9fb450a7214b4d9,2016-09-19,server: plumb context for writeSummaries,context
+cockroachdb,ea69a3e2e15c7224946f16b6f7c4d9ac7de89ec8,2016-09-19,server: plumb context to status operations,context
+cockroachdb,8c723e1890fda778d44cb579bc910fb4cb0c1a2d,2016-09-19,server: pass context to ID allocation ops,context
+cockroachdb,f64ac3f8dc83b787ad7f6b2a11f0d0643b87c168,2016-09-11,server: use correct context for updates,context
+cockroachdb,840b8fd6ee6a82f46666575794dc8b2282a71411,2016-09-20,storage: unsketch TestStoreRangeSplitRaceUninitializedRHS,race
+cockroachdb,64d9c22b38a38444a6b49c71729bc3e67bc51523,2016-09-20,storage: unsketch TestStoreRangeSplitRaceUninitializedRHS,race
+cockroachdb,a65ba8a8ed42a5a91d33c74b1af7cab5a411cee7,2016-09-19,server: Don't pass context into background worker,context
+cockroachdb,2f9de93f8aa846dd27e5c78ffa86ac88d2829de1,2016-09-17,storage: generate rangeDesc string once per update,once
+cockroachdb,764ab2e21cc00d6700ac770880caf2b9dc80383a,2016-09-17,storage: add COCKROACH_SCHEDULER_CONCURRENCY,concurrency
+cockroachdb,5771c1e312dd5a4e010ba2078c3718c732902fdc,2016-09-16,storage: Fix a data race,race
+cockroachdb,4a243bbd282dc4d643c60bbf9513d4d30a2dfa9b,2016-09-15,storage: tick the logical clock for quiescent ranges,lock
+cockroachdb,b9b6c5b7bc03ec6ba28b36b1c07b76088d3e4bd8,2016-09-15,storage: tick the logical clock for quiescent ranges,lock
+cockroachdb,bc0f0c0e5627b6ca932bcc1f7af922efa78f90ea,2016-09-15,storage: s/pendingRaftGroups.Mutex/scheduler.mu/g,mutex
+cockroachdb,06b04672355abac49bf701781fd583e46b70467e,2016-09-15,all: remove Trace/Tracef/VTracef,race
+cockroachdb,840f9ad6491510d0dac3fffc9d531a90196f97ca,2016-09-15,storage: add trace point in GCQueue,race
+cockroachdb,fee232a52f287af7dc31bf1a53f75bbc1f6b9a12,2016-09-15,storage: avoid race in test,race
+cockroachdb,c9aa94f47850c1e49590d21fd69ab5522971f6af,2016-09-14,kv: remove redundant trace event,race
+cockroachdb,b728e1ba570f7630c2017d7b2a2ef550f2a7f690,2016-09-14,kv: add interesting events to trace,race
+cockroachdb,4904d05f020785a1ed393fc91ac062e402fd9cc7,2016-09-14,tracing: fix lightstep trace context serialization with TeeTracer,race|context
+cockroachdb,a0507521ab4cd3df2b34caaa79f26143f28c899d,2016-09-14,tracing: fix span references for TeeTracer,race
+cockroachdb,29a5988ef6e935c59eb3c0ead82837506fe9f2bc,2016-09-13,storage: fix WaitGroup race in CheckConsistency(),race
+cockroachdb,0ce2fc103762e813589d8a958455d49b26b96cc5,2016-09-12,stability: support context cancellation in replica queues,context
+cockroachdb,eba3e7067ddb76678c5c32a9cf4662438e75e917,2016-09-12,storage: Store.updateReplicationGauges will now hold the store lock for less time,lock
+cockroachdb,2f5df8472031198353b8253fd3331c02f9e97685,2016-09-12,tracing: implement TeeTracer,race
+cockroachdb,b64d176af7a69bab1c9de3c0fa19af6f034cd530,2016-09-10,ts: plumb contexts,context
+cockroachdb,0e98a17e35d80b0dfceccbbafa05b6f259d38398,2016-09-10,client: add context to Db.Run(),context
+cockroachdb,84c0247191314c53aa40b8d5698f6e5c1e524a87,2016-08-18,log: add file:line to trace log messages,race
+cockroachdb,71936556762f9e3841126efbbd756c64db511ec4,2016-09-10,kv: Hack around GRPC context leak,context
+cockroachdb,c579d287274d408d2e2dab2a063917207d5c546e,2016-09-08,storage: add replica log tag to queue context,context
+cockroachdb,0b78bee63e24ad44aa6e372eb27c7cd20c10d48c,2016-09-08,storage: properly lock the RHS in Replica.mergeTrigger,lock
+cockroachdb,60075893565eebfe0f0ef28a83956c959b6ced25,2016-09-08,engine: Enable rocksdb assertions in race builds,race
+cockroachdb,2b25d63bf08fc0fb47cb4a3c30185df8bd448a47,2016-09-07,rpc: plumb context to remote clock monitor,lock|context
+cockroachdb,54bf0a1a5e62fba31e333c5c3b85fc63b7b437b0,2016-09-07,rpc: pass context to rpc.NewContext,context
+cockroachdb,6585d286a57023e4c966e37ec1a2b8b0e9ff0c38,2016-09-07,Update backtrace-labs/go-bcd dependency,race
+cockroachdb,c028d858d3f297c586945445ee6cede8adaf9cd0,2016-08-31,sqltest: derace TestBackupRestoreBank,race
+cockroachdb,b9dce867262e60333fc809a6ca0a815a5070989f,2016-09-06,kv: plumb context to range cache,context
+cockroachdb,e2f6dbb6c2f5daed97ee2b3ac9707e956f343c7d,2016-09-06,storage: remove `(*Store).context`,context
+cockroachdb,ce0071b851f4bbb5e1bfaee80a696dc4c7a0c7c3,2016-09-06,storage: use range context for raft logs,context
+cockroachdb,03341b6e9d2c913736fce07327a4aa916a45eb41,2016-09-06,storage: minor tweak to usage of canApplySnapshotLocked,lock
+cockroachdb,7b6f1a863e6db3c46a2d837ca1c2976295bde194,2016-09-06,sql: tag the logging context with 'internal' for the internal executor.,context
+cockroachdb,7c74a669134d4c758dcaef98f387dcb9297faca9,2016-09-03,storage: consistent lock acquisition ordering when creating a replica,lock
+cockroachdb,31ee05e99892caa70ee2c6a10399b0fd6b6454cc,2016-09-03,storage: fix race in TestReplicaNotLeaseHolderError,race
+cockroachdb,719db21925d84cbe415f7d5168b794fada1c0c18,2016-08-27,storage: use anonymous struct to clarify locking,lock
+cockroachdb,ca79088540812fb0e71b9a60f4bb8bcaf0651f6a,2016-09-01,storage: fix data race in TestApplyCmdLeaseError,race
+cockroachdb,3e659e2b4737d6caa7f0e5be1938e2a3db27bb5e,2016-08-31,storage: ensure multiTestContext shutdown is deferred,context
+cockroachdb,935c48b4f7b5b6ee0e5e318bb5c204dbc0b49896,2016-08-29,log: fix tags in traces,race
+cockroachdb,0b00499cc0b15a798d29721d77182ecf923c3778,2016-08-26,gossip: plumb contexts,context
+cockroachdb,5eba767612065fc1c738363018adb1a6088ea408,2016-08-26,storage: replace queueLog with EventLog in context,context
+cockroachdb,df5d1445fd5b3dfe204fcf463116ae5833a3dd0e,2016-08-25,storage: fixing queue Close() races,race
+cockroachdb,ed092b3f5e88e1a73b2f37753d5fda17664b1ac8,2016-08-18,kv: plumb context to TxnCoordSender,context
+cockroachdb,f3681089169bd9f9d594d27deb818ff350b397f4,2016-08-18,storage: plumb context to node and store,context
+cockroachdb,c40baca6d5bd47e4e6730d552d4cb0ba83989bc0,2016-08-18,kv: use a base context for DistSender Tracer and log messages,race|context
+cockroachdb,b8b817302c9d2e02a682a4e855820329cde3de2e,2016-08-31,storage: fix incorrect LookupRange error causing TestSplitSnapshotRace_SplitWins flakiness,race
+cockroachdb,64e8576d5d06b63c2852ebb70ece5b991ce451b1,2016-08-29,log: fix tags in traces,race
+cockroachdb,43d55ab0eeb0b342967ad6f88cf653a5b0fa948e,2016-08-29,storage: test command queue context cancellation,context
+cockroachdb,59c7f7e451f17852213b814f20fd29b7af2d7977,2016-08-11,gossip: remove warnAboutStallLocked,lock
+cockroachdb,5a1476895aad3e4ac35576729510b909c7190405,2016-08-28,Bump default timeout for `make testrace` to 8m,race
+cockroachdb,9c72e42e198e9bd8e32ce366e3eb258401341beb,2016-08-28,stability: expose (and fix) data races in Transport,race
+cockroachdb,dc05dffaa8d83745559f9e70e84fd722367e5ae4,2016-08-26,gossip: plumb contexts,context
+cockroachdb,25788412ab945628aabad3b289ea578481460986,2016-08-26,kv: fix deadlock in TestSlowLeaseHolderRetry,deadlock|lock
+cockroachdb,44347e784635013d92e27f72cd4150a40a241fa9,2016-08-26,storage: replace queueLog with EventLog in context,context
+cockroachdb,b96b7c3114c5fd9a9c91d8042ec7848504c4c2a5,2016-08-25,storage: fixing queue Close() races,race
+cockroachdb,ea7bbeae0c518c96351d072efb6baf3ad330d80f,2016-08-25,gossip: call signalConnectedLocked in idiomatic location,lock
+cockroachdb,44c4bb61607f36af8244ea83e91666822f8ad885,2016-08-25,gossip: log to net/trace events endpoint,race
+cockroachdb,7413ca4e1849a23c92a32d686d679c8c964ee803,2016-08-25,sqltest: skip TestBackupRestoreBank until race is fixed,race
+cockroachdb,db89d63eb25e2236a2f8163ab1b52de23b73da52,2016-08-24,build: remove data-race and stdmalloc configs,race
+cockroachdb,2a48d3304fad5fcc5b7da08d0d904c9b79b8687b,2016-08-23,util: fix race in timer.Reset,race
+cockroachdb,ba8f98c25ace4608fd2b9af9357a3ad65f60440b,2016-08-22,storage: Don't pass a context into background tasks,context
+cockroachdb,36c62bd715b255ac57fc21bd57b312e9a2ded7b6,2016-08-18,kv: plumb context to TxnCoordSender,context
+cockroachdb,7c3482e188b18e78be67fa23d17448742afab6e6,2016-08-18,storage: plumb context to node and store,context
+cockroachdb,e543da7121dc815460dbc91954a48ad224506c63,2016-08-18,kv: use a base context for DistSender Tracer and log messages,race|context
+cockroachdb,b5226ec0e3ea75155bd5ae2036452e039110ccaf,2016-08-18,rpc: avoid needless locking,lock
+cockroachdb,f6bc70d5931d97d328d00199e3df84ee1ca80239,2016-08-17,util/stop: move mutex to an anonymous struct,mutex
+cockroachdb,163d685b2f010041fc33e93b0bcacd255a0602d1,2016-08-16,Bump our version of glock to avoid race conditions when getting the repo,race|lock
+cockroachdb,8512b06612b070b42b50d16122b7e7591da6a57a,2016-08-15,gossip: move lock to anonymous struct,lock
+cockroachdb,cdd6f9f4c29e536c27311a806cc8a6f10d18e6b5,2016-08-11,gossip: fix race in which we may not trigger a gossip,race
+cockroachdb,dd8f3943c1526fbf220ddd68e458b22baf775e33,2016-08-11,tracing: support storing Tracer in Context,race|context
+cockroachdb,ce6c652e8f4355d5a8ee90aebdd7e129f1b53300,2016-08-12,sql: work around lack of runtime/trace in gccgo,race
+cockroachdb,129832b501f118553ea78eb03076957e6f5393b3,2016-08-12,build: limit concurrency,concurrency
+cockroachdb,a2892e856b08f3cb031a0b4e97b30dfdf6480c0f,2016-08-11,sql: tweak COCKROACH_TRACE_SQL env var,race
+cockroachdb,1b925473ec9e4018f2b8ecb0637ddf9293f7758f,2016-08-11,Update Readline dependency version to avoid deadlock,deadlock|lock
+cockroachdb,a20c0fe5fa88cf48e353dc2376cad8fa10d22d0b,2016-08-11,sql: rename ExecutorContext to ExecutorConfig,context
+cockroachdb,981be0cc24a3740281de0a6084feb12df4cd95fa,2016-08-11,distsql: rename ServerContext to ServerConfig,context
+cockroachdb,8df2c26e486b774cab974103cd23cbabc496cdac,2016-08-11,kv: rename DistSenderContext to DistSenderConfig,context
+cockroachdb,ac339deed8c6e499d48a2c9d7d56f0d5cbca8655,2016-08-10,server: use the request context,context
+cockroachdb,13e5e3e7cc5a7829a189b267a53fc3054712702b,2016-08-10,Add Context arg to db.Txn(),context
+cockroachdb,2ea8cdc7ee0802be2b33c0d0ba38ce0a0c40d20f,2016-08-10,storage: pre-warm multiTestContext connection cache,context
+cockroachdb,48c40c8c5dcf7cc4ceac05188de03070b2f9d3e3,2016-08-10,storage: speed up multiTestContext gossipping,context
+cockroachdb,177cb5c51904befa14d032fc8fc2f99be4cdd35f,2016-08-09,multiTestContext: fix NPE in SendNext,context
+cockroachdb,27bc0676f002727aad54684166a1147b7aaf10a1,2016-08-08,multiTestContext: reduce the probability of deadlock in SendNext,deadlock|lock|context
+cockroachdb,2d3a9618bf997de9c941c9745a8cc6aa0ce55b15,2016-08-08,storage: fix data race and deadlock,race|deadlock|lock
+cockroachdb,b73647b84ae95a3256ff05b3ec4a15ef3091135e,2016-08-08,cli: Reduce block profile rate,lock
+cockroachdb,cf46a8316d04c9f3dc0c77a915649ded08e0163b,2016-08-08,GLOCKFILE: update dependencies,lock
+cockroachdb,e6b15814952372c4a70fc78831e051941e0b1839,2016-08-03,sql: change t.Fatal to t.Error in TestAcquireFreshestFromStoreRaces,race
+cockroachdb,9a23a698bbffdefe288807a56505264ae6a36442,2016-08-05,kv: replace a context.TODO with an available context,context
+cockroachdb,877ced72326aa9968f3862eee2466fd3bf7e6d92,2016-08-03,storage: explain multiTestContext stopping subtleties,context
+cockroachdb,d4659e0750c92f2422ada754814c6e37b3508f82,2016-08-03,distsql: remove 'context' imports,context
+cockroachdb,deae6fcf519cd9f2830a013705012b0322f73f57,2016-08-03,cleanup: replace all context.TODO() calls in tests with context.Background(),context
+cockroachdb,aa1370ddf082823f2f0e36f9650e7c779e07cad6,2016-07-23,distsql: set NodeID and FlowID in logging contexts,context
+cockroachdb,64b949994fb2ed7a0c7eba93e93f593fa4ca6ca6,2016-08-01,cleanup: replaces context.TODO() in places where a context.Context already exists,context
+cockroachdb,22f61b8789237f98bba0ebd08a46dfef5c8befc8,2016-08-03,storage: avoid nil context.Context,context
+cockroachdb,ca4f354e730c387300b936735906cdb4e808828c,2016-08-03,server: fix nil context,context
+cockroachdb,f1eedf2d5fb8d90e76a644e6af6a193aa7387c88,2016-08-03,storage: fix deadlock in multiTestContext,deadlock|lock|context
+cockroachdb,e9fa17c0e5f9227262006f76bb62555540cfdffc,2016-08-03,kv: fix gossip simulation deadlock in tests,deadlock|lock
+cockroachdb,0968a27a5450d3d9190543da97865f505c970da8,2016-08-03,all: close listeners rather than GracefulStop() on ShouldQuiesce(),race
+cockroachdb,e4b564efe3744b5289b8f9d988c4adffa7691d39,2016-07-28,storage: refactored InternalServer into storage so it can be used from multiTestContext tests,context
+cockroachdb,8336c10a3b414c260c0e655482d8768a52c57728,2016-07-14,storage: plumb contexts into replica_state.go instead of calling context.Background(),context
+cockroachdb,486716301b96a2a6a579c8b9ffac6ee518e17e0f,2016-08-02,sql: plumb contexts to logs,context
+cockroachdb,88e30b2ee68cfaf9c0ff1194821a2ecfecfb5a23,2016-08-02,GLOCKFILE: remove duplicate honnef.co/go/simple,lock
+cockroachdb,8dcec5d81fccdd90a29f42f9d7a055e6f6fe76f8,2016-08-02,glock: remove (older) duplicate of `simple` dep,lock
+cockroachdb,e05182502150f57d9cdf1047f7bcb5c6bb02020d,2016-08-02,glock: bump stress,lock
+cockroachdb,f7af35fe5d32122636595786d311352f2d9790c6,2016-08-02,config: fix data race in tests,race
+cockroachdb,541d0bbed82c51a139a0d3ea0e8e05c49f333e3b,2016-08-01,"util/log: added log.{VTrace,VTracef}",race
+cockroachdb,c892ec7b0f1f952f1b58dd06d47833bf40d43738,2016-08-01,util/log: added Tracef,race
+cockroachdb,9cb618afae2257347712ca10a80fe0e52c73dffc,2016-07-31,sql: add COCKROACH_TRACE_SQL,race
+cockroachdb,2386db56e2f938ba12090703b55f1e10296f9312,2016-08-01,config: make the race detector happy even if TestingSetDefaultZoneConfig is called,race
+cockroachdb,673f9ea8d7fc3419b3efcc98f5e06e95979a4f0a,2016-07-31,storage: Factor test boilerplate into raftTransportTestContext,context
+cockroachdb,323e6d7a7e65138c78778267602efa28edccd19a,2016-08-01,"Makefile: stress{,race}: place test binaries in package root",race
+cockroachdb,ccb297e80b86fce9709ec6fea491aa70e2e55dbe,2016-07-31,GLOCKFILE: update c-protobuf,lock
+cockroachdb,21857dd16f7465acb5ba8199ee3bda41f6f2910d,2016-07-30,leaktest: ignore goroutine leaks in the stadard library,goroutine leak
+cockroachdb,251d96474c7adfeb8fb4e8ceac860a00d4cab5d2,2016-07-30,Makefile: fix testraceslow invocation,race
+cockroachdb,2d864c6ba8dd9b27e562d38964f4dd721aa2db7c,2016-07-28,"server,util/netutil: gracefully shut down grpc servers",race
+cockroachdb,3cfb16abc4edf48024638cb3633682a5a6b70afe,2016-07-29,gossip: context plumbing,context
+cockroachdb,86e145a75b329e378d7c68fec15081401c9ff87d,2016-07-27,sql: plumb a context.Context into the rowWriters and tableWriters,context
+cockroachdb,02365a0f2a30ab2e9e9a16e35dfbc534cdcbcca8,2016-07-20,acceptance: 6-hour continuous block_writer test,lock
+cockroachdb,c3c4b885a0a79a6b58dacd46776549d7da9ecec2,2016-07-26,cli: output backtrace dumps to the log directory,race
+cockroachdb,b0669c43045085b6b3b89279e84fd98220d4f670,2016-07-25,storage: replace context.TODOs in replica command,context
+cockroachdb,93af0cec87948b793b8d5237dd1004c8f9681bd4,2016-07-25,sql: fix inconsistent lock ordering,lock
+cockroachdb,0700d297513bf4924b87fa383ca51fe67900df95,2016-07-25,*: abstract locks behind syncutil,lock
+cockroachdb,96739995a4a2688f68ffafdf9818728c39d597ca,2016-07-25,"config,gossip: fix inconsistent lock ordering",lock
+cockroachdb,25fd80917baef43d9fa81960a4d8e0bf0720bc7c,2016-07-25,GLOCKFILE: return to upstream glock,lock
+cockroachdb,f534c6f89f3f08c9094c5957db27bff22cce37eb,2016-07-25,GLOCKFILE: use fork of glock,lock
+cockroachdb,70e72cd94ee0d78545f6ab4790f4f7c06b308ee0,2016-07-22,sql: fix TestRaceWithBackfill,race
+cockroachdb,bb2e820221e9a8e35392fb3195692df72e2ff05b,2016-07-25,cli: Enable block profile,lock
+cockroachdb,21271f3271dc0dbe55e30f191d2bad5d7907e416,2016-07-23,logging: consolidate logging functions to always take a context,context
+cockroachdb,9fcfe5e5054d35229f51f760ddbe0e3f225a3ef2,2016-07-21,cli: backtrace integration,race
+cockroachdb,8bd747251078018bb2726b64bec407c54cd0e980,2016-07-19,sql: refactor acquireFromStoreLocked into acquireFreshestFromStoreLocked,lock
+cockroachdb,5ab8e75fadf96514aaf58364e37e2b52cb030b34,2016-07-19,sql: fix race condition in acquireWait(),race
+cockroachdb,a696f510a718588f3bc299d0ee3c78c052568ea9,2016-07-19,storage: fixes a deadlock in which the process tries to lock itself,deadlock|lock
+cockroachdb,84396b37e779eb1b898eb5c5d4562d5b37a0bf97,2016-07-19,"storage,server: remove .context()",context
+cockroachdb,431b3d2045cbd22a14c5422ffebe2538df0b6538,2016-07-19,util/log: rip out mostly defunct context logging,context
+cockroachdb,c15caebb4c539cf19f23929c1ded66055d6597aa,2016-07-18,kv: avoid data race in test setup,race
+cockroachdb,c23a89273b176ff27b4289321bdafa397be18509,2016-07-17,storage: refactor replica.String to avoid deadlock,deadlock|lock
+cockroachdb,9ffce73ed9bc4531e73e0b6d555dcbf42f3db84c,2016-07-16,storage: Make TestStoreRangeSplitRaceUninitializedRHS more sensitive,race
+cockroachdb,ff5c987ba9b845d6889069b8f7776847fa707410,2016-07-16,storage: avoid go1.7 vet warning about copying sync.RWMutex,mutex
+cockroachdb,d133b0a5fc1b32cbace18a5d06224a91d852be18,2016-07-14,gossip: fix data race in clientStatus,race
+cockroachdb,d871106676bd49e9215e3f774d83ab4abb007e2c,2016-07-14,gossip: use anonymous struct mutex pattern,mutex
+cockroachdb,da7597953dcf4c1044a302fcef21b29d6550f28e,2016-07-14,storage: guard against invalid init in multiTestContext,context
+cockroachdb,175960071ab0e35c0595f5ea4afb000f6b050199,2016-07-14,storage: refactor index usage in multiTestContext,context
+cockroachdb,21f9ef80a133ea2604e2fdf079ad2aa7cc31542a,2016-07-14,storage: remove clientStopper from multiTestContext,context
+cockroachdb,7604ad047575403a337aedea0a6af10e41ccad45,2016-07-13,gossip: block until client disconnects,lock
+cockroachdb,bcb684ef311ee0120acc8eef2d6a340ff63a2e28,2016-07-13,storage: avoid opportunity for deadlock in tests,deadlock|lock
+cockroachdb,2af6b30b17cfb2b7ae2ed49b028f50716e42601e,2016-07-12,storage: fix blocked async snapshot task,lock
+cockroachdb,c5ec0dfbe454871dcfaa2292d02cd077cb4200e6,2016-07-12,sql: avoid copying mutex,mutex
+cockroachdb,40a89e825d6c7730a1d576ee26295935261ec2a3,2016-07-10,storage: Document locking of Store and Replica,lock
+cockroachdb,042dddceb119f836462c9a6fab9242aafbec6ab2,2016-07-11,sql: fix race in TestPGWireConnectionCloseReleasesLeases,race
+cockroachdb,0a373bf1c1761d3ed1b18a58b9007161ac1d84ab,2016-07-11,kv: avoid data race in TxnCoordSender.tryAsyncAbort,race
+cockroachdb,bfc3014c7fb47e0e46f7be7f4357c67b50349884,2016-07-09,build: run `go tool vet` just once,once
+cockroachdb,6e5882cfbe5f89b2d699b2f54d1506d5602e0ddb,2016-07-07,storage: remove empty `else {}` block,lock
+cockroachdb,74cc6901b7f5026fc819b42ec35468b1f55c8e82,2016-07-07,storage: skip TestRaceWithBackfill,race
+cockroachdb,8c02f0c3cf2f0042f807f79a19922963d42c5e13,2016-07-07,storage: disable handleRaftReady concurrency,concurrency
+cockroachdb,c7a77cd0cf67851a42ea8191bb7619c39aa45ef0,2016-06-30,storage: plumb a tracing context into all queues' process(),context
+cockroachdb,cab761b9f5ee5dee1448bc5d6b1d9f5a0ff0bad5,2016-06-28,sql: avoid deadlock in lease acquisition,deadlock|lock
+cockroachdb,1a8dca8e4a9a3225071fb74564bcc4b63834b236,2016-06-30,storage: remove TODO about locking,lock
+cockroachdb,bea9ea1df193c477389582b99ca152b86c00a89a,2016-06-29,storage: Simplify MVCCStats locking,lock
+cockroachdb,86c63598f4b41e6fe8db7772a69a48d93dfa2650,2016-06-29,build: pass GOTRACEBACK through and default to all,race
+cockroachdb,ab4721c748da09ddf2c72e62c11a3e377e8462c0,2016-06-27,storage/engine: share the block cache instead of partitioning it,lock
+cockroachdb,cbc2db0369a1705c2862145048e969072cc7fa83,2016-06-27,cli: quit gracefully when cluster dead,race
+cockroachdb,ab0e15280bb2f8ce6a75a485eb23cea00e92550b,2016-06-27,ui: update dependencies and regenerate lock files,lock
+cockroachdb,4905dc1203b034783041769b93016014c654e9a5,2016-06-23,sql: Fix race of TestReacquireLeaseOnRestart,race
+cockroachdb,75c2534aa879c78d41cc7edabb69a6ff7dc35907,2016-06-17,storage: [Tiny cleanup] Remove error from prepareRaftCommandLocked,lock
+cockroachdb,556d819bd2ee7729620bf936225a05ce2b64cfc7,2016-06-16,storage/engine: fix defaultBlockSize value to match comment,lock
+cockroachdb,390d63d26cb0897732d6c9b011fc1f2e4c02e546,2016-06-15,storage: fix race between context cancel & snapshots,race|context
+cockroachdb,54bd03200902def4a50a47695fb83bd44af74d04,2016-06-14,sql/sqlbase: Export MakeSrcContext function and use throughout,context
+cockroachdb,4c4efa712d4c2a3f7a14e57556ae53bc2475653a,2016-06-14,"Try out increased block_size, it should help reduce memory usage for readers",lock
+cockroachdb,4fb795091da19c221c0969555ce4f1a3eb20e7a1,2016-06-13,storage: fix trace use-after-finish,race
+cockroachdb,0bfd12e891d0ca72ec1ff3f9a943884aa80073cc,2016-06-08,acceptance: add context deadline exceeded error to isRetryableError(),context
+cockroachdb,8f206cb9e77da8d587f5282e458e5dfe181d1585,2016-06-07,sql: test the query plan structure of EXPLAIN(TRACE).,race
+cockroachdb,e0be4ec3e4368de5e060d765004e6709a49efe99,2016-06-07,sql: Fix EXPLAIN(TRACE).,race
+cockroachdb,8175d8957a78901cb4f9bb9dc2716e4be3368e4a,2016-06-07,storage: move storepool's mutex into an anonymous struct,mutex
+cockroachdb,2e360787f013010f39ee0804c772d216d546772e,2016-06-06,rpc: avoid data race during shutdown,race
+cockroachdb,00c7317b9f9bcabd509e4194ff8c599b57329a99,2016-05-24,"storage: `if` -> `switch`, remove needless lock",lock
+cockroachdb,4ef4a680f27354cb4f6082df8c722a5e52da857b,2016-05-25,sql/parser: Replace EvalContext.tmpDef reference with value,context
+cockroachdb,39c4b2c7995912b0e0782fcec8744349e276505e,2016-05-25,sql/parser: Change EvalContext to be passed as a pointer,context
+cockroachdb,741fb8ee0ffb0a91e25e9dc528743201b99ab889,2016-05-25,sql: fix race in releasing leases,race
+cockroachdb,d02d592aedb3e25629d24731403fa9ed57cd37e7,2016-05-25,cli: separate client/server contexts,context
+cockroachdb,ee6af8c752bac572e86753aae406b893b383b485,2016-05-25,sql/parser: Construct Context for Semantic Analysis,context
+cockroachdb,dd0324090006adede9969d370ac0bc0c73d38ee5,2016-05-25,base: use sync.Once for HTTP client,once
+cockroachdb,f3acae581f2397a6f52f71afaa06837e57a09f6b,2016-05-20,sql: fix racey lease test,race
+cockroachdb,fe79e5fe9a6c6c59ed26236a6e9cb4963bd87819,2016-05-21,"sql: EvalContext.Location references, not copies, the Session.Location",context
+cockroachdb,2e3957964d5f627bbf153b9831505368ffbdfe3a,2016-05-19,kv: Plumb a context into range cache for more detailed traces,race|context
+cockroachdb,bf9c72b3f99a4d20ee73bda071a71be337213343,2016-05-19,kv: Add detail to DistSender trace messages,race
+cockroachdb,85b46ade2927262bddd9b35b80f7acad7ea4d522,2016-05-18,sql/parser: Add temporary working decimal to EvalContext,context
+cockroachdb,8cef442a4f8be9fbddf8852fa4c170adfd7506ce,2016-05-16,kv: Slightly simplify the range check in getCachedRangeDescriptorLocked,lock
+cockroachdb,dde8974c4905e3ba90631b60d378af21f79c555d,2016-05-15,client: Pass retry options via DBContext instead of a global,context
+cockroachdb,4444f82b83e373532c47f390552d46ad63659aba,2016-05-13,Initialize the RowFetcher only once in scanNode.,once
+cockroachdb,ff0371ab2fb4ba2d5fc006d248d033eeeb5a2a3a,2016-05-12,build: Fetch glock without -u to fix build breakage,lock
+cockroachdb,c31dda66f7d2afe00bfcd5e6e4c811e24dbb1a1b,2016-05-12,sql: Add source context to PG errors,context
+cockroachdb,46ce75c73d4938155a55339c58c494664aa8eca1,2016-05-12,Don't lock as long,lock
+cockroachdb,9b7e701c7d9c34d0de46406bffff55ff4ba6be3f,2016-05-10,kv: Replace DistSenderContext.RPCSend with Transport,context
+cockroachdb,c4fe9005adf47f50efb6b19def9c822f4259f8d8,2016-05-05,acceptance: Fix race in Docker workaround,race
+cockroachdb,b0a607bd28850cb07f443242e2e77548abafcc9c,2016-04-30,kv: Assure that eviction tokens can only evict up to once,once
+cockroachdb,aa133bdada3955e5eda3a3af27d7b3b40d2798f3,2016-04-27,Add c-jemalloc to GLOCK,lock
+cockroachdb,fe83755eb1b015777924d2956d63552b5c9737fe,2016-04-26,Revert 'sql: reenable TestRaceWithBackfill by reducing the size of backfill',race
+cockroachdb,e0d2607c1b29263b3c4eab0da5955c08d7733421,2016-04-25,sql: reenable TestRaceWithBackfill by reducing size of backfill,race
+cockroachdb,6d93b5e892e30af16027a6cee366f754919ba084,2016-04-26,storage: remove unused loadLastIndexLocked,lock
+cockroachdb,413ca7222011937c9e2c93aa81e2c61079579c2f,2016-04-25,storage: fix TestRebalanceInterval race,race
+cockroachdb,c6aaed9dd77657c326e71081a517982ff5c7943f,2016-04-25,sql: Skip TestRaceWithBackfill,race
+cockroachdb,154a8fc1f2e763877e21fb60ebc81a19b05e3331,2016-04-18,sql: add more tests to TestRaceWithBackfill,race
+cockroachdb,2d7e925749221aba30c41328ac01827d3800d47b,2016-04-23,rpc: Fix deadlock in TestOffsetMeasurement,deadlock|lock
+cockroachdb,c50790ca3362adfcfb5e1315d0d62f8b74c64072,2016-04-22,storage: Fix locking in TestLeaderLeaseConcurrent,lock
+cockroachdb,562bb54f86997052aa93b63f5c3104e92df9270e,2016-04-22,Build and push binaries with race-detection enabled.,race
+cockroachdb,447c745c286f56f425df4b4a13a5f7649ebbc35b,2016-04-07,sql: a more flexible mechanism for blocking schema changers in tests,lock
+cockroachdb,d5814e4886a776bf7789b3c51b31f5206480d184,2016-04-20,kv: explain the need for this large locking scope,lock
+cockroachdb,de89a847175062dbc12e274b19623193cd69685b,2016-04-20,kv: fix deadlock when running with --verbosity=2,deadlock|lock
+cockroachdb,daa767418d49e376317c078c5bdf42793cbcdba6,2016-04-19,gossip: remove grpc.WithBlock(),lock
+cockroachdb,9975cff0ce60e3b9966af68badbd95021c735304,2016-04-19,sql: disable flaky TestRaceWithBackfill,race
+cockroachdb,c740bf1b6f36f014230dd642b7019dd728b4f681,2016-04-15,engine: plumb a Context into MVCC,context
+cockroachdb,12f665cadbcf730b4533f9988980e5420326acbb,2016-04-12,storage: avoid goroutine leaks in raft transport,goroutine leak
+cockroachdb,9104a81c7c7b01304a55949bd6e8f9ee72c9abe3,2016-04-08,Fast path atomic write batches on one phase commit txns,atomic
+cockroachdb,701d722c08830b487aee90d4cf841267dfefb726,2016-04-07,gossip: work around the race detector,race
+cockroachdb,9b8b6781c1ddf5a741d1e526ce94bb80a2bc8430,2016-04-07,sql: tie SQL timestamp functions to the gateway physical clock,lock
+cockroachdb,211e471e8488224aca9e05c24d2ffd9153260cc2,2016-04-01,sql: tie time functions to the gateway clock instead of the HLC.,lock
+cockroachdb,13b7170638509279be231aa23c714c91635e9ac6,2016-03-31,gossip: Fix data race in TestGossipStorage.,race
+cockroachdb,628917c616430d9e2a433075811b0283894dab71,2016-03-29,storage: Avoid deadlock between competing pushers,deadlock|lock
+cockroachdb,fb84a37ee56b31b1b0c44a223271d092c661be02,2016-03-17,rpc: compute clock offsets in real time,lock
+cockroachdb,136027013f95099971706def522fe341e93c9abd,2016-03-23,rpc: peg max clock reading delay to max offset,lock
+cockroachdb,bc837f0ea065d31adb40425ed1d8430c33ebbacf,2016-03-29,storage: Define testContext.SendWrapped(With) in replica_test.go,context
+cockroachdb,549ba6eb55eab4bbc53a0292df7ad7e6d897bc1f,2016-03-29,Revert 'Revert 'TxnCoordSender's heartbeat uses Context cancellation when available'',context
+cockroachdb,a431efffecf4fc9e43ebe3081dfcc27f03d02622,2016-03-24,storage: Link Node.Batch context correctly to timeout cmds,context
+cockroachdb,d2a32eea557f5ed01a9029766ab13eee898589a2,2016-03-25,Revert 'TxnCoordSender's heartbeat uses Context cancellation when available',context
+cockroachdb,77fbb8bb40c1c473ffceb91d30f96305feb97644,2016-03-22,TxnCoordSender's heartbeat uses Context cancellation when available,context
+cockroachdb,a1780cf505cb268caf4168c68d7971a12a367d34,2016-03-24,kv: Properly thread context with timeout through kv sendOne,context
+cockroachdb,63c4c9cffa4c8b24d28c83d4738eb62b0c06c9ba,2016-03-23,Further iteration on the replay protection to avoid blocking intents,lock
+cockroachdb,8d17c680e82675649fdf39d7eba0be26c90c8513,2016-03-22,Replay protection on Raft replays and deadlock issues,deadlock|lock
+cockroachdb,8250f0779f2da14c9142171e7bcbfeaaa7ecfaf5,2016-03-21,kv: fix cleanupTxn race,race
+cockroachdb,0161ce47b81b92611bffecbe6140f2ef00c8215c,2016-03-20,build: fix `make stressrace`,race
+cockroachdb,d14795d8d868a48cbdb42f1b0717baeffc06150a,2016-03-19,sql: mark trace logs of executed statements as sensitive,race
+cockroachdb,bb2fc80f9572c4506f2e869695f462c3d27ae266,2016-03-17,sql: add a trace log to sql execution,race
+cockroachdb,584374adfd19bbcec48de556f887a1a1b30f1964,2016-03-16,tracing: switch to log.Trace,race
+cockroachdb,8d0c3fe60c20513310415719413689751718fcc5,2016-03-15,Pass opentracing.Span around via context.Context,context
+cockroachdb,a17a5513dc6346d11851463fe16be89e31368118,2016-03-15,Add tracing.EnsureContext,context
+cockroachdb,d1560636d380f75415df55ee8efaa89a7f0e3366,2016-03-15,log: Add log.Trace(context.Context),race|context
+cockroachdb,1d91efa0d493fa263c7c6a7215b30cb3bba2bd1e,2016-03-16,GLOCKFILE: update dependencies,lock
+cockroachdb,1b6068cffa0f8f46cfb9f4421a0feefab60ce9a6,2016-03-15,storage: [Tiny fix] Lock/unlock inside canApplySnapshot,lock
+cockroachdb,0c7a3a453f117a022e28dbc19021f13bff110078,2016-03-14,Write node clock offset interval to time series,lock
+cockroachdb,25dbed6649b6f63bebbcf5dfd2fee81b4eab15ce,2016-03-14,stress: get all stack traces when testing,race
+cockroachdb,8bb03f91d3a10062fc1415fbe339b9a2ec41a8cb,2016-03-14,"rpc: unexport Context.Local{InternalServer,Addr}",context
+cockroachdb,c6891e7c23853f3fbcf0f33ef67965ef00900a21,2016-03-14,rpc: ignore empty clock offsets,lock
+cockroachdb,a3268979b1e189d9f7d5aa473f71cb310079f9a7,2016-03-10,rpc: use an anonymous mutex struct,mutex
+cockroachdb,328b064933722c7ee2cecc1c522b9aeb296f656a,2016-03-06,"storage: In multiTestContext, give each store its own gossip",context
+cockroachdb,b7ba91dfcbb6143e81c27012a23ae1ba334aee24,2016-03-06,"storage: in multiTestContext, give each store its own distSender",context
+cockroachdb,0505f0898ad38a5eaa70df6394ba2d917adc9b37,2016-03-06,"storage: In multiTestContext, give each store its own grpcServer",context
+cockroachdb,da5b6e402cde1ac70c1049e73f3f0b08fe2073a2,2016-03-08,util/tracing: Temporarily remove trace sampling completely,race
+cockroachdb,22dd7f461ff669168cc27c608989555faca64cd5,2016-03-08,sql: Create ExecutorContext to thread testing flags,context
+cockroachdb,ffbb8551380a3db78fee1fafb2986e664a986b06,2016-03-08,sql: deflake TestExplainTrace,race
+cockroachdb,297d4c5b44e48eea9feaa86737553404dc76e22b,2016-03-08,sql: replace timestamp with cumulative in explain trace,race
+cockroachdb,eb6561c40624556de624c4b3eb1fa66e4ab00d22,2016-03-02,switched to RWMutex to avoid synchronizing replica commands + Tamir's review,mutex
+cockroachdb,0abdd46a9bd3b9d2ac8017dc059632a1bb9b2d6a,2016-03-08,glock: add protoc-gen-grpc-gateway,lock
+cockroachdb,0a8debed82ed04bf3e41791ceac1da3158e1cacd,2016-03-07,tracing: avoid double-finish of traces,race
+cockroachdb,82bb41110a7091e0b9c9a5768449ef22df47cdaf,2016-03-07,tracing: use strict options for all tracers,race
+cockroachdb,b74efd2600b54f55f98d94c6df731476060123a7,2016-03-05,storage: Give Store.pendingRaftGroups its own mutex,mutex
+cockroachdb,ab6a0fca7ecba6bf213651d292a0d21958b0bd65,2016-03-03,tracing: Remove net/trace wrapper,race
+cockroachdb,d9cf809047bdb170e7f5c7ea260384d11aba5cb9,2016-03-03,server: remove this task that likes to deadlock,deadlock|lock
+cockroachdb,c87a38fcd01f45dc7b50b2d76dc144ccf8d90968,2016-03-01,"style: context.With{Deadline,Timeout}",context
+cockroachdb,dd7c9aeb15ce39f4966a8d08bd96a561e8833f39,2016-03-01,server: restrict the server.Context.InitDefaults implementation,context
+cockroachdb,c5f409993cda1b6f6599131b1da5fbfe46d08af7,2016-03-01,storage: change TestStoreContext from a var to a func,context
+cockroachdb,ca2a95614cf5b9f33abaa36e35151288ab2e7297,2016-02-26,util/log: obey the GOTRACEBACK env variable,race
+cockroachdb,5f92f167c7bb96f9b7a86fbc2153934b82085a39,2016-02-23,Fix data races in metrics,race
+cockroachdb,e7b534c30a68929b53d5b2357991b1684123865c,2016-02-21,build: simplify glock shenanigans and move to builder,lock
+cockroachdb,850148e4ba6a63e15e468525de5cd880c0ef45e0,2016-02-22,"Bump opentracing, add basictracer",race
+cockroachdb,76dbbc74da7bbc04b07b5cb0c18b9b4cf8d18433,2016-02-22,gossip: fix data race,race
+cockroachdb,a05d6a14a7266cbeef198cf8b2f7175c685532fa,2016-02-21,build: set GOTRACEBACK=all when running tests,race
+cockroachdb,9c6984ff907b52b45f1d68f068b01036f902848c,2016-02-18,"Fix test two race conditions: one with locking, the other with timing.",race|lock
+cockroachdb,c2d6339cefa98daae5660a240b5ec430e4894501,2016-02-17,Fix and re-enable TestFatalStacktraceStderr.,race
+cockroachdb,26fb4cdd858fd709f8ec2cea23022fec7e1479a0,2016-02-17,Disable failing TestFatalStacktraceStderr test temporarily.,race
+cockroachdb,d52f6fb88a71418887e0f1966188c45cb6230a24,2016-02-17,storage: attempt to reduce goroutine leaks,goroutine leak
+cockroachdb,cf85083c784494e8ad1d09cf261dd6b2214c39de,2016-02-17,"style: context.With{Deadline,Timeout}",context
+cockroachdb,c89f72c7725537cfb4fc4300cef3143512418407,2016-02-17,gossip: gracefully drain gRPC connections,race
+cockroachdb,98cc61cdae5510df814fa36a259587c34da921a3,2016-02-16,acceptance/chaos: don't panic while holding locks,lock
+cockroachdb,53f62683103345d0e73d968486940a8bdcc760cf,2016-02-16,gossip: fix incoming-request-during-shutdown race,race
+cockroachdb,c6e680a26761851a324b35757ef4fc9a8236a52e,2016-02-16,fix glock failing to 'get' inside githooks,lock
+cockroachdb,3aeb65c9b3a0882bb5daa48ce999ec4a9b7bbf8d,2016-02-16,Hook up net/trace with opentracing,race
+cockroachdb,26d3795c2af04b2ea2c799b482ab69b9f75d8717,2016-02-12,grpcutil: simplify and extract NewContextWithStopper,context
+cockroachdb,be6e8558e8cbb094e2a80d984f600e7ebc1eb085,2016-02-11,Fix one annoying and one serious concurrency bug,concurrency
+cockroachdb,bb6206617df747b47376f6d821835157b757ab9d,2016-02-09,Add trace annotations in Update(),race
+cockroachdb,81e5855770d4f80dd9919278049aee5cb4afe47c,2016-02-09,Fix data race in node_test TestNodeJoinSelf.,race
+cockroachdb,b3358ef4fa48738663b9d85536e84233ad96a68a,2016-02-09,build: add --fail-on-race to go2xunit cmdline,race
+cockroachdb,3efb092f37f6339efe0bd5c0b55938c58ad22816,2016-02-08,Fix tracer output formatting,race
+cockroachdb,79bf1a6488db49c279196c3405f357526d594e1c,2016-02-08,Move tracer output back under `log.V(2)`,race
+cockroachdb,9ee2dc50cc528d226e91b6bd8a83eb7c4ff9d5d4,2016-02-08,"Remove {BatchRequest,Transaction}.Trace{ID,Name}.",race
+cockroachdb,3090305f4fb662ef3c2406eb9c5b2d70e272d927,2016-02-02,remove old trace handling in store monitor,race
+cockroachdb,c9389e11f39f6300878483bb2f7d8bf57ef5fbac,2016-02-02,print traces to stderr in tests,race
+cockroachdb,cacafda031cc16b234523d2a3a96f8717cc85908,2016-02-01,rename common var name `trace` to `sp`...,race
+cockroachdb,caae02d52152bef8814e84c34886707777da0055,2016-02-01,util/tracer -> util/tracing,race
+cockroachdb,ef410a1b0532c2fa0587863eda1bc91b231f144f,2016-02-01,use opentracing-go instead of util/tracer,race
+cockroachdb,167859e6a69d4f8b86498b9c9f6bb8fa076271c2,2016-02-01,Fix another race in TestSplitSnapshotRace_SnapshotWins.,race
+cockroachdb,796ee762c7efdb09618b9eb723df5e0e3aa63f69,2016-01-29,util/tracer: Add DISABLE_TRACER env variable.,race
+cockroachdb,f9354d53763381821369d866a148122b43e2c4e7,2016-01-28,Fix race in TestClientRetryNonTxn,race
+cockroachdb,d95fb14820034e809cdb4fe4186eb0721ac19a46,2016-01-28,Sprinkle a few trace annotations in the code.,race
+cockroachdb,a00620f55c66760c5b3f628c1cd2b384097ba23c,2016-01-28,Add an AnnotateTrace() utility.,race
+cockroachdb,23caf9fa000472b8e519a359d41e5779eddf3bc4,2016-01-28,Avoid an allocation in storing and retrieving traces from contexts.,race|context
+cockroachdb,72313547a0875bb2e450d7b4cf3df6094c6c8009,2016-01-28,"Add 'trace{on,off}' commands.",race
+cockroachdb,ee59aabe45daae6827a60e27718981e00879adab,2016-01-26,Fix a race in TestBaseQueueAddRemove Fixes #3933,race
+cockroachdb,d0576c0c43aefa4247f0a186f50766d5210bb452,2016-01-26,Fix initialization order in multiTestContext.Start.,context
+cockroachdb,fefec2f866549399a96d53a08caa93e836343cb9,2016-01-15,Make multiTestContext's 'store is stopped' errors retryable.,context
+cockroachdb,d9b7efb7a6881eff3d2152fb4a5beb868e258fc7,2016-01-15,Additional locking in multiTestContext,lock|context
+cockroachdb,11ccdd884190b7e4d58441b3d0003a4adb1c421c,2016-01-14,Move multiTestContext `senders` under lock,lock|context
+cockroachdb,ccf46fc69fb32c082108a4ba22daeacedabb8a8a,2016-01-13,fix a race condition in a test - don't have two Servers running at the same time,race
+cockroachdb,67730ed6cbe91089e70b64ab55b1d2751dd5d5b3,2016-01-14,"Make `multiTestContext.{un,}replicateRange` more robust.",context
+cockroachdb,8331d8b3876635204ab0d0655867294b63ffe33c,2016-01-13,multiTestContext now implements RangeDescriptorDB,context
+cockroachdb,bd7fd3b4dac128c52a4f8361cc40488aad54735f,2016-01-13,Raft: Move appliedIndex into the loving embrace of the replica lock.,race|lock
+cockroachdb,6f856bcd5a8e7c31ce84700fa47b5f4f440a8ee0,2016-01-13,Raft: Move LastIndex from an atomic into the replica lock.,lock|atomic
+cockroachdb,029d35468b65c2ad1dc514b0954844b87af606a5,2016-01-13,Raft: Move the atomic maxBytes under the replica lock.,lock|atomic
+cockroachdb,578d97ab050c7ca3176af4b03fe06f6c2a5e2daf,2016-01-12,Parallelize normal and race tests.,race
+cockroachdb,7b350bf43dc6cd44ac40734a3db9af3eb7462084,2016-01-12,Raft: Move the leader lease into the loving arms of the replica mutex.,mutex
+cockroachdb,228a79dffbede371ec12084f4ce870f2d8b0f19c,2016-01-12,Raft: Move truncatedState from an unsafe pointer into the replica's lock.,lock
+cockroachdb,c18f4f7f47c3acb4d2d01bf3a4be902b357c70e4,2016-01-11,Convert store's embedded Mutex into a anon struct with embedded mutex.,mutex
+cockroachdb,e27848f9ba82e12d2ebefdaf51cbfd9621796920,2016-01-11,Convert Replica's embedded lock to an anonymous struct.,lock
+cockroachdb,d3dbdbab756120d3799ffb978fc882b3e72c0200,2016-01-11,Convert Store RWMutex to Mutex and embed it.,mutex
+cockroachdb,7ed8383b8d007e327643dc7e3c9a624986e59228,2016-01-11,Convert Replica RWMutex to Mutex,mutex
+cockroachdb,407590af0033bc9c496eaafd6266d3d0748ce776,2016-01-11,tracer: improve log format,race
+cockroachdb,28469ae47b7e813aaf5eef50071e5674452610da,2016-01-08,Atomically remove and close gossip clients and compute max peers with update callback,atomic
+cockroachdb,36195277c15a50dfce7bbf8b42c63a6067b590f4,2016-01-08,storage: expand deadlock comment,deadlock|lock
+cockroachdb,cb65190f9caaf464723e7d072b1f1b69a044ef7b,2016-01-08,Release RLock before calling MaybeAdd to avoid deadlock,deadlock|lock
+cockroachdb,6f8a78c226f29fccc7c29ad95804261dd0b97c50,2016-01-05,Move replica's range descriptor to under the replica lock.,lock
+cockroachdb,037e5ec6a8526b7567134537455c590f9fae5b5d,2016-01-08,fail only once per process in AfterTest,once
+cockroachdb,07c34220c8788cfab6250815e5cb3eabccef0d2a,2016-01-07,Dynamic port binding for PGAddr in test context,context
+cockroachdb,0b320846d66a5fbbbe628924fc21c42d9e03832a,2016-01-07,no unlock before return,lock
+cockroachdb,c9b716a072b23c9c3e0585d1a8ffc3b6e45402c8,2016-01-05,CI: move acceptance before testrace,race
+cockroachdb,56bbf6496abf0c115f787252bfa4a06245223836,2016-01-04,Fix data race in CullNetwork in gossip by locking appropriately.,race|lock
+cockroachdb,ed65afe6633a0574bdc6ed5bf7936793435721fb,2016-01-03,Remove StoreContext.ScannerStopper.,context
+cockroachdb,4379bb1eb01de07c4894063a60f4e41f6a66a4a2,2016-01-04,Bump golang.org/x/net/trace pointer.,race
+cockroachdb,07cff6c05e15f7835fae9c6ff8a4bcce57ff73bb,2015-12-31,Fix a lock leak on error in ChangeReplicas.,lock
+cockroachdb,9ab535a00c91ad5a2510b0b4747d7636b809b4f8,2015-12-30,increase timeout in TestRangeCommandClockUpdate,lock
+cockroachdb,be6b787a3dbb57d075f700a1deb935a1cabd1770,2015-12-21,Use bootstrapping instead of invoking glock manually.,lock
+cockroachdb,74fffcb5e26bf8251e8c28713ac7d1e58ab78300,2015-12-19,Use glock to get dependencies.,lock
+cockroachdb,8d591279d296dc1d80017d7699af38d9d1c59922,2015-12-17,sql/pgwire: `Flush()` at most once per response,once
+cockroachdb,f76ae0b40455436e8813f5ab635b4e986ac7c2b4,2015-12-13,Replace variable and mutex pattern with anonymous synchronized struct pattern,mutex
+cockroachdb,55e947446fb26f8593549134cce828d957578925,2015-12-07,"Used supplied clock in StorePool, and supply a manual clock when needed in tests",lock
+cockroachdb,0da67b91b51cf6ebbb46b496481efdbcd4e1082f,2015-12-06,Gather all of the encoding tags into a single const block.,lock
+cockroachdb,5c620362a65e1dce5455138f635c0624b7b964bb,2015-12-06,Remove Gossip and hlc.Clock from StorePool,lock
+cockroachdb,67442e7c02d49b591aa7d3df644d5cfc5afa6c0e,2015-12-01,Fix a race between ApplySnapshot and splitQueue.,race
+cockroachdb,1fd0fc3938fbb875e7a70771bce902936838e767,2015-11-30,fix rpc block when net partitioned,lock
+cockroachdb,1a08834cb06a1d7ce61c03e69317ad2ed5b6324b,2015-11-24,Ensure that the system config is available when starting up the MultiTestContext. Fixes #3166,context
+cockroachdb,1ab8cb1912b9c82b88a64bbce151d4b30cdafe64,2015-11-24,"Convert config change panic to a log and re-enable TestRaftRemoveRace. There will still be failures, but the new one introduced should be absent. Fixes #3187",race
+cockroachdb,c1a6730c9e6e0700c4e6e8da9f021deed497d7c9,2015-11-20,skip TestRaftRemoveRace,race
+cockroachdb,276552eed63ab16bb72071d4e49db497889f3ca8,2015-11-19,clarify/harden locking around SplitTriggers,lock
+cockroachdb,bbf7967e72ab91efe2603803fbafa95fb5f326ae,2015-11-19,log coord-side error in traces,race
+cockroachdb,f03b0cd9f47030215dc63f2528a9069a4071f8ed,2015-11-17,Add in the missing defer to unreplicateRange. Fixes #2878 Note that there are still failures from TestRaftRemoveRace #3010 and #2950 but not at the same rate.,race
+cockroachdb,b85cb7a965702035bff2a73edc7b22fe81ec6741,2015-11-12,circle-test: include goroutine leaks in excerpt,goroutine leak
+cockroachdb,664c7ff18aedda58be44bc25b4e7dfdc0e2fa85d,2015-11-12,storage: skip TestSplitSnapshotRace_SnapshotWins,race
+cockroachdb,97446ef271d7b43d8e96632955d9fcbf906f54e5,2015-11-12,gossip: synchronize all calls to `maybeSignalStalledLocked`,lock
+cockroachdb,657ffc3cbb7febb392fc318525555b8aef06d216,2015-11-05,storage: skip TestRaftRemoveRace,race
+cockroachdb,30b69cbf21562a41067139ff67099ec5a9e1cbe9,2015-11-12,Fix locking in Store.SplitRange.,lock
+cockroachdb,98436ec39e8afb32eb89fe65127fe0552b3aa6ba,2015-11-11,Replace store.raftGroupLocker with store.mu.,lock
+cockroachdb,f010b98297ea5862dd13889e5749a4f7f52b35e2,2015-11-11,Hold RaftLocker during all calls to multiraft.Storage.,lock
+cockroachdb,a82b105ccf01fe2eaeea0ca2a6dc0a18ef683ba4,2015-11-11,Rename GroupLocker to RaftLocker.,lock
+cockroachdb,d37324bcf4295361e1fe4ff4f45f35917a2c6185,2015-11-11,ui: lock down bower versions,lock
+cockroachdb,8418e734e0b3615d02bde54507f4b69218898991,2015-11-10,fix up TraceIDs for non-transactional batches,race
+cockroachdb,14170179d0955aea613b869ede35ad7f929de99f,2015-11-10,Temporarily skip TestSplitSnapshotRace_SnapshotWins,race
+cockroachdb,2127bf416c5e9ee4b3edcdb0f7725434bda442d0,2015-11-09,Repair #2593 'panic: use of finalized trace',race
+cockroachdb,007405df591f847aaf84ffe7f9efb2a84ec00336,2015-11-10,Keep track of latest file pushed and only push a new one once a day.,once
+cockroachdb,d3795ba991050c7ebe0278ce2c235e4e3a5b74b7,2015-11-05,Avoid the raft/coord error race by making copies,race
+cockroachdb,3f5f460d4d3cfaedf2bffa5870134cc7f55f9468,2015-11-06,Fixes raft race with splitting an uninitialized range.,race
+cockroachdb,44917ba7b02aba7c8812182988c8e7ceac6ef978,2015-11-08,nontrivial clock offset for TestServer,lock
+cockroachdb,00315383652ffc0be84c60ebc9938596b91b50d3,2015-10-28,Fix a race between splits and snapshots.,race
+cockroachdb,60bb720cec461217e03c116ab91ff4e6e82b0ce6,2015-11-02,Add an additional stopper for replicaScanner in multiTestContext.,context
+cockroachdb,e6b06031f5722ea7413c090ec12fc637fef7dce2,2015-11-02,Synchronize access to multiTestContext.stoppers and .stores.,context
+cockroachdb,fa343728eeffca608b7f3f04223fd3adbed64e09,2015-10-30,expose and use (net/trace).SetError(),race
+cockroachdb,7985aa02b355b4de387999ddc2b928410f784112,2015-10-28,avoid leaking traces,race
+cockroachdb,9d25e611891678d40e68bfe146f9f2ce3cdd55fb,2015-10-27,split coordinator and node traces,race
+cockroachdb,c6c272800e28edd9f861e819a6a81fce514ed22e,2015-10-27,trace more events in net/trace,race
+cockroachdb,1c5438f7e3191156cb768017562e9ecf3b23a414,2015-10-26,allow access to trace endpoint,race
+cockroachdb,90734e4c76957e750cd2f2dd4e418b7fcb599785,2015-10-23,add net/trace endpoint and embed in our traces,race
+cockroachdb,b7c99e5b0a8d4a877e2d7b8a7dd950e67244a356,2015-10-23,"actually lock atomically on {also,}toStderr",lock|atomic
+cockroachdb,c591b1017a63bd0b1f0b5f36659ecd6afafff496,2015-10-23,make: use relative path to `glock`,lock
+cockroachdb,61cd17be78884fe86f86e002276b0ea64825c817,2015-10-23,"atomically update -{also,}logtostderr",atomic
+cockroachdb,9f927d7aa5b0e67898744c63d0a7e9781b3f1a32,2015-10-21,Skip a test that is currently failing ~1/3 of the time in race mode.,race
+cockroachdb,eed3b7d641ecb6968456a8526aa1588c39299a77,2015-10-20,Add locking between replicaGCQueue and multiraft.state.createGroup.,lock
+cockroachdb,ad38705101c091baf2126675c667f154d44429a6,2015-10-13,Fix a rare race in StartTestServer.,race
+cockroachdb,e172ea15799d1ca86a60cde49516049929916ec4,2015-10-06,add comment about errors & races,race
+cockroachdb,6903838d3e0b7a3d10d68013efd555af25c54939,2015-09-29,fix the raft/coord error race (once more),race|once
+cockroachdb,6809ca4d099dffab9b977c2428dfe49c4d6270f9,2015-10-06,avoid (rare) deadlock in test writer,deadlock|lock
+cockroachdb,9c66deec511a81180a75fea02f89fb6bab4c28b9,2015-10-02,sql/parser: Store `DTimestamp`s in `EvalContext`,context
+cockroachdb,43d890fa8a4cce0d39ea49450d1317ba5b0b7bc4,2015-09-29,always update clock,lock
+cockroachdb,3d8dc51403e9aa7483b60b8cbbdac42ff76824a9,2015-09-29,add context.Context param to SendWrapped,context
+cockroachdb,e30535f68d079c54eae4f6d3d2e0a54192cfdd78,2015-09-28,multiTestContext: fix potential infinite loop,context
+cockroachdb,33847965154ab51318f9cad8fc76123131fc4ec7,2015-09-28,fix more txn->error/multiraft races,race
+cockroachdb,f85ba78e36239fb10a53ede636b2d55a666ed9b6,2015-09-28,examples: remove block_writer,lock
+cockroachdb,41e9aae46d5886007dc0ba4835ec78e1df3a1aaf,2015-09-28,log traces,race
+cockroachdb,1cbbbe53aebedce2acde1d6f6047931577b2a468,2015-09-26,Move tracer logging to V(2).,race
+cockroachdb,a56b102e9939c8ee35575d4a4c93427303b712ed,2015-09-25,make locking more transparent,lock
+cockroachdb,f0f1bf194c7f318a430a499b1a117e817cc9836b,2015-09-22,Simplify multiTestContext.rpcSend,context
+cockroachdb,350c6d157ee9dce7999dad4d87313c99217fb865,2015-09-24,"Add transaction_timestamp, statement_timestamp, and clock_timestamp.",lock
+cockroachdb,89832fa078d3bcdeb69835d4209004364b29e4a7,2015-09-22,Initial creation of Block Writer example,lock
+cockroachdb,6294c5a5e4c406baa0c710d55d6a60267db1433f,2015-09-22,Gossip a node descriptor from multiTestContext.addStore(),context
+cockroachdb,cc8d9f27d56d81b7480c715d0e7c186cdbda3ddd,2015-09-21,SIM: Remove unneeded mutexes,mutex
+cockroachdb,c5270eafb065aedc8a94194cae3407d922dc8d49,2015-09-21,Make NormalizeExpr a method of EvalContext.,context
+cockroachdb,f0809ed262ee14569e8b5cefb94054596e138b40,2015-09-20,Add EvalContext for passing context to expression evaluation.,context
+cockroachdb,c6761d43fe5493024da2bf29223178633f1be25a,2015-09-19,Remove commented multiTestContext.rpcSend,context
+cockroachdb,d96264977ee2bebbb85f7df8751f61159bd37f31,2015-09-18,install glock from `Makefile`,lock
+cockroachdb,e9631ff35d1418bd9cb18e56e3180bd195c64f89,2015-09-18,config: fix data races,race
+cockroachdb,d9b384b05ebfa8ba6c679c8c0c6034357416c2d7,2015-09-09,"try to resolve the deadlock between multiraft eventsChan and callbackChan with buffered events, and buffer the proposal if any ConfChange pending in applying to make the buffering proposal switching over to new configuration.",deadlock|lock
+cockroachdb,80ead18ffb09c326a9bf0a6b22b05aa0ec86ec25,2015-09-11,Remove support for the locking clause from SELECT.,lock
+cockroachdb,cd5d26b7640264b6401c26d622cd7de9fc33d138,2015-09-09,Fix storepool race,race
+cockroachdb,9d249797028280671fe65fff8379dfb9ed0d3d4c,2015-09-02,Do not block while sending ticks in test.,lock
+cockroachdb,f1f3e4f4f1479bd56c40a0712edc16661fba18f2,2015-08-31,Remove allocator's mutex and some minor code cleanup.,mutex
+cockroachdb,44586540139cce38ab1b74e4f7c34d4449f191c0,2015-08-20,Remove Replica.metaLock mutex,lock|mutex
+cockroachdb,af010b2600d1f924cd12ee41b0dee92fbf76daa3,2015-08-24,Add glockfile,lock
+cockroachdb,633579ffaaf10b41e81b67fcfb56a2819267a86b,2015-08-24,Add a timeout to `Context.GetHTTPClient()`,context
+cockroachdb,fec45a8212a9746711c86e15dc78ddf98f25ca1d,2015-08-20,`gorename -from \'github.com/cockroachdb/cockroach/cli\'.Context -to context`,context
+cockroachdb,9839fe5aed07bcf19427a1546e28d323a85cbcdb,2015-07-30,Fix race in TestBaseQueueAddRemove,race
+cockroachdb,10a1f2fbccf2d44a6713897e1eeaaecd3a736fad,2015-08-02,Fix data race in TestRequestLeaderEncounterGroupDeleteError.,race
+cockroachdb,fd0884912515053b554aa2368b07cf1e5f75b97b,2015-07-29,Fix `make acceptance` (pass `-v` once),once
+cockroachdb,f8a18bd451cd22b941f7929764f1c055d1da7ff4,2015-07-28,Don't race the stopper for real,race
+cockroachdb,8f49296b3009d0cf75e0cc498881285e3b1e58b3,2015-07-28,Don't hide race conditions,race
+cockroachdb,2c6dd5fb22b08fe8cadcd02d3d6b83ddb7c1d4c4,2015-07-27,Avoid race condition on init,race
+cockroachdb,4ee7ad58f20ba1aa844a254337d8eb423f30ef6a,2015-07-16,fix gossip data race,race
+cockroachdb,d80f7dae489c15261a0b70ff1f436bf07eef52ef,2015-07-15,move mutex above fields it protects,mutex
+cockroachdb,c13ab7654071e31ecea4ae9ce3a35d934d530f03,2015-07-16,Trace the rw path,race
+cockroachdb,80c6ee9fa4dd1f01ae8c06585f286e9f7d649b9e,2015-07-14,Homogenize contexts,context
+cockroachdb,82a42ad29a26f973eb6e54408dcf33b95bbde9e6,2015-07-08,avoid deadlock in acceptance test,deadlock|lock
+cockroachdb,263fd8b8212869d9958ffd126daa1c5cd2fc6571,2015-07-02,Tiny fix: Clarify that respCache is not guarded by sync.RWMutex,mutex
+cockroachdb,38b896f56822c202af4f36865dc56b68dfcc7d79,2015-07-02,Tiny fix: Lock tsCache in mergeTrigger(),lock
+cockroachdb,f47ea4a2ffa04ba21d949d45cdde18a8c631d302,2015-07-01,Remove sync.Mutex from ResponseCache,mutex
+cockroachdb,8c7b87314d31119672f9a54e14d0e6156a459601,2015-07-02,move caller lookup out of tracer,race
+cockroachdb,c48872e564e442b96ca58e91afe63ec57ea0cea6,2015-07-01,rearrange trace operations,race
+cockroachdb,0766bfff5188da745652456a75285e4ce0b1690c,2015-06-30,avoid race in NewClient,race
+cockroachdb,cb391755cc0f4a04e450779a72039183fa2dbfd9,2015-06-29,Fix deadlock in TestHeartbeatMultipleGroupsJointLeader.,deadlock|lock
+cockroachdb,fdde5814c0ea2ce87b56302997b221ce5f4325a9,2015-06-28,"lock in {Enable,Disable}LogFileOutput",lock
+cockroachdb,4e479ca340108e0a952d6427c8a0f01c8f9c2d32,2015-06-25,Fix TestingCommandFilter race,race
+cockroachdb,cfc9fca31e3756b117bd1ac3696b198f08f53c29,2015-06-24,applyRaftCommand no longer holds the lock,lock
+cockroachdb,17fedf7181d97ed9a7c2c6d4f20fc80762c23111,2015-06-25,Use a better synchronization primitive,synchronization
+cockroachdb,93fcd6619762d7543914e34f1ce1e6b87a708dec,2015-06-25,Add test/race targets that list the 10 slowest tests,race
+cockroachdb,f6fd61488c57c37b2b7272071fd41489bbba309d,2015-06-24,Tiny fix: Remove unnecessary 'continue' from maybeGossipConfigsLocked,lock
+cockroachdb,2f5dc81a77a24dac3a42abf723230f7c9507edca,2015-06-24,Fix a potential race in rpc.Server shutdown.,race
+cockroachdb,ab1682f380c49e1b383d48fd40ff88421ae9eaa7,2015-06-23,Make a copy of TestStoreContext in TestStoreStatus.,context
+cockroachdb,55686a1c237696229a265429402e8afd0afbf5e5,2015-06-20,Construct test base contexts in the same way,context
+cockroachdb,863140b5324cd728cc95c4eb8b673612a2f41ffc,2015-06-20,Rename test base contexts to reflect user (root or node),context
+cockroachdb,bf940a3492d54e9290c19c99d0bdbe4b151545c8,2015-06-22,"Remove race condition entirely, what was it for?",race
+cockroachdb,8eb91857ff659ae013b18b0d1ab4d7c301d556ac,2015-06-22,Make TestAllocateWithStopper not deadlock,deadlock|lock
+cockroachdb,f3f9343f7c8eaecb4879a475f708f72195a1d3d4,2015-06-18,Remove 'cover' from GLOCKFILE (partially undoing e7481ded650).,lock
+cockroachdb,b63f1d47c362e8fa7e67023c9cb77ea76792cd64,2015-06-17,Fix race condition on Client.Client,race
+cockroachdb,dc0b636940c39669154d37e5dc296d63f6fbe813,2015-06-11,Fix a race involving snapshots and the right-hand side of a split.,race
+cockroachdb,2c7be856e34fe02d8a67e308b4b4722339f33d82,2015-06-12,Create Concept of 'Axis' for metrics,once
+cockroachdb,78465f297ca37c37f188276a107a1bc72fad20dc,2015-06-12,more context.Context on receiver path,context
+cockroachdb,a3358790621502f572d000aa49a5fe352671fb49,2015-06-04,Remove error return from hlc.Clock.Update.,lock
+cockroachdb,c45ce0c3900f76e814af172e8f88ff43e546c939,2015-06-11,Simplify locking code for feeble minds,lock
+cockroachdb,4e6adec2e61c620677a681bbce0f419976ec1a07,2015-06-11,Fix gossip-stalled deadlock,deadlock|lock
+cockroachdb,83cc2e0ce8e77ab803464c74d402c1ec528d09e6,2015-06-10,Use base.Context in rpc.Context,context
+cockroachdb,bff4900d829bf52b05d31b317a4d9bc8efdbdd54,2015-06-05,Change MaybeAdd to use a non-blocking send for the incoming channel,lock
+cockroachdb,6d1bc70a503c1c0d7b6f3ef1990114c4177645d0,2015-06-03,Add a test to reproduce a deadlock when the queue size is small,deadlock|lock
+cockroachdb,6dcfe42058095982ee111c16b2a34c184fd7b068,2015-06-08,Remove client.Clock interface.,lock
+cockroachdb,b09e9f8bb0076839c2718b819f4e6bfaac09e095,2015-06-04,Increase timeout for testrace on slow CI machines,race
+cockroachdb,45eed701b31a42d70d135afa8d1312bf9397ed3e,2015-06-02,Fix races in acceptance tests.,race
+cockroachdb,976994181a2fc9cb6f0437d37a1917e8dabc711a,2015-05-29,add a new hybrid logic clock section,lock
+cockroachdb,6bf9ec28f2198fa95e21746dcea06d3d9d7b55c7,2015-05-29,Workaround multiraft Events channel deadlock.,deadlock|lock
+cockroachdb,2fcf2d11966194650760553663cbdf6cb0138e6d,2015-05-29,Don't unlock the store until the keys are sorted,lock
+cockroachdb,2dd98f615c37b43688364c692e69cef4e3dfbb65,2015-05-28,Document the race,race
+cockroachdb,e05681cf33123abf3d71fc6f7b82c5123eaf2be5,2015-05-28,Provide `stringLocked` for logging under lock,lock
+cockroachdb,d9f053a62ee286f132580edda72bf387976c5ee7,2015-05-28,Atomically evict all cache levels,atomic
+cockroachdb,c3977d7d42c834b1eea22816517ab812c256bae5,2015-05-27,changed RWMutex to Mutex,mutex
+cockroachdb,e658eeeaf070e1df7b767a8018dbaf196a354611,2015-05-27,Hold a rw lock on the cache before Get() for it can update the cache,lock
+cockroachdb,44f010f038e9276da930581af450bcade721bbfa,2015-05-26,Block instead of panicking when event buffer is reached.,lock
+cockroachdb,8765d71c93ad5d85df006894ec212320b49ce4a8,2015-05-20,Add GLOCKFILE as a dependency for bootstrapping.,lock
+cockroachdb,873f1abbb440aa60584c88ce876139005ed09a64,2015-05-20,Fix handling of 'infinite' clock offsets.,lock
+cockroachdb,013638154a11c9d9c3d66aa03473414d42c7158d,2015-05-19,Remove an unnecessary parameter from multiTestContext.addStore().,context
+cockroachdb,f743e29ef51e3847db5317b76bf7fb8957ea11a1,2015-05-18,Don't add clock offset measurements on failed heartbeat RPCs.,lock
+cockroachdb,69a216ca5cd75cd732bc05b16cb4b24123813cfe,2015-05-13,context.{TODO->Background}() in all test files,context
+cockroachdb,301872ec9aee3094d863827a02dfb91979a719f6,2015-05-13,use Node-level context and pass it through new KVSender interface,context
+cockroachdb,351433ddf10e557f34b6528c054e45fcf5e86dac,2015-05-13,pass a context down from node all the way down,context
+cockroachdb,c26e53c95216c960e7f99a634ef8f29deb64335a,2015-05-13,Update glock and githooks,lock
+cockroachdb,380e8e1dcee91861a8a96aa6a0600c1d8500c902,2015-05-12,Fix data race in rangeStats.,race
+cockroachdb,00bfe9b621ddfda2544d3e71f9769f64ea67b64a,2015-05-11,Fix issue #987: data race in TestMaybeRemove,race
+cockroachdb,8ddd67044d126b67aeb7f510ba6a14dda8ab729d,2015-05-08,update GLOCKFILE,lock
+cockroachdb,11a4b134de7de2b305470b2b4b0541a808a4a544,2015-05-11,fix race #967,race
+cockroachdb,d13eba730a6874ebbf496a9ff147072eb8a5a566,2015-05-08,Do not block Store.Start while waiting for the first gossip.,lock
+cockroachdb,b46047957caf0193eb0dd6a5c0b1ef508786c868,2015-05-07,Update glock hooks,lock
+cockroachdb,ef4fa8a47a438acbd0e3c402dbfd34ebd0351a42,2015-05-07,Fix the data race?,race
+cockroachdb,c3a57ac3b2b2a7151d82a290ed6d03be4d3ae99c,2015-05-07,remove unused testContext.dormantRaft field,context
+cockroachdb,8bc6b0df9923168163fd0147aa4b17c16f4caf99,2015-05-07,fix raft races,race
+cockroachdb,71d46add7fef1874c0b5fd805ae353dd69152553,2015-05-02,update build/devbase godeps and glockfile,lock
+cockroachdb,d8b156d650deb16b9356294c82c50807d8842ecc,2015-05-02,Fix typo; update glock file to remove go-uuid,lock
+cockroachdb,eda34090c50c021ca9eedf265b48524edee3ba1c,2015-04-28,Update request timestamp after beginning cmd & update node clock post-Raft.,lock
+cockroachdb,2c9dfb54939fc9c64c153f28209b6235924204f1,2015-04-28,Add a post-rewrite glock hook.,lock
+cockroachdb,a2638526c936d81f02e4f36ebae977618ccad8d5,2015-04-27,switch few remaining tests to using Context.RequestScheme,context
+cockroachdb,98d3b3a8513b7e75296af109ab0aa052e8271447,2015-04-27,Use context in kv tests. Limits the number of TLS inits,context
+cockroachdb,613a922de5186fb89d675cce8165b8bb903fa837,2015-04-24,A tiny fix: Acquire read-lock whenever possible in store.go,lock
+cockroachdb,60672c3c8dd37e5a157188331f1e15e10aa5d09c,2015-04-24,Fix a race between TestClientNotReady and TestCompplexScenarios.,race
+cockroachdb,d0264ecfdeb93ee350c3d90bc64215ca9e9ad9e5,2015-04-23,panic instead of fatalf for stack trace,race
+cockroachdb,f1f868e2197960cd83bd05000c33b6a1702e9d95,2015-04-23,"Move tlsconfig loading to base.Context, remove mutex wrapper around tls.Config, re-instate main_test",mutex|context
+cockroachdb,b91a6ba2ed5067d2413744ab883e6bead003ed6d,2015-04-23,New base/context containing Certs only for now,context
+cockroachdb,3dac8027b46e29bdde7784de78d2a128518ad957,2015-04-23,trivial fixes from gossip locking review,lock
+cockroachdb,1b45e36a987977c71f1e1eef23f008de78a04154,2015-04-22,Tiny fix: Move the comment of defaultScanInterval to server/context.go,context
+cockroachdb,791d4358c91edc585c33c3fb49940a1fa7aefbce,2015-04-22,Protect context.httpClient,context
+cockroachdb,c1dd3f9b3e0a423091ffc484f01d5a856f8de6f2,2015-04-22,Make context http client private,context
+cockroachdb,3a7309f5f99e39a5f94bff4059e80513f443b4a3,2015-04-22,Use a test context in TestServer and replumb tests,context
+cockroachdb,509fa92600e5176777f7005116bb176b5fa83d53,2015-04-22,Use lazily-initialized http client in context,context
+cockroachdb,f58a58b0eb7e10ace544319600bb0e70272b3706,2015-04-21,add a context.Context to StoreContext,context
+cockroachdb,01c32b43839afa974369ef4947ff133ebb008d02,2015-04-21,make Gossip and DB mandatory in StoreContext,context
+cockroachdb,b44db8945126653f5e9f3f27cbac2ae6c70ace58,2015-04-21,introduce StoreContext struct,context
+cockroachdb,1e3ce18b1c6cc9731c9b025f7d7de8cf128eee98,2015-04-21,add golang.org/x/net to GLOCKFILE,lock
+cockroachdb,22ca36a4bbb2eb3060a38520a3d20314d82cc218,2015-04-17,lock in addition to atomic update in util.Stopper,lock|atomic
+cockroachdb,37ab6af335f4275eceb6deb37f08d6ea67e28f6a,2015-04-18,Refactor stoppers in storage.multiTestContext.,context
+cockroachdb,74e4524cdecb745fbb409acc841290391429302a,2015-04-16,Tiny comment fixes to rpc/clock_offset.co,lock
+cockroachdb,b5e52d91ab1d3f811fa7d75982bbbc9ea7eac7f1,2015-04-16,Fix dumb data race when using multiple nodes,race
+cockroachdb,9add0ba7d8b8cecb253cf9369ca7eb3d20ffa852,2015-04-16,Use atomic operations for Range.appliedIndex.,atomic
+cockroachdb,38dfe4326de2a1c4d2881f227b94923017d95ce7,2015-04-16,fix boring data race,race
+cockroachdb,f6a86a3467fa510d6b269e71d55a21ad1a297daf,2015-04-14,Merge Context.HTTP and Context.Addr.,context
+cockroachdb,6f1ba50e6b849e230d18b653a34985cd01cb2c1e,2015-04-13,"Revies Tobias' changes. Fix data race with WaitGroup by invoking AddWorker correctly, in all cases before Stop() might ever be called in unittests.",race
+cockroachdb,22eea9c05ddc81d04c5e8a239e2992e3a10d4303,2015-04-13,Only send the service method once per connection instead of on every RPC.,once
+cockroachdb,9d39b4578e3c9c66e5abe5cd652bd671bc8d1351,2015-04-09,fail the test on data race warnings,race
+cockroachdb,1cc699802557f67d4464de391b7350a527f9f445,2015-04-07,Call g.mu.Unlock() before calling break,lock
+cockroachdb,0d938ca8a9977af99e2d2dc0f41347af18fe0597,2015-04-06,"context for DistSender, unexport RangeCache",context
+cockroachdb,7f8456598d3b17c4cd63e40debe470ab33fb20fb,2015-04-02,use a context struct for client.KV,context
+cockroachdb,154fabc977db138a99ac9fa29906eb6b5e11429c,2015-03-30,Fix deadlock in TestRangeSplitsWithWritePressure.,deadlock|lock
+cockroachdb,9370519ffb2822dc556a511c62a5b0cc8e6f51f6,2015-03-30,Fix race in TestAllocateErrorAndRecovery.,race
+cockroachdb,c3384da8a1af14b0cd0659cf370927e7f70c462b,2015-03-25,Change MarshalResponse and UnmarshalRequest to gracefully handle a proto type check error,race
+cockroachdb,9490c95bfd1f790a35b7ccac810738b854838c83,2015-03-25,Fix some goroutine leaks in storage tests.,goroutine leak
+cockroachdb,4d506fc610f1277e634796b471ed5ae41839767f,2015-03-25,Slow down TestScannerTiming so it can pass reliably on circleci in race mode.,race
+cockroachdb,7062355c7f385ef8c246191c600755d3ea938251,2015-03-25,"put retry logic into allocateBlock(), let allocate() block to wait",lock
+cockroachdb,fb1822ccdd1bd07590d3ead941a5f4e587cdc3c9,2015-03-24,Make Range.metaLock an actual Mutex.,lock|mutex
+cockroachdb,7d9959e80cce3f5d2e31fafda449c79137a39e0e,2015-03-19,A tiny cosmetic change: Move storesRE to context.go from server.go,context
+cockroachdb,8559f9337c5bb2fd2249e2fa8c752c29813a6847,2015-03-19,Fix a race in metrics test.,race
+cockroachdb,0875980f6aebc0b709ff98e4c9651c1d38c34248,2015-03-19,Fix a race in scanner_test.go,race
+cockroachdb,6b2a0981363a19676b114a96f67d3525c6acba99,2015-03-18,Using nil as default clock argument,lock
+cockroachdb,0923229046de34f83e5d941c54a1fbb36a5867b8,2015-03-17,Add test for appliedIndex. Merge two adjacent if blocks. Update comments.,lock
+cockroachdb,171b39dafb223dbac025c64442bdb8affeaf5f3a,2015-03-17,fix localRPCTransport Close data race,race
+cockroachdb,08c939a76ef89ddd57eed1a012136e980c59760e,2015-03-16,Move a non-deferred unlock to the right place.,lock
+cockroachdb,290505f3bab27b949e4c79746f04e93b577da1c8,2015-03-12,Fix a race in TestStoreShouldSplit.,race
+cockroachdb,d574877f10f3e9c0253c691ab2e1582f90718ede,2015-03-06,Provide atomic methods to get and set range descriptor.,atomic
+cockroachdb,2050eeee14f99a2e436765bdd3771df99c23f29b,2015-03-06,Add the glock git hooks.,lock
+cockroachdb,8bd9a657f901f9c471194697098fc87cf5bddd84,2015-03-05,Use glock for dependency version pinning.,lock
+cockroachdb,5202686bec41b849c868398eb603272d7a1d37ca,2015-03-04,Fix a race in restoring from on-disk state.,race
+cockroachdb,a1b38469751397bac3e26bd8d2a74483fc77573e,2015-03-04,Install race enabled versions of packages as well.,race
+cockroachdb,f0de38dd8747a1395b77be99eb0557f72bf295ed,2015-03-03,Fix a race condition by moving the membership change callback to the raft thread.,race
+cockroachdb,e78568f3a1476737a9a3d690171021861a20ef63,2015-03-03,Use 'go test -i' to cache race-enabled builds.,race
+cockroachdb,46856f44fae8044c8cda650001a36a5e7500b862,2015-02-22,up CircleCI `testrace` output to 5min,race
+cockroachdb,95d3f8acca3d8bb0016f4f34a7fb2d35ff7c141c,2015-01-27,Emit leader election events only once an event has been committed in a term.,once
+cockroachdb,1abe5a227d8c5ba031b60112052ba4875a3f385d,2015-01-24,fix mutex lock issue in gc policy lookup,lock|mutex
+cockroachdb,38ad4c8ee1d3960d0b8c22a86adb52f2422ec04b,2015-01-20,Block during raft group creation.,lock
+cockroachdb,a939ff77e4dbb73c4327693f9aaaf71d12347da9,2015-01-16,Fix a testrace failure by locking while modifying Range.Desc.,race|lock
+cockroachdb,6746a95d0f58b10321692e75053e67752cca8ce1,2015-01-13,Fix a test in kv/ and a data race.,race
+cockroachdb,4290b20eac095ed67c8132c64110e087e04402e9,2014-12-11,Addressed Ben's feedback; added an empty iteration unittest. Also fixed data race in the unittest.,race
+cockroachdb,485c4932d6f0655920291ee82bba7cea63f2360f,2014-12-10,Make hlc.ManualClock atomic and hide underlying int64.,lock|atomic
+cockroachdb,d965ad67c78b3dfc6de56e30062888681bda263f,2014-12-01,fix data races with in-mem iterator,race
+cockroachdb,0d0b9715da127db6ccdc25f945f6af1ce833ddeb,2014-12-08,Fix a race in storage tests.,race
+cockroachdb,1a6148863a0b8215cabbdb54b70ec49f1def7719,2014-12-08,no-op change to un-confuse race detector (unless the race is real),race
+cockroachdb,18eb66125ee9997db2882aabda3d5fca68509291,2014-12-02,Fix race in multiraft test by calling Advance at the correct time.,race
+cockroachdb,cb179b037ebcbba7e22b1acc58777f522a89a167,2014-11-21,fix a (rare and testing-only) data race,race
+cockroachdb,55e17fac61838634c7bc54f15890f557674ee1c3,2014-11-20,"OK, really fix data races this time",race
+cockroachdb,160dda27cdd933082b89357fd5a3ea2b2373d737,2014-11-20,Fixed race condition in gossip callbacks test.,race
+cockroachdb,7508e586e10267fbdf2e6431815a1b3f6abf882e,2014-11-20,Address concerns about elegance/readability of split on config.,once
+cockroachdb,35d9b1596c71db13cdc3cb973a2a1e3e9764a5d2,2014-11-12,Fix a race and a golint error.,race
+cockroachdb,81e6e3a4169fba90ba348efc30c5d53f841eb814,2014-11-11,fix race in rpc heartbeat test,race
+cockroachdb,1b6ccdbbee94339f46d2a9929f356277252262d6,2014-11-03,Added a grace interval to split_test when verifying there are no dangling intents. This allows the test writer to finish up and also any ongoing split to complete.,race
+cockroachdb,5444fcef6f97c7bdc77e5720e22e38ce687c4ea8,2014-10-29,util.rand concurrency fix,concurrency
+cockroachdb,9bebc85eaf66f6ee1734fb802c2f0a1da4def4e0,2014-10-23, deal with clock uncertainty for transactional readers,lock
+cockroachdb,13997faf24a022bca048ece4e4ee2e42a1ca8525,2014-10-20,Last clock offset cleanup.,lock
+cockroachdb,57fdf8cc53709ed8f6237a9309a24db849d0a9fc,2014-10-20,Protect access to Desc using range's RW mutex.,mutex
+cockroachdb,74d14a45a08e0568cc4acec352436c5087c7bb52,2014-10-20,"Fixed a data race, set test timeouts with testrace.",race
+cockroachdb,6973da370089a733ebe349c6936e7699ef0855e3,2014-10-16,Hooked up server to suicide if clock offset is too great,lock
+cockroachdb,86b095dc6043ab00cbcfc65d0905c72872c46ed7,2014-10-09,fixed data race caused by test and addressed PR comments,race
+cockroachdb,611cd5c4f6438094d7f19beaf6a39f3d6f650f48,2014-10-04,Added ability to measure clock offset from cluster,lock
+cockroachdb,f565780ec6a5afea8ea2086fcfbc3fbea40915f1,2014-10-07,adjust for travis testrace slowness by increasing IsTrueWithin timeout to 1s instead of 250ms in node_test,race
+cockroachdb,c9338212626bdc28db8800c8271cb961969ac07a,2014-09-30,"Found several bugs contributing to travis failures. In particular, we weren't previously deleting write intents aggressively, but once that was enabled, it exposed a new bug where we weren't keeping a higher epoch when ending a transaction. Fixed that bug and added a unittest.",once
+cockroachdb,9a655046fe03a7ef33273e40a1c79d78dc658df3,2014-09-29,"Fix testrace issues, move correctness tests into a new file with race testing disabled",race
+cockroachdb,04958d602c7e3ff61ad2ac012787dcca7cd504a0,2014-09-26,A test framework for verifying concurrency anomalies,concurrency
+cockroachdb,eb60e78998a3a9430b171e67c1108069811aa968,2014-09-30,Relaxed timeouts in metrics test to avoid spurious failures in 'make racetest' on travis CI.,race
+cockroachdb,9ef72e06cf4faf47bc7d789a18bd6a9755968aa1,2014-09-28,replace WaitGroup by Mutex in blockingEngine due to data race,race|lock|mutex
+cockroachdb,836a6ffee3aec6dc407f39600c830481354463d6,2014-09-28,add `make testrace` to travis,race
+cockroachdb,b7c3f30a2b31a75f207a34e0e70cee2d92376001,2014-09-28,fix data races,race
+cockroachdb,b27c2a9586e194b57f12edce7ca4531e0e318011,2014-09-17,Created new block ID allocator & put it into use.,lock
+cockroachdb,d5950759f277873f167902855eef6dc89aa1bad9,2014-09-16,Added a test for allocation of successive blocks of range IDs.,lock
+cockroachdb,e810603d99488314c9c9f435798d0b58f1f56d35,2014-09-15,Added pprof tools and exported variables via the /debug URL prefix. Also added a handler for listing all goroutine stack traces.,race
+cockroachdb,10827f6c4de28f907c5c583b65e757d402e5eba5,2014-09-11,fix data races,race
+cockroachdb,4f21e3424b089878e284a6543d46e83275f6a33e,2014-08-22,Move HLC timestamp to a 32bit integer for the logical component of the timestamp. It's near inconceivable that we'd exceed 4 billion logical ticks.,once
+cockroachdb,854655c6aa65126c866b6ab7ef9bf600ccb97470,2014-08-13,Move hlc into util/hlc and rename HLClock to Clock and HLTimestamp to Timestamp.,lock
+cockroachdb,cd877cf0f06f6c7c35b8b13f82533432b5c5cb76,2014-08-12,fix some race detector issues.,race
+cockroachdb,e5e88bab8376b83eb5c65ccc9f613fa960804237,2014-08-04,Responses to Ben's comments from D123. Better unittest verification and avoid holding the mutex while accessing the on-disk response cache.,mutex
+cockroachdb,c79ffb9c46c3a6b2c5f93dcd88c14ec955b6eb1c,2014-07-31,"Added logic for Store.ExecuteCmd to update local node clock, verify max clock drift, and use the read timestamp cache and read queue appropriately depending on whether the command is read-only or mutating.",lock
+cockroachdb,aebb70b0d3e2f0a71e06cbedef45a4fd731f5367,2014-07-16,implement hybrid logical clock,lock
+cockroachdb,70c5c053f2859aa920bce8a0685ae978f98a6f9e,2014-07-08,"Added TODO file which currently includes a whole host of items for implementing HLC (hybrid logical clock), Transactions, range splitting and rebalancing.",lock
+cockroachdb,63736bffa3749a0a2c7be423dc67d8ef4f16da66,2014-07-07,-logtostderr default broke commands; block empty key or val in rest api,lock
+cockroachdb,19702819a3dae126f0e0311ed43b154f004e8e7e,2014-05-27,deal with more data races,race
+cockroachdb,4db314d894dff7f1b0391fca779ea8e111fb00bc,2014-05-26,fix data race within rpc server,race
+cockroachdb,34dc2901d03d730d5369b4cf201fbe0743a24da6,2014-04-16,Introduce a Clock abstraction and use it to make a more precise test.,lock
+cockroachdb,05c5eb918d4993153f7e66cf2cabc474dcfd3ebb,2014-04-15,Fixed race condition in gossip simulation startup which would cause client c,race
+cockroachdb,17d7683274e0c4e869a8e9672f552b320393693d,2014-02-13,Dropped sequence generator atomic increment--seems clear that the entire infostore must be synchronized if expected to be used from multiple threads.,atomic
+cockroachdb,68e365f1e9c23ea0725ae8d3d7d5560f430fb9fa,2014-02-11,README.md: s/waits/locks/,lock

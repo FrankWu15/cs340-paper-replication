@@ -1,0 +1,544 @@
+﻿app,commit,date,subject,matched_keywords
+docker,2c252a48c252749d41079cf8c450d00a5c18296e,2018-05-04,Fix race conditions in logs API,race
+docker,c7e379988c9cd6ec0af528e6f59eea3c51b36738,2018-03-02,Allow awslogs to use non-blocking mode,lock
+docker,7d62e40f7e4f3c17d229a7687d6fcca5448de813,2018-04-19,Switch from x/net/context -> context,context
+docker,05e2f7e2fafd0fbc818c9f4cda7ac513c785d49c,2018-04-19,context.WithTimeout: do call the cancel func,context
+docker,806700e410a1b30aa1033d71d825e57880c75298,2018-04-10,Relax global client lock on containerd restore.,lock
+docker,062564084a22f71cf5807ae5dfad7d29afb12e04,2018-04-16,"Move fakecontext, fakegit and fakestorage to internal/test",context
+docker,c208f1c8a8d57f9a7f48f63345e77146774aa7a6,2018-04-02,Update logger adapter test to avoid race,race
+docker,d84da75f01e0a0d20fbddb8b051a325e3b21eded,2018-03-22,daemon: use context error rather than inventing new one,context
+docker,83908836d35b9f85a94489854d7eefd7dce785f8,2018-02-15,Windows: Block pulling uplevel images,lock
+docker,20ca612a59c45c0bd58c71c199a7ebd2a6bf1a9e,2018-02-10,Fix empty LogPath with non-blocking logging mode,lock
+docker,c379d2681ffe8495a888fb1d0f14973fbdbdc969,2018-02-02,Fix race in attachable network attachment,race
+docker,a44fcd3d27c06aaa60d8d1cbce169f0d982e74b1,2018-01-25,LCOW: Graphdriver fix deadlock,deadlock|lock
+docker,dfac74a9e48d1562ec41bc6de194f6593f0e639b,2018-01-15,Golint: don't use basic untyped string for context key,context
+docker,9e3193810da91d81f6b2dba3171443557f756794,2018-01-11,Fix race with concurrent daemon startup in tests,race
+docker,647cec4324186faa3183bd6a7bc72a032a86c8c9,2017-12-15,Fix some missing synchronization in libcontainerd,synchronization
+docker,972cb4978795029131697bd3b3746e321eec5c13,2017-11-14,Fix some issues with locking on the container,lock
+docker,7db30ab0cdf072956d2ceda833b7de22fe17655c,2017-11-15,container: protect the health status with mutex,mutex
+docker,6c03aa317404703a300ef25c3b5dc18d8e9cc64c,2017-11-15,Add missing lock in ProcessEvent,lock
+docker,e8aa22645baf8f8254cc435e772314d4a5dee92c,2017-11-08,Update fsnotify to fix deadlock in removing watch,deadlock|lock
+docker,ee1be71e9dc52db8a7ac951ba96f18a5c894806a,2017-11-02,cluster: avoid recursive readlock on swarm info,lock
+docker,889cfd1b441e8039bb6b78e8c54276b8eb03cdef,2017-10-02,pkg/locker: add benchmarks,lock
+docker,6936ce3b65f149ba6ab1cd5c257358c06eb9cdbb,2017-09-12,Remove race and split TestAPINetworkInspect test,race
+docker,6d3bc28289c265a65879a7f28264e6bacb95fbe1,2017-09-10,Fix typos in Locker example,lock
+docker,5459ef0ecf429ed0293e975abee11bdbbc2a2f14,2017-08-08,LCOW: Don't block export,lock
+docker,bd4f66c8f1f6ad4a2f228a957f293bc157e13d9c,2017-07-24,cluster: Avoid recursive RLock,lock
+docker,87b4dc2002d50e245f432bbd97e9dee2db25cf96,2017-07-06,return prune data when context canceled,context
+docker,e2209185ed1c959131d4068ec7fc93e194dc0802,2017-06-30,Fix log readers can block writes indefinitely,lock
+docker,67297ba0051d39be544009ba76abea14bc0be8a4,2017-06-21,Prevent a goroutine leak when healthcheck gets stopped,goroutine leak
+docker,37addf0a50ccba51630368c6ed09eb08166d6f48,2017-06-22,Net operations already hold locks to containers,lock
+docker,201a37f7a110402a76ac1ee21b5d09ccffed2acb,2017-03-27,verifyVolumesInfo needs a container lock,lock
+docker,8e425ebc422876ddf2ffb3beaa5a0443a6097e46,2017-02-22,stop grabbing container locks during ps,lock
+docker,481a92cb4111ebc1b7d4de5eeff84f570e4ba5dd,2017-02-21,Grab a lock to read container.RemovalInProgress,lock
+docker,ea2e4d73c4c753cdc99966e4dfe35143e79564ce,2017-06-20,remove cli concerns from hack/make,once
+docker,44e67adae5695e3e2c3b450453ab0fe6119eb80d,2017-06-20,image: Improve store locking,lock
+docker,7da3986297e04b419ce08b19766633dba36b7d30,2017-06-13,authz: eliminate race during plugin removal from middleware,race
+docker,ebe66b1d0f52dc58a98a428d4efa4d2f2743b96e,2017-06-12,Use tempdir instead of working directory as build-context,context
+docker,ecd44d23cc3c863c20467377cf568b920e2dd89c,2017-05-25,Rename LazyContext to LazySource.,context
+docker,26231b29e7881d25822bffd740d5f73fc2687460,2017-06-08,Add a error check in postHijacked to avoid docker exec command blocking.,lock
+docker,17173efbe00d422392f91c672350266314808b28,2017-06-06,integration-cli: Replace sleeps with polling in swarm lock/unlock tests,lock
+docker,b9d85ac58db8b8d4480fca93f8b952d084ea36f5,2017-06-01,Move pkg/gitutils to remotecontext/git,context
+docker,4d0888e32bccfd8c0f27a7b66b2a5607d42e2698,2017-05-31,Lock container while connecting to a new network.,lock
+docker,8ff023fe5a6c33a7d4663978cf57afb2fffba9af,2017-05-29,add swarm unlock test in client,lock
+docker,960b8d9294356b5651938244a62e0d485da72211,2017-05-19,Make TestLogsAPIStdout a bit less racey,race
+docker,4d2d2ea39336aade783c5c415b83d129bdd339bb,2017-05-19,Remove deadlock in ContainerWait,deadlock|lock
+docker,a86023eaa93f18bfefb345a5e13c88156abaa6fa,2017-05-03,add swarm get unlock key test for client package,lock
+docker,e2ec006797fa14f59bcf7b9c23505ccdf1d3ded3,2017-04-30,Fix race condition between swarm and libnetwork,race
+docker,6c28e8edd5f047d5b1438f773d49882f28d7a006,2017-05-05,Refactor imageContexts into two different structs.,context
+docker,dcf2632945b87acedeea989a5aa36c084a20ae88,2017-05-09,Revert 'Block obsolete socket families in the default seccomp profile',lock
+docker,6f7dc65847c45e85e48bb42387114000d2334844,2017-05-08,Windows: Block read-only,lock
+docker,d1faf3df27207af111daf4bd0191478c374dbc55,2017-03-20,Refactor remote context parsing,context
+docker,0dee69799eb467543dc2ae4cc3bb7b46bc7e21d4,2017-04-11,Honor context cancellation when pruning,context
+docker,cf7d246ab0d848cbc673f7c2d57031aecacacdfe,2017-04-12,Honor context within SystemDiskUsage,context
+docker,32ca1214fa55f55c54a54061ecf752b75f2c72c3,2017-03-15,Fix race on ContainerAttachRaw,race
+docker,2b5ef9bfef0eed60356e2af3230b3b5bd782db2b,2017-04-16,integration-cli: Have TestSwarmJoinPromoteLocked wait for the role to change in the certificate,lock
+docker,aafd7fa96909f48e43fd1b785c3c3a1f8b656ede,2017-03-27,remove increment flag on imageContexts.new(),context
+docker,56fb4653e8b867802d2a33121f933d164a4e6325,2017-04-10,Move FakeContext to `integration-cli/cli/build/context` package…,context
+docker,7381fffb2f0a0307ef1575a299028d036f24088f,2017-04-05,api: Don't include stack traces with errors,race
+docker,672ea30a94933eec228d71217b033da5d6572b8d,2017-03-22,Add support for `FROM` using named block,lock
+docker,87512bbc8490aca261133a7f3a3ea6518d703c34,2017-03-20,Add named context support,context
+docker,3ab4961032315abb4fd4ed813034a114d1d55699,2017-03-20,profiles: seccomp: allow clock_settime when CAP_SYS_TIME is added,lock
+docker,481d2633fee30bdc4d00b9d61b031064f5af5739,2017-03-15,Windows: Fail fs ops on running Hyper-V containers gracefully,race
+docker,83c34de515e249ede7bc942c1fa4c6b6ac8de7fb,2017-03-08,"Fixed concerns, updated, and rebased PR.",once
+docker,cdc46abde53a8728affff2b39255dce6410fb6b8,2017-03-07,Always HEAD blobs at least once during pushes,once
+docker,e507066303b527cbbd3e7c076460f50af4c841d5,2017-03-06,Add missing resources to update block for Windows containers,lock
+docker,b819ffdb2079bf2e805f8ca2ed84f184fe601269,2017-03-07,Stop holding client container lock during shutdown,lock
+docker,f8273a216ed35e22ac157dee8055393f07d4be39,2017-03-06,cluster: Renew the context after communicating with the registry,context
+docker,d37df06ebead733a10ebbff2b5e7a45003b6fac6,2017-03-02,fix func name 'BuildFromContext' in comment,context
+docker,250e05e42773a875d2fb8248b94fa72f2934a4b6,2017-02-28,Add a lockedManagerAction method to Cluster…,lock
+docker,bd33a99acfb0e2dd02f692242237d9060e359f4a,2017-02-18,Don’t hold container lock for size calculation,lock
+docker,7e44fffe40f39ef4cc0b3bee810f7d0a26136376,2017-02-17,fix status-code for 'locked' swarm and 'certificate expired',lock
+docker,fc1cf1911bb92def95f407364372992d57b11ca2,2017-02-17,Add more locking to storage drivers,lock
+docker,83a2db20977ae41325a74cf871b9e3caa92a2b7b,2017-02-14,Windows: Retry loop to fix HCS race condition enumerating containers,race
+docker,e9a10ef4adedd380f2556329dd0d0b5bf06aa0a5,2017-02-12,Add zsh completion for 'docker swarm unlock|unlock-key' commands,lock
+docker,f7d9bb62483fa160553ef17840b1f974b12885ac,2017-02-06,Show stacktrace in daemon logs only if 500 internal error,race
+docker,d55304065b8de2adf9a18e195ca9224e3c04a7ca,2017-01-30,Block Windows images on Linux,lock
+docker,7917a36cc787ada58987320e67cc6d96858f3b55,2017-01-31,Fix some data races,race
+docker,84d6240cfe7cc66a7d3f6ac78ea6faad0e3108b9,2017-01-30,Resolve race conditions in attach API call,race
+docker,37a1a84d913a64cec7bc05d44a7e4c5c3445a8ae,2017-01-24,do not ignore local build-contexts starting with 'github.com',context
+docker,f2d384fca6fa08da13fdc01c7991e8e35b081198,2017-01-24,Fix deadlock on v1 plugin with activate error,deadlock|lock
+docker,fae6ca2bb42d9c4146df413bcce701431298161c,2016-11-16,Do not required `.git` in the build context,context
+docker,07bd5152b3731c108e2dba57b1f51e6609b55ba3,2017-01-24,Add bash completion for `docker swarm unlock|unlock-key`,lock
+docker,fb2bb3653e2755d971f21debfecbd7c878a3c23f,2017-01-17,Close logwatcher on context cancellation,context
+docker,7e3a596a63fd8d0ab958132901b6ded81f8b44c0,2016-12-02,Block obsolete socket families in the default seccomp profile,lock
+docker,e533685d13251e5c7127f2d92636c7fa6393c06e,2017-01-11,Print daemon stacktrace when trust test times out,race
+docker,21fcbb39b73310e69d6403a1cfa8b26799cc1355,2017-01-04,Fix race accessing plugin storage map,race
+docker,17ec911da7d4b77b069d9f6c8c010865e19acc6c,2016-11-26,Rename 'context' to 'loginfo' in the logger module,context
+docker,2938dce794be7559ba73b4e9630015020a7fa937,2016-12-27,Fix race/deadlock in v1 plugin handlers,race|deadlock|lock
+docker,a6a0880a22e2b135d8a20a46b9ba34c7a9cf2f10,2016-12-15,"Before asking a user for the unlock key when they run `docker swarm unlock`, actually check to see if the node is part of a swarm, and if so, if it is unlocked first. If neither of these are true, abort the command.",lock
+docker,47585996bf72bcfde9ef058522059bef352e83e0,2016-12-15,Fixes a race condition in client events monitoring,race
+docker,0270645c13647456834d86082470734e944fdd37,2016-12-07,return not a swarm when unlock,lock
+docker,4c088d1e2ebfcc384a365734017988f4fd1c4605,2016-12-09,Fix race in setting plugin refcounts.,race
+docker,7bdd1a4f9c06ab4af8e652b7483104456e72c442,2016-12-02,not export errors and forbid leave when unlocked,lock
+docker,e831a7cdb7a2e60f38e6de8a5e6be4d681181f42,2016-12-02,"In DockerSwarmSuite.TestSwarmJoinPromoteLocked, actually wait for the node to finish being demoted before restarting it and ensuring it isn't locked anymore to reduce test flakiness.",lock
+docker,267422e4d08244e701ce049ab55ca0ad9879ba78,2016-12-01,Fix docker restart panic on machine ungracefully shutdown,race
+docker,b7ea1bdb0227a789a15e23821b8db4d5ddceb26e,2016-11-16,Switch cluster locking strategy,lock
+docker,6a5b8a640a81aa27acda64221f95f02032a43ce5,2016-11-30,Update the swarm cluster lock/unlock tests to be less flakey.,lock
+docker,9fff9bb761b3ceb1ef09ab2d6dbdbaa4463a063c,2016-11-23,Fix race with containerd events stream on restore,race
+docker,ff42a2eb41a86217a440a1c4b2afd3c4cd1d48ac,2016-11-29,Only show global warnings once,once
+docker,8f082e418ba662eb700a3a9343371fa6d9c28d5a,2016-11-29,Vendoring libnetwork to address some concurrency issues,concurrency
+docker,52405a9b5896fd1c3ea6d8b1ca1c70e5979e3271,2016-11-29,Use GetByName to check for collision before create any context in plugin creation,context
+docker,52fd6e46645de098d803bfc510c4c24af1099def,2016-11-23,Optimize the function 'Context.Name()' and replace 'Context.ContainerName' that need to remove slash with 'Context.Name()'.,context
+docker,be2603973d7aead5242dcdb9f916cdeedb3b6fa6,2016-11-17,"Add some swarm encryption tests, and modify some existing ones, to test locking the whole cluster",lock
+docker,4e262f63876018ca78d54a98eee3f533352b0ac9,2016-11-21,Fix race on sending stdin close event,race
+docker,89100c162b23791b4a64d142a11014257bf61fd0,2016-11-21,judge manager if locked before parsing key,lock
+docker,972a246c671b52786a5e57743babfcf7b5b5ae99,2016-11-17,judge manager before unlocking,lock
+docker,36d6d76a41be4973eed98f64a565f8cf92dc16e0,2016-11-16,Use WaitWithContext for WaitStop,context
+docker,19bd1cee236b85d2e24fdf49d6181edb7e1f7f17,2016-11-16,"fix bugs 'fatal error: concurrent map read and map write' to change VolumeStore.globalLock type from Mutex to RWMutex, and add globalLock.RLock() for the read of names, refs, labels and options in VolumeStore",lock|mutex
+docker,89b123473774248fc3a0356dd3ce5b116cc69b29,2016-11-15,Fix deadlock on cancelling healthcheck,deadlock|lock
+docker,766cc9b46753106c6880ccdea0a4dcb2bc734c2a,2016-11-14,Perform graceful shutdown during plugin disable.,race
+docker,aff5dacec190e8d94c6b796b06c773c8b1b223fe,2016-11-12,context.Context should be the first parameter of a function,context
+docker,41b84e0994f9ec72990b7f0fc758f602f6241bc6,2016-11-10,cli: Change autolock flag description,lock
+docker,81f3e699c30fe412de0fa48dfa2885181f5d5002,2016-11-10,Fix an issue in the swarm unlock-key rotate test where we were never updating the previous generation unlock key.,lock
+docker,2de83a430d5d3f82346cafa15f4bd1f7c47dde12,2016-11-10,use 'golang.org/x/net/context' instead of 'context',context
+docker,824db2c4543f912c1fdf392ebbaefa5540bc88a4,2016-11-09,Document autolock/unlock/unlock-key,lock
+docker,c3c70c4bcd775d20e2d4a4989733f7ad6b2b90b2,2016-10-31,Lock/unlock integration tests,lock
+docker,a6030a50c95cd4e8b39b5f4d5705bb23ebdb28c5,2016-10-28,Add unlock key rotation,lock
+docker,0f9fc54df9274327ed22f4e07f0981a648e0278a,2016-10-27,"Revise swarm init/update flags, add unlocking capability",lock
+docker,b4a667c8c4f536445d35e8914a58e8c749f16ea6,2016-10-21,Add support for swarm init lock and swarm unlock,lock
+docker,ff42a1ab5348944c6d675575b00959b87b2c4032,2016-11-09,[integration-cli] fix race condition in kill tests,race
+docker,5ffe496a2233a0620099906e1cf2de24d5dfb56d,2016-11-09,Update function name for TestCalculBlockIO,lock
+docker,3d89d694eab1313a66958a3e4b63194935559129,2016-11-08,poule: add `rebuild/*` to rebuild all at once,once
+docker,71f144648af71d8daa6481464707b4f8a9476a3c,2016-11-08,fix using wrong function name for MakeTarSumContext,context
+docker,4b86bd050b6e4c944407680d99c9ce6f25b8cc53,2016-11-08,context.Context should be the first parameter of a function,context
+docker,6a0bdffc1adf9225c6cca92f741ccafd2f90a618,2016-10-05,Fix volume creates blocked by stale cache entries,lock
+docker,07cd19655b37006c55c487e89b8e7f5269aefbf8,2016-10-12,Stop holding container lock while waiting on streams,lock
+docker,a5b69faafba8bbb85094993edf48bab106e7b54d,2016-10-26,Typo --ti and missing my_strace_docker_image,race
+docker,f7af80860cf99ce808834260ac190a2a88bc24e2,2016-10-18,prevent data race in pkg/plugins,race
+docker,6d26464502b4e8ecfd8f5605196605624fb79944,2016-10-14,Fix issues with fifos blocking on open,lock
+docker,d7be6b2debb653739a32cfcb7c333ca062f62be0,2016-05-26,Add config parameter to change stop timeout during daemon shutdown This fix tries to add a daemon config parameter `--shutdown-timeout` that specifies the timeout value to stop containers gracefully (before SIGKILL). The default value is 15s.,race
+docker,08fe24c2d5ef415d2b94f8e3f28d0299db2d7b6a,2016-10-18,Fix code block fences and typo.,lock
+docker,929a77b814dfe9ab7a11bffc2d16eebd27bd903a,2016-09-22,Hide the mutex in formatter.ContainerStats,mutex
+docker,825e3a66a419038600024be7dfc5ca24426444f0,2016-09-29,Fix datarace in ApiStatsnetworkStatsVersioning,race
+docker,5143be0ccf70c7cb2acc2aa39fd7ec47450e5daa,2016-10-04,add lock in libcontainerd client AddProcess of Windows,lock
+docker,278273bc1699873304240a6eca342b54051e2f23,2016-10-02,add lock in libcontainerd client AddProcess,lock
+docker,4825e58a96188e6a9c739c31966c8ac5a2bbd1d7,2016-08-18,Add support for compressing build context during image build,context
+docker,ed2e79fc03cc78345675d208b3ace2c2fa688cb7,2016-09-19,Fix a race found in TestBuildCancellationKillsSleep,race
+docker,a98d957942e09a462e83d0b9a8a279acd3cd1ea1,2016-09-22,Move /x/net/context to context in docker client README,context
+docker,c2499dff6433105024c9434c652731087f32892c,2016-09-21,Windows: Data race in libcontainerd (si),race
+docker,740e26f384fe4fe70b5dd2ec5ef80cfdbafac177,2016-08-15,Lock all calls to hcsshim to prevent close races,race|lock
+docker,69f00a137c886bd0e06b9fd2bb438f4eab1ade50,2016-09-19,Fix a race in libcontainerd/pausemonitor_linux.go,race
+docker,c3319445aa0d891921f0236ff5bd7a8d879be4f8,2016-09-12,Prevent stdout / stderr race condition in limitedBuffer.,race
+docker,e17f77ec51f50f9c14c1acd36f1db6f5246b62e0,2016-09-13,fix races in pkg/integration/cmd,race
+docker,8e5ef8af5c90a3fbc93173cb485d42e044ca56ae,2016-09-08,client: don't hide context errors,context
+docker,084ff6dc6da4458e8ca0e4fffa9d133a5d39ee92,2016-09-06,api/client/node: correct ordering in context argument,context
+docker,166d24e464a746dfb3359ee18be90fbd8563515c,2016-08-30,Print stacktrace on failing to leave cluster,race
+docker,d665ca8dc053838c5d4d284e13c0f166cd51df6b,2016-08-29,Lock concurrent access to remove map during Daemon restore,lock
+docker,a5ba032c7421ef7a429e780d12d0f604a045258a,2016-08-15,Add missing docs about binary remote contexts,context
+docker,b4ba575a2882953781616b6bb273419e829fb791,2016-08-13,Suppress verbose 'Sending build context' messages in non tty scenarios,context
+docker,6591a37aaffa36b857db4b8c91b8f55942ab5730,2016-08-15,Fixing race in Windows container servicing,race
+docker,4d009084de8cad94a180130eb57efa2a98df6d98,2016-08-11,Fix deadlock on plugin shutdown.,deadlock|lock
+docker,1cb9e9b44e7140d14dd42d48b2a7c038b65e8f16,2016-08-08,Windows: Block ReFS file systems,lock
+docker,42360d164b9f25fb4b150ef066fcf57fa39559a7,2016-08-03,fix deadlock when more than 1 plugin is installed,deadlock|lock
+docker,0e633ee14aca32480ac4735675222c35f4e11d8c,2016-06-09,Fixes Issue # 23418: Race condition between device deferred removal and resume device.,race
+docker,61e59693dc3407ba1d68f8a5be17c117a96467e4,2016-07-28,Vendoring libnetwork to avoid a deadlock,deadlock|lock
+docker,e1a61dc2643cebd1da7b3aadbc5e1ad5a0e77a90,2016-07-26,Attach stdin after attach stdout/err to avoid an rpc lock,lock
+docker,4a856d7a87c65dd8c537a45443c72698f056cf13,2016-07-26,fix race in TestApiSwarmRaftQuorum,race
+docker,fdcde8bb65acf2c459e93678bf2659139ef5e918,2016-07-26,Fix race in `TestApiSwarmRestartCluster`,race
+docker,d8d71ad5b94d44a2778f2d8989424259cac94e9b,2016-07-25,container/controller: avoid cancellation with forked pull context,context
+docker,ac068a1f9de2b20b145b5682cd514c1f6b1fac17,2016-07-22,Fix missing unlock in libcontainerd.Restore(),lock
+docker,4e3d7ca4aeeaf6d10d0ea6f14e744fa8577715c4,2016-07-19,Windows: Block (v2) pulling Linux images,lock
+docker,c02f82756e914081543bf05cb1815a48c02b1ebd,2016-07-15,Update libcontainerd.AddProcess to accept a context,context
+docker,0b2023130e285a0207be9fda4b22e1419997c552,2016-07-14,Wait for the reader fifo opening to block,lock
+docker,8e9fbc8f5fc5759eb7f26ec998f227994ff6c642,2016-07-13,Fix data race in libcontainerd,race
+docker,ed6641ad61d6d4f6475062ab2a2669a379caf574,2016-07-12,Handle ingress sbox creation gracefully,race
+docker,a4926a4d92eb7940d079de01d7fafe43060fcd56,2016-07-12,Fixing a stale endpoint issue that blocks ingress network cleanup,lock
+docker,1cd74902810b0eefddd173239cd95b506b34e678,2016-06-29,Set permission on atomic file write,atomic
+docker,9836162446bd0deadecbf0eed38ef3c134754f16,2016-06-27,Atomically save libtrust key file,atomic
+docker,378f0657f963fa6c854643571e4fe83628466c01,2016-06-27,daemon/logger: fix races in channel close,race
+docker,1a8a473017299c5e999d55d14634874826062fce,2016-06-20,Fix race on clearing swarm nodes on stop,race
+docker,7e1ec8d2bd6d1aa77f824a1a4d717a7aa4cc3459,2016-06-24,No need for container.Lock if rename same name,lock
+docker,e0296317131782008dcb94c72d591244663d61b1,2016-06-20,clarify swarm concept,once
+docker,9499d5fd522e2fa31e5d0458c4eb9b420f164096,2016-06-15,"update cli commands output for rc1, revise key concepts",once
+docker,72f7cebfb036f0fc74b9fa6fcc0c154f83f1605f,2016-06-17,Block service mode change.,lock
+docker,bdf01cf5deee11deb426eb33e1c8433c410084b6,2016-06-15,Move mlock back into the default ungated seccomp profile,lock
+docker,dcfe99278db113e79dc037a6f854f4cea9eebe22,2016-06-14,Fix race on force deleting container created by task,race
+docker,9c52b11e2a92a2c5f78d18ae95ba8d79b149d9e2,2016-06-14,TestCleanupMountsAfterGracefulShutdown wait for daemon exit,race
+docker,1f266d40f3844d1e398186cb98b4deb2272ebd6c,2016-06-13,Fix race in DockerExternalGraphdriverSuite.TestExternalGraphDriver,race
+docker,ceb9c5a88b5fa7d0b6c0901fa6b44ec89e81c2dc,2016-06-12,pkg: authorization: lock when lazy loading,lock
+docker,075b75fa14e878afa87ad4fd989f03a8541b13eb,2016-06-09,Fix some context sharing/plumbing,context
+docker,b32478488ce6d373e44bb8a6c9cb986c773ad48e,2016-06-06,ioutils: fix race in access closeErr in bytespipe,race
+docker,fb175bb36793ad59f2cfe9b2d92d636027fb836b,2016-05-29,Reimplementing builder tests for Dockerfile outside context as a unit test,context
+docker,6e5894b5511846b1be64f6fcae73a8b4ddd0ef24,2016-06-02,pkg/parser/kernel: remove unused var block,lock
+docker,c1ad02ccc8791b3c517aa37223d27792863cbf17,2016-05-25,awslogs: Fix a race in mockcwlogsclient,race
+docker,d0d828e292733fa1d5e2d09d7f184be69129e757,2016-05-25,Fix a race in pkg/integration.TestChannelBufferTimeout,race
+docker,ab533f06510a14a023c056604f9520741073acd3,2016-05-25,Fix a race in daemon/logger.TestCopier,race
+docker,1f8fbbc0d830ad9a887d04a25152ea344688903b,2016-05-25,Fix a race in pkg/discovery/memory,race
+docker,1670914b8a56ab8e6ead38739fddb416b61e444f,2016-05-24,Fix a race in cmd/dockerd/hack.TestHeaderOverrideHack,race
+docker,bd2b3d363ff7c46e01cce4e6a41d41f24a0047da,2016-05-23,Release memoryStore locks before filter/apply,lock
+docker,4c7f0d268f413b4a55ea638a97382d9316d082af,2016-05-21,Rework usage of context.Context in api/client,context
+docker,8879458faab9ed1122cc1f00c15680bfd82705dd,2016-05-13,add trace in docker engine's pprof to show execution trace in binary form,race
+docker,7368e41c07c21a1e2c6a49abecd1c2fc76404e49,2016-05-05,Docker pull/push with max concurrency limits.,concurrency
+docker,e7a99ae5e16f8688a0735c91856d13633f48185c,2016-04-21,Remove mlock and vhangup from the default seccomp profile,lock
+docker,8691a77e441996fef96019b94f299a11b7244080,2016-04-01,Fix build cache false positives when build context tar contains unnormalized paths,context
+docker,07fe6947a403124041dda50eb6d7f00e74f96ce7,2016-04-07,vendor: patch template init in trace pkg for performance,race
+docker,606cf5310d20518b4a9dfbe4d8e6b872f8683d9e,2016-04-04,Ignore os.IsNotExist errors when calling ToDiskLocking,lock
+docker,b38cee9f9c79d1f12001348303b78462d99664ed,2016-03-31,Fix race between with event timer stopping early,race
+docker,930ae3dbcb11091955ca936c280d13f24494b245,2016-03-30,Pull: only close temporary file once,once
+docker,0538981c31a714a4183e846a4b512deb7879cc29,2016-03-30,Fix layer store Get locking,lock
+docker,e6d87c0706d178407ffccaab5c3ffc13a9e7b02e,2016-03-29,volume/store: fix couple of races with accessing maps,race
+docker,a7851e2556edb3e5333b6fe53160755fb5b7d616,2016-03-29,libcontainerd: reuse our pkg/locker,lock
+docker,b16decfccfdb0749c490be9272cb7b4789be87b4,2016-03-20,CLI flag for docker create(run) to change block device size.,lock
+docker,593e29156dcda362e4e4b9a95b4fce22a024ba79,2016-03-08,Builder/context unit tests,context
+docker,824c24e6802ad3ed7e26b4f16e5ae81869b98185,2016-03-26,Protect aufs mounts with locks,lock
+docker,f2401a0f6960734093be307a27bba85a3c2ecfcd,2016-03-22,builder: replace cancelled channel with net/context,context
+docker,800b9c5a2698aae5c43f42d4c9c1a41280b556a6,2016-03-22,fix race condition between list and remove volume,race
+docker,3536c09ceaa2d94a43a3a3228b096ba7a61f558d,2016-03-22,volume/local: fix race in List,race
+docker,ae466aafcbd3e000ff9ec2e8bd354fc3cc3729e5,2016-03-18,Add documentation on the dump-stack-traces capability of the daemon,race
+docker,52c0f36f7b7aa794932fa41dfe50dc85f78e6146,2016-03-17,Fix a race in cleaning up after journald followers,race
+docker,4d200cd6938c1416e34bf43576b0d528b73e8ba3,2016-03-17,Fix a race in maintaining the journald reader list,race
+docker,8567286ed65c8aca180b4590acf7d9ef61e15955,2016-03-16,Update api/client file to use context,context
+docker,dc56a76bc9f16b2d57b9d64822e305c1e787fcf0,2016-03-11,Fix race condition with exec and resize,race
+docker,a444b5f60c75bdac82c9a7126738c210e2ccf941,2016-03-08,Fix race condition when exec with tty,race
+docker,2787072a65efac3dee0b5299322e4a7cfba51f04,2016-03-04,Try to fix #20942 TestContainerPsContext unit test,context
+docker,ad2fa3945997905760a4c7ef0444580ffb4b939a,2016-03-03,Fix race in container creation,race
+docker,3041aa53efbbfddbc10a66027d973bd353e3b525,2016-02-27,Fix client-side race in `docker stats`,race
+docker,e386dfc33fc1fd5ed06496bd19f01a37c3c46341,2016-02-27,fix double-lock,lock
+docker,c2f7777603039b0e9b7e8fcdf517b1486dc14781,2016-02-27,Revert 'Add finer-grained locking for aufs',lock
+docker,995386735c2fe47ebb144f95adbc8eb1341ac48b,2016-02-26,Add synchronization and closure to IO pipes in userns path,synchronization
+docker,f31014197cbe9438cc956ed12c47093a0324c82d,2016-02-12,Add finer-grained locking for aufs,lock
+docker,55c91f2ab9bcd48cfa248a4e842bb78257c14134,2016-02-12,Fix some issues with concurrency in aufs. Adds a benchmark to measure performance under concurrent actions.,concurrency
+docker,056013f97b504979c1fe3fa36aff1ef66d42ad42,2016-02-16,Fix migration diffid atomic write,atomic
+docker,284d9d451e93baff311b501018cae2097f76b134,2016-02-14,apparmor: use correct version for ptrace denial suppression,race
+docker,045aee2002e76cbfc9999472fe6e8fc54e0c0085,2016-02-11,"Fix flaky test, TestDockerNetworkHostModeUngracefulDaemonRestart",race
+docker,312f5e435bed2ca45477dc9e4713d35aabe37075,2016-02-11,Move getContext… function to builder package,context
+docker,fc6122a947f9eb9fc2f54fb8ba3b9da4531a6b99,2016-02-09,Move validateContextDirectory to builder package.,context
+docker,fe53be4e1785ab4d8cadf246e5f2de419f337adc,2016-02-03,Apply context changes to the client.,context
+docker,76a765140e831bdd5b7139b86db001ec6872023a,2016-02-03,Use waitRun in TestDockerNetworkHostModeUngracefulDaemonRestart,race
+docker,155714c59650a7b9b8f890f4d20c83ea9b80206b,2016-02-02,Lock container when set state to restarting,lock
+docker,f5310652d30e72fe88a3edc70b2911397c28b7e4,2016-01-27,fix dead lock in volume store dereference,lock
+docker,27b060492c483d61b76f18a529c94a71fdfc5312,2016-01-20,Fix channel closing race in event tests.,race
+docker,cfb2c667ad0bb17d9a1bd49a294d5c38e4cbf040,2016-01-20,Use fine-grained locks for plugin loading.,lock
+docker,e5e62b96ce0d4eb3934a386b07203830f55e07ce,2016-01-19,Fix race condition in execCommandGC,race
+docker,8799218d01785aa056c2f1f06f3735c3e93496b4,2016-01-17,IT for remote network driver & ungraceful restart,race
+docker,1a60a805bfabee729dbc833515cd0be439adb95b,2016-01-15,Fix panic on starting exec more than once,once
+docker,f093e1273d7d030a24045d97a78fec8637f46bf8,2016-01-14,Revert 'Break big lock into some tiny locks',lock
+docker,5abef06a158b437a020d59ffdba740d19613852e,2016-01-08,Fix race on reading endpoint data,race
+docker,52f32818df8bad647e4c331878fa44317e724939,2016-01-04,add syscalls we purposely block to docs,lock
+docker,18d15babefb4e89ac581a0b75455f83c6e7aae25,2016-01-05,Do not perform build context switch when content trust is not enabled.,context
+docker,c1b57fc1c9e230b95c2c76d1eaca0e3622fc72d5,2016-01-03,"Do not allow name_to_handle_at, as we have already blocked open_by_handle_at",lock
+docker,f8c54200805a9b9088c90f0b46bfa848d7bae67c,2016-01-03,Fix race condition in JSONFileLogger.Log,race
+docker,a0a8ca0ae0bc9dc7faa0b8bacf4ca376c7257348,2015-12-29,Block additional ptrace related syscalls in default seccomp profile,race|lock
+docker,33568405f34f363de49b1146119cc53bcb9e5f16,2015-12-29,Block bpf syscall from default seccomp profile,lock
+docker,6c3ea7a511ca641cdf4fa4da1d775d5b6f4bef3e,2015-12-29,Block vm86 syscalls in default seccomp profile,lock
+docker,6300a08be905969b16197f6a82a3d0d99a3f99cd,2015-12-29,Block stime in default seccomp profile,lock
+docker,0e5c43cddad304301ca8a82f652e15f75ee68cfe,2015-12-29,Block clock_adjtime in default seccomp config,lock
+docker,9be0d93cf74d1bb31c401f1154abc773af31cbd6,2015-12-29,Block original umount syscall in default seccomp filter,lock
+docker,9e19b4839fe32d2935306a630305e7b821544c14,2015-12-21,Move ValidateContextDirectory to the one package that uses it.,context
+docker,d8e090669ed4d9b27206d7f8797c01ed4b2cd20f,2015-12-21,Fix race condition between container register and mount,race
+docker,1326f0cba5f933674e23769de1385d3b0841e758,2015-12-17,Break big lock into some tiny locks,lock
+docker,464eefd7957c3e0c7bcfb80bdc96ef8790687615,2015-12-11,Add lock for container update,lock
+docker,6480feb7668851d3878bf36eedc5fd8ffa789e25,2015-12-03,Enable ptrace in a container on apparmor below 2.9,race
+docker,2704fd9156bfb0fb8dc16c42902bb18ea5aa94a9,2015-12-03,Fix race in RunCommandWithOutputForDuration,race
+docker,4d1007d75c24f4e9f1d8df18cb3faae53b183661,2015-12-01,Fix race between two ContainerRm,race
+docker,cbf55b924f05a918c9b95795f6c69aa89d180530,2015-11-20,Rearrange layerstore locking,lock
+docker,985175fd8f8f662d5067bd62a89330e9a437375c,2015-11-24,Fix race in locker call to `dec()`,race|lock
+docker,445675e8081ae1e911db2ebd57efd51329574cdf,2015-11-09,Remove unnecessary var block in monitorExec,lock
+docker,2764839ae1ccc55e08d6290ecbf7b58d837bbdd2,2015-11-07,Replace `imageMutex` with `Locker` pkg,lock|mutex
+docker,37ba67bf636b34dc5c0c0265d62a089d0492088f,2015-11-05,Fixing last access time on Windows to unblock python.,lock
+docker,fe66fdd18c0307cc02e6aeff8625c179452b8436,2015-10-19,Fix potential races in the volume store,race
+docker,b8aaa4b07c100a338136be82292289a37b09b5e7,2015-11-02,Fix race causing autorestart turning off on restart,race
+docker,b323e3df8bcb52607e57d5f49dcb7a93edafa84a,2015-11-02,IT for ungraceful daemon restart with multiple host-mode containers,race
+docker,401632c7568408ee9689adc1da855cfb1409e906,2015-10-30,fixing ungraceful daemon restart case where nw connect is not persisted,race
+docker,2361edbcea22113aea639a3d74edb35791fd8aef,2015-10-30,Vendoring in libnetwork to fix an ungraceful restart case,race
+docker,e41eae8b42052d07432405cca113ffcf8cf49c06,2015-10-31,fix a race in json logger reader,race
+docker,0c07096b7da6dc28df10df21283fc21b3b052e1a,2015-10-29,Fixes a case of dangling endpoint during ungraceful daemon restart,race
+docker,ebf76171f6d63938558cdd5bef33565b48d664b7,2015-10-29,Vendoring libnetwork to solve an ungraceful restart condition,race
+docker,d5364c71140208e1b861625e6394a5623e878e34,2015-10-18,Updating network commands: adding man pages Adding Related information blocks Final first draft pass: ready for review Review comments Entering comments from the gang Updating connect to include paused,lock
+docker,2f16895ee94848e2d8ad72bc01968b4c88d84cb8,2015-10-19,devmapper: Drop devices lock before returning from function,lock
+docker,b48f4bf5239280b99c781a33000b4d4687967c34,2015-10-10,fix a race crash when building with 'ADD some-broken.tar.xz ...',race
+docker,656cdbb0e96a1f8531b118caedd8e9b3d281c201,2015-08-11,add env and labels to log context,context
+docker,6a1a192e072cc44d80230626071efe756d77d373,2015-10-06,Don't put dockerfiles in one continuous code block,lock
+docker,289145ecc6c016b8bb6797cc50905e34da911e84,2015-10-01,devmapper: Get rid of metaData.devicesLock,lock
+docker,94e3b0f4288cdff767817b751e9a318e665ea7ac,2015-09-29,Use golang.org/x/net/context in api/server/,context
+docker,b08f071e18043abe8ce15f56826d38dd26bedb78,2015-09-29,Revert 'Merge pull request #16228 from duglin/ContextualizeEvents',context
+docker,79c31f4b13d331d4011b2975a96dcdeab2036865,2015-09-29,Revert 'Merge pull request #16567 from calavera/context_per_request',context
+docker,50852f3be3d09d8bf6957d2ff27c26966b871e80,2015-09-29,Fix TestAttachClosedOnContainerStop racey test,race
+docker,7eab3db324d6619b59322cacbda0d3095e5ec6c3,2015-09-29,Fix TestDockerCmd*Timeout racey tests,race
+docker,4d301f0059c4e2e4ecea1ed41f2c1588b8db6990,2015-09-28,Windows: Fix TestRunStdinBlockedAfterContainerExit,lock
+docker,eff253dfaf5f6a18a83df946823049b301931995,2015-09-28,Move setRunningLocking to test code,lock
+docker,27c76522dea91ec585f0b5f0ae1fec8c255b7b22,2015-09-24,Define a context per request.,context
+docker,26b1064967d9fcefd4c35f60e96bf6d7c9a3b5f8,2015-09-10,Add context.RequestID to event stream,context
+docker,5746eb950130793a1833860b7bc03c2c8fa7b46f,2015-09-21,Cleanup: remove unnecessary return at the end of block in volumes.go,lock
+docker,3dbfb3d38c4dcfb602e12ed2828d22d155897518,2015-09-14,Ensure stdin does not block after container stop,lock
+docker,f1728472059212001450a990468e8c2c6d7e38c9,2015-09-17,Skip racey TestDockerCmdInDirWithTimeout,race
+docker,5cf3a6e01049c6557645e45732c1a04860f1c327,2015-09-16,Skip racey TestDockerCmdWithTimeout,race
+docker,3be7146e14d1f5ced470c0c7e3066f091f468696,2015-08-06,log driver - add ability to interpolate container context into the log tag field,context
+docker,54240f8da9992880e20a1508e9a6f0e59f2adef1,2014-11-14,Support for passing build-time variables in build context,context
+docker,09e7dd03f8740d7865ea91c56a231ce9ae9bec82,2015-09-15,daemon/events: let Log be [slightly] blocking,lock
+docker,2d21996eec8d3e6100f19fa0d0fa7adad25285ca,2015-09-15,volumes: add synchronization to Count and List,synchronization
+docker,64faec8269f33be3ac3f3a80322a619668bcb9d5,2015-08-31,Fix races accessing d.poolKey and d.tmpFile when pullV2Tag returns,race
+docker,23e68679f080fee7ceb25cf791832f523a3a024a,2015-08-25,Fix race condition when waiting for a concurrent layer pull,race
+docker,f790496d8bd0930d7b1bc4adf120ae5ef169a958,2015-09-09,Move context stuff to its own package,context
+docker,8b454dd79e6a11c3c881f8a755423713c0491287,2015-08-31,Add a 'context' to the api/server/* code,context
+docker,d9bf8163ad8579cf2ab9f55925f9ea5037e5b525,2015-07-09,Fix connection block when using docker stats API,lock
+docker,3037e4f7c4eec06cf3a5afca6f58ec58b4bdd63e,2015-08-31,Fix goroutine leak on pull,goroutine leak
+docker,0ef740a5bf093aa544802ccfbb0612e04ed8492a,2015-08-28,Don't hold lock around volume driver for volume create.,lock
+docker,0c08913d523da2a935e65ade93884194c1906991,2015-08-21,Remove nil contexts,context
+docker,211449a1cad317e80610e40c9d8c88df35cae60d,2015-08-20,Fix docker stats show blkio when there are multiple block devices.,lock
+docker,164208fde5f1d4bcc4d75333e3309b678edac985,2015-08-18,Don't globally lock on driver initialization,lock
+docker,6df6e2e405a08bac2a81639349bc9a20c6014619,2015-08-14,Windows: Block 'FROM scratch',lock
+docker,fbb268c12ab12fa282f11eabdedf7fdee3d24b4a,2015-08-13,Fixing race condition on private key backup how-to,race
+docker,bca8159174f05b40e7d4379142052f4200987654,2015-07-27,Make the release process more atomic between major releases.,atomic
+docker,b0a65f93a5ab2de540825fab43b4d2ec01f22f36,2015-08-10,change port number through example context,context
+docker,8b15b7958a9bb1298f8d82676c1ddef47fdc054d,2015-08-02,Docs: Add Blockbridge volume plugin,lock
+docker,5ed84009b33642ca1f1eac8b99001842d93e2494,2015-07-31,Remove read index that causes dead lock.,lock
+docker,6a4ac63aaac829e94c7d6cbb31a8d36b93757620,2015-07-26,Docker stats: display Block IO stats,lock
+docker,f5c388b35a9ddd699b3dbbe85b80fa02234f8355,2015-07-30,Only explicitly deny ptrace for container-originated procs,race
+docker,bf3c1e6a3afc951e41643b8d55d4ac25fa9cb06d,2015-07-29,Skip notary tests which update system clock,lock
+docker,af06d289e4300f3b86ec9deba7280c3c37fa4e05,2015-07-27,[api/client] update check Dockerfile in Context,context
+docker,01d570ad30a794f2736b679700af91625e61bc85,2015-07-27,[api/client] Fix build when context dir is symlink,context
+docker,9ca913d0f168d943f6e15f32f52f777732b354a7,2015-07-09,Go Scheduler issue with sync.Mutex using gccgo,mutex
+docker,c4d2b34d13ac61d6c2b9caa2270763259e6c788c,2015-07-12,Split apt-get example onto multiple lines. Use extra spaces to align the code block.,lock
+docker,f373bd97c3d1626563b20611947705e3bd00ac80,2015-07-15,"Trim excess from image. Based on the context, the email itself is sufficient.",context
+docker,8aa7ba731a954ffb626c2a07f524c8116ab3f212,2015-07-13,Race test for pkg/pubsub package,race
+docker,7eac23cf8de08f281c84c36390f734dbaef8c69a,2015-06-04,Attempt to protect on disk image store with mutex,mutex
+docker,1cbf5a54dae86e34d8e65508c5640b17cda0eed8,2015-06-16,fix the goroutine leak in the stats API if the container is not running,goroutine leak
+docker,d48bface59ef28aedc692c1f7c51a7ddde94a7fe,2015-04-04,Support downloading remote tarball contexts in builder jobs.,context
+docker,19c31a703fb84f1079cc2466d435cb4913a4bfd2,2015-06-11,zfs: correctly apply selinux context,context
+docker,0c84604f5458bc38b793e5bcdf86624eef3e3184,2015-06-04,Fix goroutine leak on logs -f with no output,goroutine leak
+docker,9d98c28855035ba1a968f2031f50302d0c41e208,2015-06-01,Fix race condition in registry/session,race
+docker,9e425d56d0ec7d3343dd309500a7fe6e36648f2b,2015-05-26,Add lock before accessing native driver active containers,lock
+docker,77280a87b70d3b2b629cd30ea93464287f346fa1,2015-05-24,Fix race in stats cli and native driver,race
+docker,29bdcaf3cfe0f4bfeed9f7f59ca8f6ad2f41dfd9,2015-05-24,Fix race condition on container stop,race
+docker,a27395e6dffcd5a454f8ec0dca4934a51fbe70f6,2015-05-23,Fix race in httpsRequestModifier.ModifyRequest when writing tlsConfig,race
+docker,2fe2f7a1864068e7d268833bb40536064f69b8aa,2015-05-13,integ-cli: Fix race in TestLogsSince,race
+docker,95fcf76cc64a4acf95c168e8d8607e3acf405c13,2015-04-21,Add SIGUSR1 handler for dumping stack/goroutine traces,race
+docker,ca7219f5daa194ae714c3a3396703e08d8a137c8,2015-05-11,Fix race between execdriver.Kill and execdriver.Run,race
+docker,8c1ef5ceafcba2476693db7f5db39300ad2e7f88,2015-05-09,Removing extra locks for Pause and Unpause functions,lock
+docker,bcc24ec8ad26ebb3564eb462fd80654964ff4651,2015-05-09,cleanup remove unneeded locks,lock
+docker,bad25ccf978b56da6fa181439504ab33906524cd,2015-04-18,zfs: retrieve all filesystems on startup at once,once
+docker,49fd83a25e2e6604014de41d4f4099a7bc07a09b,2015-04-24,Use git url fragment to specify reference and dir context.,context
+docker,f3023a93d1a0a96a7312de441a550c758ac0c17d,2015-02-13,Allow pulling stats once and disconnecting.,once
+docker,a05bcd12c44b4daada51267d89fd9ac53812be02,2015-05-01,Fix race in FirewalldInit,race
+docker,f30d1c1835618eadea5d0a68d1301dffd9f09b22,2015-04-27,Prevent deadlock on attempt to use own net,deadlock|lock
+docker,cd4f507b42e800d148b211ca2c780d01192a9041,2015-04-25,Fix race condition in API commit test,race
+docker,11a5f1af01842acf9a25ccebb59f36472ae51170,2015-04-24,statsCollector: fix data race in run(),race
+docker,8bd5a95e1e39541dfc5dc635c5c8e7604fe10028,2015-04-23,Document the extra `depth` argument in git contexts.,context
+docker,cd6cc45d52a135e9e123c2e8c647710a061d38a0,2015-04-23,Fix TestRenameStoppedContainer race,race
+docker,563708d78d42afe89374d5819fdb671ed72c2dad,2015-04-23,Fix race with TestContainerApiCommit,race
+docker,c447fd339a9293ea528ba0c8f4154cf1f953186c,2015-04-01,TestVolumesFromHasPriority fix race,race
+docker,8f6a14452dfd88aedc8ac9577a98c38a555baadc,2015-03-30,Avoid ServeApi race condition,race
+docker,dabd8a02aeff8b2122efa0b55de4ba52c429f936,2015-03-23,Removed unused 'mutex' field,mutex
+docker,28a34dfffdce359a5674cfda0a90b25b1f4d4d97,2015-03-21,integ-cli: fix bug and race in TestBuildSpaces,race
+docker,bd8661e8fafd5f80ce12fa966b9f8e990b7d7714,2015-03-18,Protect jsonfilelog writes with mutex,mutex
+docker,e424c54d9c4030dc3290701e8e76add372e09e08,2015-03-10,integ-cli: fix clock skew against remote test daemon,lock
+docker,1b46248a332dab1a886d9c4352f9e0057e6c284f,2015-03-11,Minor tweak to build -f text to make it clear Dockerfile is in context,context
+docker,f6e95ef3a4d379fa2d5bd42bd293d61768d8208b,2015-02-25,integ-cli: a few context cleanups,context
+docker,27c61c39db414dd717aea04fc9440ee6d02b626d,2015-02-19,fix race in events test,race
+docker,c42d2625d1c86aca5a724ec73d16178cae73ae90,2015-02-04,"Add more tests around using -f Dockerfile via the CLI Mainly to make sure we don't treat the -f value as relative to the root of the build context, but instead it must be relative to the current dir.",context
+docker,8f5156e584233f3e83cfc889583fa016aabfeea9,2015-02-13,Fix race detected in TestExecCgroup,race
+docker,41bfa87b6c27b3f0041906f99ae9d0d9531db898,2015-02-11,manifest: Close archive once done using it,once
+docker,73d5baf585e3ef55864abeef43d45fe0b3a1c2bc,2015-02-02,builder: prevent Dockerfile to leave build context,context
+docker,de8ea06d7dab7c5278f84728f7e0aa69e3301ad0,2015-01-31,Fix race in test registry setup,race
+docker,752a0d6f34ee3c92dc877273c33b8cd0239fda71,2015-01-22,integration-cli: Fix race in restart loop,race
+docker,6ef8057700b63e2c5fd5cec206915ef1f2088578,2015-01-16,Fix racey TestAttachAfterDetach,race
+docker,bb96e53b0f947a31a4b66e76607eed0097917ed5,2015-01-14,Fix vet error about passing Mutex by value,mutex
+docker,492b18ac08e2652c1b95fd9f3c786e1fb1f28c3a,2015-01-13,Rewrite TestRunMutableNetworkFiles to avoid races,race
+docker,eb3ea3b43c716ad727521a7d0bc20d7321bb0867,2014-09-11,"Allow for Dockerfile to be named something else. Add a check to make sure Dockerfile is in the build context Add docs and a testcase Make -f relative to current dir, not build context",context
+docker,8dc86c0e36da3d3206220fffc75004759dd5d2cb,2014-12-23,More graceful stop for testing daemon,race
+docker,2540765ddc8889e2757f9ccfbfe852074b61601c,2014-12-12,Fix vet errors in aufs.go about Lock by value,lock
+docker,862952c8d4d3df69f35535af5ce5a079b5fe739e,2014-12-11,Fix race condition between parseSecurityOpt and container.Mount,race
+docker,0d70ad1c7205ba9e82dd1f244d26df93dc79de9e,2014-12-10,Fix race in TestDaemonRestartWithVolumesRefs,race
+docker,46b1194d996f6535e657bcb88428303305d3fe68,2014-12-06,Removed race condition If two interrupts were fired really quickly interruptCount could have been incremented twice before the LoadUint32 making cleanup not being called at all.,race
+docker,7ba9a18ade7393d942d995d34a92d757ef4af0b7,2014-12-03,"cleanup: remove startCommand function, only used once, and unecessary abstraction.",once
+docker,51172493ab6d2b31760b9fe273c7d4d0917a9bb7,2014-12-01,Attach goroutine blocking profiler,lock
+docker,9c5e61c24c490ca3e9d52855ee26d4a8e9032fb2,2014-11-28,Fixes race condition in test. Closes #9389.,race
+docker,57b6993c2c99dd89a3cbe012935a82966d88aa92,2014-11-17,"If an image has more than one repo name or tag, it'll be listed more than once",once
+docker,f96e04ffc7973e290653044cc86dbc1efb18276d,2014-10-08,"This patch adds ability in docker to detect out of memory conditions in containers. Since the containers can handle the out of memory kernel kills gracefully, docker will only provide out of memory information as an additional metadata as part of container status. Docker-DCO-1.1-Signed-off-by: Vishnu Kannan <vishnuk@google.com> (github: vishh)",race
+docker,fd9c2ae27dc08114ae1170503217da8d2cb778d6,2014-11-03,Fix deadlock in ps exited filter,deadlock|lock
+docker,03ea2166b66632ee7cdd824d7acd87b15c9bccb2,2014-11-03,Fix deadlock in ps exited filter,deadlock|lock
+docker,8453cf0671879aef04f96ffce52bf3fbcb75ca13,2014-10-30,Remove out-of-context code block,lock|context
+docker,1262b5f605e8f897acb2b9ee261edbab7f1f8947,2014-10-05,Gracefully handle network bridge without IP association at startup Addresses #8444,race
+docker,32dca1a7b0e800d796e54fc8f253818ba64fa075,2014-09-29,Strongly type exec driver context,context
+docker,8d7c7bd2e3aba3bba72264d477c56444c5dc6350,2014-09-26,Fix potential race in volume creation,race
+docker,d302d9296125d2c7abf4adf992fd6739a19d5fbd,2014-09-24,Rewrite TestContextTar tests to not use fixtures,context
+docker,51a56399f6384decee03a7e1aa56a3f46cb7c63f,2014-09-24,Rewrite TestBuildWithInaccessibleFilesInContext to not use fixtures,context
+docker,c69896d8a013fca05ffee479e08605552715f901,2014-09-22,integcli: fix race in runCommandWithStdoutStderr,race
+docker,4e9925d780665149b8bc940d5ba242ada1973c4e,2014-05-15,tarsum: allow for alternate block ciphers,lock
+docker,a8914293fbb1328f9a5c931bd51e34f5d6584e17,2014-09-14,Improve ValidateContextDirectory error handling.,context
+docker,bfebdfde78753f85d53d62634654de0b80f6872d,2014-09-15,Splitting the exec remote API into two separate APIs inorder to support resizing of tty sessions. 1. /container/<name>/exec - Creates a new exec command instance in the daemon and container '<name>'. Returns an unique ID for each exec command. 2. /exec/<name>/start - Starts an existing exec command instance. Removes the exec command from the daemon once it completes.,once
+docker,31c0039022234972c79947a6299c0fa382436487,2014-09-15,clean up the context when a build fails,context
+docker,82bdd88e9c9db40ee8072f7c4c2832dfb3f73823,2014-09-12,Use unlocked version of changes for GetImage,lock
+docker,bcb9378c5b91f8fd7bc99d1ad0904f5cba6ee613,2014-09-08,"Fix formatting, change to markdown block for long",lock
+docker,f17410da5e4b5fa0e0dd2614f9b6e00dbcf66da6,2014-09-04,Fix race between dispatchers.run and toDisk,race
+docker,defe01daf87237e42a9275a0b286b0f71c60de25,2014-09-03,fix race in daemon test framework,race
+docker,18587469789594f7ca26fc942c6d23b971a14dd3,2014-09-02,clean up context on build completion & add test,context
+docker,517ba44e3742c39c4c3fc249b8c40e9b7ddd845f,2014-08-28,Merge Container and State mutexes,mutex
+docker,21b15ac920d5e51f636d7febf07a4a52f5e61bff,2014-08-08,builder: handle certain classes of JSON errors gracefully,race
+docker,12ff89a3901cd2debf13e7ccc3a1a780380e4dd9,2014-08-26,Fix race condition between cleanup and Start,race
+docker,cd776cdd77239353d8bd17d3e05d66665f381157,2014-08-18,Fix panic in validate context for build,context
+docker,99082de9ada13a5898e769c176a88488d310b1a4,2014-08-18,"Fixes 'note' blockquote too long [doc, minor]",lock
+docker,f1975cbc7c5b551e5a206c15f32aef3d51904408,2014-08-14,Fix race on state serialization,race
+docker,93d6adf8a19855edf118d27d0239222f572d8292,2014-08-14,Fix race between container cleanup and inspect/ps,race
+docker,1480168e9f6178e4015aa4dcc035a6963c59f431,2014-08-14,Fix race condition in sending started signal from monitor,race
+docker,6aecdb4f8e73031f0deeac88a88ffc3fad9d5377,2014-08-13,Workaround to avoid 5 second delay on graceful daemon restart,race
+docker,6cbb8e070d6c3a66bf48fbe5cbf689557eee23db,2014-08-13,Fix deadlock on failed dial in UDP userland proxy,deadlock|lock
+docker,5e20b0027c19efdd83228cbbb9995847cb5cb8ed,2014-08-06,Fix TestBuildForbiddenContextPath after TMPDIR change,context
+docker,20b0841c1bd07c6add812597e0d656d7584e48ac,2014-08-06,Remove last trace of Daemon->Server dependency,race
+docker,cd6b9038255be10d827972ea66c8878cf1d228dc,2014-08-04,Ensure thread is locked in sysinit for docker,lock
+docker,5931669343f568114cb209dabf8913be44cd63e8,2014-07-28,fix docker integration-cli restart test race,race
+docker,5b293f15967c3358b84fabd72723d4bb6571bae0,2014-07-25,allow sigquit to display stacktrace in debug mode,race
+docker,24c00c8508b33de4229280f0be2e7b5761d6ed0e,2014-07-21,integration-cli/TestBuildAddTar: generate context from test,context
+docker,7aed2130f95c22e1eb6249ffb84c1cee070cb284,2014-07-19,Give context for the error that occures when you try to bind mount a volume with a relative path,context
+docker,eae5cf1e20e8d93cc13ea8e1db3cd787250fa76d,2014-07-11,Use container.Lock in public ToDisk method,lock
+docker,d715803d45d41bfbbd5faf1f4a8239c08d6d8c90,2014-07-09,devmapper: revert the default dm-thin-pool blocksize back to 64K,lock
+docker,da853e98c94c9ce8001d3d1516ba0fd2614db3b0,2014-06-30,Add synchronization in server.Containers,synchronization
+docker,ea464ea212aa584dd0aa50820c78f7f60a77450d,2014-06-28,Update gorilla/context,context
+docker,c9fdb08bdafb90b76cfa804b079d2e446a3503e4,2014-06-26,Update libcontainer Context changes Docker-DCO-1.1-Signed-off-by: Michael Crosby <michael@docker.com> (github: crosbymichael),context
+docker,a2f3ce2294bbe998df24edd50f2b571d0b21bac8,2014-06-26,devmapper: add thin-pool blocksize to the 'docker info' output,lock
+docker,79f217e3501a43326bd532e8eb03182f7488f61c,2014-06-26,devmapper: document the default DM thin pool blocksize,lock
+docker,05f293e65eeb7d1c86ba5644ed8d682aaeddd53d,2014-06-24,Add mutex warning when specifying -icc or -ip-forward and -iptables=false,mutex
+docker,f9c078ef38106d00de7774374f3ac71bb0d562d3,2014-06-24,devmapper: remove extra space in DefaultThinpBlockSize assignment,lock
+docker,09ee269d998ad04733ef577739fa051df9d3f12e,2014-06-20,devmapper: Add option for specifying the thin pool blocksize,lock
+docker,d420134fa2ea8ceedf2a9a64263d09b308263c2c,2014-06-20,devmapper: fix reloadPool() to also specify '1 skip_block_zeroing',lock
+docker,edcb41451aa388abe03d4f837ab5ee316a53a030,2014-05-09,api/client/build: allow tar as context for docker build -,context
+docker,d17c92965937bbc3181b73bb8a4e21ecee217e5f,2014-06-19,Fix stdcopy when reads large frame at once,once
+docker,686786f107582c27c69a6f40655c8fc52a8e4d00,2014-06-17,Move TestForbiddenContextPath to integration-cli,context
+docker,7a7bb43db5ecea4dd08af016a2528d0722bf79ac,2014-06-16,Issue #5279 -> Introduce horizontal scrolling to code-blocks,lock
+docker,947405a90951e4715a8399410b67f4f644415d59,2014-06-14,Do inspect under container lock,lock
+docker,a1b7a35c90f05b113b7c3aa474b74d1d2afbf7b6,2014-06-05,Fix race in LogEvent,race
+docker,fa7c8d523e8d899ade547fcaacc34a739ab5044f,2014-06-05,Fix race in get/set HostConfig,race
+docker,0b3fe5544266b6f9657ecd87989b85b535cc63e1,2014-06-05,Fix race in contStore.List,race
+docker,e2119f3050b225ccaf25990e5d6714dae2de7afe,2014-06-06,docs/google: fix code blocks,lock
+docker,a226168a8b877d632cb87c95dd0288f6092b9d8f,2014-03-28,devmapper: Add options for specifying block devices,lock
+docker,f9705477d023c63fb316a30204761aa1e3cb3e6d,2014-05-31,Fix for setuid race condition in LXC driver,race
+docker,adb639117b5c61479d65dbf8398c0fbeda1d6cad,2014-05-30,Atomically increment sequence in pkg/netlink,atomic
+docker,64bd6a6a5342c87db7096f60365d270d0d69e9d2,2014-05-29,Fix race in native driver on activeContainers usage,race
+docker,4e5f6951f2af836c3d9163c8a150298ee87468d4,2014-05-29,Fix races in set/get currentInterfaces in networkdriver,race
+docker,ce9e9ff4a101eec5632704003fae772e8762eb15,2014-05-29,Fix race on shutting down,race
+docker,c4990ab999d49e261c5079925f0b13ef735a729f,2014-05-29,Fix races on TagStore accessing,race
+docker,e8a87120d459dfeffee5474c3253e787d38b2ac0,2014-05-29,block aufs on incompatible file systems,lock
+docker,5e3b643ce6f43d02fc7fe88eba41d583044a2efd,2014-05-29,* do not consider iptables' output an error in case of xtables lock Docker-DCO-1.1-Signed-off-by: Giuseppe Mazzotta <gdm85@users.noreply.github.com> (github: gdm85),lock
+docker,50417f6abc6d6de7cf32e956d538fd9103c5f9b4,2014-05-28,Change 'Uploading context' wording,context
+docker,1de52caedca11c083e92039e2ecd8671944dfc47,2014-05-28,update container's state after we close the waitLock,lock
+docker,8b77e0183eaa7b3a87921f9655e2799d300bf775,2014-05-27,Fix race condition in CLI tests: diff was not acquiring a container lock,race|lock
+docker,034babf1753741184c1155a7346ecec86fc51e2c,2014-05-23,Add check for iptables xlock support Docker-DCO-1.1-Signed-off-by: Michael Crosby <michael@crosbymichael.com> (github: crosbymichael),lock
+docker,f92d68a6cedd069c138ac83961ad54ceb937ebd0,2014-05-22,Add synchronization between jobs and server closing,synchronization
+docker,91ba3379312a74132e2578d167c9e36eeb889525,2014-05-20,"bridge: retry any proxy set up failures until we get a successful port, defeats a race condition",race
+docker,f0489ce3a9a4023265bbbd5e9cb333e95f950088,2014-05-20,"portallocator: rewrite to simplify, removes race condition",race
+docker,789a8f26161ca86a721fe6b7295e3eaf9051b3a2,2014-05-20,use buffered channel so goroutine does not get blocked on done <- true when a timeout occurs.,lock
+docker,d98af1236c9aeef6f9eef34970e13cbe0ea06ff8,2014-05-20,"Update gorilla/mux, gorilla/context, and kr/pty deps",context
+docker,24c73ce2d3d572313fe56bad08819e0ca8b74d26,2014-05-20,Fix race condition during socket creation,race
+docker,33d5b38d62f48edcadbe239595e242300f3ecd27,2014-05-10,use ValidateContextDirectory to validate context,context
+docker,1dedcd0d376f57abae5cadd38116c1aca2821330,2014-05-10,add ValidateContextDirectory to utils/utils.go,context
+docker,ed703fc8be652eee65319a774ffbe95a07a03242,2014-05-13,Add some more specific help for Dockerfile build contexts.,context
+docker,5d5c89398c39e2f38459aae42189c9ca1125c1d3,2014-05-14,update Suffixarray only once during daemon startup,once
+docker,dcae8c157b4e754917a1ea5901ba02dc226a6d4b,2014-05-04,Introduce x-axe scrolling to code-blocks.,lock
+docker,4a3b0e8d5d2653cfecbfee370be2406265211253,2014-05-03,run.md: Close braces,race
+docker,abf3baf4ebfb8128ed4090165c65de0e3f4be278,2014-04-28,Docs/CSS: Fix Notes/Warnings blocks' BG colour to improve its state.,lock
+docker,f334dbe82de06f9c71b850da4165076bb3cf8f4b,2014-04-28,Docs/CSS: Amend code block rendering.,lock
+docker,672edfe807c597a1c245bce996a150dfdf273a3c,2014-03-14,Remove the concept of a root dir out of engine,once
+docker,30424f4e3a40ec21ac25e5c3f9ef45c3109c9f06,2014-04-02,beam/examples/beamsh: use beam.Router to simplify 'trace',race
+docker,4ebe7aab91b67048ea0d2bbec13bfb1d79787f11,2014-03-28,beam/examples/beamsh: run commands in an implicit context of pre-loaded 'plugins',context
+docker,d7a2ae8e13f2d830688091c072878c145ac07f17,2014-03-25,beam/examples/beamsh: prettier 'trace' command,race
+docker,004cf556e86a03d8961416b3e8a0a476a424b10f,2014-04-21,Use cgo to get systems clock ticks for metrics Docker-DCO-1.1-Signed-off-by: Michael Crosby <michael@crosbymichael.com> (github: crosbymichael),lock
+docker,baa4f395511c6fd0dd41c89c627215116abd9741,2014-04-18,Add back the GA code block.,lock
+docker,22152ccc47e641050da85b80cebf2912b42fd122,2014-04-04,cli integration: fix wait race,race
+docker,ca4224762b5fe9a319b6c1724ee16d1552403269,2014-04-02,Fix SELinux issue with missing Contexts in lxc execdriver,context
+docker,2ffef1b7eb618162673c6ffabccb9ca57c7dfce3,2014-04-01,devmapper: Avoid AB-BA deadlock,deadlock|lock
+docker,70826e8b3fee27b971852aad89053507c6866d3e,2014-04-01,devmapper: Add lock to protext Devices map,lock
+docker,721562f29685ebf3f3698113cf0ce8000c02e606,2014-03-11,Remove goroutine leak upon error,goroutine leak
+docker,6f70ed3a742162c4cf374a2c2bbd094eed3b043b,2014-03-10,remove useless lock move job to server and remove version.go,lock
+docker,b845ff355a3342ee3fee99196d22194706763182,2014-03-07,Fix Race when killing the daemon,race
+docker,81f148be566ab2b17810ad4be61a5d8beac8330f,2014-03-06,devmapper: Increase sleep times and unlock while sleeping,lock
+docker,3e8a02a9399618917194b37435f5eed9ff86fe2f,2014-03-06,devmapper: Add per-device lock,lock
+docker,d3a6ee1e55a53ee54b91ffb6c53ba674768cf9de,2014-02-28,Make the chan for utils.Go buffered in order to avoid goroutine leak,goroutine leak
+docker,2412656ef54cb4df36df2f8122e1fda24ec8e8a4,2014-02-21,Add syncpipe for passing context Docker-DCO-1.1-Signed-off-by: Michael Crosby <michael@crosbymichael.com> (github: crosbymichael),context
+docker,9b56da78e0b1e4e1da9b2bacc44a22143745a2b0,2014-02-12,Refactor utility `MkBuildContext` to the more generic `archive.Generate`,context
+docker,695719b29a6311a56faae0c6ed3c985b7a75add0,2014-02-09,devmapper: Enable skip_block_zeroing,lock
+docker,77a34920b24901da82f9e22138ef21ffc665d678,2014-01-27,Release the push lock at the end,lock
+docker,f846ecdc77bb9ab4d44b41a2e403bcf579d6b6e9,2014-01-13,Make exec driver run a blocking command,lock
+docker,77936ba1a1ff404b75ae8a34c6d4e280c23d9144,2014-01-10,Fix race in set running,race
+docker,381d593d04fc46dac5b202d047981e15183c5ed1,2014-01-10,Fix race in cleanup,race
+docker,ad9710685ca3ae101c84a57c7d68a25cba4bede2,2014-01-10,Fix race in TestRun,race
+docker,8b60273f76723897a9831ca125500ede85e05b5d,2014-01-10,Update with container specific waitLock,lock
+docker,8e87835968a4c6233406061759e3dca03ab86989,2014-01-10,Rework monitor and waitlock inside of driver,lock
+docker,37fcbfa1f4586e4437664239fc271dda31ac1837,2014-01-15,Add RWMutex lock into TruncIndex to fix race condition when inserting values,race|lock|mutex
+docker,ad6983624745cbb7c8f5bd7fd22c68f190b42004,2014-01-11,Stop ADD from following symlinks outside the context when passed as the first argument,context
+docker,fb63cfa9a502e2410597422f8877cf16b0bbaad2,2014-01-11,Stop ADD from following symlinks outside the context when passed as the first argument,context
+docker,14d1c5a2c331f9abe4199b1064ff8f642981fa77,2013-12-18,"Make Tianon the official root 'Dockerfile' maintainer, since it's so hard-locked to hack changes most of the time",lock
+docker,dbe1915fee1beb034459fb875928c96e27ecbfce,2013-11-17,Engine: new command 'stop' gracefully stops a container.,race
+docker,4bea68dfa6a9c68232ff7a5c36c85fc827dae938,2013-12-05,"Clean up quoting, wraps, and build error on code-block.",lock
+docker,7ab4f37d6084c98e1f725be4cc88ea76bf952eb7,2013-12-05,separate block for yum update docker,lock
+docker,ad43d88af5bda8dc5b3d06f64de380bb985191ba,2013-11-28,Make race condition more obvious by performing more asserts,race
+docker,8a5d927a5337b1c9a0c8478c4e522ce0ded09b85,2013-11-27,Check if the target loopback is a block device,lock
+docker,23022932440006aca0a954763bf8e3a5882f94d3,2013-11-26,Fix a race condition in the integration tests,race
+docker,02cb7f45fa6f9a8899286431fa68bf1a9d0194d8,2013-11-26,Fix a race condition in TestInterruptedRegister,race
+docker,abfdaca3f86d7951693697fbd849078d6b406478,2013-11-25,Fix data race in TestLogEvent,race
+docker,96b5be9dd9606a9bfbf0fdbe98bcaf8b6e77e4b1,2013-11-14,add more searchable info to the error message when ADD tries to go outside the context,context
+docker,d55998be81973be5b083eed56b223c8ce98ce073,2013-11-22,Remove goroutine leak. Make sure termcap are reset each time.,goroutine leak
+docker,cb70eedfdad40538983f9610322262ce84e284a0,2013-11-21,Revert 'Lock state before we modify.',lock
+docker,d7e2fc898284fe29ed43f7b28eae56e7e052e854,2013-11-21,Lock state before we modify.,lock
+docker,fef41ef7bf83ed04c7df8e0247e60c0d495eefdc,2013-11-12,test: fix TestRmi race condition,race
+docker,fc2f5758cf22fe5d3d46be7e4642abc0735e2c8d,2013-11-11,fix container restart race condition,race
+docker,04aca7c9e3edddc57a1fbc11e57e6c62e6847126,2013-11-05,gograph: Use RWMutex to allow concurrent readers,mutex
+docker,1dc34e2b965253a62d52f84a0f548334d4d6aa9d,2013-11-05,lock around read operations in graph,lock
+docker,957db15ef4cef2f3a6b2933260a7806d69ff68e0,2013-11-04,Add lock around write operations in graph,lock
+docker,10e10c9573a0f20243212192fa782feb35651b18,2013-10-22,fix race condition in docker build with verbose + cleanup hostIntegration debug,race
+docker,9bceae244044435647e843ffdd040322507d182b,2013-10-10,Add a chan to hijack() to block until the hijack is completed,lock
+docker,3e014aa6624bdc3411bb6f5bc2c297e45a47ad68,2013-10-08,"Fix attach race condition, improve unit tests, make sure the container is started before unblocking Start",race|lock
+docker,330062ef723f66ed8a640627f983e586f46df03a,2013-10-17,Remove race condition caused by double-destroy in 2 tests,race
+docker,8abcc8e713fdf6229d65dec23e6e104f8040d704,2013-10-17,devmapper: Use a smaller blocksize for the thin-pool,lock
+docker,0a35b1fb3681561a1f3f139d989c0bd133122123,2013-09-27,Added more context.,context
+docker,47838051be695a4e74c80690ceef811dcd3ef62c,2013-09-06,"Hack: improve the Dockerfile for an easier development workflow. Build dev container once, run a shell with source mount-binded, run tests as you edit. LIKE A BOSS.",once
+docker,331f983593a527f04046c2d6131847adcdf95e3e,2013-08-26,Start docker after lxc-net to prevent ip forwarding race,race
+docker,3f802f4a13cc9d35118420f7c769a8b3531476c8,2013-08-22,Fix race conditions in parallel pull,race
+docker,10e37198aa14cb3192fd0bf29572a5dce58c348f,2013-07-29,Keep the loop to allow resizing more than once.,once
+docker,040c3b50d0a56baf98bd1ec14ad7d59c55a4ab31,2013-07-18,use non-blocking channel to prevent dead-lock and add test for server,lock
+docker,1cf9c80e976fb60b4d5d489cd1c4c9959bcc4f7f,2013-07-02,Mutex style change.,mutex
+docker,2b6ca3872883dcb487d8a39a1a8530be6a62f947,2013-06-17,Remove Run race condition,race
+docker,061f8d12e04e494fdcbee949facaf598d201c2ec,2013-06-15,"* Builder: reorganized unit tests for better code reuse, and to test non-empty contexts",context
+docker,38554fc2a722d1a77514f477a189b0dbd149691b,2013-06-15,"* Builder: simplify the upload of the build context. Simply stream a tarball instead of multipart upload with 4 intermediary buffers. Simpler, less memory usage, less disk usage, and faster.",context
+docker,efa7ea592c1819f006acf9480c10e50ec63b3001,2013-06-06,docs: warn about build data tx & ADD w/o context,context
+docker,ca5ae266b762d34075524d869e27f0daaa79265c,2013-06-02,Removes a brace in the description of the wait command,race
+docker,4fb9a6eafb981ed66fe547fe29c11525f40d0640,2013-06-01,Use code blocks,lock
+docker,2ed1092dad9d2dec30945b06572befbba003ed1d,2013-05-30,* Documentation: removed 'building blocks' for now.,lock
+docker,194f48774992644257bf7cf0878e47e9834d40e1,2013-05-24,Added FIXME about possible race condition in a unit test,race
+docker,d42c10aa094e39d8c1184b61c98777d8c59ae900,2013-05-23,Implement Context within docker build (not yet in use),context
+docker,cbc4eccd50ac80ff6e21caeb386328f8a5fcfaff,2013-04-23,fixed typo in buildingblocks.rst,lock
+docker,acb546cd1bf45a248f4bb51637c795ef63feb6cb,2013-04-22,Fix race within TestRunDisconnectTty,race
+docker,1615bb08c7c3fc6c4b22db0a633edda516f97cf0,2013-04-16,added -t in docker stop and restart to choose grace period,race
+docker,9f83b9df2256c7b34453d5da85c17fae516ee3a4,2013-04-09,Make sure all containers (even previously stopped) get a correct wait lock,lock
+docker,0d9e54367f7bf7da9670de723d533eaa920868c8,2013-04-09,Fix deadlock on stop failure,deadlock|lock
+docker,1eaaa6b744b8017e7d31bdf9dc7095663b4c930c,2013-04-09,Flush stdout on import to avoid deadklock when waiting for stdin (import -). Fixed #365,lock
+docker,cb54e9c659c681fde5311aacefe0e5ea8c564e17,2013-04-09,Flush whether or not there we set the rawmode to avoid the client to lock,lock
+docker,7c2b085d1a1394dc88b0cdf5c9df02ee1c1b2229,2013-04-09,Add inconditionnal lock in Start/Stop/Kill to avoid races,race|lock
+docker,329f4449dc0f5722150a8160262b817e12be20fc,2013-04-09,Remove the mutexes and use chan instead in order to handle the wait lock,lock|mutex
+docker,d32f184696519f909d1db56a060b39f0a08b41c5,2013-04-05,Fix a race condition when running the port allocator,race
+docker,5d3c0767dab1679686933a9b4cf4ddde19bc0faf,2013-04-03,"Simplified Graph.Delete() - no more garbage collecting, just atomic deregister then os.RemoveAll",atomic
+docker,ad0183e41978b3b156234f801750034912915223,2013-04-03,"Check WaitTimeout return in test, replaced lock initialization in runtime.Register() with call to initLock()",lock
+docker,d1767bbf672355b9063099d641106dd4ea5303b3,2013-04-03,Moved resetLock() to the Load() method ; changed resetLock() to initLock() and changed behavior to not modify the lock if it was already set (not nil),lock
+docker,ad2bbe23be869e3a3287cedbf0408115e97a4a49,2013-04-02,Close the broadcaster once they are not needed anymore,once
+docker,aea2675f7b2e4aa8bf63c8472af40bc059bd5d14,2013-04-02,Activate Config.StdinOnce at argument parsing,once
+docker,791ca6fde47d26a96134b1715580303ea6cd17ed,2013-04-02,Better crash simulation in TestRestore ; force state lock creation when loading a container from disk,lock
+docker,90db9e751750e62ea701843491774323ef20ab06,2013-04-02,fix code block formatting,lock
+docker,f7b4f0c19329bcf13b0df5408e2bc9eac89e9f44,2013-03-29,FIXME: implement a timeout in TestCmdStreamLArgStderr to avoid blocking the whole test suite when it fails,lock
+docker,58befe3081726ef74ea09198cd9488fb42c51f51,2013-03-29,Fix a deadlock in CmdStream.,deadlock|lock
+docker,d52451bcf887790df5a6a7cbbc7305747535eb11,2013-03-29,Fix a race condition in bufReader.,race
+docker,8e0986caec91f61e0496e1990a4bec745a9596fc,2013-03-12,Error gracefully when an image is not found on pull. Addresses #50 and comments from #49,race
+docker,ebaa50c4c96a1ba69e480fab5612b5d6a97da145,2013-02-26,"docker wait: block until a container exits, and print its exit code",lock
+docker,8002af43fb54254ef786e4478ada7824e726baf7,2013-02-18,Better error context when failing to create a new image. Added basic tag support + unit tests,context
+docker,f4e25694c15583ed6ed290aff0c29116f7ed361e,2013-01-25,container: Fixed a bunch of race conditions by getting rid of lxc-wait.,race
+docker,f958bdba8a7c1c62f2f6e3e7bc2ddf1599029ecf,2013-01-22,Fixed lxc-wait race condition. Added unit test to try running multiple containers in parallel.,race

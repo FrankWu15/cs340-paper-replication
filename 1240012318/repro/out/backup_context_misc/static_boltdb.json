@@ -1,0 +1,43 @@
+{
+  "app": "boltdb",
+  "repo": "C:\\Users\\Li\\Desktop\\work-app\\操作系统\\output\\6app\\boltdb",
+  "kloc": 6.3,
+  "kloc_source": "raw_lines(fallback)",
+  "raw_counts": {
+    "go_stmt_normal": 2,
+    "go_stmt_anonymous": 0,
+    "mutex": 30,
+    "lock_calls": 33,
+    "atomic": 0,
+    "once": 1,
+    "waitgroup": 0,
+    "cond": 0,
+    "chan_make": 2,
+    "chan_send": 8,
+    "chan_recv": 3,
+    "select": 1,
+    "misc": 0,
+    "files": 24,
+    "lines": 6305,
+    "parse_errors": 0,
+    "root": "C:\\Users\\Li\\Desktop\\work-app\\操作系统\\output\\6app\\boltdb"
+  },
+  "goroutine_sites_total": 2,
+  "goroutine_sites_normal": 2,
+  "goroutine_sites_anonymous": 0,
+  "goroutine_sites_per_kloc": 0.317,
+  "primitives_total": 47,
+  "shared_memory_pct": 72.34,
+  "message_passing_pct": 27.66,
+  "pct": {
+    "lock_calls": 70.21,
+    "mutex_strict": 63.83,
+    "atomic": 0.0,
+    "once": 2.13,
+    "waitgroup": 0.0,
+    "cond": 0.0,
+    "chan": 27.66,
+    "misc": 0.0
+  },
+  "primitives_per_kloc": 7.45
+}

@@ -1,0 +1,46 @@
+# P1 关键词挖掘
+# 生成时间 2026-11-04 14:04
+# 口径: 标题行匹配（忽略大小写），排除 merge commit
+
+[ok] boltdb: 命中 15 个 commit (subject, merges=exclude, 共 816 个 commit) -> out\commits_boltdb.csv
+     时间范围 2014-02-15 ~ 2016-10-31
+     标题·含 merge         23
+     标题·排除 merge        15
+     全文·含 merge         36
+     全文·排除 merge        21
+
+[ok] etcd: 命中 414 个 commit (subject, merges=exclude, 共 14101 个 commit) -> out\commits_etcd.csv
+     时间范围 2013-08-13 ~ 2018-05-14
+     标题·含 merge        531
+     标题·排除 merge       414
+     全文·含 merge        822
+     全文·排除 merge       546
+
+[ok] grpc-go: 命中 167 个 commit (subject, merges=exclude, 共 2528 个 commit) -> out\commits_grpc-go.csv
+     时间范围 2015-02-23 ~ 2018-05-11
+     标题·含 merge        187
+     标题·排除 merge       167
+     全文·含 merge        259
+     全文·排除 merge       199
+
+[ok] docker: 命中 543 个 commit (subject, merges=exclude, 共 35149 个 commit) -> out\commits_docker.csv
+     时间范围 2013-01-22 ~ 2018-05-04
+     标题·含 merge        833
+     标题·排除 merge       543
+     全文·含 merge       1420
+     全文·排除 merge       949
+
+[ok] cockroachdb: 命中 1127 个 commit (subject, merges=exclude, 共 29485 个 commit) -> out\commits_cockroachdb.csv
+     时间范围 2014-02-11 ~ 2018-05-20
+     标题·含 merge       1581
+     标题·排除 merge      1127
+     全文·含 merge       3117
+     全文·排除 merge      2226
+
+[ok] kubernetes: 命中 839 个 commit (subject, merges=exclude, 共 65684 个 commit) -> out\commits_kubernetes.csv
+     时间范围 2014-06-17 ~ 2018-05-19
+     标题·含 merge       1192
+     标题·排除 merge       839
+     全文·含 merge       2846
+     全文·排除 merge      1214
+

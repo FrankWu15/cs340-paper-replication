@@ -1,0 +1,168 @@
+﻿app,commit,date,subject,matched_keywords
+grpc-go,419de394cf7ab1b907a3f378583ca3e58af06b83,2018-05-11,Add AuthInfoFromContext utility API (#2062),context
+grpc-go,0ebfac42d612337c9e7fb66cbe79fe25c6b818ca,2018-05-10,Documentation: Add initial documentation on concurrency (#2034),concurrency
+grpc-go,d07538b1475ec5b0ac85319e4a6706b2d2d8cab7,2018-05-10,status: Introduce FromContextError convenience function (#2057),context
+grpc-go,a36d2ab501dc713727218bda5f8b11608ab83d33,2018-05-07,fix flaky test caused by race in channelz test (#2051),race
+grpc-go,fc37cf1364fafea48582b50bf6d4acf9880a980a,2018-04-26,server: export ServerTransportStreamFromContext for unary interceptors to control headers/trailers (#2019),context
+grpc-go,35aeaeb587a630fded0670e42e084e2285f4c050,2018-04-12,documentation: mention DialContext is non-blocking by default (#1970),lock|context
+grpc-go,0c6b34bbc3688c8d2c4fcd2612cd2711c31c9644,2018-04-12,cleanup: extend dial context for TestFailFastRPCErrorOnBadCertificates to 10 seconds (#1984),context
+grpc-go,2783898b890536039ec7ffe4bed2508637b637ff,2018-04-12,Fix Test: race between t.Write() and t.closeStream()  (#1989),race
+grpc-go,73169184021d88c5027746d96bdb4bfab484db22,2018-04-09,clientconn: add support for unix network in DialContext. (#1883),context
+grpc-go,2eae9d0c740461cb0098df2005e77bf25c48817b,2018-04-02,server: add grpc.Method function for extracting method from context (#1961),context
+grpc-go,1a70180f35f423e98c3f91cffdba0322f460cb36,2018-03-29,client: Fix race when using both client-side default CallOptions and per-call CallOptions (#1948),race
+grpc-go,57640c0e6fd5e562b3a53f6b72738759165c80e1,2018-03-20,Allow storing alternate transport.ServerStream implementations in context (#1904),context
+grpc-go,b96718f8f0fc4ba31e7662e3308f808685f4cf36,2018-03-19,metadata: Fix bug where AppendToOutgoingContext could modify another context's metadata (#1930),context
+grpc-go,207e2760fd4c8cb95771e157a3df9b1f710fe558,2018-03-07,Fix test race: Atomically access minConnecTimout in testing environment. (#1897),race|atomic
+grpc-go,f0a1202acdc5c4702be05098d5ff8e9b3b444442,2018-02-28,examples: Replace context.Background with context.WithTimeout (#1877),context
+grpc-go,445b7284b13dacfc46e84a6d4ac38e2693d776ff,2018-02-13,Fix data race in TestServerGoAwayPendingRPC (#1862),race
+grpc-go,484b3ebb4ab56d3decc8240d599718bdbefcf7eb,2018-02-13,transport: fix race causing flow control discrepancy when sending messages over server limit (#1859),race
+grpc-go,08d626137c87d1df11c1a0d5cb59207ce5ade4e6,2018-02-12,metadata: provide AppendToOutgoingContext interface (#1794),context
+grpc-go,c22018a9fb24ff2a0d4e77b55b4e7f6b7b8b2932,2018-01-24,client: send RST_STREAM on client-side errors to prevent server from blocking (#1823),lock
+grpc-go,4f7a2c71d3d23e8ad5fd24a5156ff492359d53f1,2018-01-22,compare atomic and mutex performance in case of contention. (#1788),mutex|atomic
+grpc-go,b71aced4a2a1ee80a1cbbd26b85a57623790d7f4,2018-01-19,transport: Fix a data race when headers are received while the stream is being closed (#1814),race
+grpc-go,46bef23bc38dccc7830e089fc5840c95c4bf24ab,2018-01-18,Write should fail when the stream was done but context wasn't cancelled. (#1792),context
+grpc-go,10598f3eb3eee9565d6ab7d472e7a1b5d2287a6e,2018-01-18,Explain target format in DialContext's documentation (#1785),context
+grpc-go,17c6e90cd58d4eef0f6cad2f772bb978b21b163f,2018-01-02,compare atomic and mutex performance for incrementing/storing one variable (#1757),mutex|atomic
+grpc-go,035eb475a77d835245d23d6a48f5c929fc649bef,2017-12-22,Fix TestGracefulStop flakiness (#1767),race
+grpc-go,2720857d978b9873027f6d739d74794428f49c03,2017-12-18,server: fix race between GracefulStop and new incoming connections (#1745),race
+grpc-go,6610f9a3403d6e84b5a585fe27e00f9d7dffca6a,2017-12-18,Fix test: Data race while resetting global var. (#1748),race
+grpc-go,4742c425a7227ded547b5567bca3a63af262c8f4,2017-12-14,client: fix race between server response and stream context cancellation (#1729),race|context
+grpc-go,8fba5fc8fd4073dd1452d6b2c7335030848a41b1,2017-12-13,In gracefull stop close server transport only after flushing status of the last stream. (#1734),race
+grpc-go,a4bf341022f076582fc2e9a802ce170a8938f81d,2017-11-30,use the request context with net/http handler (#1696),context
+grpc-go,c6b46087ab923e9f453ec433f99174cdd45b9b89,2017-11-30,transport: fix race sending RPC status that could lead to a panic (#1687),race
+grpc-go,a62701e4aa1d276bec70311251d62a478404d63f,2017-11-28,Eliminate data race in ccBalancerWrapper (#1688),race
+grpc-go,6253aa9397d3f97c06b2c67e2b2965b558b3705f,2017-11-20,set context timeout when Timeout value >= 0 (#1678),context
+grpc-go,87bcb38fba807cf2f45bc15756795923bd33b4ae,2017-11-13,Eliminate race on ac.acbw (#1666),race
+grpc-go,abd3e10d785b2ef7e32b5207eb7c303301a4ac84,2017-11-07,Add context benchmarks (#1610),context
+grpc-go,fb4b2b29e49d653547f46f004953aed4dc3c3249,2017-10-31,reduce timeout for tests to 5m (7m for testrace) (#1635),race
+grpc-go,246b2f70816601cba378b4c162358b467c4e0229,2017-10-31,Fix settings ack race (#1630),race
+grpc-go,de0cff50aabf5cdbe9b03732ffc4a29c25e368d9,2017-10-19,Fix goroutine leak in grpclb_test (#1595),goroutine leak
+grpc-go,473b14250dc1118f4c51a8c92cd57cddaed82f0f,2017-10-18,Serve() should not return error on Stop() or GracefulStop() (#1485),race
+grpc-go,faebfcb7bf4702e9cf359637e8893ae415eb8705,2017-10-18,Remove single-entry var blocks (#1589),lock
+grpc-go,c06db1c7c5b06f2c83989e60afab946be5d839f2,2017-10-17,Skip proxy_test in race mode (#1584),race
+grpc-go,22c3f92f5faea8db492fb0f5ae4daf0d2752b19e,2017-10-04,transport: fix racey send to writes channel in WriteStatus (#1546),race
+grpc-go,cf79c849790fd644fab2ef0996e07c177f7b689c,2017-10-04,fix stats test race (#1560),race
+grpc-go,3bf110cd0cef4e896aa6331d44ca4a0c407bbaf3,2017-10-03,fix TestServerCredsDispatch and stats test race (#1554),race
+grpc-go,4b49faaf060cdb9435f5e262fb1b548643447625,2017-10-03,Make interop client dial blocking (#1559),lock
+grpc-go,d4b75ebd4f9f8c4a2b1cdadbdbe0d7920431ccca,2017-09-21,benchmark: add primivites benchmark for Unlocking via defer vs. inline (#1534),lock
+grpc-go,3214f767e5a22021f792f7c4625a6380ce1eb2b2,2017-09-08,"Truncate payload trace string, and turn trace off by default (#1509)",race
+grpc-go,4bbe223b12805ab25acbb9d2cadfab2ec9d04bb6,2017-09-05,remove a debug print that causes deadlock (#1505),deadlock|lock
+grpc-go,d6870035abc7b2ae1a12c5deeb8941ed09238705,2017-08-29,Check 'x/net/context' with `go vet` like 'context' (#1490),context
+grpc-go,e60698345eea0fc5c76d2f8db4f09122cfea3678,2017-08-29,Fix context warnings from govet. (#1486),context
+grpc-go,0b4b292f3a440791d15e33b79d98ee984e775757,2017-08-25,transport: fix handling of InTapHandle's returned context (#1461),context
+grpc-go,c29d6389e66f5da1a226df88607857aab4db9f7a,2017-08-25,transport: Fix deadlock in client keepalive. (#1460),deadlock|lock
+grpc-go,69abda08b5a7cf8e0910a841420aad51f967a974,2017-08-24,stats: add methods to allow setting grpc-trace-bin and grpc-tags-bin headers (#1404),race
+grpc-go,596a6acc87c73c3bc398a60ef0089976491ca060,2017-08-17,metadata: Remove NewContext and FromContext for gRFC L7 (#1392),context
+grpc-go,7657092a1303cc5a6fa3fee988d57c665683a4da,2017-08-09,Server should send 2 goaway messages to gracefully shutdown the connection. (#1403),race
+grpc-go,4e56696c6c5a8cd7b711a1eb8936463559361da5,2017-08-04,Fix a goroutine leak in DialContext (#1424),context|goroutine leak
+grpc-go,39c8c3866d926d95e11c03508bf83d00f2963f91,2017-08-04,Use `NewOutgoingContext ` in the metadata doc (#1425),context
+grpc-go,b463cc3276f7d8a556664a893915d0f49d449a4d,2017-08-02,Call cancel on contexts in tests (#1412),context
+grpc-go,fa1cb32dc4f81e23ab862dd5e7ac4f2920a33088,2017-07-31,Don't use 64-bit integers with atomic. (#1411),atomic
+grpc-go,2bb318258959db281674bc6fd67b5167b7ff0d65,2017-07-20,Fix bufconn.Close to not be blocking. (#1377),lock
+grpc-go,27b2052c9524abc45ae991d6a402ddb91f06ba03,2017-07-13,fix deadlock of roundrobin balancer (#1353),deadlock|lock
+grpc-go,40e7a759a035a36611d6c9a3c2acb11ce1497727,2017-06-19,Protect bytesSent and bytesReceived with mutex to avoid datarace (#1318),race|mutex
+grpc-go,dbdb479a60db5b6b4a496fac2cc99cbc787a7a71,2017-06-08,Deflake TestFlowContolLogicalRace (#1279),race
+grpc-go,3a46d9d51931de5beee75086205224a540233baa,2017-05-24,Avoid panic caused by stdlib context package errors (#1258),context
+grpc-go,c7379be7b69c4d45a9f313838b1baa2da55b2064,2017-05-19,grpclb balancer.Close() should not panic if called more than once (#1250),once
+grpc-go,17760cfd5b60decdc7ca12e5ae74fcdffe9ef0d2,2017-05-10,Calling handleRPC with context derived from the original (#1227),context
+grpc-go,0c1d39df28cc4e0369b185df2b33b1094cd543fb,2017-04-07,Separate incoming and outgoing metadata in context,context
+grpc-go,a66f9231a8560e6831b96f2de8193a59a3bc24ce,2017-04-05,Make initial service config non-blocking in Dial(),lock
+grpc-go,6b28425a45494bfdb5b167beaf78e1ccd24d6b43,2017-03-13,"Upon observing timeout on rpc context, the client should send a RST_STREAM to the server before freeing the quota for more rpcs to be created.",context
+grpc-go,ec1de5b4160008c86862131e52f0ab42fa699e45,2017-01-05,call cancel on context in DoTimeoutOnSleepingServer,context
+grpc-go,417442a753748fba8b9fade9953a9355ad570906,2016-11-30,transport: fix logical race in flow control (#1005),race
+grpc-go,a417b824f1dd8714e0bb05c29ca2d624e51f6b61,2016-11-18,Added synchronization,synchronization
+grpc-go,b13ef794997191ec801db90a42c50034df91850a,2016-11-16,add more comments to metadata Fromcontext (#986),context
+grpc-go,f511c49a58569f3e28adb6b31e0343705ec94983,2016-11-08,remove Stream.TraceContext,race|context
+grpc-go,6445dedfbc8042d37d1beb4ef5a75ae0b6967517,2016-11-08,fix wrong context when handling stats,context
+grpc-go,aa5b5c7e2ab57bbe906186fd0b8258ab08e282db,2016-11-04,"client side, use user context, and change sent time",context
+grpc-go,46e80bf1f6c2928b216afa3eb9797348c0978ac5,2016-10-31,fix race in test and add import comments,race
+grpc-go,152ccd88535e97c078513b013365a39648ddb0ce,2016-10-25,remove context.WithCancel which is not needed,context
+grpc-go,bac9e1d16ebc13f65c54f54bf22677b61da2285f,2016-09-21,Make concurrent Server.GracefulStop calls all behave equivalently.,race
+grpc-go,b32ff193313ca79055cc7fd8bbc5a24b7eef294f,2016-09-23,Add context.Join instead,context
+grpc-go,164a9d0a3e3ede4b0b262f055f99e5e30bc16fbb,2016-09-22,metadata.NewContext merges old metadata,context
+grpc-go,5f47f9f5ccafea3a8423f786b76a190df8a8067c,2016-09-12,Use user context instead of creating new context for client side stream,context
+grpc-go,477d54e0c98148b2260e3581e1711ebdf68ee489,2016-09-01,Do not send reset stream on context timeout,context
+grpc-go,dd5645bebff44f6b88780bb949022a09eadd7dae,2016-08-25,Avoid goroutine leak in clientconn,goroutine leak
+grpc-go,2ac2d85a1b32871e6d0a0593c47b0e062742dd68,2016-08-24,context.DeadlineExceeded returned by ClientHandshake should not be fatal error,context
+grpc-go,60c350b0e9c745a446ed753813e193d43e45bb28,2016-08-23,Detach user-passed context (via DialContext(...)) with the context of ClientConn,context
+grpc-go,b38541aeb0a214ca654e964850800972b5d3b1a0,2016-08-15,Implement DialContext to afford caller option of managing cancelation,context
+grpc-go,779083c6337c1cc7b5dec96332630c4067ab6ec2,2016-07-15,Change TestDialWithBlockErrorOnBadCertificates error check,lock
+grpc-go,e9e6ae6215eed864a46b66148f33ae4dfd7cc724,2016-07-14,Make Dial() withblock error on bad certificates,lock
+grpc-go,21c5a43e4765d929d4ea05f872e1cec75a5369ea,2016-08-01,fix a race condition causing http2Client.controller leaking,race
+grpc-go,0f3fc4355d23980249b40b456977aa9a3a3b7296,2016-07-29,refactor GracefulStop a bit,race
+grpc-go,069ed42115cb160fc413114f8cd4474165204780,2016-07-29,Fix deadlock when GracefulStop()ing multiple times,race|deadlock|lock
+grpc-go,a09c6888cc0200cd23e3a86dae9c79f7adfc5dc2,2016-07-28,fix another data race along with goaway,race
+grpc-go,1faf2ca61b75684b703bba486a1f7ae2dc330bdd,2016-07-27,fix the race on t.state,race
+grpc-go,110450d45ec9b606e8af18809e57c42770a3d2df,2016-07-27,fix races introduce by goaway,race
+grpc-go,5c2b3fa6c17bdda3010a4cf87931228ee708833b,2016-07-19,fix a goroutine leak in transport_test.go,goroutine leak
+grpc-go,df0a2ae779fec0de382166343969d8cd8ced2ee3,2016-07-15,finish trace with the right status,race
+grpc-go,78e558bbc17465d318acd499a9610e120a837860,2016-06-29,fix Info passes lock by value,lock
+grpc-go,864c571f443b16ac47c9b012755d00fa23a9e1f2,2016-06-13,Remove mutex and cache,mutex
+grpc-go,0f84d515bb53beae7cbbc3c15cfc9da92ab46096,2016-06-07,Remove printing context from end2end_test UnaryCall(),context
+grpc-go,98c0b8aa3e6ae828ecaa365050874470cc5d15cc,2016-05-25,Fix a race conditon and add some small touchups,race
+grpc-go,613465d739b2cec84abe3a8477ccd190f5557672,2016-05-17,Use pointer receiver for locking histogram,lock
+grpc-go,71a11ef208454461a27f1232298f1e81b8461097,2016-05-17,Wrap for lockingHistogram.add swap mergeInto,lock
+grpc-go,65969fb499eb53f145847ad8775ae2d9c80cd0d8,2016-05-16,lock optimization,lock
+grpc-go,6c972937125fcd1112b5a5fd89e61fff5610fe27,2016-05-16,Use a struct of mutex and histogram in client,mutex
+grpc-go,c4adca718a3d7f08f08f146816b2272654756d43,2016-05-12,Documentation: fix metadata.FromContext example,context
+grpc-go,9521f8ddae031564caedcd380a2faf4ce360b272,2016-05-11,Change RWMutex to Mutex,mutex
+grpc-go,19ded2395157c11fc46624a5038f1551f7a2bc44,2016-05-10,graceful close and test,race
+grpc-go,dc1dd06ebee1d4e0c0160af39926897f2db8d8af,2016-05-06,Fix a race of onRead couting,race
+grpc-go,9604a2bb7dd81d87c2873a9580258465f3c311c8,2016-05-06,Revert 'Fix onRead race',race
+grpc-go,973c6ff04de19fa90e3ccb7029a591d6d782002f,2016-05-06,Fix onRead race,race
+grpc-go,ceacfbcbc1514e4e677932fd55938ac455d182fb,2016-04-29,Add selecting on stop chan to avoid goroutine leak,goroutine leak
+grpc-go,025674fec58a059fa5bdb94d3cd64c2b1c3242e4,2016-04-12,transport: do not create a Stream on a canceled context,context
+grpc-go,0be94ab3f591b9b6ba5b3c5702c0701e92b4bc28,2016-02-22,fix a race between transport creation and wait returning,race
+grpc-go,3d9421a8e5a7f0912f23678f7ac7ea4008125c86,2016-02-10,test: shorten goroutine-heavy test in race mode,race
+grpc-go,fc0c458b8970e9066e074b8d65ffa6570ab7a22d,2016-02-05,Fix test-only goroutine leaks; add leak checker to end2end tests.,goroutine leak
+grpc-go,8e76d451dd39b5a194c7affeafa3be9c27559d71,2016-01-14,Add missing trace finish on an uncommon code path,race
+grpc-go,7172d5c7a66de543de4beb3ed5e0a9eafa1f43af,2016-01-14,Still show trace for the client streams which failed to create,race
+grpc-go,59c74732bb3461b45386cead7b76cf789940a558,2016-01-14,Don't trace when failing to create a cleint stream,race
+grpc-go,47fc4a2936669af9ec8f851be845f2d4c7bcca18,2016-01-14,Specialize connection error handling to avoid goroutine leaking in some cases,goroutine leak
+grpc-go,76515fa9fd385fa517e7ef63a11d7c9bafd575f3,2016-01-06,Remove context related functions in credentials,context
+grpc-go,7aa428f5d640f3ec53f4423b2560deec34a5ea4a,2015-11-30,Finish trace for premature error,race
+grpc-go,0fd544f256c212485402a9cf27506fc33a098eeb,2015-11-10,Fix cc.Close() state race,race
+grpc-go,7fcfcfa8164ed5e3475303e9433a525149c5aacb,2015-10-22,fix a counting race for max streams.,race
+grpc-go,a80cf8dfe98dea3ba05dfbd2ecb54b851b22cc31,2015-10-07,add a mutex to guard w.kv,mutex
+grpc-go,e2cb78fabb46e5bc0e6eb4d2ec9004befbd1e924,2015-10-07,Combine const declarations into one block,lock
+grpc-go,bc49d127378f0e7bf964cf2f4a5b7b03f9cb7d12,2015-10-05,refactor servier side trace again,race
+grpc-go,2e43c33e715ad48c88d435d3057f64914fa57e2c,2015-10-02,revert trace.go change,race
+grpc-go,d12126f864d2660829b33a77bdf2cd3a578b9935,2015-10-01,show deadline on server side trace,race
+grpc-go,00c7deef344414c20e199e2f7af42fc5d935eade,2015-10-01,show deadline on server side trace,race
+grpc-go,2bd5f5b1e1f5abeceb60ca32d8bc62fff9b47d38,2015-10-01,show RemoteAddr in server trace,race
+grpc-go,d84ff12005281b3411e2aafc893cc9cf28701a16,2015-10-01,trace refactoring,race
+grpc-go,86db82df28b6de13aa7657d709d8524a4ce17dfb,2015-09-28,add TODO to fix trace,race
+grpc-go,b6c9c5a70f2466da74774f338f5397e6b9a362eb,2015-09-23,"grpc: record the description of the status returned by server RPC handlers in request traces, and mark the trace as an error if the status is not OK.",race
+grpc-go,3f70ec6f8ad9701ee69b9541efd31d600535f069,2015-08-10,fix a race,race
+grpc-go,7c57a23f2d5366ac3feacf30070ba2d2d938304b,2015-08-09,grpc: rename 'Recv' trace family to 'grpc.Recv'.,race
+grpc-go,994fc85650cbe27d803eccf73d3f6718d5dba9a3,2015-08-09,grpc: add trace.EventLog to ClientConn.,race
+grpc-go,18c359f6a9e2a00ec8615526de6fd597736a108f,2015-08-09,grpc: rename request trace family from 'Sent' to 'grpc.Sent'.,race
+grpc-go,d90cbe84e6fbd3fd594f78d41c5a5dfb5afbb937,2015-07-28,fix trace set error bugs,race
+grpc-go,3616d6be5411e6caf3d9be5e9dfc3a614c82cc6d,2015-07-28,fix trace setError,race
+grpc-go,a3dce460305676bf5ee9e429f04013231525b945,2015-07-28,making trace as an error when error occurs and fix the format,race
+grpc-go,bd20726bd87c29af312486564f018f3fccc585a9,2015-07-23,add client streaming response trace,race
+grpc-go,ec53eba4e7e63f191c53be3692a6ced9f338c919,2015-07-23,add derfer to unlock,lock
+grpc-go,9d4ac0cac5b7593fdff902fc8c544b09dbcf9bfa,2015-07-23,fix mutex problems and merge multiple servingstatus to one single test,mutex
+grpc-go,0252e09f2156f21768e35b23d760fc46eb649d15,2015-07-23,add response trace log for client streaming,race
+grpc-go,dc36cdbfdd56bcd133e87cb0c901d7720fb6486a,2015-07-22,add mutex and create newHealthServer Function,mutex
+grpc-go,7c8ee356b11a3fba4a34c519a39e76f979e00dca,2015-06-25,"Include client streaming payloads in trace, and centralise trace termination logic.",race
+grpc-go,671cc291d1b2d5a22a2dea4815e76d6f8bfca431,2015-06-24,Use full method for trace construction.,race
+grpc-go,5cf38682e6ddf4011fbe2bd1d844ffc25ce5716c,2015-06-18,fix traceFinish,race
+grpc-go,c63dd40b2a9b785ef52610da275a55ae3f160b40,2015-06-18,change the completion of the trace,race
+grpc-go,528e1e3ef9c6a95722cadfd52167fbd32ea8233f,2015-06-11,add trace flag to benchmark client,race
+grpc-go,4a8118a90f1e4eea18d859e76e8ab9fd4c4ea4c4,2015-06-11,Add NoTrace suite for benchmark,race
+grpc-go,04b604054f1af0a8053a46a2ce84b0d5cb933772,2015-06-10,close trace,race
+grpc-go,c2bdf960336924708f2c31597746b02c75cca5e1,2015-06-05,Add gRPC client-side integration with golang.org/x/net/trace.,race
+grpc-go,07f33239d27b89721ad6027e7bfb168998859768,2015-06-06,Fix data race in benchmark_test.go.,race
+grpc-go,ec20a7b8578ce839b41c14298bddef0d7019c844,2015-06-04,make dialing nonblocking by default. Add a DialOption to force blocking operation.,lock
+grpc-go,9df0e935c037988e64e30498b6ecf3c7a99411a2,2015-06-01,fix a race,race
+grpc-go,8df7c3fd8449a0616db90397400e8ca0405da430,2015-05-28,i) update streamsQuota only if streamsQuota is there when the stream is created; ii) move ops of streamsQuota out of mutex of the transport (except acquire()),mutex
+grpc-go,458d514e70b3e5ba71287de5c338c8a6b8b92be3,2015-05-27,new streams block when the max concurrent stram limit is reached.,lock
+grpc-go,e8c8cd8235941b98072a6c3b573d300aa2686783,2015-05-27,Revert 'New streams are blocking when max concurrent stream limit is reached.',lock
+grpc-go,1b5f15dda802d672f832beb8ff65ebeccb3fd44b,2015-05-26,blocking when max concurrent stream limit is reached.,lock
+grpc-go,3ea7cd9385239e9ae0b09846cafc63f0a36f2502,2015-04-30,Adds mutex when reading goaway flag,mutex
+grpc-go,dbe74dd6c5fca211e2cea1a4a80e020b465583de,2015-04-29,Adds mutex lock on setting goaway flag,lock|mutex
+grpc-go,80c301c39693cc6f77c1772a1a13283e53dd9dcd,2015-04-13,Fix mutex error in (*inFlow).connOnRead.,mutex
+grpc-go,9dd6a107d8fc9c9a308961d4e316c6a0211c392a,2015-04-03,fix a race in transport_test.go,race
+grpc-go,fa9ecddd2c595cae78df91734d691acb76dc3143,2015-03-05,drop usage of obsolete oauth2.Context,context
+grpc-go,6340c9ec1d6d34fcee24dcb01f5df665f5839539,2015-02-23,Gracefully deny supplemental transport shutdowns.,race

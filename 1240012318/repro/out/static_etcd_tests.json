@@ -1,0 +1,20 @@
+{
+  "go_stmt_normal": 93,
+  "go_stmt_anonymous": 383,
+  "mutex": 771,
+  "lock_calls": 1165,
+  "atomic": 68,
+  "once": 11,
+  "waitgroup": 197,
+  "cond": 0,
+  "chan_make": 465,
+  "chan_send": 394,
+  "chan_recv": 1341,
+  "select": 563,
+  "misc_pool": 0,
+  "misc_context": 1339,
+  "files": 859,
+  "lines": 201982,
+  "parse_errors": 0,
+  "root": "6app/etcd"
+}

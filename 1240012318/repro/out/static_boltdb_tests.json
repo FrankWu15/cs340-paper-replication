@@ -1,0 +1,20 @@
+{
+  "go_stmt_normal": 6,
+  "go_stmt_anonymous": 7,
+  "mutex": 34,
+  "lock_calls": 45,
+  "atomic": 0,
+  "once": 1,
+  "waitgroup": 12,
+  "cond": 0,
+  "chan_make": 11,
+  "chan_send": 13,
+  "chan_recv": 17,
+  "select": 5,
+  "misc_pool": 2,
+  "misc_context": 0,
+  "files": 34,
+  "lines": 12460,
+  "parse_errors": 0,
+  "root": "6app/boltdb"
+}

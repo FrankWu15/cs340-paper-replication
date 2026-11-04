@@ -1,0 +1,43 @@
+{
+  "app": "kubernetes",
+  "repo": "C:\\Users\\Li\\Desktop\\work-app\\操作系统\\output\\6app\\kubernetes",
+  "kloc": 1052.5,
+  "kloc_source": "raw_lines(fallback)",
+  "raw_counts": {
+    "go_stmt_normal": 328,
+    "go_stmt_anonymous": 181,
+    "mutex": 1888,
+    "lock_calls": 2821,
+    "atomic": 50,
+    "once": 45,
+    "waitgroup": 171,
+    "cond": 23,
+    "chan_make": 283,
+    "chan_send": 241,
+    "chan_recv": 457,
+    "select": 181,
+    "misc": 356,
+    "files": 5142,
+    "lines": 1052458,
+    "parse_errors": 0,
+    "root": "C:\\Users\\Li\\Desktop\\work-app\\操作系统\\output\\6app\\kubernetes"
+  },
+  "goroutine_sites_total": 509,
+  "goroutine_sites_normal": 328,
+  "goroutine_sites_anonymous": 181,
+  "goroutine_sites_per_kloc": 0.484,
+  "primitives_total": 4447,
+  "shared_memory_pct": 69.93,
+  "message_passing_pct": 30.07,
+  "pct": {
+    "lock_calls": 63.44,
+    "mutex_strict": 42.46,
+    "atomic": 1.12,
+    "once": 1.01,
+    "waitgroup": 3.85,
+    "cond": 0.52,
+    "chan": 22.06,
+    "misc": 8.01
+  },
+  "primitives_per_kloc": 4.23
+}

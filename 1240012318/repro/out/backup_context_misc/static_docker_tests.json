@@ -1,0 +1,19 @@
+{
+  "go_stmt_normal": 82,
+  "go_stmt_anonymous": 257,
+  "mutex": 516,
+  "lock_calls": 1104,
+  "atomic": 30,
+  "once": 15,
+  "waitgroup": 66,
+  "cond": 0,
+  "chan_make": 354,
+  "chan_send": 298,
+  "chan_recv": 689,
+  "select": 286,
+  "misc": 970,
+  "files": 1615,
+  "lines": 242038,
+  "parse_errors": 0,
+  "root": "6app/docker"
+}

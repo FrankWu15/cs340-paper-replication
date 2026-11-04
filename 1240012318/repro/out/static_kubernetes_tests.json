@@ -1,0 +1,20 @@
+{
+  "go_stmt_normal": 533,
+  "go_stmt_anonymous": 362,
+  "mutex": 2036,
+  "lock_calls": 3145,
+  "atomic": 109,
+  "once": 46,
+  "waitgroup": 262,
+  "cond": 23,
+  "chan_make": 753,
+  "chan_send": 416,
+  "chan_recv": 946,
+  "select": 315,
+  "misc_pool": 2,
+  "misc_context": 536,
+  "files": 6557,
+  "lines": 1517289,
+  "parse_errors": 0,
+  "root": "6app/kubernetes"
+}
