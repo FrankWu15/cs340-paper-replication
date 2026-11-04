@@ -1,0 +1,5 @@
+﻿case,分类,buggy_commit,fixed_commit,检测手段,buggy_现象,fixed_现象,日志
+boltdb-02-close-race,non-blocking,55af28c19cd84431e1f3c5b132a07c1deecff10b,e929eba364732aa3a7eb76e2c9c38b7d23b8a980,时序观测 + 崩溃,"Close 35.92µs 返回，随后 Commit 空指针 panic（bucket.go:692）","Close 阻塞 55.24ms，Commit 成功，未崩溃",results/boltdb/b2_buggy.log / results/boltdb/b2_fixed.log
+boltdb-03-begin-lock-leak,blocking,01bc9be72f46f0f1978b1f1581440c399b3a7684,defdb743cdca840890fea24c3111a7bffe5cc0a3,Go 内置死锁检测器,"fatal error: all goroutines are asleep - deadlock!（db.go:349 metalock.Lock）","第 2 次 Begin 127ns 返回 ErrDatabaseNotOpen",results/boltdb/b3_buggy_closed.log / results/boltdb/b3_fixed_closed.log
+boltdb-03-begin-lock-leak(remap 附实验),blocking,01bc9be72f46f0f1978b1f1581440c399b3a7684,defdb743cdca840890fea24c3111a7bffe5cc0a3,并发压测,未触发卡死（8s / 800+ 次写入）,未触发卡死,results/boltdb/b3_buggy_remap.log / results/boltdb/b3_fixed_remap.log
+grpc-01-lbwatcher-leak,blocking,39c8c3866d926d95e11c03508bf83d00f2963f91,4e56696c6c5a8cd7b711a1eb8936463559361da5,回归测试断言（100ms 超时）,FAIL: lbWatcher with closed balancer didn't close doneChan after 100ms,PASS 0.00s,results/grpc-go/grpc_buggy.log / results/grpc-go/grpc_fixed.log

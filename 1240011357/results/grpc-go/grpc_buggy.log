@@ -1,0 +1,6 @@
+=== RUN   TestClientLBWatcherWithClosedBalancer
+    clientconn_test.go:390: lbWatcher with closed balancer didn't close doneChan after 100ms
+--- FAIL: TestClientLBWatcherWithClosedBalancer (0.10s)
+FAIL
+FAIL	google.golang.org/grpc	0.105s
+FAIL
