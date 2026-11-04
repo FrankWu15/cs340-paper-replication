@@ -1,0 +1,4 @@
+seed: 19146
+.....
+PASS
+ok  	github.com/boltdb/bolt	6.431s

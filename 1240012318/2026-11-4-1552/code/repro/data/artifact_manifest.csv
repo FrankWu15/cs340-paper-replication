@@ -1,0 +1,170 @@
+﻿bug_id,app,behavior,reproduced,fix_commit,subject,n_files,insertions,deletions,patch_size,matched,patch_file
+boltdb#194,boltdb,blocking,,defdb743cdca840890fea24c3111a7bffe5cc0a3,Fix deadlock on remmap.,1,9,5,3,1,blocking-bugs/boltdb/defdb743cdca840890fea24c3111a7bffe5cc0a3.txt
+cockroachdb#584,cockroachdb,blocking,,1cc699802557f67d4464de391b7350a527f9f445,Call g.mu.Unlock() before calling break,1,2,0,2,1,blocking-bugs/cockroachdb/1cc699802557f67d4464de391b7350a527f9f445.txt
+cockroachdb#10214,cockroachdb,blocking,,27e863d90ab0660494778f1c35966cc5ddc38e32,storage: fix deadlock in coalesced heartbeats.,3,91,26,7,1,blocking-bugs/cockroachdb/27e863d90ab0660494778f1c35966cc5ddc38e32.txt
+cockroachdb#18101,cockroachdb,blocking,,822bd176cc725c6b50905ea615023200b395e14f,sqlccl: add missing ctx select in splitAndScatter,1,9,2,5,1,blocking-bugs/cockroachdb/822bd176cc725c6b50905ea615023200b395e14f.txt
+cockroachdb#13197,cockroachdb,blocking,,9bf770cd8f6eaff5441b80d3aec1a5614e8747e1,sql: fix go1.8 goroutine leaks,3,12,0,3,1,blocking-bugs/cockroachdb/9bf770cd8f6eaff5441b80d3aec1a5614e8747e1.txt
+cockroachdb#7504,cockroachdb,blocking,,cab761b9f5ee5dee1448bc5d6b1d9f5a0ff0bad5,sql: avoid deadlock in lease acquisition,2,177,39,36,1,blocking-bugs/cockroachdb/cab761b9f5ee5dee1448bc5d6b1d9f5a0ff0bad5.txt
+cockroachdb#3710,cockroachdb,blocking,,cb65190f9caaf464723e7d072b1f1b69a044ef7b,Release RLock before calling MaybeAdd to avoid deadlock,1,11,2,5,1,blocking-bugs/cockroachdb/cb65190f9caaf464723e7d072b1f1b69a044ef7b.txt
+cockroachdb#16141,cockroachdb,blocking,0,d064942b067ab84628f79cbfda001fa3138d8d6e,sql: avoid recurisive acquisition of Executor.systemConfigMu,1,43,29,24,1,blocking-bugs/cockroachdb/d064942b067ab84628f79cbfda001fa3138d8d6e.txt
+cockroachdb#2448,cockroachdb,blocking,,d9b384b05ebfa8ba6c679c8c0c6034357416c2d7,"try to resolve the deadlock between multiraft eventsChan and callbackChan with buffered events, and buffer the proposal if any ConfChange pending in applying to make the buffering proposal switching over to new configuration.",4,121,98,20,1,blocking-bugs/cockroachdb/d9b384b05ebfa8ba6c679c8c0c6034357416c2d7.txt
+cockroachdb#6181,cockroachdb,blocking,,de89a847175062dbc12e274b19623193cd69685b,kv: fix deadlock when running with --verbosity=2,1,1,1,1,1,blocking-bugs/cockroachdb/de89a847175062dbc12e274b19623193cd69685b.txt
+cockroachdb#9935,cockroachdb,blocking,0,ed6a100ba38dd51b0888b9a3d3ac6bdbb26c528c,log: do not deadlock on failed symlink,1,3,0,2,1,blocking-bugs/cockroachdb/ed6a100ba38dd51b0888b9a3d3ac6bdbb26c528c.txt
+cockroachdb#13755,cockroachdb,blocking,,ef906076adc1d0e3721944829cfedfed51810088,sql: deflake TestSchemaChangeReverseMutations,1,3,0,3,1,blocking-bugs/cockroachdb/ef906076adc1d0e3721944829cfedfed51810088.txt
+cockroachdb#10790,cockroachdb,blocking,,f1a5c19125c65129b966fbdc0e6408e8df214aba,kv: fix goroutine leak on shutdown,2,31,28,5,1,blocking-bugs/cockroachdb/f1a5c19125c65129b966fbdc0e6408e8df214aba.txt
+moby#8909,docker,blocking,1,03ea2166b66632ee7cdd824d7acd87b15c9bccb2,Fix deadlock in ps exited filter,2,79,1,1,1,blocking-bugs/docker/03ea2166b66632ee7cdd824d7acd87b15c9bccb2.txt
+,docker,blocking,,0d9e54367f7bf7da9670de723d533eaa920868c8,Fix deadlock on stop failure,1,1,1,1,1,blocking-bugs/docker/0d9e54367f7bf7da9670de723d533eaa920868c8.txt
+moby#29733,docker,blocking,0,2938dce794be7559ba73b4e9630015020a7fa937,Fix race/deadlock in v1 plugin handlers,3,92,23,32,1,blocking-bugs/docker/2938dce794be7559ba73b4e9630015020a7fa937.txt
+moby#17176,docker,blocking,1,2f16895ee94848e2d8ad72bc01968b4c88d84cb8,devmapper: Drop devices lock before returning from function,2,30,0,1,1,blocking-bugs/docker/2f16895ee94848e2d8ad72bc01968b4c88d84cb8.txt
+moby#21233,docker,blocking,,2f4aa9658408ac72a598363c6e22eadf93dbb8a7,Fix flaky test TestTransfer,1,1,1,1,1,blocking-bugs/docker/2f4aa9658408ac72a598363c6e22eadf93dbb8a7.txt
+moby#4951,docker,blocking,0,2ffef1b7eb618162673c6ffabccb9ca57c7dfce3,devmapper: Avoid AB-BA deadlock,1,35,23,11,1,blocking-bugs/docker/2ffef1b7eb618162673c6ffabccb9ca57c7dfce3.txt
+moby#15965,docker,blocking,,3037e4f7c4eec06cf3a5afca6f58ec58b4bdd63e,Fix goroutine leak on pull,1,3,0,2,1,blocking-bugs/docker/3037e4f7c4eec06cf3a5afca6f58ec58b4bdd63e.txt
+moby#31273,docker,blocking,,37addf0a50ccba51630368c6ed09eb08166d6f48,Net operations already hold locks to containers,2,12,12,2,1,blocking-bugs/docker/37addf0a50ccba51630368c6ed09eb08166d6f48.txt
+moby#25384,docker,blocking,,42360d164b9f25fb4b150ef066fcf57fa39559a7,fix deadlock when more than 1 plugin is installed,1,1,1,1,1,blocking-bugs/docker/42360d164b9f25fb4b150ef066fcf57fa39559a7.txt
+moby#25642,docker,blocking,,4d009084de8cad94a180130eb57efa2a98df6d98,Fix deadlock on plugin shutdown.,2,1,5,4,1,blocking-bugs/docker/4d009084de8cad94a180130eb57efa2a98df6d98.txt
+moby#33293,docker,blocking,,4d2d2ea39336aade783c5c415b83d129bdd339bb,Remove deadlock in ContainerWait,1,1,1,1,1,blocking-bugs/docker/4d2d2ea39336aade783c5c415b83d129bdd339bb.txt
+moby#256,docker,blocking,1,58befe3081726ef74ea09198cd9488fb42c51f51,Fix a deadlock in CmdStream.,2,23,5,8,1,blocking-bugs/docker/58befe3081726ef74ea09198cd9488fb42c51f51.txt
+moby#7559,docker,blocking,,6cbb8e070d6c3a66bf48fbe5cbf689557eee23db,Fix deadlock on failed dial in UDP userland proxy,1,1,0,1,1,blocking-bugs/docker/6cbb8e070d6c3a66bf48fbe5cbf689557eee23db.txt
+moby#28462,docker,blocking,0,89b123473774248fc3a0356dd3ce5b116cc69b29,Fix deadlock on cancelling healthcheck,3,12,8,1,1,blocking-bugs/docker/89b123473774248fc3a0356dd3ce5b116cc69b29.txt
+moby#36114,docker,blocking,,a44fcd3d27c06aaa60d8d1cbce169f0d982e74b1,LCOW: Graphdriver fix deadlock,1,8,6,2,1,blocking-bugs/docker/a44fcd3d27c06aaa60d8d1cbce169f0d982e74b1.txt
+moby#27782,docker,blocking,1,a69a59ffc7e3d028a72d1195c2c1535f447eaa84,Decouple removing the fileWatcher from reading,1,17,5,14,1,blocking-bugs/docker/a69a59ffc7e3d028a72d1195c2c1535f447eaa84.txt
+moby#22732,docker,blocking,,bd2b3d363ff7c46e01cce4e6a41d41f24a0047da,Release memoryStore locks before filter/apply,2,14,19,12,1,blocking-bugs/docker/bd2b3d363ff7c46e01cce4e6a41d41f24a0047da.txt
+moby#4395,docker,blocking,,d3a6ee1e55a53ee54b91ffb6c53ba674768cf9de,Make the chan for utils.Go buffered in order to avoid goroutine leak,1,1,1,1,1,blocking-bugs/docker/d3a6ee1e55a53ee54b91ffb6c53ba674768cf9de.txt
+,docker,blocking,,d55998be81973be5b083eed56b223c8ce98ce073,Remove goroutine leak. Make sure termcap are reset each time.,1,25,6,4,1,blocking-bugs/docker/d55998be81973be5b083eed56b223c8ce98ce073.txt
+moby#33781,docker,blocking,,da28210a157a3bf5662f1a049bb10f9b69d2a5a2,Merge pull request #33781 from mlaventure/fix-healhcheck-goroutine-leak,0,0,0,1,1,blocking-bugs/docker/da28210a157a3bf5662f1a049bb10f9b69d2a5a2.txt
+moby#30408,docker,blocking,,f2d384fca6fa08da13fdc01c7991e8e35b081198,Fix deadlock on v1 plugin with activate error,2,8,1,1,1,blocking-bugs/docker/f2d384fca6fa08da13fdc01c7991e8e35b081198.txt
+etcd#4474,etcd,blocking,1,0cb304ec61019c5ff2f6260245ef30fb6dc9711a,contrib/raftexample: fix restart path,1,25,13,1,1,blocking-bugs/etcd/0cb304ec61019c5ff2f6260245ef30fb6dc9711a.txt
+etcd#5349,etcd,blocking,1,120020fa9c3d4b6c98d7beb863ac4c6bfe4d499b,clientv3/concurrency: use session id for election keys to avoid deadlock,3,46,27,20,1,blocking-bugs/etcd/120020fa9c3d4b6c98d7beb863ac4c6bfe4d499b.txt
+etcd#7471,etcd,blocking,,1b1fabef8ffec606909f01c3983300fff539f214,auth: get rid of deadlocking channel passing scheme in simpleTokenTTL,1,32,31,3,1,blocking-bugs/etcd/1b1fabef8ffec606909f01c3983300fff539f214.txt
+etcd#5509,etcd,blocking,1,1d8813052292e6053957fae01d080fde9717f3fc,clientv3: fix deadlock on Get with concurrent Close,2,10,14,3,1,blocking-bugs/etcd/1d8813052292e6053957fae01d080fde9717f3fc.txt
+etcd#5199,etcd,blocking,1,22797c718504868665b78f143a595138cb521edf,clientv3/concurrency: use session lease id for mutex keys,2,79,6,14,1,blocking-bugs/etcd/22797c718504868665b78f143a595138cb521edf.txt
+,etcd,blocking,0,36f5b713bf4cad4702163ed9476ea83de9059b3d,grpcproxy: don't wait for ctx.Done() to close kv donec,1,1,5,5,1,blocking-bugs/etcd/36f5b713bf4cad4702163ed9476ea83de9059b3d.txt
+etcd#6873,etcd,blocking,0,7618fdd1d642e47cac70c03f637b0fd798a53a6e,grpcproxy: fix deadlock on watch broadcasts stop,1,1,2,1,1,blocking-bugs/etcd/7618fdd1d642e47cac70c03f637b0fd798a53a6e.txt
+etcd#6855,etcd,blocking,,7afc490c95789c408fbc256d8e790273d331c984,raft: return empty status if node is stopped,1,6,2,6,1,blocking-bugs/etcd/7afc490c95789c408fbc256d8e790273d331c984.txt
+,etcd,blocking,,7b7feb46fcf13da75f93797740ffc6034bb585ff,leasehttp: buffer error channel to prevent goroutine leak,1,2,1,1,1,blocking-bugs/etcd/7b7feb46fcf13da75f93797740ffc6034bb585ff.txt
+etcd#7891,etcd,blocking,,87d99fe0387ee1df1cf1811d88d37331939ef4ae,etcd-runner: remove mutex on validate() and release() in global.go,3,9,9,4,1,blocking-bugs/etcd/87d99fe0387ee1df1cf1811d88d37331939ef4ae.txt
+etcd#7283,etcd,blocking,,8baaa06cce9e58548f60e6e9b21c9af3d42580bb,clientv3: serialize updating notifych in balancer,2,163,6,45,1,blocking-bugs/etcd/8baaa06cce9e58548f60e6e9b21c9af3d42580bb.txt
+etcd#6937,etcd,blocking,1,91ff6f30b50a14158ec10cdd24836d775a336f52,grpcproxy: fix deadlock in watchbroadcast,1,3,3,3,1,blocking-bugs/etcd/91ff6f30b50a14158ec10cdd24836d775a336f52.txt
+etcd#6278,etcd,blocking,1,9497e9678cdc64785847993c96ff2748e09ef9a1,clientv3/concurrency: allow election on prefixes of keys.,3,32,5,4,1,blocking-bugs/etcd/9497e9678cdc64785847993c96ff2748e09ef9a1.txt
+None,etcd,blocking,,ae062a0825a4100d0cf9ac7c8bb0fa1ca69c6814,client: move lock so MembersAPI.List doesn't deadlock,1,3,3,2,1,blocking-bugs/etcd/ae062a0825a4100d0cf9ac7c8bb0fa1ca69c6814.txt
+etcd#9074,etcd,blocking,,b2a15ec327ead1caf6d6983092dae17e09c88dd1,pkg/expect: fix deadlock in mac OS,1,0,5,5,1,blocking-bugs/etcd/b2a15ec327ead1caf6d6983092dae17e09c88dd1.txt
+etcd#4033,etcd,blocking,1,b7cf2385e6874d07f32f183007e50f4448b7e3a2,"contrib/raftexample: add test, fix dead lock on proposal channel",2,123,10,8,1,blocking-bugs/etcd/b7cf2385e6874d07f32f183007e50f4448b7e3a2.txt
+etcd#5459,etcd,blocking,,c43831063411d923566f1c607933c1d721c1f5f2,v3rpc: make watcher wait for its send goroutine to finish,1,21,10,32,1,blocking-bugs/etcd/c43831063411d923566f1c607933c1d721c1f5f2.txt
+,etcd,blocking,0,cb9a3e04b141d150a370f1e6329428b621742041,client: fix goroutine leak in unreleased context,1,4,1,4,1,blocking-bugs/etcd/cb9a3e04b141d150a370f1e6329428b621742041.txt
+etcd#4679,etcd,blocking,1,d21d2e6624bc5400e52baa45804668f5f9b6a161,clientv3: don't deadlock on Close with broken connection,2,25,10,2,1,blocking-bugs/etcd/d21d2e6624bc5400e52baa45804668f5f9b6a161.txt
+etcd#6708,etcd,blocking,,de008c8a4ac327eee481fcc0245f55de7b393351,client: prevent deadlock in Sync,2,186,41,35,1,blocking-bugs/etcd/de008c8a4ac327eee481fcc0245f55de7b393351.txt
+None,etcd,blocking,,fb12a4e412fee79c8c59277f7e49d5cca5ed901f,storage: fix a deadlock in batch tx,1,5,2,5,1,blocking-bugs/etcd/fb12a4e412fee79c8c59277f7e49d5cca5ed901f.txt
+grpc#639,grpc-go,blocking,1,262ed2bd6d1c8cbaa14b43c3815d2e01e4f65ca8,Merge pull request #651 from iamqizhao/master,0,0,0,26,1,blocking-bugs/grpc-go/262ed2bd6d1c8cbaa14b43c3815d2e01e4f65ca8.txt
+grpc#1353,grpc-go,blocking,,27b2052c9524abc45ae991d6a402ddb91f06ba03,fix deadlock of roundrobin balancer (#1353),1,5,1,5,1,blocking-bugs/grpc-go/27b2052c9524abc45ae991d6a402ddb91f06ba03.txt
+grpc#490,grpc-go,blocking,,47fc4a2936669af9ec8f851be845f2d4c7bcca18,Specialize connection error handling to avoid goroutine leaking in some cases,1,6,2,4,1,blocking-bugs/grpc-go/47fc4a2936669af9ec8f851be845f2d4c7bcca18.txt
+grpc#1850,grpc-go,blocking,1,484b3ebb4ab56d3decc8240d599718bdbefcf7eb,transport: fix race causing flow control discrepancy when sending messages over server limit (#1859),3,48,0,2,1,blocking-bugs/grpc-go/484b3ebb4ab56d3decc8240d599718bdbefcf7eb.txt
+grpc#1505,grpc-go,blocking,,4bbe223b12805ab25acbb9d2cadfab2ec9d04bb6,remove a debug print that causes deadlock (#1505),1,0,1,1,1,blocking-bugs/grpc-go/4bbe223b12805ab25acbb9d2cadfab2ec9d04bb6.txt
+grpc#1424,grpc-go,blocking,1,4e56696c6c5a8cd7b711a1eb8936463559361da5,Fix a goroutine leak in DialContext (#1424),2,25,0,5,1,blocking-bugs/grpc-go/4e56696c6c5a8cd7b711a1eb8936463559361da5.txt
+grpc#793,grpc-go,blocking,1,5a547ed72c09faf4050739d54caea1d51f4d276d,Merge pull request #795 from tamird/graceful-deadlock,0,0,0,1,1,blocking-bugs/grpc-go/5a547ed72c09faf4050739d54caea1d51f4d276d.txt
+grpc#1293,grpc-go,blocking,1,7df48bee8829276b13ef52bff4e1c47b9d55cd7d,transport: fix error handling on Stream deletion (#1275),2,41,0,3,1,blocking-bugs/grpc-go/7df48bee8829276b13ef52bff4e1c47b9d55cd7d.txt
+grpc#1459,grpc-go,blocking,1,c29d6389e66f5da1a226df88607857aab4db9f7a,transport: Fix deadlock in client keepalive. (#1460),1,4,0,1,1,blocking-bugs/grpc-go/c29d6389e66f5da1a226df88607857aab4db9f7a.txt
+,grpc-go,blocking,,ceacfbcbc1514e4e677932fd55938ac455d182fb,Add selecting on stop chan to avoid goroutine leak,1,10,4,4,1,blocking-bugs/grpc-go/ceacfbcbc1514e4e677932fd55938ac455d182fb.txt
+grpc#862,grpc-go,blocking,,dd5645bebff44f6b88780bb949022a09eadd7dae,Avoid goroutine leak in clientconn,1,5,7,5,1,blocking-bugs/grpc-go/dd5645bebff44f6b88780bb949022a09eadd7dae.txt
+kubernetes#58107,kubernetes,blocking,,010a127314a935d8d038f8dd4559fc5b249813e4,Fix quota controller worker deadlock,1,2,4,2,1,blocking-bugs/kubernetes/010a127314a935d8d038f8dd4559fc5b249813e4.txt
+kubernentes#45192,kubernetes,blocking,,04e2deeb287f7d60372ed853a75acfff3668cedc,Prevent deadlock on azure zone fetch in presence of failure,1,1,1,1,1,blocking-bugs/kubernetes/04e2deeb287f7d60372ed853a75acfff3668cedc.txt
+kubernetes#5316,kubernetes,blocking,,0aee25e06527993c59f3159e0cf3ff4342e169cd,Merge pull request #5316 from lavalamp/fix6,0,0,0,2,1,blocking-bugs/kubernetes/0aee25e06527993c59f3159e0cf3ff4342e169cd.txt
+kubernetes#21112,kubernetes,blocking,0,214d0189113347a5475c227feff23330196613f5,Fix deadlock in nettest webserver,2,4,3,1,1,blocking-bugs/kubernetes/214d0189113347a5475c227feff23330196613f5.txt
+kubernetes#1321,kubernetes,blocking,0,435e0b73bb99862f9dedf56a50260ff3dfef14ff,pkg/watch: fix potential deadlock,1,17,8,9,1,blocking-bugs/kubernetes/435e0b73bb99862f9dedf56a50260ff3dfef14ff.txt
+,kubernetes,blocking,,5cc841a337fe2a8bcfe29450a6bc4650d9e348c2,Use inline func to fix deadlock,1,45,31,3,1,blocking-bugs/kubernetes/5cc841a337fe2a8bcfe29450a6bc4650d9e348c2.txt
+kubernetes#10182,kubernetes,blocking,,64ad3e17ad15cd0f9a4fd86706eec1c572033254,Fix deadlock,1,11,1,1,1,blocking-bugs/kubernetes/64ad3e17ad15cd0f9a4fd86706eec1c572033254.txt
+kubernetes#30872,kubernetes,blocking,1,681d153050930f67945fc308ad10566ec299edd5,Fix deadlock possibility in federated informer,1,22,11,18,1,blocking-bugs/kubernetes/681d153050930f67945fc308ad10566ec299edd5.txt
+kubernetes#6632,kubernetes,blocking,0,82afb7ab1fe12cf2efceede2322d082eaf5d5adc,bump(github.com/docker/spdystream):99515db39d3dad9607e0293f18152f3d59da76dc,2,16,1,4,1,blocking-bugs/kubernetes/82afb7ab1fe12cf2efceede2322d082eaf5d5adc.txt
+kubernetes#25331,kubernetes,blocking,,97f4647dc3d8cf46c2b66b89a31c758a6edfb57c,etcd3/watcher: fix goroutine leak if ctx is canceled,2,32,3,5,1,blocking-bugs/kubernetes/97f4647dc3d8cf46c2b66b89a31c758a6edfb57c.txt
+kubernetes#35672,kubernetes,blocking,,991674380b7773d73afaeafeac6242bf3b6e6001,Fix resync goroutine leak in ListAndWatch,1,4,0,4,1,blocking-bugs/kubernetes/991674380b7773d73afaeafeac6242bf3b6e6001.txt
+kubernetes#16223,kubernetes,blocking,,9a2089adc8b60e9a33ca59cdc931e21d956f1ff8,Concurrency fixes in status.Manager,3,262,83,14,1,blocking-bugs/kubernetes/9a2089adc8b60e9a33ca59cdc931e21d956f1ff8.txt
+kubernetes#16851,kubernetes,blocking,,9b00b7ef354725ffa57b3087c8add1990183f205,Avoid MockPodsListWatch deadlock of blocked channel while lock is hold,1,37,24,5,1,blocking-bugs/kubernetes/9b00b7ef354725ffa57b3087c8add1990183f205.txt
+kubernetes#13135,kubernetes,blocking,,a12b7edc42c5c06a2e7d9f381975658692951d5a,Fix deadlock in Cacher on etcd error,1,48,28,14,1,blocking-bugs/kubernetes/a12b7edc42c5c06a2e7d9f381975658692951d5a.txt
+kubernetes#62464,kubernetes,blocking,,c1b19fce903675b82e9fdd1befcc5f5d658bfe78,avoid dobule RLock() in cpumanager,1,0,3,2,1,blocking-bugs/kubernetes/c1b19fce903675b82e9fdd1befcc5f5d658bfe78.txt
+kubernetes#20697,kubernetes,blocking,,d3639aff7397dd0f0d3553b82043401ff834a356,Fix deadlock in watch cache,1,1,1,1,1,blocking-bugs/kubernetes/d3639aff7397dd0f0d3553b82043401ff834a356.txt
+kubernetes#11298,kubernetes,blocking,0,e98c8e7685f4475e091f9186606098039c2fc250,Fix deadlocks and race conditions in mesos master election notifier,2,41,40,14,1,blocking-bugs/kubernetes/e98c8e7685f4475e091f9186606098039c2fc250.txt
+,boltdb,non-blocking,1,7fb06feea4012543b6a1b0726a09e9a4c4a84933,Add parallel usage test and race detector.,8,145,11,2,1,non-blocking-bugs/boltdb/7fb06feea4012543b6a1b0726a09e9a4c4a84933.txt
+boltdb#341,boltdb,non-blocking,1,c69cb102ce8f7609b57f75d0ccb10862167001e7,Merge pull request #377 from benbjohnson/close-race,0,0,0,4,1,non-blocking-bugs/boltdb/c69cb102ce8f7609b57f75d0ccb10862167001e7.txt
+cockroachdb#7726,cockroachdb,non-blocking,0,0a373bf1c1761d3ed1b18a58b9007161ac1d84ab,kv: avoid data race in TxnCoordSender.tryAsyncAbort,2,36,1,1,1,non-blocking-bugs/cockroachdb/0a373bf1c1761d3ed1b18a58b9007161ac1d84ab.txt
+cockroachdb#1898,cockroachdb,non-blocking,,10a1f2fbccf2d44a6713897e1eeaaecd3a736fad,Fix data race in TestRequestLeaderEncounterGroupDeleteError.,1,12,5,7,1,non-blocking-bugs/cockroachdb/10a1f2fbccf2d44a6713897e1eeaaecd3a736fad.txt
+cockroachdb#5786,cockroachdb,non-blocking,,13b7170638509279be231aa23c714c91635e9ac6,gossip: Fix data race in TestGossipStorage.,1,7,1,4,1,non-blocking-bugs/cockroachdb/13b7170638509279be231aa23c714c91635e9ac6.txt
+cockroachdb#7057,cockroachdb,non-blocking,0,2e360787f013010f39ee0804c772d216d546772e,rpc: avoid data race during shutdown,1,9,7,2,1,non-blocking-bugs/cockroachdb/2e360787f013010f39ee0804c772d216d546772e.txt
+cockroachdb#996,cockroachdb,non-blocking,,380e8e1dcee91861a8a96aa6a0600c1d8500c902,Fix data race in rangeStats.,1,2,0,2,1,non-blocking-bugs/cockroachdb/380e8e1dcee91861a8a96aa6a0600c1d8500c902.txt
+cockroachdb#674,cockroachdb,non-blocking,,38dfe4326de2a1c4d2881f227b94923017d95ce7,fix boring data race,1,1,1,1,1,non-blocking-bugs/cockroachdb/38dfe4326de2a1c4d2881f227b94923017d95ce7.txt
+cockroachdb#19962,cockroachdb,non-blocking,1,4edda446686e8d6cd358c1db685bf27aaf680a06,storage: avoid data race in destroyStatus,1,2,1,2,1,non-blocking-bugs/cockroachdb/4edda446686e8d6cd358c1db685bf27aaf680a06.txt
+cockroachdb#4395,cockroachdb,non-blocking,0,53f62683103345d0e73d968486940a8bdcc760cf,gossip: fix incoming-request-during-shutdown race,1,8,3,4,1,non-blocking-bugs/cockroachdb/53f62683103345d0e73d968486940a8bdcc760cf.txt
+cockroachdb#3361,cockroachdb,non-blocking,,626d5bf221530a192b74914fbc138fd5b3a8dc44,kv: don't call `t.Fatal` outside the main thread,1,7,6,7,1,non-blocking-bugs/cockroachdb/626d5bf221530a192b74914fbc138fd5b3a8dc44.txt
+cockroachdb#4565,cockroachdb,non-blocking,,76dbbc74da7bbc04b07b5cb0c18b9b4cf8d18433,gossip: fix data race,1,5,2,5,1,non-blocking-bugs/cockroachdb/76dbbc74da7bbc04b07b5cb0c18b9b4cf8d18433.txt
+cockroachdb#4273,cockroachdb,non-blocking,0,81e5855770d4f80dd9919278049aee5cb4afe47c,Fix data race in node_test TestNodeJoinSelf.,3,6,12,4,1,non-blocking-bugs/cockroachdb/81e5855770d4f80dd9919278049aee5cb4afe47c.txt
+cockroachdb#86,cockroachdb,non-blocking,,9ef72e06cf4faf47bc7d789a18bd6a9755968aa1,replace WaitGroup by Mutex in blockingEngine due to data race,1,18,10,4,1,non-blocking-bugs/cockroachdb/9ef72e06cf4faf47bc7d789a18bd6a9755968aa1.txt
+cockroachdb#17112,cockroachdb,non-blocking,1,d5a604c99d9e9741f7f2242de204abde1b47c2d9,sqlccl: fix data race while checkpointing backup,2,15,7,7,1,non-blocking-bugs/cockroachdb/d5a604c99d9e9741f7f2242de204abde1b47c2d9.txt
+cockroachdb#6100,cockroachdb,non-blocking,,e7d357b97777afa2c78a0321ef57eb1deeb3fe06,storage: do not share *roachpb.Error,1,6,2,4,1,non-blocking-bugs/cockroachdb/e7d357b97777afa2c78a0321ef57eb1deeb3fe06.txt
+cockroachdb#2554,cockroachdb,non-blocking,,e9631ff35d1418bd9cb18e56e3180bd195c64f89,config: fix data races,1,10,4,8,1,non-blocking-bugs/cockroachdb/e9631ff35d1418bd9cb18e56e3180bd195c64f89.txt
+cockroachdb#962,cockroachdb,non-blocking,,ef4fa8a47a438acbd0e3c402dbfd34ebd0351a42,Fix the data race?,1,13,2,4,1,non-blocking-bugs/cockroachdb/ef4fa8a47a438acbd0e3c402dbfd34ebd0351a42.txt
+Moby#22940,docker,non-blocking,1,1670914b8a56ab8e6ead38739fddb416b61e444f,Fix a race in cmd/dockerd/hack.TestHeaderOverrideHack,1,3,3,3,1,non-blocking-bugs/docker/1670914b8a56ab8e6ead38739fddb416b61e444f.txt
+Moby#18412,docker,non-blocking,0,2704fd9156bfb0fb8dc16c42902bb18ea5aa94a9,Fix race in RunCommandWithOutputForDuration,1,14,8,12,1,non-blocking-bugs/docker/2704fd9156bfb0fb8dc16c42902bb18ea5aa94a9.txt
+Moby#19519,docker,non-blocking,0,27b060492c483d61b76f18a529c94a71fdfc5312,Fix channel closing race in event tests.,3,34,15,6,1,non-blocking-bugs/docker/27b060492c483d61b76f18a529c94a71fdfc5312.txt
+Moby#16309,docker,non-blocking,,2d21996eec8d3e6100f19fa0d0fa7adad25285ca,volumes: add synchronization to Count and List,1,4,0,4,1,non-blocking-bugs/docker/2d21996eec8d3e6100f19fa0d0fa7adad25285ca.txt
+Moby#24007,docker,non-blocking,,378f0657f963fa6c854643571e4fe83628466c01,daemon/logger: fix races in channel close,2,11,12,3,1,non-blocking-bugs/docker/378f0657f963fa6c854643571e4fe83628466c01.txt
+Moby#9543,docker,non-blocking,,46b1194d996f6535e657bcb88428303305d3fe68,Removed race condition,1,1,2,2,1,non-blocking-bugs/docker/46b1194d996f6535e657bcb88428303305d3fe68.txt
+Moby#21311,docker,non-blocking,0,4d200cd6938c1416e34bf43576b0d528b73e8ba3,Fix a race in maintaining the journald reader list,1,3,3,3,1,non-blocking-bugs/docker/4d200cd6938c1416e34bf43576b0d528b73e8ba3.txt
+Moby#28682,docker,non-blocking,1,4e262f63876018ca78d54a98eee3f533352b0ac9,Fix race on sending stdin close event,2,35,1,5,1,non-blocking-bugs/docker/4e262f63876018ca78d54a98eee3f533352b0ac9.txt
+Moby#21311,docker,non-blocking,0,52c0f36f7b7aa794932fa41dfe50dc85f78e6146,Fix a race in cleaning up after journald followers,1,17,2,11,1,non-blocking-bugs/docker/52c0f36f7b7aa794932fa41dfe50dc85f78e6146.txt
+Moby#10200,docker,non-blocking,,6ef8057700b63e2c5fd5cec206915ef1f2088578,Fix racey TestAttachAfterDetach,1,26,15,21,1,non-blocking-bugs/docker/6ef8057700b63e2c5fd5cec206915ef1f2088578.txt
+Moby#27037,docker,non-blocking,1,825e3a66a419038600024be7dfc5ca24426444f0,Fix datarace in ApiStatsnetworkStatsVersioning,1,9,3,2,1,non-blocking-bugs/docker/825e3a66a419038600024be7dfc5ca24426444f0.txt
+Moby#11944,docker,non-blocking,,8f6a14452dfd88aedc8ac9577a98c38a555baadc,Avoid ServeApi race condition,1,1,2,1,1,non-blocking-bugs/docker/8f6a14452dfd88aedc8ac9577a98c38a555baadc.txt
+Moby#18196,docker,non-blocking,0,985175fd8f8f662d5067bd62a89330e9a437375c,Fix race in locker call to `dec()`,2,39,5,2,1,non-blocking-bugs/docker/985175fd8f8f662d5067bd62a89330e9a437375c.txt
+Moby#22969,docker,non-blocking,,ab533f06510a14a023c056604f9520741073acd3,Fix a race in daemon/logger.TestCopier,1,4,0,2,1,non-blocking-bugs/docker/ab533f06510a14a023c056604f9520741073acd3.txt
+Moby#2848,docker,non-blocking,,abfdaca3f86d7951693697fbd849078d6b406478,Fix data race in TestLogEvent,3,23,6,12,1,non-blocking-bugs/docker/abfdaca3f86d7951693697fbd849078d6b406478.txt
+Moby#23317,docker,non-blocking,,b32478488ce6d373e44bb8a6c9cb986c773ad48e,ioutils: fix race in access closeErr in bytespipe,1,2,1,2,1,non-blocking-bugs/docker/b32478488ce6d373e44bb8a6c9cb986c773ad48e.txt
+Moby#21692,docker,non-blocking,0,b38cee9f9c79d1f12001348303b78462d99664ed,Fix race between with event timer stopping early,1,3,4,5,1,non-blocking-bugs/docker/b38cee9f9c79d1f12001348303b78462d99664ed.txt
+Moby#22985,docker,non-blocking,1,c1ad02ccc8791b3c517aa37223d27792863cbf17,awslogs: Fix a race in mockcwlogsclient,1,8,1,9,1,non-blocking-bugs/docker/c1ad02ccc8791b3c517aa37223d27792863cbf17.txt
+Moby#6118,docker,non-blocking,,ce9e9ff4a101eec5632704003fae772e8762eb15,Fix race on shutting down,1,7,6,4,1,non-blocking-bugs/docker/ce9e9ff4a101eec5632704003fae772e8762eb15.txt
+,docker,non-blocking,,d32f184696519f909d1db56a060b39f0a08b41c5,Fix a race condition when running the port allocator,1,1,4,4,1,non-blocking-bugs/docker/d32f184696519f909d1db56a060b39f0a08b41c5.txt
+Moby#21022,docker,non-blocking,0,dc56a76bc9f16b2d57b9d64822e305c1e787fcf0,Fix race condition with exec and resize,2,23,0,11,1,non-blocking-bugs/docker/dc56a76bc9f16b2d57b9d64822e305c1e787fcf0.txt
+Moby#19407,docker,non-blocking,,e5e62b96ce0d4eb3934a386b07203830f55e07ce,Fix race condition in execCommandGC,1,7,1,6,1,non-blocking-bugs/docker/e5e62b96ce0d4eb3934a386b07203830f55e07ce.txt
+Moby#6092,docker,non-blocking,0,f9705477d023c63fb316a30204761aa1e3cb3e6d,Fix for setuid race condition in LXC driver,1,2,0,1,1,non-blocking-bugs/docker/f9705477d023c63fb316a30204761aa1e3cb3e6d.txt
+,etcd,non-blocking,,0b77b42cad99623940c93c5d3b80503de665c198,standby: fix leader var race,2,22,6,12,1,non-blocking-bugs/etcd/0b77b42cad99623940c93c5d3b80503de665c198.txt
+etcd#4876,etcd,non-blocking,1,2c83362e63e6b796ea988442483673056c567455,clientv3: fix race in KV reconnection logic,1,7,3,2,1,non-blocking-bugs/etcd/2c83362e63e6b796ea988442483673056c567455.txt
+,etcd,non-blocking,,2e59635bea6a105581087bb93f68186f35cb0263,etcd: fix a race in peer.go,1,1,1,2,1,non-blocking-bugs/etcd/2e59635bea6a105581087bb93f68186f35cb0263.txt
+etcd#7816,etcd,non-blocking,1,3ce31acda410db937408ac1c1011fe7b0babd8a7,v3client: wrap watch ctxs with blank ctx,1,18,2,1,1,non-blocking-bugs/etcd/3ce31acda410db937408ac1c1011fe7b0babd8a7.txt
+etcd#7664,etcd,non-blocking,,3edd36315d1f57c76deed13b5aacfa6403ff4dc0,auth: use atomic access to 'authStore.revision',2,39,11,2,1,non-blocking-bugs/etcd/3edd36315d1f57c76deed13b5aacfa6403ff4dc0.txt
+etcd#4876,etcd,non-blocking,1,4bdfc0a46d28f35462a312e1b51a771764321442,clientv3: fix race on writing watch channel over return channel,1,3,3,1,1,non-blocking-bugs/etcd/4bdfc0a46d28f35462a312e1b51a771764321442.txt
+etcd#4997,etcd,non-blocking,,4d2d2cabb9b0dcaa16ffd17e6d53a745740f3468,etcdserver: fix race on consistent index,1,10,2,2,1,non-blocking-bugs/etcd/4d2d2cabb9b0dcaa16ffd17e6d53a745740f3468.txt
+etcd#3593,etcd,non-blocking,1,5d033c22afdf947649b680ed7ad3c1527432ca9e,pkg/transport: fix a data race in TestWriteReadTimeoutListener,1,22,6,9,1,non-blocking-bugs/etcd/5d033c22afdf947649b680ed7ad3c1527432ca9e.txt
+,etcd,non-blocking,,5ee85bea7ca62fe4bf4ab5866ff9862abb42a6bc,v3rpc: fix race on watch progress map,1,7,0,4,1,non-blocking-bugs/etcd/5ee85bea7ca62fe4bf4ab5866ff9862abb42a6bc.txt
+,etcd,non-blocking,,7adb765660aa7548017583bcb338c5398c7c6fca,etcd: fix datarace in peer.go,1,2,2,1,1,non-blocking-bugs/etcd/7adb765660aa7548017583bcb338c5398c7c6fca.txt
+etcd#3060,etcd,non-blocking,1,7f95780bfb5d72c651e870d0cc65c6f2b88700d8,etcdserver: init raft internal var early,3,4,3,2,1,non-blocking-bugs/etcd/7f95780bfb5d72c651e870d0cc65c6f2b88700d8.txt
+etcd#4876,etcd,non-blocking,1,91dc6b29a6e000375ba47181db1bfcf8ba92daad,clientv3/integration: fix race when setting progress report interval,3,19,11,1,1,non-blocking-bugs/etcd/91dc6b29a6e000375ba47181db1bfcf8ba92daad.txt
+etcd#6324,etcd,non-blocking,,b982c80c14d2809534759404703b398fdfdf5d55,grpcproxy: fix data race,2,18,1,13,1,non-blocking-bugs/etcd/b982c80c14d2809534759404703b398fdfdf5d55.txt
+etcd#8183,etcd,non-blocking,1,c678dcbd91721b17d52ef39afb3104444f14deac,compactor: Fix data race in revision compactor test,2,11,5,8,1,non-blocking-bugs/etcd/c678dcbd91721b17d52ef39afb3104444f14deac.txt
+etcd#3972,etcd,non-blocking,0,d7a027e476130efded2005f0b381cd5b283d2978,store: fix data race when modify event in watchHub.,1,3,2,3,1,non-blocking-bugs/etcd/d7a027e476130efded2005f0b381cd5b283d2978.txt
+etcd#4876,etcd,non-blocking,1,e129223dbebaa5a13b9564dea27fdcd5bbebb317,clientv3: fix race in watcher resume,1,10,2,6,1,non-blocking-bugs/etcd/e129223dbebaa5a13b9564dea27fdcd5bbebb317.txt
+,grpc-go,non-blocking,,0be94ab3f591b9b6ba5b3c5702c0701e92b4bc28,fix a race between transport creation and wait returning,1,2,1,2,1,non-blocking-bugs/grpc-go/0be94ab3f591b9b6ba5b3c5702c0701e92b4bc28.txt
+grpc#1111,grpc-go,non-blocking,0,22c3f92f5faea8db492fb0f5ae4daf0d2752b19e,transport: fix racey send to writes channel in WriteStatus (#1546),2,26,4,7,1,non-blocking-bugs/grpc-go/22c3f92f5faea8db492fb0f5ae4daf0d2752b19e.txt
+grpc#1540,grpc-go,non-blocking,0,3bf110cd0cef4e896aa6331d44ca4a0c407bbaf3,fix TestServerCredsDispatch and stats test race (#1554),2,14,8,6,1,non-blocking-bugs/grpc-go/3bf110cd0cef4e896aa6331d44ca4a0c407bbaf3.txt
+grpc#1316,grpc-go,non-blocking,0,40e7a759a035a36611d6c9a3c2acb11ce1497727,Protect bytesSent and bytesReceived with mutex to avoid datarace (#1318),1,4,0,4,1,non-blocking-bugs/grpc-go/40e7a759a035a36611d6c9a3c2acb11ce1497727.txt
+,grpc-go,non-blocking,,46e80bf1f6c2928b216afa3eb9797348c0978ac5,fix race in test and add import comments,2,24,4,5,1,non-blocking-bugs/grpc-go/46e80bf1f6c2928b216afa3eb9797348c0978ac5.txt
+grpc#1870,grpc-go,non-blocking,,7c5299d71e2b8d403195f6071eecea690bf5622a,Fix flaky test: TestCloseConnectionWhenServerPrefaceNotReceived (#1870),2,29,58,2,1,non-blocking-bugs/grpc-go/7c5299d71e2b8d403195f6071eecea690bf5622a.txt
+grpc#1662,grpc-go,non-blocking,1,87bcb38fba807cf2f45bc15756795923bd33b4ae,Eliminate race on ac.acbw (#1666),1,2,0,2,1,non-blocking-bugs/grpc-go/87bcb38fba807cf2f45bc15756795923bd33b4ae.txt
+grpc#206,grpc-go,non-blocking,,9df0e935c037988e64e30498b6ecf3c7a99411a2,fix a race,1,4,3,1,1,non-blocking-bugs/grpc-go/9df0e935c037988e64e30498b6ecf3c7a99411a2.txt
+grpc#1667,grpc-go,non-blocking,1,a62701e4aa1d276bec70311251d62a478404d63f,Eliminate data race in ccBalancerWrapper (#1688),1,7,0,6,1,non-blocking-bugs/grpc-go/a62701e4aa1d276bec70311251d62a478404d63f.txt
+grpc#1803,grpc-go,non-blocking,1,b71aced4a2a1ee80a1cbbd26b85a57623790d7f4,transport: Fix a data race when headers are received while the stream is being closed (#1814),1,6,5,6,1,non-blocking-bugs/grpc-go/b71aced4a2a1ee80a1cbbd26b85a57623790d7f4.txt
+grpc#1687,grpc-go,non-blocking,1,c6b46087ab923e9f453ec433f99174cdd45b9b89,transport: fix race sending RPC status that could lead to a panic (#1687),2,34,16,13,1,non-blocking-bugs/grpc-go/c6b46087ab923e9f453ec433f99174cdd45b9b89.txt
+grpc#1411,grpc-go,non-blocking,0,fa1cb32dc4f81e23ab862dd5e7ac4f2920a33088,Don't use 64-bit integers with atomic. (#1411),2,10,10,10,1,non-blocking-bugs/grpc-go/fa1cb32dc4f81e23ab862dd5e7ac4f2920a33088.txt
+kubernetes#28153,kubernetes,non-blocking,,06082b1bdf4c9ff93e5acf33da49f0b091a47d3e,Fixed goroutinemap race on Wait(),1,11,5,8,1,non-blocking-bugs/kubernetes/06082b1bdf4c9ff93e5acf33da49f0b091a47d3e.txt
+kubernetes#38857,kubernetes,non-blocking,0,0bbb49d2d52675dec586e17763f959634736ac8c,Merge pull request #39479 from fraenkel/podkiller,0,0,0,16,1,non-blocking-bugs/kubernetes/0bbb49d2d52675dec586e17763f959634736ac8c.txt
+kubernetes#587,kubernetes,non-blocking,0,1f78b0fc6fe497dc2bcee755cc28369756ac41d0,Fix reslice and data races in kubelet fake_docker_client,1,28,16,6,1,non-blocking-bugs/kubernetes/1f78b0fc6fe497dc2bcee755cc28369756ac41d0.txt
+kubernetes#796,kubernetes,non-blocking,0,2e02967acae23126402560a246bafc16d364a52d,Avoid data race in Proxier.OnUpdate,1,1,1,1,1,non-blocking-bugs/kubernetes/2e02967acae23126402560a246bafc16d364a52d.txt
+kubernetes#6924,kubernetes,non-blocking,,2fd87597a43629ba6aa5d2406dc1737f83e5f6b1,Fix data race in kubelet_test.go,1,1,1,1,1,non-blocking-bugs/kubernetes/2fd87597a43629ba6aa5d2406dc1737f83e5f6b1.txt
+kbernetes#49404,kubernetes,non-blocking,1,345f875c51c0acd909f206b855d158b8e3adbbb3,fix race in proxy unit test,1,4,3,5,1,non-blocking-bugs/kubernetes/345f875c51c0acd909f206b855d158b8e3adbbb3.txt
+kubernetes#26407,kubernetes,non-blocking,1,3c345abafd024853d8ff0fb332db6076cfc610c5,Fix DATA RACE in unit tests: reconciler_test.go,2,16,4,5,1,non-blocking-bugs/kubernetes/3c345abafd024853d8ff0fb332db6076cfc610c5.txt
+kubernetes#309,kubernetes,non-blocking,0,62055090b491e971bf24b69ef54a83ca0f93b8fd,fix data races in controller,2,39,11,16,1,non-blocking-bugs/kubernetes/62055090b491e971bf24b69ef54a83ca0f93b8fd.txt
+kubernetes#36377,kubernetes,non-blocking,1,647b826d697abdc50aa4808fa21604c9f6fe80a4,Fix a data race condition in federation namespace controller,2,12,2,6,1,non-blocking-bugs/kubernetes/647b826d697abdc50aa4808fa21604c9f6fe80a4.txt
+kubernetes#1134,kubernetes,non-blocking,,6a624a2b4feebe51cf2acd165e860604fe7f1aba,try to fix data race,1,3,2,3,1,non-blocking-bugs/kubernetes/6a624a2b4feebe51cf2acd165e860604fe7f1aba.txt
+kubernetes#49985,kubernetes,non-blocking,0,6d8f2dddec9b2693fce1488c61fd60e3b2212ded,fed/clustercontroller: fix race when updating data,2,82,9,6,1,non-blocking-bugs/kubernetes/6d8f2dddec9b2693fce1488c61fd60e3b2212ded.txt
+kubernetes#47157,kubernetes,non-blocking,0,79d3d795b512de861c01847fe75c4fc43d2d4f2d,Removed a race condition from ResourceConsumer.,1,10,0,10,1,non-blocking-bugs/kubernetes/79d3d795b512de861c01847fe75c4fc43d2d4f2d.txt
+kubernetes#29743,kubernetes,non-blocking,0,842f15c3c62a510f3b1718bf1f086b8951533999,Fix race condition found in JitterUntil.,1,12,17,12,1,non-blocking-bugs/kubernetes/842f15c3c62a510f3b1718bf1f086b8951533999.txt
+,kubernetes,non-blocking,,aa808a650585daf17dcbcd13d4d68e7398d4dfd9,fix data race introduced by 1798e0f,1,9,4,3,1,non-blocking-bugs/kubernetes/aa808a650585daf17dcbcd13d4d68e7398d4dfd9.txt
+,kubernetes,non-blocking,,d15de72a92c8841d069b1265e433eb52edc29822,Fix race condition in controller_test,1,9,6,2,1,non-blocking-bugs/kubernetes/d15de72a92c8841d069b1265e433eb52edc29822.txt
+kubernetes#9926,kubernetes,non-blocking,0,de1f246e891fd6794185373f3d3722f80e1048d5,Fix benign data race in pod workers.,1,7,0,5,1,non-blocking-bugs/kubernetes/de1f246e891fd6794185373f3d3722f80e1048d5.txt
+kubernetes#18921,kubernetes,non-blocking,0,e3311aa93ac6c3ad89d648129fc351aa5eae1e5a,Fix data race on cancel variable in etcd code,1,2,0,2,1,non-blocking-bugs/kubernetes/e3311aa93ac6c3ad89d648129fc351aa5eae1e5a.txt

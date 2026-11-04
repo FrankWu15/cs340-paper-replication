@@ -1,0 +1,7 @@
+app	url	commit	date	commits	paper_commits	clone_mode
+boltdb	https://github.com/boltdb/bolt.git	fd01fc79c553a8e99d512a07e8e0c63d4a3ccfc5	2018-03-02	816	816	full
+etcd	https://github.com/etcd-io/etcd.git	346589edd1dcb04016594774cef0c0273eeaeb60	2018-05-21	14101	14101	full
+grpc-go	https://github.com/grpc/grpc-go.git	f66923519395abb416ec5da1ed0db04588a9dfb6	2018-05-21	2528	2528	full
+docker	https://github.com/moby/moby.git	9bd5d9912f0cb4fe22b994ac1e7e10038e3be65a	2018-05-22	35149	35149	treeless
+cockroachdb	https://github.com/cockroachdb/cockroach.git	cc4511e1be866da968b94432d7537cf2bba5af3b	2018-05-22	29485	29485	treeless
+kubernetes	https://github.com/kubernetes/kubernetes.git	1f0d9505790c4793d5fbb64bfa20241ff739fc6b	2018-05-22	65684	65684	treeless
