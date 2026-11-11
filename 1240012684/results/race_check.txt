@@ -1,0 +1,9 @@
+# Supplementary controlled check: Go race detector on a blocking bug
+# log: results/raw/race-check.log
+exit_code=124
+deadlock_reported=0
+data_race_warnings=0
+silent_hang_until_timeout=1
+timeout=15s
+build_flags=-race -gcflags=all=-d=checkptr=0
+note=legacy BoltDB unsafe pointer code fails Go 1.26 checkptr; disabled only here

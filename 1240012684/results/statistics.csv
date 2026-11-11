@@ -1,0 +1,5 @@
+mode,n,deadlock_detected,detection_rate,timeout_rate,wall_clock_mean_ms,wall_clock_std_ms,last_trace_mean_ms,last_trace_std_ms
+buggy,10,10,1.0000,0.0000,313.000,58.767,8.535,3.032
+move,10,0,0.0000,0.0000,132.400,3.688,28.345,7.024
+select,10,0,0.0000,0.0000,130.800,5.692,25.854,6.549
+live,10,0,0.0000,1.0000,5053.400,6.433,13.202,5.713

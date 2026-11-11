@@ -1,0 +1,8 @@
+# Keep LF everywhere so the shell scripts and Makefile run unchanged on Linux
+# (and under WSL2) even when a group member commits from Windows.
+* text=auto eol=lf
+
+# Explicitly protect binary deliverables from any line-ending conversion.
+*.pdf binary
+*.png binary
+*.gz binary
