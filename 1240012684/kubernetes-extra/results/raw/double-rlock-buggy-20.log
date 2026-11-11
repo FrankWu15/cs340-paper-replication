@@ -1,0 +1,26 @@
+[info] run_id=double-rlock-buggy-20 bug=double-rlock mode=buggy go=go1.26.8 os=linux arch=amd64 gomaxprocs=12
+fatal error: all goroutines are asleep - deadlock!
+
+goroutine 1 [sync.RWMutex.RLock]:
+sync.runtime_SemacquireRWMutexR(0x21d3d8d2cc30?, 0x92?, 0x21d3d8d240e0?)
+	/usr/lib/go-1.26/src/runtime/sema.go:100 +0x25
+sync.(*RWMutex).RLock(...)
+	/usr/lib/go-1.26/src/sync/rwmutex.go:74
+k8sbugs/internal/bugs.(*stateMemory).getCPUSet(0x21d3d8d1c020, {0x4d4343, 0xb})
+	/mnt/c/Users/30683/WorkBuddy/2026-11-05-11-07-12/kubernetes-bugs-repro/internal/bugs/double_rlock.go:40 +0x5b
+k8sbugs/internal/bugs.(*stateMemory).getCPUSetOrDefaultBuggy(0x21d3d8d1c020, {0x4d4343, 0xb}, 0xb?)
+	/mnt/c/Users/30683/WorkBuddy/2026-11-05-11-07-12/kubernetes-bugs-repro/internal/bugs/double_rlock.go:55 +0xb0
+k8sbugs/internal/bugs.RunDoubleRLock({0x7ffdee1a227c, 0x5}, 0x21d3d8d2cee8)
+	/mnt/c/Users/30683/WorkBuddy/2026-11-05-11-07-12/kubernetes-bugs-repro/internal/bugs/double_rlock.go:96 +0x1fd
+main.main()
+	/mnt/c/Users/30683/WorkBuddy/2026-11-05-11-07-12/kubernetes-bugs-repro/cmd/repro/main.go:45 +0x33d
+
+goroutine 21 [sync.RWMutex.Lock]:
+sync.runtime_SemacquireRWMutex(0x21d3d8d24148?, 0xc0?, 0x21d3d8c2a1e0?)
+	/usr/lib/go-1.26/src/runtime/sema.go:105 +0x25
+sync.(*RWMutex).Lock(0x21d3d8d240e0?)
+	/usr/lib/go-1.26/src/sync/rwmutex.go:155 +0x6b
+k8sbugs/internal/bugs.RunDoubleRLock.func1()
+	/mnt/c/Users/30683/WorkBuddy/2026-11-05-11-07-12/kubernetes-bugs-repro/internal/bugs/double_rlock.go:75 +0x51
+created by k8sbugs/internal/bugs.RunDoubleRLock in goroutine 1
+	/mnt/c/Users/30683/WorkBuddy/2026-11-05-11-07-12/kubernetes-bugs-repro/internal/bugs/double_rlock.go:72 +0x165

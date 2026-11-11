@@ -1,0 +1,5 @@
+[info] run_id=miss-unlock-fixed-10 bug=miss-unlock mode=fixed go=go1.26.8 os=linux arch=amd64 gomaxprocs=12
+[trace] t_ms=1.516 event=first_call_returned err=time limit exceeded while waiting for resource version
+[trace] t_ms=3.838 event=writer_returned
+[trace] t_ms=6.041 event=finished
+[result] run_id=miss-unlock-fixed-10 bug=miss-unlock mode=fixed status=finished value=writer_completed elapsed_ms=7.087

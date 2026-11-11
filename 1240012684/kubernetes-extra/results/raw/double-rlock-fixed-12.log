@@ -1,0 +1,5 @@
+[info] run_id=double-rlock-fixed-12 bug=double-rlock mode=fixed go=go1.26.8 os=linux arch=amd64 gomaxprocs=12
+[trace] t_ms=6.667 event=reader_returned value=4-7 found=true
+[trace] t_ms=8.608 event=writer_returned
+[trace] t_ms=9.725 event=finished
+[result] run_id=double-rlock-fixed-12 bug=double-rlock mode=fixed status=finished value=4-7 elapsed_ms=10.639

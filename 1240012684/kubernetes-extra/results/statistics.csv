@@ -1,0 +1,5 @@
+bug,mode,n,deadlock_detected,detection_rate,timeout_rate,wall_clock_mean_ms,wall_clock_std_ms
+double-rlock,buggy,20,20,1.0000,0.0000,236.300,37.680
+double-rlock,fixed,20,0,0.0000,0.0000,128.050,8.003
+miss-unlock,buggy,20,20,1.0000,0.0000,188.500,53.083
+miss-unlock,fixed,20,0,0.0000,0.0000,125.850,6.167
