@@ -1,0 +1,6 @@
+=== RUN   TestInflightStreamClosing
+--- FAIL: TestInflightStreamClosing (5.00s)
+	transport_test.go:418: Test timed out, expected a StreamError.
+FAIL
+exit status 1
+FAIL	google.golang.org/grpc/transport	5.003s
