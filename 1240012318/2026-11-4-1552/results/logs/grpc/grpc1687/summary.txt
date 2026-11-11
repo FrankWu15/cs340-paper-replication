@@ -1,0 +1,11 @@
+############ grpc  fix=c6b46087ab923e9f453ec433f99174cdd45b9b89  pkg=transport  test=TestHandlerTransport_HandleStreams_WriteStatusWrite$  iters=3  timeout=60s
+  [buggy] 测试补丁已应用
+  [buggy] iter1: FAIL
+  [buggy] iter2: FAIL
+  [buggy] iter3: FAIL
+  [buggy] SUMMARY pass=0 fail=3 timeout=0 notrun=0 error=0
+  [fixed] iter1: PASS
+  [fixed] iter2: PASS
+  [fixed] iter3: PASS
+  [fixed] SUMMARY pass=3 fail=0 timeout=0 notrun=0 error=0
+############ DONE grpc

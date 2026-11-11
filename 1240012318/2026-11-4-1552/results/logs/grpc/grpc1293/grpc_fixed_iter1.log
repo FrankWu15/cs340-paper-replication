@@ -1,0 +1,4 @@
+=== RUN   TestInflightStreamClosing
+--- PASS: TestInflightStreamClosing (0.00s)
+PASS
+ok  	google.golang.org/grpc/transport	0.003s

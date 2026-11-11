@@ -1,0 +1,14 @@
+=== RUN   TestHandlerTransport_HandleStreams_WriteStatusWrite
+panic: send on closed channel
+
+goroutine 23 [running]:
+google.golang.org/grpc/transport.(*serverHandlerTransport).do(0xc42019e230, 0xc420094550, 0x1, 0xc4200906d0)
+	/home/li/gopath/src/google.golang.org/grpc/transport/handler_server.go:170 +0x10b
+google.golang.org/grpc/transport.(*serverHandlerTransport).Write(0xc42019e230, 0xc420086780, 0xc4200906c0, 0x3, 0x8, 0xc4200906c8, 0x4, 0x8, 0xc4200906d0, 0x0, ...)
+	/home/li/gopath/src/google.golang.org/grpc/transport/handler_server.go:256 +0xd9
+google.golang.org/grpc/transport.TestHandlerTransport_HandleStreams_WriteStatusWrite.func1(0xc420089710, 0xc420086780)
+	/home/li/gopath/src/google.golang.org/grpc/transport/handler_server_test.go:425 +0x2b9
+created by google.golang.org/grpc/transport.testHandlerTransportHandleStreams.func1
+	/home/li/gopath/src/google.golang.org/grpc/transport/handler_server_test.go:432 +0x45
+exit status 2
+FAIL	google.golang.org/grpc/transport	0.006s

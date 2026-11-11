@@ -1,0 +1,4 @@
+=== RUN   TestHandlerTransport_HandleStreams_WriteStatusWrite
+--- PASS: TestHandlerTransport_HandleStreams_WriteStatusWrite (0.00s)
+PASS
+ok  	google.golang.org/grpc/transport	0.003s

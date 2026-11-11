@@ -1,0 +1,4 @@
+=== RUN   TestClientLBWatcherWithClosedBalancer
+--- PASS: TestClientLBWatcherWithClosedBalancer (0.00s)
+PASS
+ok  	google.golang.org/grpc	0.003s

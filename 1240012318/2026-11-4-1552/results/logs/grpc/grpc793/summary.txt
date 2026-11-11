@@ -1,0 +1,11 @@
+############ grpc  fix=5a547ed72c09faf4050739d54caea1d51f4d276d  pkg=test  test=TestServerGracefulStopIdempotent$  iters=3  timeout=30s
+  [buggy] 测试补丁已应用
+  [buggy] iter1: TIMEOUT
+  [buggy] iter2: TIMEOUT
+  [buggy] iter3: TIMEOUT
+  [buggy] SUMMARY pass=0 fail=0 timeout=3 notrun=0 error=0
+  [fixed] iter1: PASS
+  [fixed] iter2: PASS
+  [fixed] iter3: PASS
+  [fixed] SUMMARY pass=3 fail=0 timeout=0 notrun=0 error=0
+############ DONE grpc

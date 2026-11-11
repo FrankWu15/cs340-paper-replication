@@ -58,6 +58,9 @@ BoltDB 三项全中：LOC 9.1K（论文 9.1K）、per KLOC 0.221（0.22）、原
 
 崩溃位置：`boltdb#341` 的 SIGSEGV 在 `db.go:603` → `tx.go:162`（fixed 侧阻塞到事务结束后 `Commit` 成功）；`grpc#793` 卡在 `server.go:318` 的 `Mutex.Lock`；`grpc#1687` 在 `handler_server.go:170`。
 
+六条的原始输出全部在 `results/logs/`：boltdb 为 `boltdb_*.log`，grpc 为
+`grpc/<bug>/grpc_{buggy,fixed}_iter{1,2,3}.log`，判定结果见同目录 `summary.txt`。
+
 ## 三、有保留的地方
 
 **3.1 P1 的 3,105 与论文 3,211 只是数字接近。** 44 个补丁 commit 里只有 34 个落在候选集；5 条（`moby#27782`、`etcd#4474`、`grpc#1293`、`etcd#7816`、`etcd#3060`）标题不含关键词、正文才含，却都被论文标为"已复现"。全文口径重算得 4,544（高 41%），说明论文还有未写明的过滤条件。**不能用「−3.3%」声称复现了筛选漏斗。**
@@ -93,18 +96,33 @@ BoltDB 三项全中：LOC 9.1K（论文 9.1K）、per KLOC 0.221（0.22）、原
 │   └── repro/
 │       ├── scripts/                 00~08 各阶段脚本
 │       │   ├── p4_case.sh           ★ 单条 bug 对照复现（仓库/commit/测试名参数化）
-│       │   └── p4_deps.sh           自动补齐 GOPATH 依赖
+│       │   ├── p4_deps.sh           自动补齐 GOPATH 依赖
+│       │   └── p4_grpc_logs.sh      批量跑 grpc 四条并按 bug 归集原始日志
 │       ├── tools/goast/main.go      静态统计器
 │       └── data/                    脚本运行输入（7 份 CSV）
 └── results/                         实验日志与数据
     ├── data/
     │   ├── bugs_master.csv          171 行主表（14 列）
     │   └── feasibility_44.csv       44 行可行性明细（18 列）
-    ├── logs/                        6 份原始日志（判定输出、SIGSEGV 栈、panic 现场）
-    └── shots/                       5 张运行截图
+    ├── logs/                        原始日志
+    │   ├── boltdb_*.log             6 份（判定输出、SIGSEGV 栈、panic 现场）
+    │   └── grpc/<bug>/              4 条 × 9 份（逐次原始输出 + summary + env）
+    └── shots/                       7 张运行截图
 ```
 
 `results/data/` 是成果副本，`code/repro/data/` 是脚本运行输入，内容同源。
+
+`logs/grpc/` 下每条 bug 一个目录，内含 `grpc_buggy_iter{1,2,3}.log`、
+`grpc_fixed_iter{1,2,3}.log`、两侧 `_last.log`（完整栈）、`summary.txt`
+（脚本判定的五态汇总）与 `env.txt`（commit、GOROOT、`go version`、内核）。
+报告中每条 grpc 结论的失败行都能在其中检索到，例如：
+
+| bug         | 日志中的判定行                                                            |
+|-------------|---------------------------------------------------------------------------|
+| `grpc#793`  | `panic: test timed out after 30s`，两 goroutine 同卡 `Mutex.Lock`         |
+| `grpc#1293` | `transport_test.go:418: Test timed out, expected a StreamError`           |
+| `grpc#1424` | `clientconn_test.go:390: lbWatcher ... didn't close doneChan after 100ms` |
+| `grpc#1687` | `panic: send on closed channel` → `handler_server.go:170`                 |
 
 ## 五、怎么跑
 

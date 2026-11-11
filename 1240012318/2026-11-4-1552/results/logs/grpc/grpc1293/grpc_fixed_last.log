@@ -1,0 +1,5 @@
+=== RUN   TestInflightStreamClosing
+--- PASS: TestInflightStreamClosing (0.00s)
+PASS
+2026/11/11 10:04:30 transport: http2Server.HandleStreams failed to read frame: read tcp 127.0.0.1:18537->127.0.0.1:27800: use of closed network connection
+ok  	google.golang.org/grpc/transport	0.005s
