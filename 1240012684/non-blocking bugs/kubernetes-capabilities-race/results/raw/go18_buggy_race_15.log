@@ -1,0 +1,18 @@
+==================
+WARNING: DATA RACE
+Write at 0x000000588b28 by goroutine 6:
+  main.main.func1()
+      /mnt/c/Users/30683/WorkBuddy/2026-11-05-11-07-12/non-blocking-bugs-repro/kubernetes-capabilities-race/buggy/main.go:55 +0x19e
+
+Previous write at 0x000000588b28 by goroutine 7:
+  main.main.func2()
+      /mnt/c/Users/30683/WorkBuddy/2026-11-05-11-07-12/non-blocking-bugs-repro/kubernetes-capabilities-race/buggy/main.go:62 +0x180
+
+Goroutine 6 (running) created at:
+  main.main()
+      /mnt/c/Users/30683/WorkBuddy/2026-11-05-11-07-12/non-blocking-bugs-repro/kubernetes-capabilities-race/buggy/main.go:57 +0x128
+
+Goroutine 7 (running) created at:
+  main.main()
+      /mnt/c/Users/30683/WorkBuddy/2026-11-05-11-07-12/non-blocking-bugs-repro/kubernetes-capabilities-race/buggy/main.go:64 +0x15e
+==================

@@ -1,0 +1,18 @@
+app=etcd-consistent-index-race  N=20  iters=5000
+new: go version go1.26.8 linux/amd64
+old: go version go1.8.7 linux/amd64
+=== compiling ===
+  go126 buggy/race OK
+  go126 buggy/plain OK
+  go126 fixed/race OK
+  go126 fixed/plain OK
+  go18 buggy/race OK
+  go18 fixed/race OK
+=== running (N=20 per group) ===
+=== summary (race_detected / runs) ===
+  go126 buggy race  : 20/20   (want 20/20)
+  go126 fixed race  : 0/20   (want 0/20)
+  go126 buggy plain : 0/20  (want 0/20; no -race)
+  go126 fixed plain : 0/20  (want 0/20)
+  go18  buggy race  : 20/20   (want 20/20)
+  go18  fixed race  : 0/20   (want 0/20)
