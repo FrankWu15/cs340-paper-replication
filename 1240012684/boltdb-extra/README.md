@@ -36,7 +36,7 @@ bugs, the primitive-usage study (Section 3.2), the non-blocking-bug study
 
 ## Repository context
 
-This directory is submitted as `1240012684/` inside the group repository
+This directory is submitted as `1240012684/boltdb-extra/` inside the group repository
 `FrankWu15/cs340-paper-replication` (team member 吴德诚 / Wu Decheng, student
 ID 1240012684). Run Git commands (commit, tag, push) from the **group
 repository root**, not from this directory. The other student-ID directories
