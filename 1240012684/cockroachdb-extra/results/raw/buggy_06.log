@@ -1,0 +1,13 @@
+fatal error: all goroutines are asleep - deadlock!
+
+goroutine 1 [sync.Mutex.Lock]:
+internal/sync.runtime_SemacquireMutex(0xc1074e0c1e0?, 0xd0?, 0x453e3f?)
+	/usr/lib/go-1.26/src/runtime/sema.go:95 +0x25
+internal/sync.(*Mutex).lockSlow(0xc1074f02020)
+	/usr/lib/go-1.26/src/internal/sync/mutex.go:149 +0x15d
+internal/sync.(*Mutex).Lock(...)
+	/usr/lib/go-1.26/src/internal/sync/mutex.go:70
+sync.(*Mutex).Lock(...)
+	/usr/lib/go-1.26/src/sync/mutex.go:46
+main.main()
+	/mnt/c/Users/30683/WorkBuddy/2026-11-05-11-07-12/cockroachdb-bugs-repro/cmd/buggy/main.go:49 +0x13e

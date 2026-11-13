@@ -1,0 +1,8 @@
+build ok
+=== running buggy x20 ===
+=== running fixed x20 ===
+=== summary ===
+buggy deadlocks : 20
+fixed deadlocks : 20
+fixed clean (0) : 20
+DONE
