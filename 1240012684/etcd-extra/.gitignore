@@ -1,0 +1,12 @@
+# build artifacts (compiled binaries) — keep raw logs/figures/CSV for traceability
+/bin/
+*.test
+*.out
+*.log.bak
+.DS_Store
+Thumbs.db
+
+# python
+__pycache__/
+*.pyc
+.venv/

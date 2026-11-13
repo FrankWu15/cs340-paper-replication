@@ -1,0 +1,51 @@
+# etcd reproduction — environment & provenance (CS340)
+
+## Hardware
+- CPU: 13th Gen Intel(R) Core(TM) i5-13420H (x86-64)
+- RAM: host RAM, WSL2 guest
+- Disk: local SSD (Windows host), accessed from WSL2
+
+## Operating system / kernel
+- Distro: Ubuntu 26.04 LTS (WSL2)
+- Kernel: 6.18.33.2-microsoft-standard-WSL2
+
+## Go toolchains
+- Reproduction harness (this repo, module `repro`): host Go
+  go1.26.8 linux/amd64 (WSL2 default). Build is pure-stdlib, module mode
+  (GO111MODULE=on), no network needed.
+- Real upstream etcd at the pinned buggy commits is built with the
+  era-appropriate **Go 1.8.7**, installed from the official binary:
+    URL : https://dl.google.com/go/go1.8.7.linux-amd64.tar.gz
+    (SHA-256 published by golang.org; verify before trusting.)
+  Rationale: etcd v2/v3 sources of 2015-2017 predate Go modules and use
+  glide/Godeps; building them with a 2026 toolchain is unreliable. Pinning the
+  contemporaneous Go matches the original study's environment more closely than
+  the host toolchain would.
+
+## Upstream etcd source (github.com/etcd-io/etcd, formerly coreos/etcd)
+| Bug        | buggy parent commit                       | fix commit                                |
+|------------|-------------------------------------------|-------------------------------------------|
+| etcd#6873  | 377f19b0031f9c0aafe2aec28b6f9019311f52f9  | 7618fdd1d642e47cac70c03f637b0fd798a53a6e  |
+| double-lock| 83930ac113bf9f30f69ad6cbb33878d75f9684fe  | ae062a0825a4100d0cf9ac7c8bb0fa1ca69c6814  |
+
+Dependency restore for a real build: `scripts/vendor_from_lock.py` reads
+`glide.lock` at the buggy commit and shallow-fetches each dependency at its
+pinned SHA into `vendor/` (44 deps). The same grpcproxy package compiles
+cleanly with Go 1.8.7 once the pinned vendor tree is present.
+
+## How results were produced
+- 20 trials × 2 bugs × 2 modes = 80 runs via `scripts/run_experiments.sh`.
+- Each buggy run aborts via Go's built-in deadlock detector
+  (`fatal error: all goroutines are asleep - deadlock!`, exit 2).
+- Each fixed run exits 0 (mean 0.75-0.86 ms, SD < 0.5 ms).
+- The external `timeout 8s` wrapper bounds any false-negative hang (exit 124);
+  the in-process harness deliberately omits a `time.After` watchdog so it cannot
+  suppress the runtime deadlock detector.
+
+## Reproduced vs. original — key deviations (see README "Deviation")
+1. Minimal reproduction (verbatim upstream functions) instead of the full etcd
+   server; production scaffolding omitted.
+2. Reduced scale: 2 bugs / 1 application (etcd) vs. the paper's 171 bugs /
+   6 applications — declared up front, allowed by the assignment.
+3. Host Go 1.26.8 used for the harness; Go 1.8.7 used only for the optional
+   real-source build at pinned commits.

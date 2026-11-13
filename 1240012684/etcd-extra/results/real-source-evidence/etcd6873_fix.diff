@@ -1,0 +1,19 @@
+diff --git a/proxy/grpcproxy/watch_broadcasts.go b/proxy/grpcproxy/watch_broadcasts.go
+index fc18b7425..3ca6fa2db 100644
+--- a/proxy/grpcproxy/watch_broadcasts.go
++++ b/proxy/grpcproxy/watch_broadcasts.go
+@@ -116,13 +116,12 @@ func (wbs *watchBroadcasts) empty() bool { return len(wbs.bcasts) == 0 }
+ 
+ func (wbs *watchBroadcasts) stop() {
+ 	wbs.mu.Lock()
+-	defer wbs.mu.Unlock()
+-
+ 	for wb := range wbs.bcasts {
+ 		wb.stop()
+ 	}
+ 	wbs.bcasts = nil
+ 	close(wbs.updatec)
++	wbs.mu.Unlock()
+ 	<-wbs.donec
+ }
+ 
