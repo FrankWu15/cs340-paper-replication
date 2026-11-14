@@ -1,0 +1,12 @@
+############ grpc  fix=a62701e4aa1d276bec70311251d62a478404d63f  pkg=.  test=TestBalancerSubConnsMapRaceProbe$  probe=grpc-1667  race=race  iters=3  timeout=30s
+  [buggy] 探针已注入: balancer_subconns_map_probe_test.go 
+  [buggy] iter1: RACE
+  [buggy] iter2: RACE
+  [buggy] iter3: RACE
+  [buggy] SUMMARY pass=0 fail=0 timeout=0 race=3 notrun=0 error=0
+  [fixed] 探针已注入: balancer_subconns_map_probe_test.go 
+  [fixed] iter1: PASS
+  [fixed] iter2: PASS
+  [fixed] iter3: PASS
+  [fixed] SUMMARY pass=3 fail=0 timeout=0 race=0 notrun=0 error=0
+############ DONE grpc
