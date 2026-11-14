@@ -9,6 +9,7 @@
 | 目录              | 内容                                                        |
 |-------------------|-------------------------------------------------------------|
 | `2026-11-4-1552/` | 2026-11-04 交付：P0 仓库固定、P1 筛选、P2 静态测量、P4 复现 |
+| `2026-11-13/`     | 2026-11-13 交付：grpc-go 剩余目标的 P4 复现（3 条成功）     |
 
 ## 2026-11-04 交付摘要
 
@@ -48,8 +49,33 @@ grpc1424_repro.png     grpc1687_repro.png
 ### 未完成 / 待查
 
 - `grpc#1850`：属 end2end 套件，本机连 `TestFailFast` 等基线都卡在 `Dial` 等连接就绪，**不计成功也不计失败**，悬置。
+  → 已在 `2026-11-13/` 解决：原因是次数不够（按概率触发），见下节。
 - 其余 35 条 bug 未复现。
 - `fix_strategy` / `notes` 两列 171 行全空，阻塞 Table 5–11 的对齐。
+
+## 2026-11-13 交付摘要
+
+入口文档：`2026-11-13/README.md`。这一批只补**复现产物**，P0/P1/P2 的脚本与报告不重复产出，
+因此 `2026-11-13/` 下 `code/analysis`、`code/tools`、`data`、`docs`、`report` 只有 `.gitkeep` 占位。
+
+范围是 11-04 那批没做的 grpc-go 目标（`#793/#1293/#1424/#1687` 已在上批完成）。
+剩下的 6 条里触发成功 3 条，**目录只保留这 3 条**：
+
+| bug | 类型 | 修复提交 | buggy 侧 | fixed 侧 |
+|---|---|---|---|---|
+| `grpc#1459` | 阻塞 | `c29d6389` | TIMEOUT ×3，卡在 `NewStream` 与 `keepalive` 同一把 `t.mu` | PASS ×3 |
+| `grpc#1667` | 非阻塞 | `a62701e4` | RACE ×3，`ccBalancerWrapper.NewSubConn` 写 `subConns` | PASS ×3 |
+| `grpc#1850` | 阻塞 | `484b3ebb` | 50 次循环 DEADLINE 8 次（另轮 10 次），命中率 16%~20% | PASS 50/50 |
+
+`grpc#1850` 更正了 11-04 的悬置结论：不是"连不上"，而是本机从没跑够次数。
+它按概率触发（发送配额泄漏，攒够 64KB 才卡死），3 次循环看不出来，要用
+`code/cases/grpc-1850/run_loop.sh 50`。命中时的表现是测试内 RPC 卡到 10s deadline
+返回 `DeadlineExceeded`（期望 `ResourceExhausted`），而不是 `go test` 整体超时。
+
+`grpc#1662`、`#639`、`#1803` 三条本轮没有构造出触发条件，未纳入交付。
+
+驱动脚本在 `2026-11-13/code/harness/`：`p4_case.sh` 用于补丁自带测试（A 档），
+`p4_probe.sh` 为本次新增，用于自写探针（B 档，支持 `-race`）。
 
 ## 复现环境
 
@@ -84,6 +110,14 @@ bash code/repro/scripts/p4_case.sh ~/gopath/src/google.golang.org/grpc \
 结果五态判定：`PASS` / `FAIL` / `TIMEOUT` / `NOTRUN` / `ERROR`。
 `NOTRUN` 专指 `-run` 正则没匹配到任何测试却仍输出 `ok` 的情况，**不能当作通过**。
 
+2026-11-13 的三条各自带入口脚本，仓库路径用 `P4_REPO` 覆盖：
+
+```bash
+bash code/cases/grpc-1459/run.sh             # 3 次 × 30s
+bash code/cases/grpc-1667/run.sh             # 3 次 × 30s，-race
+bash code/cases/grpc-1850/run_loop.sh 50     # 按概率触发，必须走 50 次
+```
+
 ## 数据与证据位置
 
 | 类型       | 路径                                                         |
@@ -93,6 +127,9 @@ bash code/repro/scripts/p4_case.sh ~/gopath/src/google.golang.org/grpc \
 | 终端截图   | `2026-11-4-1552/results/shots/*.png`（7 张）                 |
 | 分析报告   | `2026-11-4-1552/report/*.md`（5 篇）                         |
 | 可复用代码 | `2026-11-4-1552/code/`                                       |
+| 原始数据   | `2026-11-13/results/data/grpc_repro_summary.csv`（3 条）      |
+| 运行日志   | `2026-11-13/results/logs/`（三条各 8 份 + `grpc-1850/loop50/`）|
+| 可复用代码 | `2026-11-13/code/harness/`（`p4_case.sh`、`p4_probe.sh`）     |
 
 ## 一处已排除的假结果
 
