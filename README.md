@@ -39,11 +39,7 @@ Macau University of Science and Technology, CS340 Research Paper Replication (AY
 
 课程按周检查每个人的实质性提交，**commit message 必须带学号 + 姓名**，否则该周的贡献无法认定。
 
-Each commit message ends with a signature line:
 
-```
-Student: 1240012318 李振炜 (Li Zhenwei)
-```
 
 One-time setup per clone (use the email bound to your own GitHub account, so the commit links
 to your profile):
