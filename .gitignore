@@ -1,0 +1,72 @@
+### CS340 paper replication - ignore rules for the repository root
+###
+### This file differs from the usual Go template in one place, and that
+### difference is the point: logs/ and *.log are the reproduction evidence and
+### must stay tracked. The raw output of every bug lives in
+### code/cases/<class>/<bug>/logs/ and is what the grading looks at.
+### Only two kinds of files are ignored here: build artifacts that can be
+### regenerated, and junk produced by a local machine.
+
+### Build artifacts and binaries (course rules forbid committing them)
+*.exe
+*.test
+*.dll
+*.so
+*.dylib
+*.a
+*.o
+*.obj
+*.lib
+*.pdb
+*.ilk
+/bin/
+/dist/
+/out/
+.gocache/
+
+### Go local development state
+# go.sum must be committed. go.work only stitches modules together on one
+# machine and breaks for everyone else, so it stays out.
+go.work
+go.work.sum
+
+### Python (analysis pipeline and each case's analyze.py)
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+### Editors and operating system
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+
+### Temporary files and scratch output
+*.tmp
+*.temp
+*.bak
+core
+core.*
+nohup.out
+# Archives packed locally for backup are not part of the deliverable
+*.tar.gz
+*.tgz
+*.zip
+
+### Machine-local configuration
+# code/harness/local.env is a template with working defaults and stays tracked.
+# Keep your own paths in *.local.env, which is ignored.
+*.local.env
+env.local
+
+### Explicitly kept: guards against a global ignore rule
+# If ~/.gitignore_global ignores *.log or logs/, the two lines below win the
+# evidence files back. Do not delete them.
+!**/*.log
+!**/logs/
