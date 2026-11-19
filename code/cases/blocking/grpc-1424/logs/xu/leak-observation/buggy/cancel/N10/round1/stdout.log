@@ -1,0 +1,5 @@
+=== RUN   TestXuDialContextLeak
+    xu_dialcontext_leak_test.go:395: [xu] side=buggy mode=cancel N=10 round=1 returned=10 ctxErr=10 target before=0 after=10 lbWatcher after=0 goroutines after=12
+--- PASS: TestXuDialContextLeak (2.24s)
+PASS
+ok  	google.golang.org/grpc	2.247s

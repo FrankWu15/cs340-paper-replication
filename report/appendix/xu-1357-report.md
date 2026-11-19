@@ -161,6 +161,50 @@ ok  	google.golang.org/grpc	0.003s
 
 **对照的可靠性。** 对两版本源码做全目录比对，差异仅涉及 `clientconn.go`（上述 9 行 `defer`）与 `clientconn_test.go`（新增的 16 行测试函数）两个文件，其余源码完全一致，排除了构建方式或依赖差异导致结果不同的可能。
 
+**直接观测（2026-11-19 补充实验）。** 官方测试直接调用 `cc.lbWatcher(doneChan)`，验证的是通知契约，并未测量调用方返回后是否真有协程残留。为此另写一份探针（`code/cases/blocking/grpc-1424/probe/xu_dialcontext_leak_test.go`，两侧同一份、产品代码不改），走真实 `DialContext` 路径直接计数。
+
+探针不调用任何内部函数，只用公开 API：实现一个不发布任何地址的 `Balancer`（`Notify()` 返回非 `nil` 通道，`Close()` 幂等关闭），用 `WithBlock()` + `WithBalancer()` 发起阻塞调用；`lbWatcher` 第二次调用 `Notify()`（即进入 `for range`）被视为已进入目标路径，随后轮询确认匿名协程已停在 `<-doneChan`，再取消 context 或等待 deadline 到期。取消后 `DialContext` 的 `defer` 调用 `cc.Close()`，进而 `balancer.Close()`，与真实关闭路径一致。每次调用返回后设 200 ms 观察窗口，按 0 / 50 / 100 / 200 ms 四点采样完整 goroutine dump。
+
+时间顺序（缺陷版，`context-cancel`，N=1，单位 ms，相对进程内测试起点）：
+
+| 时刻 | 事件 |
+|---|---|
+| 3.27 | `balancer.Start` |
+| 3.29 | `Notify #1`（`DialContext` 自身）与 `Notify #2`（`lbWatcher` 进入 `for range`） |
+| 4.31 | 探针确认 1 个协程停在 `clientconn.go:409` |
+| 9.15 | 取消 context |
+| 9.16 | `balancer.Close`（`DialContext` 的 `defer` → `cc.Close()`） |
+| 9.20 | `DialContext` 返回 `context canceled`，该协程仍在 409 |
+| 209.20 | 观察窗口结束，仍在 409 |
+
+也就是说：调用已返回、balancer 已关闭、`lbWatcher` 已退出（dump 中 `lbWatcher` 栈数为 0），只有 `DialContext` 内部那个匿名协程留在 `<-doneChan` 上。
+
+| 触发方式 | N | 侧 | 每进程目标残留栈（3 轮） | goroutine 总数 |
+|---|---|---|---|---|
+| `context-cancel` | 1 | 缺陷版 | 1 / 1 / 1 | 2 → 3 |
+| `context-cancel` | 1 | 修复版 | 0 / 0 / 0 | 2 → 2 |
+| `context-cancel` | 10 | 缺陷版 | 10 / 10 / 10 | 2 → 12 |
+| `context-cancel` | 10 | 修复版 | 0 / 0 / 0 | 2 → 2 |
+| `context-deadline` | 1 | 缺陷版 | 1 / 1 / 1 | 2 → 3 |
+| `context-deadline` | 1 | 修复版 | 0 / 0 / 0 | 2 → 2 |
+| 非阻塞对照（两侧） | 1、10 | 两版 | 0（全部 12 个进程） | 2 → 2 |
+
+缺陷版 N=10 的逐调用残留数为 1、2、…、10，与调用次数一一对应；修复版每次都是「触发前 1 → 窗口结束 0」，说明 `defer` 在 `Notify` 关闭后立即关闭了 `doneChan`。非阻塞对照（不加 `WithBlock`、返回后主动 `Close`）两侧均为 0，排除了探针自身的协程或 balancer 清理逻辑造成的假象。
+
+运行时定位到的栈形如（缺陷版，N=10 的第 10 次调用后）：
+
+```
+goroutine 21 [chan receive]:
+google.golang.org/grpc.DialContext.func3()
+	clientconn.go:409 +0x1d3
+created by google.golang.org/grpc.DialContext in goroutine 13
+	clientconn.go:386 +0x865
+```
+
+函数名取编译器生成的 `DialContext.func3`，匹配条件只依赖源码行号 409 与 `DialContext.func` 前缀，不预设闭包编号。共 30 个独立进程（2 版本 ×（cancel 2 档 + noblock 2 档 + deadline 1 档）× 3 轮），原始 dump、逐调用计数与汇总分别见 `logs/xu/leak-observation/` 与 `results/xu/leak-observation/summary.csv`。
+
+由此可以确认：官方测试证明的是「`doneChan` 在 `Notify` 提前关闭时是否被关闭」这一契约，本实验证明的是该契约被破坏后**调用方返回后确实每次留下一个阻塞协程**，两者层级不同、互不替代。
+
 ### 案例 4 · gRPC-Go 并发 `WriteStatus` 向已关闭的 `writes` 通道发送
 
 **缺陷机理。** handler transport 的 `WriteStatus` 用一把互斥锁保护 `streamDone` 的检查，但检查完立即释放锁，发送、关闭通道与置位分三步完成：
@@ -209,9 +253,11 @@ ht.mu.Unlock()
 
 该修复提交实际修正多处问题，本快照中可确定性触发的是**错误分支漏解锁**一处。报告按实际复现结果记录，未沿用提交说明中的表述。
 
-### 差异二：案例 3 验证的是通知契约，而非直接观测协程数量
+### 差异二：案例 3 的官方测试验证通知契约，协程残留由补充探针直接观测
 
-本案例的测试直接调用 `cc.lbWatcher(doneChan)`，并未经过完整的 `DialContext`，因此验证的是通知契约（`doneChan` 是否被关闭），而非直接观测协程数量。该契约被破坏后的实际后果是 `DialContext` 内部匿名协程永久阻塞在 `<-doneChan` 上，此结论来自代码路径分析，未通过 `runtime.NumGoroutine()` 或 goroutine dump 实测验证。外层 `DialContext` 在调用方设置 deadline 时会返回 `context deadline exceeded`，所以「协程泄漏」与「调用方永久阻塞」不能混为一谈。
+本案例的官方测试直接调用 `cc.lbWatcher(doneChan)`，并未经过完整的 `DialContext`，因此它验证的是通知契约（`doneChan` 是否被关闭），而不是协程数量。外层 `DialContext` 在调用方设置 deadline 时会返回 `context deadline exceeded`，所以「协程泄漏」与「调用方永久阻塞」不能混为一谈。
+
+初版报告只凭代码路径分析推断「内部匿名协程永久阻塞在 `<-doneChan`」。2026-11-19 补充的探针走真实 `DialContext`，用 goroutine dump 直接定位到停在该行的协程：缺陷版每次调用残留 1 个、N=10 时累积到 10 个，修复版在同样输入与窗口内为 0。因此现在这一结论有实测支撑；但官方测试本身仍是契约测试，两者的结论层级不同。
 
 ### 差异三：案例 4 的官方测试单次执行不足以判定
 
@@ -233,7 +279,10 @@ ht.mu.Unlock()
   编译 2017 年代码，均非缺陷发生时的原生版本；
 - 案例 1、2 为单次运行，未作重复性统计；案例 3 采用修复提交自带的回归测试，属于以官方测试验证
   官方修复，独立性弱于案例 1 的自编触发程序；案例 4 同样使用官方测试，但通过固定重复次数提高了
-  判定的稳定性，并保留了单次执行不触发的负结果。
+  判定的稳定性，并保留了单次执行不触发的负结果；
+- 案例 3 的协程残留已由补充探针在 30 个独立进程上直接观测，但探针只覆盖「balancer 在任何地址送达前
+  关闭 `Notify`」这一条路径，且运行在本机单一环境（Go 1.22.9 / WSL2），不能据此推断线上系统的全部
+  触发路径与泄漏规模。
 
 ---
 
@@ -261,8 +310,11 @@ bash xu_boltdb_run.sh 03 fixed   # 预期：正常返回错误
 案例 3 与案例 4 都能在 Go 1.22.9 + module 下复跑，源码按提交号自动下载：
 
 ```bash
-# 案例 3：DialContext 协程泄漏
+# 案例 3：DialContext 协程泄漏（官方回归测试）
 bash code/cases/blocking/grpc-1424/code/xu-run-1229.sh 3 60
+
+# 案例 3：真实 DialContext 路径的协程残留观测（本报告 5 节补充实验）
+bash code/cases/blocking/grpc-1424/code/xu-observe-leak.sh
 
 # 案例 4：并发 WriteStatus
 bash code/cases/non-blocking/grpc-1546/run.sh 200 3
@@ -271,6 +323,10 @@ bash code/cases/non-blocking/grpc-1546/run.sh 200 3
 两个脚本都会下载两侧官方源码、核对关键文件 sha256、补齐测试文件后才开跑，退出码统一为
 `0` 对照成立 / `2` buggy 未复现 / `3` fixed 未通过 / `4` 源码或环境问题。
 案例 3 的归档输出在 `code/cases/blocking/grpc-1424/logs/xu/1229/`：buggy 3/3 `FAIL(assert)`、fixed 3/3 `PASS`。
+
+`xu-observe-leak.sh` 先在专用源码目录 `$HOME/grpc1424-leak/` 里做同样的准备，再复制探针跑完整矩阵
+（30 个独立进程，约 3 分钟），输出到 `logs/xu/leak-observation/` 与
+`results/xu/leak-observation/summary.csv`。它会拒绝覆盖已有归档，确需重跑加 `XU_OBS_FORCE=1`。
 
 案例 3 另有一条组内交叉验证路径：`code/cases/blocking/grpc-1424/run.sh` 调用公共驱动 `p4_case.sh`，
 走 Go 1.10.8 + `GOPATH`。该驱动写死 `GOROOT=/usr/local/go1.10.8`，归档日志的 `env.txt` 记录

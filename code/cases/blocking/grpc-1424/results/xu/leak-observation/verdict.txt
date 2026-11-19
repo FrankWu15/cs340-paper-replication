@@ -1,0 +1,4 @@
+bad_fix=0
+weak=0
+ctrl=0
+rows=30

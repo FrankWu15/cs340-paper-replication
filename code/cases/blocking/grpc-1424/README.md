@@ -19,8 +19,8 @@
 需要区分三层：`lbWatcher` 本身会正常退出，不算泄漏；真正残留的是 `DialContext`
 内部启动的匿名协程，它卡在 `<-doneChan` 上；外层 `DialContext` 另有
 `select { case <-ctx.Done(): ... }`，调用方设置 deadline 时会超时返回，未设 deadline
-的阻塞调用才会一直等下去。本目录的测试直接调用 `lbWatcher`，验证的是 `doneChan`
-的关闭契约，没有直接统计协程数量。
+的阻塞调用才会一直等下去。官方测试直接调用 `lbWatcher`，验证的是 `doneChan`
+的关闭契约；真实 `DialContext` 路径上的协程残留由 `probe/` 下的探针单独观测（见下）。
 
 ```
 --- FAIL: TestClientLBWatcherWithClosedBalancer (0.10s)
@@ -43,17 +43,38 @@
 | 来源 | 路径 | 说明 |
 |---|---|---|
 | 李振炜（`p4_case.sh`，Go 1.10.8） | `logs/` | `summary.txt`、`env.txt`、两侧各 3 份原始输出 |
-| 许汝轩（Go 1.22.9，module 模式） | `logs/xu/` | `grpc_buggy.log`、`grpc_fixed.log` |
-| 许汝轩的记录 | `code/xu-case.md` | 机理、触发条件、可靠性说明 |
+| 许汝轩（Go 1.22.9，module 模式） | `logs/xu/1229/` | 官方回归测试 3 轮：buggy `FAIL(assert)`、fixed `PASS` |
+| 许汝轩（真实 DialContext 观测） | `logs/xu/leak-observation/` | 30 个独立进程的 goroutine dump、逐调用计数、时序 |
+| 许汝轩（观测汇总） | `results/xu/leak-observation/summary.csv` | 每个进程一行：残留栈数、返回值、退出码 |
+| 观测探针 | `probe/xu_dialcontext_leak_test.go` | 两侧同一份，只用公开 API，产品代码不改 |
+| 许汝轩的记录 | `code/xu-case.md` | 机理、触发条件、可靠性说明、观测实验 |
 | 修复补丁 | `patches/01-lbwatcher-leak.patch` | 上游提交原文 |
 | 依赖固定 | `notes/` | `go.mod`、`go.sum`、两版本源码差异、构建环境 |
 | 截图 | `shots/grpc1424_repro.png` | 终端截图 |
 
+## 观测实验（真实 DialContext 路径）
+
+官方测试只验证「`Notify` 提前关闭时 `doneChan` 是否被关闭」。`probe/` 里的探针走真实
+`DialContext`：不发布地址的 balancer 进入 `for range` 后取消 context，调用返回后按 200 ms
+窗口抓 goroutine dump，直接统计停在 `clientconn.go:409` `<-doneChan` 的匿名协程。
+
+| 配置 | buggy 残留 | fixed 残留 |
+|---|---|---|
+| `context-cancel`，N=1，3 轮 | 1 / 1 / 1 | 0 / 0 / 0 |
+| `context-cancel`，N=10，3 轮 | 10 / 10 / 10（逐调用 1→10） | 0 / 0 / 0 |
+| `context-deadline`，N=1，3 轮 | 1 / 1 / 1 | 0 / 0 / 0 |
+| 非阻塞对照，N=1、10，各 3 轮 | 0 | 0 |
+
+调用返回、`balancer.Close`、`lbWatcher` 退出都发生在观察窗口之前，只有匿名协程留在
+`<-doneChan` 上；`lbWatcher` 栈数在窗口内为 0，可从 dump 直接核对。
+
 ## 重跑
 
 ```bash
-bash run.sh          # 3 次 × 60s；Go 1.10.8 + GOPATH 模式
+bash run.sh                        # 3 次 × 60s；Go 1.10.8 + GOPATH 模式
+bash code/xu-run-1229.sh 3 60      # Go 1.22.9 + module 模式（官方回归测试）
+bash code/xu-observe-leak.sh       # Go 1.22.9 + module 模式（协程残留观测，约 3 分钟）
 ```
 
 许汝轩那套（Go 1.22.9 + module）的步骤见 `code/xu-case.md` 与 `notes/env.md`，
-与上面的脚本是两条独立路径。
+与上面的 `run.sh` 是两条独立路径。

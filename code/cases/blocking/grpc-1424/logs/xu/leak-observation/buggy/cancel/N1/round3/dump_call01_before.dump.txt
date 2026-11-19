@@ -1,0 +1,45 @@
+goroutine 19 [running]:
+google.golang.org/grpc_test.stackAll()
+	/home/xlm/grpc1424-leak/buggy/xu_dialcontext_leak_test.go:143 +0x4d
+google.golang.org/grpc_test.writeDump(0xc00014ad00, {0xc000594000, 0x9b})
+	/home/xlm/grpc1424-leak/buggy/xu_dialcontext_leak_test.go:153 +0x34
+google.golang.org/grpc_test.TestXuDialContextLeak(0xc00014ad00)
+	/home/xlm/grpc1424-leak/buggy/xu_dialcontext_leak_test.go:330 +0xe89
+testing.tRunner(0xc00014ad00, 0x95fa58)
+	/usr/local/go-versions/go1.22.9/src/testing/testing.go:1689 +0xfb
+created by testing.(*T).Run in goroutine 1
+	/usr/local/go-versions/go1.22.9/src/testing/testing.go:1742 +0x390
+
+goroutine 1 [chan receive]:
+testing.(*T).Run(0xc00014ab60, {0x9285e7?, 0x0?}, 0x95fa58)
+	/usr/local/go-versions/go1.22.9/src/testing/testing.go:1750 +0x3ab
+testing.runTests.func1(0xc00014ab60)
+	/usr/local/go-versions/go1.22.9/src/testing/testing.go:2161 +0x37
+testing.tRunner(0xc00014ab60, 0xc0001abc70)
+	/usr/local/go-versions/go1.22.9/src/testing/testing.go:1689 +0xfb
+testing.runTests(0xc000124150, {0xcf6620, 0x2b, 0x2b}, {0x1?, 0x50f5ce?, 0xcffd80?})
+	/usr/local/go-versions/go1.22.9/src/testing/testing.go:2159 +0x445
+testing.(*M).Run(0xc0001215e0)
+	/usr/local/go-versions/go1.22.9/src/testing/testing.go:2027 +0x68b
+main.main()
+	_testmain.go:159 +0x16c
+
+goroutine 20 [select]:
+google.golang.org/grpc.DialContext({0x9e5d78, 0xc0001401e0}, {0x923aea, 0xe}, {0xc00017e900, 0x3, 0xc00014ad00?})
+	/home/xlm/grpc1424-leak/buggy/clientconn.go:422 +0x8d9
+google.golang.org/grpc_test.TestXuDialContextLeak.func2()
+	/home/xlm/grpc1424-leak/buggy/xu_dialcontext_leak_test.go:282 +0x66
+created by google.golang.org/grpc_test.TestXuDialContextLeak in goroutine 19
+	/home/xlm/grpc1424-leak/buggy/xu_dialcontext_leak_test.go:281 +0x7cd
+
+goroutine 21 [chan receive]:
+google.golang.org/grpc.DialContext.func3()
+	/home/xlm/grpc1424-leak/buggy/clientconn.go:409 +0x1d3
+created by google.golang.org/grpc.DialContext in goroutine 20
+	/home/xlm/grpc1424-leak/buggy/clientconn.go:386 +0x865
+
+goroutine 22 [chan receive]:
+google.golang.org/grpc.(*ClientConn).lbWatcher(0xc000102c40, 0xc00010e4e0)
+	/home/xlm/grpc1424-leak/buggy/clientconn.go:614 +0x8b
+created by google.golang.org/grpc.DialContext.func3 in goroutine 21
+	/home/xlm/grpc1424-leak/buggy/clientconn.go:408 +0x1c7

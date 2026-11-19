@@ -1,0 +1,50 @@
+{
+  "version": "buggy",
+  "context_mode": "noblock",
+  "n": 1,
+  "round": 3,
+  "observation_window_ms": 200,
+  "hard_timeout_ms": 5000,
+  "deadline_ms": 1500,
+  "returned_calls": 1,
+  "context_errors": 0,
+  "dial_errors": [],
+  "target_stacks_before": 0,
+  "target_stacks_after": 0,
+  "lbwatcher_stacks_before": 0,
+  "lbwatcher_stacks_after": 0,
+  "goroutines_before": 2,
+  "goroutines_after": 2,
+  "per_call": [
+    {
+      "iter": 1,
+      "trigger": "close-conn",
+      "target_seen_ms": 13.6,
+      "cancel_ms": 27.588,
+      "return_ms": 13.599,
+      "return_elapsed_ms": 0.054,
+      "dial_returned": true,
+      "returned_nil_conn": false,
+      "dial_error": "",
+      "target_stacks_before": 0,
+      "target_stacks_samples": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "target_stacks_after": 0,
+      "lbwatcher_stacks_after": 0,
+      "goroutines_after": 2
+    }
+  ],
+  "events": [
+    "--- call 1 ---",
+    "   13.572ms  balancer.Start(\"xu.invalid:443\")",
+    "   13.586ms  balancer.Notify #1",
+    "   13.593ms  balancer.Notify #2",
+    "   27.593ms  balancer.Close -\u003e close(Notify)"
+  ],
+  "started_at": "2026-11-19T19:29:54+08:00",
+  "finished_at": "2026-11-19T19:29:54+08:00"
+}
