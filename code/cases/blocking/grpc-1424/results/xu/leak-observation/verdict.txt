@@ -3,3 +3,7 @@ weak=0
 ctrl=0
 not_returned=0
 rows=30
+expected=30
+missing=0
+extra=0
+dup=0

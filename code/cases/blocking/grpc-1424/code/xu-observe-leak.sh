@@ -15,6 +15,7 @@
 #   ./xu-observe-leak.sh              跑完整矩阵
 #   XU_OBS_FORCE=1 ./xu-observe-leak.sh   覆盖已有输出目录后重跑
 #   XU_OBS_JUDGE_ONLY=1 ./xu-observe-leak.sh  不重跑，只对已有归档重算汇总与判定
+#                                          （归档轮数不是默认的 3 时用 XU_OBS_ROUNDS 指定）
 #
 # 可覆盖变量:
 #   XU1424_BUGGY / XU1424_FIXED  专用源码目录，默认 $HOME/grpc1424-leak/{buggy,fixed}
@@ -23,9 +24,10 @@
 #   XU_WINDOW_MS                 每次调用返回后的观察窗口，默认 200
 #   GO1424                       go 可执行文件
 #
-# 退出码: 0 观测成立（buggy 残留 = N、fixed 与非阻塞对照均为 0、每次调用都已返回）
+# 退出码: 0 观测成立（归档记录与矩阵一致、buggy 残留 = N、fixed 与非阻塞对照均为 0、
+#           每次调用都已返回）
 #         2 buggy 未达到 N（未观测到）  3 fixed 或非阻塞对照仍有残留（对照被破坏）
-#         4 源码/构建/环境问题，或有调用未返回（观测链不完整，结果不可用）
+#         4 源码/构建/环境问题，有调用未返回，或归档记录与矩阵不符（缺项/重复/空目录）
 set -uo pipefail
 
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -39,6 +41,12 @@ PROBE="$CASE/probe/xu_dialcontext_leak_test.go"
 WINDOW_MS="${XU_WINDOW_MS:-200}"
 ROUNDS="${XU_OBS_ROUNDS:-3}"
 JUDGE_ONLY="${XU_OBS_JUDGE_ONLY:-0}"
+
+# 实验矩阵的唯一一份定义：跑批与归档完整性校验都读这里，改矩阵只改这三行。
+#   cancel / noblock 各两档 N，deadline 固定 N=1；两侧（buggy/fixed）都跑。
+MODES_DUAL="cancel noblock"
+MODES_SINGLE="deadline"
+NS="1 10"
 
 BUG_SHA=39c8c3866d926d95e11c03508bf83d00f2963f91
 FIX_SHA=4e56696c6c5a8cd7b711a1eb8936463559361da5
@@ -158,10 +166,14 @@ EOF
 build_summary() {
   log "== 4/4 生成 summary.csv"
   mkdir -p "$RES"
-  python3 - "$OUT" "$RES/summary.csv" <<'PY'
+  python3 - "$OUT" "$RES/summary.csv" "$ROUNDS" "$NS" "$MODES_DUAL" "$MODES_SINGLE" <<'PY'
 import csv, glob, json, os, sys
 
 root, out_csv = sys.argv[1], sys.argv[2]
+rounds = int(sys.argv[3])
+ns = [int(x) for x in sys.argv[4].split()]
+dual = sys.argv[5].split()
+single = sys.argv[6].split()
 rows = []
 for mp in sorted(glob.glob(os.path.join(root, '*', '*', 'N*', 'round*', 'metrics.json'))):
     d = os.path.dirname(mp)
@@ -208,11 +220,38 @@ bad_fix = [r for r in rows if r['context_mode'] != 'noblock' and r['version'] ==
 weak = [r for r in rows if r['context_mode'] != 'noblock' and r['version'] == 'buggy' and r['target_stacks_after'] != r['n']]
 ctrl = [r for r in rows if r['context_mode'] == 'noblock' and r['target_stacks_after']]
 not_ret = [r for r in rows if str(r['returned_calls']) != str(r['n'])]
+
+# 归档完整性：按矩阵定义算出应有的 (侧, 模式, N, 轮次) 组合，与实有记录逐条比对。
+# 空目录/缺轮次/重复记录时上面的计数全是 0，会被误判成成立，所以必须单独查。
+expected = set()
+for mode in dual:
+    for n in ns:
+        for r in range(1, rounds + 1):
+            for side in ('buggy', 'fixed'):
+                expected.add((side, mode, n, r))
+for mode in single:
+    for r in range(1, rounds + 1):
+        for side in ('buggy', 'fixed'):
+            expected.add((side, mode, 1, r))
+actual = [(r['version'], r['context_mode'], r['n'], r['round']) for r in rows]
+seen = set(actual)
+missing = sorted(expected - seen)
+extra = sorted(seen - expected)
+dup = len(actual) - len(seen)
+
+print(f"  归档: 预期 {len(expected)} 条, 实有 {len(actual)} 条（唯一 {len(seen)}）, "
+      f"缺 {len(missing)} 条, 多 {len(extra)} 条, 重复 {dup} 条")
+for k in missing[:5]:
+    print(f"    缺: {k[0]} {k[1]} N={k[2]} round{k[3]}")
+for k in extra[:5]:
+    print(f"    多: {k[0]} {k[1]} N={k[2]} round{k[3]}")
 print(f"  对照: fixed 残留 {len(bad_fix)} 行, buggy 未达 N {len(weak)} 行, "
       f"noblock 残留 {len(ctrl)} 行, 调用未全部返回 {len(not_ret)} 行")
 with open(os.path.join(os.path.dirname(out_csv), 'verdict.txt'), 'w') as f:
     f.write(f"bad_fix={len(bad_fix)}\nweak={len(weak)}\nctrl={len(ctrl)}\n"
-            f"not_returned={len(not_ret)}\nrows={len(rows)}\n")
+            f"not_returned={len(not_ret)}\nrows={len(actual)}\n"
+            f"expected={len(expected)}\nmissing={len(missing)}\n"
+            f"extra={len(extra)}\ndup={dup}\n")
 sys.exit(0)
 PY
 }
@@ -232,8 +271,9 @@ PY
 
 # ---------------------------------------------------------------- 验收
 
-# 三项都必须满足才算观测成立：缺陷版达到 N、修复版为 0、非阻塞对照为 0，
-# 且每个进程的 N 次调用全部返回（没返回时残留数不可信）。
+# 四项都必须满足才算观测成立：归档记录与矩阵定义逐条对齐（不缺、不多、不重复）、
+# 缺陷版达到 N、修复版为 0、非阻塞对照为 0，且每个进程的 N 次调用全部返回
+# （没返回时残留数不可信，空目录时各项计数又都是 0，所以完整性必须单独查）。
 finish() {
   local vf="$RES/verdict.txt"
   if [ -f "$vf" ]; then
@@ -243,8 +283,13 @@ finish() {
     BUG_FAILS="${weak:-0}"
     CTRL_RESIDUAL="${ctrl:-0}"
     NOT_RETURNED="${not_returned:-0}"
+    ARCHIVE_BAD=$(( ${missing:-1} + ${extra:-0} + ${dup:-0} ))
+    [ "${expected:-0}" -gt 0 ] || ARCHIVE_BAD=$((ARCHIVE_BAD + 1))
+    [ "${rows:-0}" -eq "${expected:-0}" ] || ARCHIVE_BAD=$((ARCHIVE_BAD + 1))
   else
-    FIX_RESIDUAL=0; BUG_FAILS=0; CTRL_RESIDUAL=0; NOT_RETURNED=1
+    # 没有 verdict.txt 就等于没有归档，任何计数都不能当成立
+    FIX_RESIDUAL=0; BUG_FAILS=0; CTRL_RESIDUAL=0; NOT_RETURNED=0
+    ARCHIVE_BAD=1
   fi
   echo "  ---"
   print_table
@@ -252,6 +297,9 @@ finish() {
   local rc result
   if [ "$BAD" -gt 0 ]; then
     result="ENV_ERROR"; rc=4
+  elif [ "$ARCHIVE_BAD" -gt 0 ]; then
+    # 记录不完整（空目录、缺轮次、重复）时其余判定无意义，不能报成立
+    result="ARCHIVE_INCOMPLETE"; rc=4
   elif [ "$NOT_RETURNED" -gt 0 ]; then
     # 有调用没返回：残留数不可信，不能算作观测成立
     result="INCOMPLETE"; rc=4
@@ -291,17 +339,19 @@ main() {
 
   log "== 3/4 跑矩阵"
   local mode n r
-  for mode in cancel noblock; do
-    for n in 1 10; do
+  for mode in $MODES_DUAL; do
+    for n in $NS; do
       for r in $(seq 1 "$ROUNDS"); do
         run_one buggy "$mode" "$n" "$r"
         run_one fixed "$mode" "$n" "$r"
       done
     done
   done
-  for r in $(seq 1 "$ROUNDS"); do
-    run_one buggy deadline 1 "$r"
-    run_one fixed deadline 1 "$r"
+  for mode in $MODES_SINGLE; do
+    for r in $(seq 1 "$ROUNDS"); do
+      run_one buggy "$mode" 1 "$r"
+      run_one fixed "$mode" 1 "$r"
+    done
   done
 
   build_summary || return 4
