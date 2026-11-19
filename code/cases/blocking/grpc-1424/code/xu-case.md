@@ -79,7 +79,7 @@ defer func() {
 | 缺陷版 `39c8c386` | `FAIL`：`lbWatcher with closed balancer didn't close doneChan after 100ms` | 0.10s |
 | 修复版 `4e56696c` | `PASS` | 0.00s |
 
-原始输出见仓库 `results/grpc-go/grpc_buggy.log` 与 `results/grpc-go/grpc_fixed.log`。
+原始输出见仓库 `../logs/xu/grpc_buggy.log` 与 `../logs/xu/grpc_fixed.log`。
 
 ```
 === RUN   TestClientLBWatcherWithClosedBalancer

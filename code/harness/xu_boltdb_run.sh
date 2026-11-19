@@ -21,13 +21,21 @@ shift 2
 RACE=0
 if [ "${1:-}" = "--race" ]; then RACE=1; shift; fi
 
+HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ROOT="$(cd "$HERE/../.." && pwd)"
+
 case "$CASE" in
-  02|02-close-race)      DIR=02-close-race ;;
-  03|03-begin-lock-leak) DIR=03-begin-lock-leak ;;
+  02|02-close-race)
+    DIR=02-close-race
+    SRC="$ROOT/code/cases/non-blocking/boltdb-341/code/main.go" ;;
+  03|03-begin-lock-leak)
+    DIR=03-begin-lock-leak
+    SRC="$ROOT/code/cases/blocking/boltdb-begin-lock-leak/code/main.go" ;;
   *) echo "未知 case: $CASE"; exit 1 ;;
 esac
+[ -f "$SRC" ] || { echo "缺少触发程序: $SRC"; exit 1; }
 
-WORK="${WORK:-$PWD/_work}"
+WORK="${WORK:-$HERE/_work}"
 GOROOT="${GOROOT:-/usr/local/go-versions/go1.6.4}"
 GP="$WORK/$DIR/$VARIANT"
 export GOROOT
@@ -43,7 +51,7 @@ echo "GOROOT=$GOROOT"
 go version
 
 mkdir -p "$GP/src/repro"
-cp "$(dirname "$0")/cases/$DIR/main.go" "$GP/src/repro/main.go"
+cp "$SRC" "$GP/src/repro/main.go"
 cd "$GP/src/repro"
 
 if [ "$RACE" = "1" ]; then

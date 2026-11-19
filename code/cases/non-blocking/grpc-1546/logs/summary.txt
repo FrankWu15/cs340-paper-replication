@@ -1,0 +1,14 @@
+############ grpc  fix=22c3f92f5faea8db492fb0f5ae4daf0d2752b19e  pkg=transport  test=TestHandlerTransport_HandleStreams_MultiWriteStatus$  count=200  iters=3  timeout=120s
+  [buggy] 源码核验通过：cf79c849790fd644fab2ef0996e07c177f7b689c
+  [fixed] 源码核验通过：22c3f92f5faea8db492fb0f5ae4daf0d2752b19e
+  [buggy] iter1: FAIL(panic)  rc=1 runs=14
+  [buggy] iter2: FAIL(panic)  rc=1 runs=33
+  [buggy] iter3: FAIL(panic)  rc=1 runs=4
+  [buggy] SUMMARY pass=0 fail=3 timeout=0 notrun=0 build=0 other=0
+  [fixed] iter1: PASS  rc=0 runs=200
+  [fixed] iter2: PASS  rc=0 runs=200
+  [fixed] iter3: PASS  rc=0 runs=200
+  [fixed] SUMMARY pass=3 fail=0 timeout=0 notrun=0 build=0 other=0
+  [grpc] REPRODUCED  buggy_panic=3/3  fixed_pass=3/3
+############ RESULT: REPRODUCED
+############ DONE grpc

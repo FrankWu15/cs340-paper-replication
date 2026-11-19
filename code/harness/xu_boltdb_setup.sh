@@ -10,7 +10,8 @@
 #             如果本机可直连 GitHub，把 GOPROXY 设为空字符串即可
 set -euo pipefail
 
-WORK="${WORK:-$PWD/_work}"
+HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+WORK="${WORK:-$HERE/_work}"
 PREFIX="${GOPROXY-https://ghproxy.net/}"
 
 # case 目录名 : buggy commit : fixed commit

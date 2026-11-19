@@ -1,0 +1,79 @@
+=== RUN   TestHandlerTransport_HandleStreams_MultiWriteStatus
+--- PASS: TestHandlerTransport_HandleStreams_MultiWriteStatus (0.00s)
+=== RUN   TestHandlerTransport_HandleStreams_MultiWriteStatus
+--- PASS: TestHandlerTransport_HandleStreams_MultiWriteStatus (0.00s)
+=== RUN   TestHandlerTransport_HandleStreams_MultiWriteStatus
+--- PASS: TestHandlerTransport_HandleStreams_MultiWriteStatus (0.00s)
+=== RUN   TestHandlerTransport_HandleStreams_MultiWriteStatus
+--- PASS: TestHandlerTransport_HandleStreams_MultiWriteStatus (0.00s)
+=== RUN   TestHandlerTransport_HandleStreams_MultiWriteStatus
+--- PASS: TestHandlerTransport_HandleStreams_MultiWriteStatus (0.00s)
+=== RUN   TestHandlerTransport_HandleStreams_MultiWriteStatus
+--- PASS: TestHandlerTransport_HandleStreams_MultiWriteStatus (0.00s)
+=== RUN   TestHandlerTransport_HandleStreams_MultiWriteStatus
+--- PASS: TestHandlerTransport_HandleStreams_MultiWriteStatus (0.00s)
+=== RUN   TestHandlerTransport_HandleStreams_MultiWriteStatus
+--- PASS: TestHandlerTransport_HandleStreams_MultiWriteStatus (0.00s)
+=== RUN   TestHandlerTransport_HandleStreams_MultiWriteStatus
+--- PASS: TestHandlerTransport_HandleStreams_MultiWriteStatus (0.00s)
+=== RUN   TestHandlerTransport_HandleStreams_MultiWriteStatus
+--- PASS: TestHandlerTransport_HandleStreams_MultiWriteStatus (0.00s)
+=== RUN   TestHandlerTransport_HandleStreams_MultiWriteStatus
+--- PASS: TestHandlerTransport_HandleStreams_MultiWriteStatus (0.00s)
+=== RUN   TestHandlerTransport_HandleStreams_MultiWriteStatus
+--- PASS: TestHandlerTransport_HandleStreams_MultiWriteStatus (0.00s)
+=== RUN   TestHandlerTransport_HandleStreams_MultiWriteStatus
+--- PASS: TestHandlerTransport_HandleStreams_MultiWriteStatus (0.00s)
+=== RUN   TestHandlerTransport_HandleStreams_MultiWriteStatus
+--- PASS: TestHandlerTransport_HandleStreams_MultiWriteStatus (0.00s)
+=== RUN   TestHandlerTransport_HandleStreams_MultiWriteStatus
+--- PASS: TestHandlerTransport_HandleStreams_MultiWriteStatus (0.00s)
+=== RUN   TestHandlerTransport_HandleStreams_MultiWriteStatus
+--- PASS: TestHandlerTransport_HandleStreams_MultiWriteStatus (0.00s)
+=== RUN   TestHandlerTransport_HandleStreams_MultiWriteStatus
+--- PASS: TestHandlerTransport_HandleStreams_MultiWriteStatus (0.00s)
+=== RUN   TestHandlerTransport_HandleStreams_MultiWriteStatus
+--- PASS: TestHandlerTransport_HandleStreams_MultiWriteStatus (0.00s)
+=== RUN   TestHandlerTransport_HandleStreams_MultiWriteStatus
+--- PASS: TestHandlerTransport_HandleStreams_MultiWriteStatus (0.00s)
+=== RUN   TestHandlerTransport_HandleStreams_MultiWriteStatus
+--- PASS: TestHandlerTransport_HandleStreams_MultiWriteStatus (0.00s)
+=== RUN   TestHandlerTransport_HandleStreams_MultiWriteStatus
+--- PASS: TestHandlerTransport_HandleStreams_MultiWriteStatus (0.00s)
+=== RUN   TestHandlerTransport_HandleStreams_MultiWriteStatus
+--- PASS: TestHandlerTransport_HandleStreams_MultiWriteStatus (0.00s)
+=== RUN   TestHandlerTransport_HandleStreams_MultiWriteStatus
+--- PASS: TestHandlerTransport_HandleStreams_MultiWriteStatus (0.00s)
+=== RUN   TestHandlerTransport_HandleStreams_MultiWriteStatus
+--- PASS: TestHandlerTransport_HandleStreams_MultiWriteStatus (0.00s)
+=== RUN   TestHandlerTransport_HandleStreams_MultiWriteStatus
+--- PASS: TestHandlerTransport_HandleStreams_MultiWriteStatus (0.00s)
+=== RUN   TestHandlerTransport_HandleStreams_MultiWriteStatus
+--- PASS: TestHandlerTransport_HandleStreams_MultiWriteStatus (0.00s)
+=== RUN   TestHandlerTransport_HandleStreams_MultiWriteStatus
+--- PASS: TestHandlerTransport_HandleStreams_MultiWriteStatus (0.00s)
+=== RUN   TestHandlerTransport_HandleStreams_MultiWriteStatus
+--- PASS: TestHandlerTransport_HandleStreams_MultiWriteStatus (0.00s)
+=== RUN   TestHandlerTransport_HandleStreams_MultiWriteStatus
+--- PASS: TestHandlerTransport_HandleStreams_MultiWriteStatus (0.00s)
+=== RUN   TestHandlerTransport_HandleStreams_MultiWriteStatus
+--- PASS: TestHandlerTransport_HandleStreams_MultiWriteStatus (0.00s)
+=== RUN   TestHandlerTransport_HandleStreams_MultiWriteStatus
+--- PASS: TestHandlerTransport_HandleStreams_MultiWriteStatus (0.00s)
+=== RUN   TestHandlerTransport_HandleStreams_MultiWriteStatus
+--- PASS: TestHandlerTransport_HandleStreams_MultiWriteStatus (0.00s)
+=== RUN   TestHandlerTransport_HandleStreams_MultiWriteStatus
+--- PASS: TestHandlerTransport_HandleStreams_MultiWriteStatus (0.00s)
+panic: send on closed channel
+
+goroutine 314 [running]:
+google.golang.org/grpc/transport.(*serverHandlerTransport).do(...)
+	/home/xlm/grpc1546/buggy/transport/handler_server.go:170
+google.golang.org/grpc/transport.(*serverHandlerTransport).WriteStatus(0xc0000cc8c0, 0xc0000cf400, 0xc0000540b8)
+	/home/xlm/grpc1546/buggy/transport/handler_server.go:187 +0x1c5
+google.golang.org/grpc/transport.TestHandlerTransport_HandleStreams_MultiWriteStatus.func1.1()
+	/home/xlm/grpc1546/buggy/transport/handler_server_test.go:407 +0xb9
+created by google.golang.org/grpc/transport.TestHandlerTransport_HandleStreams_MultiWriteStatus.func1 in goroutine 313
+	/home/xlm/grpc1546/buggy/transport/handler_server_test.go:405 +0x11a
+FAIL	google.golang.org/grpc/transport	0.009s
+FAIL

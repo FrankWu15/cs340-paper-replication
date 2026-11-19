@@ -53,7 +53,7 @@ bash run.sh 02 fixed    # 预期：Close 阻塞到事务提交完成
 
 ## 观测结果
 
-buggy（`results/boltdb/b2_buggy.log`）：
+buggy（`../logs/b2_buggy.log`）：
 
 ```
 [3] 写事务已打开并写入 k1（尚未提交）
@@ -66,7 +66,7 @@ github.com/boltdb/bolt.(*Tx).Commit(...)
 	.../bolt/tx.go:151
 ```
 
-fixed（`results/boltdb/b2_fixed.log`）：
+fixed（`../logs/b2_fixed.log`）：
 
 ```
 [4] Close 正在等待写事务结束  <-- fixed 行为

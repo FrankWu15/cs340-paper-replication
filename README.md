@@ -8,7 +8,7 @@ Macau University of Science and Technology, CS340 Research Paper Replication (AY
 复现论文：*Understanding Real-World Concurrency Bugs in Go*（Tu, Liu, Song, Zhang; ASPLOS'19）
 数据集：<https://github.com/system-pclub/go-concurrency-bugs>
 
-本仓库只有一套结构：四位成员的产出已合并为统一布局，**复现成功的 19 条 bug 按 blocking / non-blocking 分两类，
+本仓库只有一套结构：四位成员的产出已合并为统一布局，**复现成功的 20 条 bug 按 blocking / non-blocking 分两类，
 一条一个自包含目录**。往哪个目录放文件，见 [docs/PLACEMENT.md](docs/PLACEMENT.md)；旧材料搬到哪去了，
 见 [docs/MIGRATION.md](docs/MIGRATION.md)。
 
@@ -62,14 +62,14 @@ remote has moved; do not force-push a commit that someone else has built on.
 │   ├── tools/           goast：Go AST 统计工具
 │   └── cases/
 │       ├── blocking/        blocking bug，一条一个自包含目录（11 个目录 / 13 条）
-│       └── non-blocking/    non-blocking bug，一条一个自包含目录（6 个目录 / 6 条）
+│       └── non-blocking/    non-blocking bug，一条一个自包含目录（7 个目录 / 7 条）
 ├── data/                跨 case 的数据：41 条目标、44 条可行性、bug 表、repo.lock.tsv
 ├── docs/                流程与约定（PLACEMENT.md 放置规则 / MIGRATION.md 搬迁对照）
 ├── report/              组级报告
 │   ├── appendix/        P0/P1/P2/P4 五篇 + 附录
 │   └── figures/         跨 case 的汇总图
 └── results/
-    ├── data/            19 条 bug 的对照总表 repro_summary.csv
+    ├── data/            20 条 bug 的对照总表 repro_summary.csv
     ├── logs/            （空占位）单条 bug 的日志随 case 走，见 code/cases/<类>/<bug>/logs/
     └── shots/           （空占位）截图随 case 走，见 code/cases/<类>/<bug>/shots/
 ```
@@ -87,7 +87,7 @@ remote has moved; do not force-push a commit that someone else has built on.
 | 判据 | buggy 必须卡死、fixed 必须干净通过 | buggy 必须报竞争/崩溃、fixed 必须干净 |
 | 常见坑 | 超时不等于 bug——先排除环境导致的 Dial 卡死 | 单跑一次可能抽到「恰好没崩」，必须统计多次 |
 
-## 结果总表（19 条）
+## 结果总表（20 条）
 
 | # | bug | 类 | 修复提交 | buggy | fixed |
 |---|---|---|---|---|---|
@@ -109,7 +109,8 @@ remote has moved; do not force-push a commit that someone else has built on.
 | 16 | etcd#4997 | non-blocking | `4d2d2cab` | RACE 20/20 | 0/20 |
 | 17 | grpc#1667 | non-blocking | `a62701e4` | RACE ×3 | PASS ×3 |
 | 18 | grpc#1687 | non-blocking | `c6b46087` | FAIL(panic) ×3 | PASS ×3 |
-| 19 | kubernetes#9926 | non-blocking | `de1f246e` | RACE 20/20 | 0/20 |
+| 19 | grpc#1546 | non-blocking | `22c3f92f` | FAIL(panic) ×3 | PASS ×3 |
+| 20 | kubernetes#9926 | non-blocking | `de1f246e` | RACE 20/20 | 0/20 |
 
 机器可读版本：`results/data/repro_summary.csv`。逐条的负责人与症状见 `code/cases/README.md`。
 
