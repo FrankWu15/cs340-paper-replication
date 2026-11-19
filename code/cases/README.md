@@ -29,7 +29,7 @@
 共用一个 Go module 与一套脚本（`internal/bugs/` 下两个文件、`cmd/repro` 一个入口），
 拆开会把 build 与结果目录一起拆坏，所以按工程保留，目录名把两条 bug 都写全。
 
-## non-blocking（6 个目录 / 6 条 bug）
+## non-blocking（7 个目录 / 7 条 bug）
 
 | 目录 | bug | 症状 | 判定（buggy → fixed） | 负责 |
 |---|---|---|---|---|
@@ -38,6 +38,7 @@
 | `etcd-4997/` | etcd#4997 | `consistentIndex` 无同步读写 | RACE 20/20 → 0/20 | 吴德诚 |
 | `grpc-1667/` | grpc#1667 | `ccBalancerWrapper.subConns` 无同步 map | RACE ×3 → PASS ×3 | 李振炜 |
 | `grpc-1687/` | grpc#1687 | 重复 `WriteStatus` → send on closed channel | FAIL(panic) ×3 → PASS ×3 | 李振炜 |
+| `grpc-1546/` | grpc#1111 / PR #1546 | 并发 `WriteStatus` 越过状态检查 → send on closed channel | FAIL(panic) ×3 → PASS ×3 | 许汝轩 |
 | `kubernetes-9926/` | k8s#9926 | 全局 `capabilities` 指针无同步读写 | RACE 20/20 → 0/20 | 吴德诚 |
 
 ## 两人各做了一遍的两条

@@ -58,7 +58,7 @@ bash run.sh 03 fixed    # 预期：两次 Begin 都正常返回 ErrDatabaseNotOp
 
 ## 观测结果
 
-buggy（`results/boltdb/b3_buggy_closed.log`）：
+buggy（`../logs/b3_buggy_closed.log`）：
 
 ```
 [4] 第 1 次 Begin(false) 返回: database not open  <-- 期望 ErrDatabaseNotOpen
@@ -73,7 +73,7 @@ github.com/boltdb/bolt.(*DB).Begin(0xc82008e000, ...)
 	.../bolt/db.go:339 +0x60
 ```
 
-fixed（`results/boltdb/b3_fixed_closed.log`）：
+fixed（`../logs/b3_fixed_closed.log`）：
 
 ```
 [6] 第 2 次 Begin(false) 返回: database not open (耗时 127ns)
@@ -90,7 +90,7 @@ fixed（`results/boltdb/b3_fixed_closed.log`）：
 bash run.sh 03 buggy -mode remap -secs 20
 ```
 
-结果 8 秒 / 800+ 次写入都没有卡死（`results/boltdb/b3_buggy_remap.log`）。读代码确认：
+结果 8 秒 / 800+ 次写入都没有卡死（`../logs/b3_buggy_remap.log`）。读代码确认：
 这个快照里 `db.mmap()` 只取 `mmaplock`，写事务的 `metalock` 在 `beginRWTx` 返回前
 就已释放，提交 / allocate 阶段并不持有它，因此"写事务持 metalock 等 mmaplock、
 读事务持 mmaplock 等 metalock"的 ABBA 环不可能形成。

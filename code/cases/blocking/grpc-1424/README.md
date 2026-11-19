@@ -2,7 +2,7 @@
 
 | 项 | 值 |
 |---|---|
-| 分类 | **blocking**（阻塞式 Dial 永不返回） |
+| 分类 | **blocking**（无 deadline 的阻塞 Dial 永不返回；带 deadline 时超时返回但内部协程残留） |
 | 仓库 | `google.golang.org/grpc` |
 | buggy 提交 | `39c8c3866d926d95e11c03508bf83d00f2963f91` |
 | 修复提交 | `4e56696c6c5a8cd7b711a1eb8936463559361da5`（"Fix a goroutine leak in DialContext (#1424)"） |
@@ -14,7 +14,13 @@
 
 `DialContext` 在阻塞模式下起一个 `lbWatcher` 并在 `<-doneChan` 上等它；`doneChan`
 的关闭责任落在 `lbWatcher` 内，但关闭动作只出现在一条路径上。balancer 已关闭时
-走不到那条路径，`doneChan` 永不关闭，`Dial` 永久阻塞。
+走不到那条路径，`doneChan` 永不关闭。
+
+需要区分三层：`lbWatcher` 本身会正常退出，不算泄漏；真正残留的是 `DialContext`
+内部启动的匿名协程，它卡在 `<-doneChan` 上；外层 `DialContext` 另有
+`select { case <-ctx.Done(): ... }`，调用方设置 deadline 时会超时返回，未设 deadline
+的阻塞调用才会一直等下去。本目录的测试直接调用 `lbWatcher`，验证的是 `doneChan`
+的关闭契约，没有直接统计协程数量。
 
 ```
 --- FAIL: TestClientLBWatcherWithClosedBalancer (0.10s)

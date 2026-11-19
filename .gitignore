@@ -23,6 +23,8 @@
 /dist/
 /out/
 .gocache/
+# Source snapshots and build dir produced by xu_boltdb_setup.sh (~14 MB, rebuildable)
+code/harness/_work/
 
 ### Go local development state
 # go.sum must be committed. go.work only stitches modules together on one

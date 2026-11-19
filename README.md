@@ -87,7 +87,7 @@ remote has moved; do not force-push a commit that someone else has built on.
 | 判据 | buggy 必须卡死、fixed 必须干净通过 | buggy 必须报竞争/崩溃、fixed 必须干净 |
 | 常见坑 | 超时不等于 bug——先排除环境导致的 Dial 卡死 | 单跑一次可能抽到「恰好没崩」，必须统计多次 |
 
-## 结果总表（19 条）
+## 结果总表（20 条）
 
 | # | bug | 类 | 修复提交 | buggy | fixed |
 |---|---|---|---|---|---|
@@ -109,7 +109,8 @@ remote has moved; do not force-push a commit that someone else has built on.
 | 16 | etcd#4997 | non-blocking | `4d2d2cab` | RACE 20/20 | 0/20 |
 | 17 | grpc#1667 | non-blocking | `a62701e4` | RACE ×3 | PASS ×3 |
 | 18 | grpc#1687 | non-blocking | `c6b46087` | FAIL(panic) ×3 | PASS ×3 |
-| 19 | kubernetes#9926 | non-blocking | `de1f246e` | RACE 20/20 | 0/20 |
+| 19 | grpc#1546 | non-blocking | `22c3f92f` | FAIL(panic) ×3 | PASS ×3 |
+| 20 | kubernetes#9926 | non-blocking | `de1f246e` | RACE 20/20 | 0/20 |
 
 机器可读版本：`results/data/repro_summary.csv`。逐条的负责人与症状见 `code/cases/README.md`。
 
