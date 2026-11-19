@@ -256,23 +256,23 @@ bash xu_boltdb_run.sh 03 fixed   # 预期：正常返回错误
 `code/cases/non-blocking/boltdb-341/code/main.go` 与
 `code/cases/blocking/boltdb-begin-lock-leak/code/main.go`。
 
-### 8.2 gRPC-Go（案例 3 与案例 4 走两套工具链）
+### 8.2 gRPC-Go（个人 module 入口 / 组内公共驱动）
 
-案例 3 沿用公共驱动 `code/harness/p4_case.sh`（Go 1.10.8 + `GOPATH`），案例 4 用本案例自带的 module 驱动
-（Go 1.22.9），两者不能混用同一条命令：
+案例 3 与案例 4 都能在 Go 1.22.9 + module 下复跑，源码按提交号自动下载：
 
 ```bash
-# 案例 3：DialContext 协程泄漏（公共驱动，Go 1.10.8 + GOPATH）
-# p4_case.sh 里写死 GOROOT=/usr/local/go1.10.8；归档日志的 env.txt 也记录该路径与内核 4.15
-ls /usr/local/go1.10.8/bin/go                   # 本机没有，实际装在 /usr/local/go-versions/go1.10.8
-export P4_REPO=$HOME/gopath/src/google.golang.org/grpc   # 需 1.10.8 的 GOPATH 工作副本
-bash code/cases/blocking/grpc-1424/run.sh
+# 案例 3：DialContext 协程泄漏
+bash code/cases/blocking/grpc-1424/code/xu-run-1229.sh 3 60
 
-# 案例 4：并发 WriteStatus（本案例自带，Go 1.22.9 module，源码按提交号自动下载）
+# 案例 4：并发 WriteStatus
 bash code/cases/non-blocking/grpc-1546/run.sh 200 3
 ```
 
-案例 3 的 `env.txt` 记录 `goroot=/usr/local/go1.10.8`、`uname=Linux 4.15.0-213-generic`，说明归档结果来自
-1.10.8 环境；本机 WSL 的同一版本装在 `/usr/local/go-versions/go1.10.8`，直接跑公共驱动会因 GOROOT 不存在而失败，
-需要先把 `p4_case.sh` 的 `GOROOT` 指对（该脚本属全组公共驱动，改动需与组内确认）。
-案例 4 的 `run.sh` 会下载并核验源码后开跑，退出码与判定见该目录 `README.md`。
+两个脚本都会下载两侧官方源码、核对关键文件 sha256、补齐测试文件后才开跑，退出码统一为
+`0` 对照成立 / `2` buggy 未复现 / `3` fixed 未通过 / `4` 源码或环境问题。
+案例 3 的归档输出在 `code/cases/blocking/grpc-1424/logs/xu/1229/`：buggy 3/3 `FAIL(assert)`、fixed 3/3 `PASS`。
+
+案例 3 另有一条组内交叉验证路径：`code/cases/blocking/grpc-1424/run.sh` 调用公共驱动 `p4_case.sh`，
+走 Go 1.10.8 + `GOPATH`。该驱动写死 `GOROOT=/usr/local/go1.10.8`，归档日志的 `env.txt` 记录
+`uname=Linux 4.15.0-213-generic`，说明那份结果产自 1.10.8 环境；本机 WSL 的同一版本装在
+`/usr/local/go-versions/go1.10.8`，所以本机复跑走上面那条 module 入口，公共驱动保持原样不动。

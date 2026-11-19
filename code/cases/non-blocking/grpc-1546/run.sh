@@ -160,7 +160,6 @@ BUG_FAIL=0; BUG_BAD=0; FIX_PASS=0; FIX_BAD=0
 
 main() {
   [ -x "$GOBIN" ] || { echo "找不到 go: $GOBIN（用 GO1546 指定）"; return 4; }
-  mkdir -p "$OUT"
 
   echo "############ grpc  fix=$FIX_SHA  pkg=transport  test=$TEST_RE  count=$COUNT  iters=$ITERS  timeout=${TMO}s"
   prepare "$BUGGY" buggy "$BUG_SHA" "$H_BUG" || return 4
@@ -189,5 +188,16 @@ main() {
   return "$rc"
 }
 
+# 目录必须在起管道前建好：tee 与 main 并行启动，等 main 建目录已经晚了
+mkdir -p "$OUT" || { echo "无法创建日志目录: $OUT"; exit 4; }
+
 main 2>&1 | tee "$OUT/summary.txt"
-exit "${PIPESTATUS[0]}"
+# PIPESTATUS 读取一次就会被下一条命令覆盖，先整体拷出来
+rcs=("${PIPESTATUS[@]}")
+rc=${rcs[0]}
+tee_rc=${rcs[1]:-0}
+if [ "$tee_rc" -ne 0 ]; then
+  echo "写 $OUT/summary.txt 失败，本次记录不完整（main 退出码 $rc）" >&2
+  exit 4
+fi
+exit "$rc"

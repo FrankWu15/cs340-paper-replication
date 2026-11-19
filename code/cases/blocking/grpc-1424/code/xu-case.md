@@ -111,3 +111,21 @@ Files .../clientconn_test.go ... differ
 本 case 的测试直接调用 `cc.lbWatcher(doneChan)`，并未经过完整的 `DialContext`，因此**验证的是通知契约（`doneChan` 是否被关闭），而非直接观测协程数量**。该契约被破坏后的实际后果是 `DialContext` 内部协程永久阻塞，此结论来自代码路径分析，未通过 `runtime.NumGoroutine()` 或 goroutine dump 实测验证。
 
 若需补强，可另写一个端到端用例：以超时 ctx 调用 `DialContext`，令 balancer 提前关闭，统计调用前后的协程数。当前版本未包含该用例。
+
+## 复跑（Go 1.22.9 + module）
+
+```bash
+bash code/cases/blocking/grpc-1424/code/xu-run-1229.sh          # 3 轮
+bash code/cases/blocking/grpc-1424/code/xu-run-1229.sh 3 60     # iters timeout
+```
+
+脚本按提交号下载两侧源码到 `$HOME/grpc1424/{buggy,fixed}`，核对 `clientconn.go` 的 sha256、
+补齐与修复版一致的测试文件、复制 `notes/` 里的 `go.mod`/`go.sum` 后开跑；
+判定为 buggy `FAIL(assert)` ×3、fixed `PASS` ×3，退出码语义与 grpc#1546 的 `run.sh` 相同
+（0 对照成立 / 2 未复现 / 3 fixed 未通过 / 4 环境问题）。
+
+本轮归档日志在 `../logs/xu/1229/`：buggy 3/3 命中、fixed 3/3 通过，
+`env.txt` 记录两侧 `clientconn.go`、测试文件与依赖文件的 sha256。
+
+同目录的 `run.sh` 是 Go 1.10.8 + GOPATH 的另一条路径（依赖组内公共驱动 `p4_case.sh`），
+两者互不替代：`run.sh` 的产出是组内交叉验证，本脚本是个人 module 环境下的独立复跑。
