@@ -14,6 +14,7 @@
 # 用法:
 #   ./xu-observe-leak.sh              跑完整矩阵
 #   XU_OBS_FORCE=1 ./xu-observe-leak.sh   覆盖已有输出目录后重跑
+#   XU_OBS_JUDGE_ONLY=1 ./xu-observe-leak.sh  不重跑，只对已有归档重算汇总与判定
 #
 # 可覆盖变量:
 #   XU1424_BUGGY / XU1424_FIXED  专用源码目录，默认 $HOME/grpc1424-leak/{buggy,fixed}
@@ -22,8 +23,9 @@
 #   XU_WINDOW_MS                 每次调用返回后的观察窗口，默认 200
 #   GO1424                       go 可执行文件
 #
-# 退出码: 0 观测成立（buggy 残留、fixed 无残留）  2 buggy 未见残留
-#         3 fixed 仍有残留  4 源码/构建/环境问题
+# 退出码: 0 观测成立（buggy 残留 = N、fixed 与非阻塞对照均为 0、每次调用都已返回）
+#         2 buggy 未达到 N（未观测到）  3 fixed 或非阻塞对照仍有残留（对照被破坏）
+#         4 源码/构建/环境问题，或有调用未返回（观测链不完整，结果不可用）
 set -uo pipefail
 
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -36,6 +38,7 @@ RES="${XU_OBS_RES:-$CASE/results/xu/leak-observation}"
 PROBE="$CASE/probe/xu_dialcontext_leak_test.go"
 WINDOW_MS="${XU_WINDOW_MS:-200}"
 ROUNDS="${XU_OBS_ROUNDS:-3}"
+JUDGE_ONLY="${XU_OBS_JUDGE_ONLY:-0}"
 
 BUG_SHA=39c8c3866d926d95e11c03508bf83d00f2963f91
 FIX_SHA=4e56696c6c5a8cd7b711a1eb8936463559361da5
@@ -199,13 +202,17 @@ with open(out_csv, 'w', newline='', encoding='utf-8') as f:
         w.writerow(r)
 print(f"  {len(rows)} 行 -> {out_csv}")
 
-# 判定：cancel/deadline 期望 buggy=n、fixed=0；noblock 期望两侧都 0
+# 判定：cancel/deadline 期望 buggy=n、fixed=0；noblock 期望两侧都 0；
+# 每个进程的 N 次调用都必须返回（没返回时"残留数 = N"可能只是卡住，不能当观测成立）。
 bad_fix = [r for r in rows if r['context_mode'] != 'noblock' and r['version'] == 'fixed' and r['target_stacks_after']]
 weak = [r for r in rows if r['context_mode'] != 'noblock' and r['version'] == 'buggy' and r['target_stacks_after'] != r['n']]
 ctrl = [r for r in rows if r['context_mode'] == 'noblock' and r['target_stacks_after']]
-print(f"  对照: fixed 残留 {len(bad_fix)} 行, buggy 未达 N {len(weak)} 行, noblock 残留 {len(ctrl)} 行")
+not_ret = [r for r in rows if str(r['returned_calls']) != str(r['n'])]
+print(f"  对照: fixed 残留 {len(bad_fix)} 行, buggy 未达 N {len(weak)} 行, "
+      f"noblock 残留 {len(ctrl)} 行, 调用未全部返回 {len(not_ret)} 行")
 with open(os.path.join(os.path.dirname(out_csv), 'verdict.txt'), 'w') as f:
-    f.write(f"bad_fix={len(bad_fix)}\nweak={len(weak)}\nctrl={len(ctrl)}\nrows={len(rows)}\n")
+    f.write(f"bad_fix={len(bad_fix)}\nweak={len(weak)}\nctrl={len(ctrl)}\n"
+            f"not_returned={len(not_ret)}\nrows={len(rows)}\n")
 sys.exit(0)
 PY
 }
@@ -223,13 +230,59 @@ for r in rows:
 PY
 }
 
+# ---------------------------------------------------------------- 验收
+
+# 三项都必须满足才算观测成立：缺陷版达到 N、修复版为 0、非阻塞对照为 0，
+# 且每个进程的 N 次调用全部返回（没返回时残留数不可信）。
+finish() {
+  local vf="$RES/verdict.txt"
+  if [ -f "$vf" ]; then
+    # shellcheck disable=SC1090
+    . "$vf"
+    FIX_RESIDUAL="${bad_fix:-0}"
+    BUG_FAILS="${weak:-0}"
+    CTRL_RESIDUAL="${ctrl:-0}"
+    NOT_RETURNED="${not_returned:-0}"
+  else
+    FIX_RESIDUAL=0; BUG_FAILS=0; CTRL_RESIDUAL=0; NOT_RETURNED=1
+  fi
+  echo "  ---"
+  print_table
+
+  local rc result
+  if [ "$BAD" -gt 0 ]; then
+    result="ENV_ERROR"; rc=4
+  elif [ "$NOT_RETURNED" -gt 0 ]; then
+    # 有调用没返回：残留数不可信，不能算作观测成立
+    result="INCOMPLETE"; rc=4
+  elif [ "$FIX_RESIDUAL" -gt 0 ]; then
+    result="FIXED_RESIDUAL"; rc=3
+  elif [ "$CTRL_RESIDUAL" -gt 0 ]; then
+    result="CONTROL_RESIDUAL"; rc=3
+  elif [ "$BUG_FAILS" -gt 0 ]; then
+    result="NOT_OBSERVED"; rc=2
+  else
+    result="OBSERVED"; rc=0
+  fi
+  echo "############ RESULT: $result"
+  echo "############ DONE grpc1424-leak-observation"
+  return "$rc"
+}
+
 # ---------------------------------------------------------------- 主流程
 
 main() {
+  echo "############ grpc1424 真实 DialContext 协程残留观测  window=${WINDOW_MS}ms  rounds=$ROUNDS"
+
+  if [ "$JUDGE_ONLY" = "1" ]; then
+    log "== 只判定：不重跑，直接对 $OUT 的归档重算汇总"
+    build_summary || return 4
+    finish
+    return $?
+  fi
+
   [ -x "$GOBIN" ] || { log "找不到 go: $GOBIN（用 GO1424 指定）"; return 4; }
   mkdir -p "$OUT" "$RES" || return 4
-
-  echo "############ grpc1424 真实 DialContext 协程残留观测  window=${WINDOW_MS}ms  rounds=$ROUNDS"
 
   check_probe || return 4
   prepare_sources || return $?
@@ -252,36 +305,19 @@ main() {
   done
 
   build_summary || return 4
-  local vf="$RES/verdict.txt"
-  if [ -f "$vf" ]; then
-    # shellcheck disable=SC1090
-    . "$vf"
-    FIX_RESIDUAL="${bad_fix:-0}"
-    BUG_FAILS="${weak:-0}"
-  else
-    FIX_RESIDUAL=0; BUG_FAILS=0
-  fi
-  echo "  ---"
-  print_table
-
-  local rc result
-  if [ "$BAD" -gt 0 ]; then
-    result="ENV_ERROR"; rc=4
-  elif [ "$FIX_RESIDUAL" -gt 0 ]; then
-    result="FIXED_RESIDUAL"; rc=3
-  elif [ "$BUG_FAILS" -gt 0 ]; then
-    result="NOT_OBSERVED"; rc=2
-  else
-    result="OBSERVED"; rc=0
-  fi
-  echo "############ RESULT: $result"
-  echo "############ DONE grpc1424-leak-observation"
-  return "$rc"
+  finish
 }
 
 # 目录先建好并做非空检查：tee 会在 main 启动前就创建 summary.txt，
 # 所以「是否已有归档」必须在开启管道之前判断。
 mkdir -p "$OUT" "$RES" || { echo "无法创建输出目录: $OUT"; exit 4; }
+
+# 只判定模式：对已有归档重算，不重跑，也不覆盖归档里的 summary.txt
+if [ "$JUDGE_ONLY" = "1" ]; then
+  main
+  exit $?
+fi
+
 if [ -n "$(ls -A "$OUT" 2>/dev/null)$(ls -A "$RES" 2>/dev/null)" ] && [ "${XU_OBS_FORCE:-0}" != "1" ]; then
   echo "输出目录已有内容: $OUT"
   echo "确需重跑请加 XU_OBS_FORCE=1（只清空本实验子目录，不碰 logs/xu/1229）"

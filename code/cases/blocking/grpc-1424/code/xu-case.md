@@ -210,6 +210,11 @@ created by google.golang.org/grpc.DialContext in goroutine 13
 bash code/xu-observe-leak.sh          # 约 3 分钟，30 个独立进程
 ```
 
+判定同时要求四项：buggy 残留 = N、fixed = 0、非阻塞对照 = 0、每个进程的 N 次调用
+都已返回。退出码 `0` 成立 / `2` 未观测到 / `3` fixed 或对照有残留 / `4` 环境问题或
+有调用未返回。已有归档不必重跑，用 `XU_OBS_JUDGE_ONLY=1 bash code/xu-observe-leak.sh`
+可只重算汇总与判定（不覆盖归档里的 `summary.txt`）。
+
 源码准备复用 `xu-run-1229.sh`（专用目录 `$HOME/grpc1424-leak/`），不覆盖
 `logs/xu/1229/`。产物：
 
