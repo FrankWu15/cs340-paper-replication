@@ -1,0 +1,22 @@
+==================
+WARNING: DATA RACE
+Read at 0x000000606f40 by goroutine 8:
+  main.Get()
+      /tmp/p5/k9926/buggy/main.go:36 +0xfd
+  main.main.func2()
+      /tmp/p5/k9926/buggy/main.go:62 +0xf1
+
+Previous write at 0x000000606f40 by goroutine 7:
+  main.SetForTests()
+      /tmp/p5/k9926/buggy/main.go:33 +0x19a
+  main.main.func1()
+      /tmp/p5/k9926/buggy/main.go:55 +0xd8
+
+Goroutine 8 (running) created at:
+  main.main()
+      /tmp/p5/k9926/buggy/main.go:58 +0x2e4
+
+Goroutine 7 (running) created at:
+  main.main()
+      /tmp/p5/k9926/buggy/main.go:51 +0x204
+==================

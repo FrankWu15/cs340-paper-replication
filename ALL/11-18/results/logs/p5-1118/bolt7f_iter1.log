@@ -1,0 +1,25 @@
+seed: 86894
+.==================
+WARNING: DATA RACE
+Write at 0x00c42011a141 by goroutine 45:
+  testing.(*common).FailNow()
+      /usr/local/go1.10.8/src/testing/testing.go:552 +0x4a
+  github.com/boltdb/bolt.TestParallelTransactions.func1.1.1.1()
+      /home/li/gopath/src/github.com/boltdb/bolt/functional_test.go:60 +0x2b8
+
+Previous write at 0x00c42011a141 by goroutine 51:
+  testing.(*common).FailNow()
+      /usr/local/go1.10.8/src/testing/testing.go:552 +0x4a
+  github.com/boltdb/bolt.TestParallelTransactions.func1.1.1.1()
+      /home/li/gopath/src/github.com/boltdb/bolt/functional_test.go:60 +0x2b8
+
+Goroutine 45 (running) created at:
+  github.com/boltdb/bolt.TestParallelTransactions.func1.1.1()
+      /home/li/gopath/src/github.com/boltdb/bolt/functional_test.go:45 +0xcb
+
+Goroutine 51 (finished) created at:
+  github.com/boltdb/bolt.TestParallelTransactions.func1.1.1()
+      /home/li/gopath/src/github.com/boltdb/bolt/functional_test.go:45 +0xcb
+==================
+exit status 66
+FAIL	github.com/boltdb/bolt	0.729s
