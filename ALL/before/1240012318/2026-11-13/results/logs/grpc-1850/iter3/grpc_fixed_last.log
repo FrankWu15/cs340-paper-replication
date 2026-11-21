@@ -1,0 +1,5 @@
+=== RUN   TestClientDoesntDeadlockWhileWritingErrornousLargeMessages
+--- PASS: TestClientDoesntDeadlockWhileWritingErrornousLargeMessages (0.19s)
+	end2end_test.go:520: Running test in tcp-clear environment...
+PASS
+ok  	google.golang.org/grpc/test	0.193s

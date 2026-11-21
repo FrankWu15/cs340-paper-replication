@@ -1,0 +1,12 @@
+=== go build ./... (real upstream etcd client code) ===
+build rc=0
+
+=== go run . (expect: fatal error: all goroutines are asleep - deadlock!, exit 2) ===
+calling REAL httpClusterClient.Sync() from buggy commit 83930ac1 ...
+CONFIRMED: real upstream httpClusterClient.Sync self-deadlock
+(blocked in RLock while holding Lock; Go's native deadlock
+ detector does not fire because net/http keeps a netpoller
+ goroutine alive, so the scheduler never sees all-asleep)
+exit status 2
+
+PROGRAM_EXIT_CODE=1

@@ -1,0 +1,140 @@
+=== RUN   TestBalancerSubConnsMapRaceProbe
+==================
+WARNING: DATA RACE
+Write at 0x00c4201f8030 by goroutine 15:
+  runtime.mapassign_fast64()
+      /usr/local/go1.10.8/src/runtime/hashmap_fast.go:522 +0x0
+  google.golang.org/grpc.(*ccBalancerWrapper).NewSubConn()
+      /home/li/gopath/src/google.golang.org/grpc/balancer_conn_wrappers.go:198 +0x1ff
+  google.golang.org/grpc_test.(*churnBalancer).churn()
+      /home/li/gopath/src/google.golang.org/grpc/balancer_subconns_map_probe_test.go:79 +0xaa
+
+Previous write at 0x00c4201f8030 by goroutine 13:
+  runtime.mapassign_fast64()
+      /usr/local/go1.10.8/src/runtime/hashmap_fast.go:522 +0x0
+  google.golang.org/grpc.(*ccBalancerWrapper).NewSubConn()
+      /home/li/gopath/src/google.golang.org/grpc/balancer_conn_wrappers.go:198 +0x1ff
+  google.golang.org/grpc_test.(*churnBalancer).churn()
+      /home/li/gopath/src/google.golang.org/grpc/balancer_subconns_map_probe_test.go:79 +0xaa
+
+Goroutine 15 (running) created at:
+  google.golang.org/grpc_test.(*churnBalancer).HandleResolvedAddrs()
+      /home/li/gopath/src/google.golang.org/grpc/balancer_subconns_map_probe_test.go:68 +0x139
+  google.golang.org/grpc.(*ccBalancerWrapper).watcher()
+      /home/li/gopath/src/google.golang.org/grpc/balancer_conn_wrappers.go:138 +0x433
+
+Goroutine 13 (running) created at:
+  google.golang.org/grpc_test.(*churnBalancer).HandleResolvedAddrs()
+      /home/li/gopath/src/google.golang.org/grpc/balancer_subconns_map_probe_test.go:68 +0x139
+  google.golang.org/grpc.(*ccBalancerWrapper).watcher()
+      /home/li/gopath/src/google.golang.org/grpc/balancer_conn_wrappers.go:138 +0x433
+==================
+fatal error: concurrent map writes
+
+goroutine 21 [running]:
+runtime.throw(0xb56b45, 0x15)
+	/usr/local/go1.10.8/src/runtime/panic.go:616 +0x81 fp=0xc42003aed8 sp=0xc42003aeb8 pc=0x455ea1
+runtime.mapdelete_fast64(0xab3920, 0xc4201f8030, 0xc42022a2d0)
+	/usr/local/go1.10.8/src/runtime/hashmap_fast.go:843 +0x2f1 fp=0xc42003af20 sp=0xc42003aed8 pc=0x433cb1
+google.golang.org/grpc.(*ccBalancerWrapper).RemoveSubConn(0xc4201f2080, 0xbc7320, 0xc42022a2d0)
+	/home/li/gopath/src/google.golang.org/grpc/balancer_conn_wrappers.go:207 +0x8e fp=0xc42003af60 sp=0xc42003af20 pc=0x9ccb7e
+google.golang.org/grpc_test.(*churnBalancer).churn(0xc42017e060, 0xc42006eb00, 0x1, 0x1)
+	/home/li/gopath/src/google.golang.org/grpc/balancer_subconns_map_probe_test.go:83 +0x105 fp=0xc42003afc0 sp=0xc42003af60 pc=0xa32e35
+runtime.goexit()
+	/usr/local/go1.10.8/src/runtime/asm_amd64.s:2361 +0x1 fp=0xc42003afc8 sp=0xc42003afc0 pc=0x4881e1
+created by google.golang.org/grpc_test.(*churnBalancer).HandleResolvedAddrs
+	/home/li/gopath/src/google.golang.org/grpc/balancer_subconns_map_probe_test.go:68 +0x13a
+
+goroutine 1 [chan receive]:
+testing.(*T).Run(0xc420196000, 0xb5c4e3, 0x20, 0xb71300, 0xc420063c01)
+	/usr/local/go1.10.8/src/testing/testing.go:825 +0x597
+testing.runTests.func1(0xc420196000)
+	/usr/local/go1.10.8/src/testing/testing.go:1063 +0xa5
+testing.tRunner(0xc420196000, 0xc420063db0)
+	/usr/local/go1.10.8/src/testing/testing.go:777 +0x16e
+testing.runTests(0xc4201743e0, 0xe75700, 0x42, 0x42, 0xc420188000)
+	/usr/local/go1.10.8/src/testing/testing.go:1061 +0x4e2
+testing.(*M).Run(0xc420188000, 0x0)
+	/usr/local/go1.10.8/src/testing/testing.go:978 +0x2ce
+main.main()
+	_testmain.go:200 +0x22b
+
+goroutine 5 [chan receive]:
+github.com/golang/glog.(*loggingT).flushDaemon(0xe7bfc0)
+	/home/li/gopath/src/github.com/golang/glog/glog.go:882 +0xac
+created by github.com/golang/glog.init.0
+	/home/li/gopath/src/github.com/golang/glog/glog.go:410 +0x231
+
+goroutine 7 [sleep]:
+time.Sleep(0x989680)
+	/usr/local/go1.10.8/src/runtime/time.go:102 +0x146
+google.golang.org/grpc_test.TestBalancerSubConnsMapRaceProbe(0xc4201960f0)
+	/home/li/gopath/src/google.golang.org/grpc/balancer_subconns_map_probe_test.go:103 +0x23f
+testing.tRunner(0xc4201960f0, 0xb71300)
+	/usr/local/go1.10.8/src/testing/testing.go:777 +0x16e
+created by testing.(*T).Run
+	/usr/local/go1.10.8/src/testing/testing.go:824 +0x565
+
+goroutine 8 [select]:
+google.golang.org/grpc.(*ccResolverWrapper).watcher(0xc420095bf0)
+	/home/li/gopath/src/google.golang.org/grpc/resolver_conn_wrapper.go:108 +0x205
+created by google.golang.org/grpc.(*ccResolverWrapper).start
+	/home/li/gopath/src/google.golang.org/grpc/resolver_conn_wrapper.go:94 +0x4d
+
+goroutine 19 [select]:
+google.golang.org/grpc.(*ccBalancerWrapper).watcher(0xc4201f2080)
+	/home/li/gopath/src/google.golang.org/grpc/balancer_conn_wrappers.go:121 +0x1c5
+created by google.golang.org/grpc.newCCBalancerWrapper
+	/home/li/gopath/src/google.golang.org/grpc/balancer_conn_wrappers.go:112 +0x295
+
+goroutine 20 [runnable]:
+internal/race.Release(0xc4200cf358)
+	/usr/local/go1.10.8/src/internal/race/race.go:20 +0x4d
+sync.(*RWMutex).Unlock(0xc4200cf350)
+	/usr/local/go1.10.8/src/sync/rwmutex.go:117 +0x5a
+google.golang.org/grpc.(*ClientConn).newAddrConn(0xc4200cf180, 0xc42006eb00, 0x1, 0x1, 0xc4200cf388, 0xc4200cf350, 0xc420040f50)
+	/home/li/gopath/src/google.golang.org/grpc/clientconn.go:731 +0x2d9
+google.golang.org/grpc.(*ccBalancerWrapper).NewSubConn(0xc4201f2080, 0xc42006eb00, 0x1, 0x1, 0xbc7320, 0xc42024a410, 0x0, 0x0)
+	/home/li/gopath/src/google.golang.org/grpc/balancer_conn_wrappers.go:190 +0x8c
+google.golang.org/grpc_test.(*churnBalancer).churn(0xc42017e060, 0xc42006eb00, 0x1, 0x1)
+	/home/li/gopath/src/google.golang.org/grpc/balancer_subconns_map_probe_test.go:79 +0xab
+created by google.golang.org/grpc_test.(*churnBalancer).HandleResolvedAddrs
+	/home/li/gopath/src/google.golang.org/grpc/balancer_subconns_map_probe_test.go:68 +0x13a
+
+goroutine 22 [runnable]:
+sync.runtime_SemacquireMutex(0xc4200cf354, 0x1900000001)
+	/usr/local/go1.10.8/src/runtime/sema.go:71 +0x3d
+sync.(*Mutex).Lock(0xc4200cf350)
+	/usr/local/go1.10.8/src/sync/mutex.go:134 +0x172
+sync.(*RWMutex).Lock(0xc4200cf350)
+	/usr/local/go1.10.8/src/sync/rwmutex.go:93 +0x49
+google.golang.org/grpc.(*ClientConn).removeAddrConn(0xc4200cf180, 0xc4200fee00, 0xbc4aa0, 0xc4200550b0)
+	/home/li/gopath/src/google.golang.org/grpc/clientconn.go:738 +0x4b
+google.golang.org/grpc.(*ccBalancerWrapper).RemoveSubConn(0xc4201f2080, 0xbc7320, 0xc4200557a0)
+	/home/li/gopath/src/google.golang.org/grpc/balancer_conn_wrappers.go:208 +0xf7
+google.golang.org/grpc_test.(*churnBalancer).churn(0xc42017e060, 0xc42006eb00, 0x1, 0x1)
+	/home/li/gopath/src/google.golang.org/grpc/balancer_subconns_map_probe_test.go:83 +0x105
+created by google.golang.org/grpc_test.(*churnBalancer).HandleResolvedAddrs
+	/home/li/gopath/src/google.golang.org/grpc/balancer_subconns_map_probe_test.go:68 +0x13a
+
+goroutine 23 [semacquire]:
+sync.runtime_SemacquireMutex(0xc4200cf354, 0x1900000000)
+	/usr/local/go1.10.8/src/runtime/sema.go:71 +0x3d
+sync.(*Mutex).Lock(0xc4200cf350)
+	/usr/local/go1.10.8/src/sync/mutex.go:134 +0x172
+sync.(*RWMutex).Lock(0xc4200cf350)
+	/usr/local/go1.10.8/src/sync/rwmutex.go:93 +0x49
+google.golang.org/grpc.(*ClientConn).handleSubConnStateChange(0xc4200cf180, 0xbc7320, 0xc420055730, 0x4)
+	/home/li/gopath/src/google.golang.org/grpc/clientconn.go:703 +0x4b
+google.golang.org/grpc.(*addrConn).tearDown(0xc4200fe600, 0xbc4aa0, 0xc4200550b0)
+	/home/li/gopath/src/google.golang.org/grpc/clientconn.go:1198 +0x20a
+google.golang.org/grpc.(*ClientConn).removeAddrConn(0xc4200cf180, 0xc4200fe600, 0xbc4aa0, 0xc4200550b0)
+	/home/li/gopath/src/google.golang.org/grpc/clientconn.go:745 +0xdf
+google.golang.org/grpc.(*ccBalancerWrapper).RemoveSubConn(0xc4201f2080, 0xbc7320, 0xc420055730)
+	/home/li/gopath/src/google.golang.org/grpc/balancer_conn_wrappers.go:208 +0xf7
+google.golang.org/grpc_test.(*churnBalancer).churn(0xc42017e060, 0xc42006eb00, 0x1, 0x1)
+	/home/li/gopath/src/google.golang.org/grpc/balancer_subconns_map_probe_test.go:83 +0x105
+created by google.golang.org/grpc_test.(*churnBalancer).HandleResolvedAddrs
+	/home/li/gopath/src/google.golang.org/grpc/balancer_subconns_map_probe_test.go:68 +0x13a
+exit status 2
+FAIL	google.golang.org/grpc	0.020s

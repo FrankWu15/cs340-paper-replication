@@ -1,0 +1,81 @@
+bug,mode,run,exit_code,wall_clock_ms,deadlock_reported,timed_out,result_line,log_file
+double-rlock,buggy,01,2,217,1,0,"NA",results/raw/double-rlock-buggy-01.log
+double-rlock,buggy,02,2,219,1,0,"NA",results/raw/double-rlock-buggy-02.log
+double-rlock,buggy,03,2,217,1,0,"NA",results/raw/double-rlock-buggy-03.log
+double-rlock,buggy,04,2,216,1,0,"NA",results/raw/double-rlock-buggy-04.log
+double-rlock,buggy,05,2,221,1,0,"NA",results/raw/double-rlock-buggy-05.log
+double-rlock,buggy,06,2,223,1,0,"NA",results/raw/double-rlock-buggy-06.log
+double-rlock,buggy,07,2,220,1,0,"NA",results/raw/double-rlock-buggy-07.log
+double-rlock,buggy,08,2,320,1,0,"NA",results/raw/double-rlock-buggy-08.log
+double-rlock,buggy,09,2,227,1,0,"NA",results/raw/double-rlock-buggy-09.log
+double-rlock,buggy,10,2,218,1,0,"NA",results/raw/double-rlock-buggy-10.log
+double-rlock,buggy,11,2,218,1,0,"NA",results/raw/double-rlock-buggy-11.log
+double-rlock,buggy,12,2,222,1,0,"NA",results/raw/double-rlock-buggy-12.log
+double-rlock,buggy,13,2,219,1,0,"NA",results/raw/double-rlock-buggy-13.log
+double-rlock,buggy,14,2,323,1,0,"NA",results/raw/double-rlock-buggy-14.log
+double-rlock,buggy,15,2,327,1,0,"NA",results/raw/double-rlock-buggy-15.log
+double-rlock,buggy,16,2,220,1,0,"NA",results/raw/double-rlock-buggy-16.log
+double-rlock,buggy,17,2,229,1,0,"NA",results/raw/double-rlock-buggy-17.log
+double-rlock,buggy,18,2,226,1,0,"NA",results/raw/double-rlock-buggy-18.log
+double-rlock,buggy,19,2,222,1,0,"NA",results/raw/double-rlock-buggy-19.log
+double-rlock,buggy,20,2,222,1,0,"NA",results/raw/double-rlock-buggy-20.log
+double-rlock,fixed,01,0,144,0,0,"[result] run_id=double-rlock-fixed-01 bug=double-rlock mode=fixed status=finished value=4-7 elapsed_ms=14.673",results/raw/double-rlock-fixed-01.log
+double-rlock,fixed,02,0,126,0,0,"[result] run_id=double-rlock-fixed-02 bug=double-rlock mode=fixed status=finished value=4-7 elapsed_ms=10.200",results/raw/double-rlock-fixed-02.log
+double-rlock,fixed,03,0,120,0,0,"[result] run_id=double-rlock-fixed-03 bug=double-rlock mode=fixed status=finished value=4-7 elapsed_ms=9.267",results/raw/double-rlock-fixed-03.log
+double-rlock,fixed,04,0,133,0,0,"[result] run_id=double-rlock-fixed-04 bug=double-rlock mode=fixed status=finished value=4-7 elapsed_ms=11.203",results/raw/double-rlock-fixed-04.log
+double-rlock,fixed,05,0,118,0,0,"[result] run_id=double-rlock-fixed-05 bug=double-rlock mode=fixed status=finished value=4-7 elapsed_ms=10.096",results/raw/double-rlock-fixed-05.log
+double-rlock,fixed,06,0,119,0,0,"[result] run_id=double-rlock-fixed-06 bug=double-rlock mode=fixed status=finished value=4-7 elapsed_ms=12.343",results/raw/double-rlock-fixed-06.log
+double-rlock,fixed,07,0,117,0,0,"[result] run_id=double-rlock-fixed-07 bug=double-rlock mode=fixed status=finished value=4-7 elapsed_ms=10.095",results/raw/double-rlock-fixed-07.log
+double-rlock,fixed,08,0,118,0,0,"[result] run_id=double-rlock-fixed-08 bug=double-rlock mode=fixed status=finished value=4-7 elapsed_ms=10.735",results/raw/double-rlock-fixed-08.log
+double-rlock,fixed,09,0,130,0,0,"[result] run_id=double-rlock-fixed-09 bug=double-rlock mode=fixed status=finished value=4-7 elapsed_ms=10.448",results/raw/double-rlock-fixed-09.log
+double-rlock,fixed,10,0,121,0,0,"[result] run_id=double-rlock-fixed-10 bug=double-rlock mode=fixed status=finished value=4-7 elapsed_ms=9.157",results/raw/double-rlock-fixed-10.log
+double-rlock,fixed,11,0,119,0,0,"[result] run_id=double-rlock-fixed-11 bug=double-rlock mode=fixed status=finished value=4-7 elapsed_ms=9.485",results/raw/double-rlock-fixed-11.log
+double-rlock,fixed,12,0,130,0,0,"[result] run_id=double-rlock-fixed-12 bug=double-rlock mode=fixed status=finished value=4-7 elapsed_ms=10.639",results/raw/double-rlock-fixed-12.log
+double-rlock,fixed,13,0,125,0,0,"[result] run_id=double-rlock-fixed-13 bug=double-rlock mode=fixed status=finished value=4-7 elapsed_ms=10.119",results/raw/double-rlock-fixed-13.log
+double-rlock,fixed,14,0,133,0,0,"[result] run_id=double-rlock-fixed-14 bug=double-rlock mode=fixed status=finished value=4-7 elapsed_ms=12.325",results/raw/double-rlock-fixed-14.log
+double-rlock,fixed,15,0,136,0,0,"[result] run_id=double-rlock-fixed-15 bug=double-rlock mode=fixed status=finished value=4-7 elapsed_ms=12.224",results/raw/double-rlock-fixed-15.log
+double-rlock,fixed,16,0,134,0,0,"[result] run_id=double-rlock-fixed-16 bug=double-rlock mode=fixed status=finished value=4-7 elapsed_ms=11.878",results/raw/double-rlock-fixed-16.log
+double-rlock,fixed,17,0,134,0,0,"[result] run_id=double-rlock-fixed-17 bug=double-rlock mode=fixed status=finished value=4-7 elapsed_ms=13.171",results/raw/double-rlock-fixed-17.log
+double-rlock,fixed,18,0,131,0,0,"[result] run_id=double-rlock-fixed-18 bug=double-rlock mode=fixed status=finished value=4-7 elapsed_ms=10.340",results/raw/double-rlock-fixed-18.log
+double-rlock,fixed,19,0,135,0,0,"[result] run_id=double-rlock-fixed-19 bug=double-rlock mode=fixed status=finished value=4-7 elapsed_ms=11.261",results/raw/double-rlock-fixed-19.log
+double-rlock,fixed,20,0,138,0,0,"[result] run_id=double-rlock-fixed-20 bug=double-rlock mode=fixed status=finished value=4-7 elapsed_ms=12.255",results/raw/double-rlock-fixed-20.log
+miss-unlock,buggy,01,2,231,1,0,"NA",results/raw/miss-unlock-buggy-01.log
+miss-unlock,buggy,02,2,232,1,0,"NA",results/raw/miss-unlock-buggy-02.log
+miss-unlock,buggy,03,2,222,1,0,"NA",results/raw/miss-unlock-buggy-03.log
+miss-unlock,buggy,04,2,231,1,0,"NA",results/raw/miss-unlock-buggy-04.log
+miss-unlock,buggy,05,2,222,1,0,"NA",results/raw/miss-unlock-buggy-05.log
+miss-unlock,buggy,06,2,118,1,0,"NA",results/raw/miss-unlock-buggy-06.log
+miss-unlock,buggy,07,2,120,1,0,"NA",results/raw/miss-unlock-buggy-07.log
+miss-unlock,buggy,08,2,117,1,0,"NA",results/raw/miss-unlock-buggy-08.log
+miss-unlock,buggy,09,2,218,1,0,"NA",results/raw/miss-unlock-buggy-09.log
+miss-unlock,buggy,10,2,118,1,0,"NA",results/raw/miss-unlock-buggy-10.log
+miss-unlock,buggy,11,2,118,1,0,"NA",results/raw/miss-unlock-buggy-11.log
+miss-unlock,buggy,12,2,118,1,0,"NA",results/raw/miss-unlock-buggy-12.log
+miss-unlock,buggy,13,2,119,1,0,"NA",results/raw/miss-unlock-buggy-13.log
+miss-unlock,buggy,14,2,217,1,0,"NA",results/raw/miss-unlock-buggy-14.log
+miss-unlock,buggy,15,2,221,1,0,"NA",results/raw/miss-unlock-buggy-15.log
+miss-unlock,buggy,16,2,222,1,0,"NA",results/raw/miss-unlock-buggy-16.log
+miss-unlock,buggy,17,2,234,1,0,"NA",results/raw/miss-unlock-buggy-17.log
+miss-unlock,buggy,18,2,229,1,0,"NA",results/raw/miss-unlock-buggy-18.log
+miss-unlock,buggy,19,2,233,1,0,"NA",results/raw/miss-unlock-buggy-19.log
+miss-unlock,buggy,20,2,230,1,0,"NA",results/raw/miss-unlock-buggy-20.log
+miss-unlock,fixed,01,0,129,0,0,"[result] run_id=miss-unlock-fixed-01 bug=miss-unlock mode=fixed status=finished value=writer_completed elapsed_ms=7.151",results/raw/miss-unlock-fixed-01.log
+miss-unlock,fixed,02,0,141,0,0,"[result] run_id=miss-unlock-fixed-02 bug=miss-unlock mode=fixed status=finished value=writer_completed elapsed_ms=4.594",results/raw/miss-unlock-fixed-02.log
+miss-unlock,fixed,03,0,128,0,0,"[result] run_id=miss-unlock-fixed-03 bug=miss-unlock mode=fixed status=finished value=writer_completed elapsed_ms=6.020",results/raw/miss-unlock-fixed-03.log
+miss-unlock,fixed,04,0,118,0,0,"[result] run_id=miss-unlock-fixed-04 bug=miss-unlock mode=fixed status=finished value=writer_completed elapsed_ms=3.429",results/raw/miss-unlock-fixed-04.log
+miss-unlock,fixed,05,0,122,0,0,"[result] run_id=miss-unlock-fixed-05 bug=miss-unlock mode=fixed status=finished value=writer_completed elapsed_ms=4.045",results/raw/miss-unlock-fixed-05.log
+miss-unlock,fixed,06,0,127,0,0,"[result] run_id=miss-unlock-fixed-06 bug=miss-unlock mode=fixed status=finished value=writer_completed elapsed_ms=5.621",results/raw/miss-unlock-fixed-06.log
+miss-unlock,fixed,07,0,121,0,0,"[result] run_id=miss-unlock-fixed-07 bug=miss-unlock mode=fixed status=finished value=writer_completed elapsed_ms=3.959",results/raw/miss-unlock-fixed-07.log
+miss-unlock,fixed,08,0,117,0,0,"[result] run_id=miss-unlock-fixed-08 bug=miss-unlock mode=fixed status=finished value=writer_completed elapsed_ms=3.832",results/raw/miss-unlock-fixed-08.log
+miss-unlock,fixed,09,0,129,0,0,"[result] run_id=miss-unlock-fixed-09 bug=miss-unlock mode=fixed status=finished value=writer_completed elapsed_ms=7.643",results/raw/miss-unlock-fixed-09.log
+miss-unlock,fixed,10,0,133,0,0,"[result] run_id=miss-unlock-fixed-10 bug=miss-unlock mode=fixed status=finished value=writer_completed elapsed_ms=7.087",results/raw/miss-unlock-fixed-10.log
+miss-unlock,fixed,11,0,125,0,0,"[result] run_id=miss-unlock-fixed-11 bug=miss-unlock mode=fixed status=finished value=writer_completed elapsed_ms=3.849",results/raw/miss-unlock-fixed-11.log
+miss-unlock,fixed,12,0,115,0,0,"[result] run_id=miss-unlock-fixed-12 bug=miss-unlock mode=fixed status=finished value=writer_completed elapsed_ms=4.427",results/raw/miss-unlock-fixed-12.log
+miss-unlock,fixed,13,0,122,0,0,"[result] run_id=miss-unlock-fixed-13 bug=miss-unlock mode=fixed status=finished value=writer_completed elapsed_ms=4.038",results/raw/miss-unlock-fixed-13.log
+miss-unlock,fixed,14,0,130,0,0,"[result] run_id=miss-unlock-fixed-14 bug=miss-unlock mode=fixed status=finished value=writer_completed elapsed_ms=5.889",results/raw/miss-unlock-fixed-14.log
+miss-unlock,fixed,15,0,132,0,0,"[result] run_id=miss-unlock-fixed-15 bug=miss-unlock mode=fixed status=finished value=writer_completed elapsed_ms=4.269",results/raw/miss-unlock-fixed-15.log
+miss-unlock,fixed,16,0,128,0,0,"[result] run_id=miss-unlock-fixed-16 bug=miss-unlock mode=fixed status=finished value=writer_completed elapsed_ms=5.433",results/raw/miss-unlock-fixed-16.log
+miss-unlock,fixed,17,0,130,0,0,"[result] run_id=miss-unlock-fixed-17 bug=miss-unlock mode=fixed status=finished value=writer_completed elapsed_ms=5.306",results/raw/miss-unlock-fixed-17.log
+miss-unlock,fixed,18,0,125,0,0,"[result] run_id=miss-unlock-fixed-18 bug=miss-unlock mode=fixed status=finished value=writer_completed elapsed_ms=4.035",results/raw/miss-unlock-fixed-18.log
+miss-unlock,fixed,19,0,124,0,0,"[result] run_id=miss-unlock-fixed-19 bug=miss-unlock mode=fixed status=finished value=writer_completed elapsed_ms=8.447",results/raw/miss-unlock-fixed-19.log
+miss-unlock,fixed,20,0,121,0,0,"[result] run_id=miss-unlock-fixed-20 bug=miss-unlock mode=fixed status=finished value=writer_completed elapsed_ms=5.171",results/raw/miss-unlock-fixed-20.log

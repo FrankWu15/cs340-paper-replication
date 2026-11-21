@@ -1,0 +1,9 @@
+=== RUN   TestKeepaliveAwakenDeadlockProbe
+--- PASS: TestKeepaliveAwakenDeadlockProbe (2.81s)
+	keepalive_awaken_probe_test.go:79: RPC #1 returned
+	keepalive_awaken_probe_test.go:79: RPC #2 returned
+	keepalive_awaken_probe_test.go:79: RPC #3 returned
+	keepalive_awaken_probe_test.go:79: RPC #4 returned
+	keepalive_awaken_probe_test.go:82: 4 次 RPC 全部返回：未触发死锁
+PASS
+ok  	google.golang.org/grpc	2.810s

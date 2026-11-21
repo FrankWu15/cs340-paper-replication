@@ -1,0 +1,11 @@
+############ grpc  fix=484b3ebb4ab56d3decc8240d599718bdbefcf7eb  pkg=test  test=TestClientDoesntDeadlockWhileWritingErrornousLargeMessages$  env=tcp-clear  iters=3  timeout=60s
+  [buggy] 测试补丁已应用
+  [buggy] iter1: PASS
+  [buggy] iter2: PASS
+  [buggy] iter3: PASS
+  [fixed] iter1: PASS
+  [fixed] iter2: PASS
+  [fixed] iter3: PASS
+  [buggy] SUMMARY pass=3 fail=0 timeout=0 notrun=0 error=0
+  [fixed] SUMMARY pass=3 fail=0 timeout=0 notrun=0 error=0
+############ DONE grpc

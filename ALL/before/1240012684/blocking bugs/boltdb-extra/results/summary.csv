@@ -1,0 +1,41 @@
+mode,run,exit_code,wall_clock_ms,deadlock_reported,timed_out,last_trace_ms,result_line,log_file
+buggy,01,2,422,1,0,14.492,"NA",results/raw/buggy-01.log
+buggy,02,2,220,1,0,7.884,"NA",results/raw/buggy-02.log
+buggy,03,2,320,1,0,6.365,"NA",results/raw/buggy-03.log
+buggy,04,2,329,1,0,8.232,"NA",results/raw/buggy-04.log
+buggy,05,2,340,1,0,13.101,"NA",results/raw/buggy-05.log
+buggy,06,2,316,1,0,8.238,"NA",results/raw/buggy-06.log
+buggy,07,2,217,1,0,4.900,"NA",results/raw/buggy-07.log
+buggy,08,2,322,1,0,6.367,"NA",results/raw/buggy-08.log
+buggy,09,2,317,1,0,6.811,"NA",results/raw/buggy-09.log
+buggy,10,2,327,1,0,8.964,"NA",results/raw/buggy-10.log
+move,01,0,135,0,0,29.296,"[result] run_id=move-01 mode=move status=finished view_returned=true writer_err=<nil> elapsed_ms=30.575",results/raw/move-01.log
+move,02,0,128,0,0,40.222,"[result] run_id=move-02 mode=move status=finished view_returned=true writer_err=<nil> elapsed_ms=40.707",results/raw/move-02.log
+move,03,0,133,0,0,38.763,"[result] run_id=move-03 mode=move status=finished view_returned=true writer_err=<nil> elapsed_ms=41.866",results/raw/move-03.log
+move,04,0,134,0,0,16.822,"[result] run_id=move-04 mode=move status=finished view_returned=true writer_err=<nil> elapsed_ms=17.769",results/raw/move-04.log
+move,05,0,130,0,0,24.995,"[result] run_id=move-05 mode=move status=finished view_returned=true writer_err=<nil> elapsed_ms=25.792",results/raw/move-05.log
+move,06,0,127,0,0,24.793,"[result] run_id=move-06 mode=move status=finished view_returned=true writer_err=<nil> elapsed_ms=26.772",results/raw/move-06.log
+move,07,0,130,0,0,23.433,"[result] run_id=move-07 mode=move status=finished view_returned=true writer_err=<nil> elapsed_ms=25.159",results/raw/move-07.log
+move,08,0,138,0,0,28.773,"[result] run_id=move-08 mode=move status=finished view_returned=true writer_err=<nil> elapsed_ms=30.346",results/raw/move-08.log
+move,09,0,132,0,0,30.687,"[result] run_id=move-09 mode=move status=finished view_returned=true writer_err=<nil> elapsed_ms=33.275",results/raw/move-09.log
+move,10,0,137,0,0,25.669,"[result] run_id=move-10 mode=move status=finished view_returned=true writer_err=<nil> elapsed_ms=26.976",results/raw/move-10.log
+select,01,0,127,0,0,26.484,"[result] run_id=select-01 mode=select status=finished view_returned=true writer_err=<nil> elapsed_ms=28.360",results/raw/select-01.log
+select,02,0,127,0,0,21.225,"[result] run_id=select-02 mode=select status=finished view_returned=true writer_err=<nil> elapsed_ms=21.999",results/raw/select-02.log
+select,03,0,130,0,0,29.124,"[result] run_id=select-03 mode=select status=finished view_returned=true writer_err=<nil> elapsed_ms=31.531",results/raw/select-03.log
+select,04,0,126,0,0,32.614,"[result] run_id=select-04 mode=select status=finished view_returned=true writer_err=<nil> elapsed_ms=34.947",results/raw/select-04.log
+select,05,0,137,0,0,33.847,"[result] run_id=select-05 mode=select status=finished view_returned=true writer_err=<nil> elapsed_ms=36.468",results/raw/select-05.log
+select,06,0,127,0,0,14.681,"[result] run_id=select-06 mode=select status=finished view_returned=true writer_err=<nil> elapsed_ms=15.426",results/raw/select-06.log
+select,07,0,125,0,0,17.838,"[result] run_id=select-07 mode=select status=finished view_returned=true writer_err=<nil> elapsed_ms=18.568",results/raw/select-07.log
+select,08,0,136,0,0,32.343,"[result] run_id=select-08 mode=select status=finished view_returned=true writer_err=<nil> elapsed_ms=35.338",results/raw/select-08.log
+select,09,0,131,0,0,27.619,"[result] run_id=select-09 mode=select status=finished view_returned=true writer_err=<nil> elapsed_ms=29.921",results/raw/select-09.log
+select,10,0,142,0,0,22.762,"[result] run_id=select-10 mode=select status=finished view_returned=true writer_err=<nil> elapsed_ms=23.523",results/raw/select-10.log
+live,01,124,5047,0,1,12.013,"NA",results/raw/live-01.log
+live,02,124,5040,0,1,7.140,"NA",results/raw/live-02.log
+live,03,124,5060,0,1,6.247,"NA",results/raw/live-03.log
+live,04,124,5050,0,1,16.985,"NA",results/raw/live-04.log
+live,05,124,5052,0,1,22.458,"NA",results/raw/live-05.log
+live,06,124,5057,0,1,18.838,"NA",results/raw/live-06.log
+live,07,124,5053,0,1,14.590,"NA",results/raw/live-07.log
+live,08,124,5059,0,1,17.225,"NA",results/raw/live-08.log
+live,09,124,5056,0,1,10.323,"NA",results/raw/live-09.log
+live,10,124,5060,0,1,6.201,"NA",results/raw/live-10.log

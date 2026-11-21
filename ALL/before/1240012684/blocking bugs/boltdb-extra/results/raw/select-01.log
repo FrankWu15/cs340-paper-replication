@@ -1,0 +1,11 @@
+[info] run_id=select-01 mode=select go=go1.26.8 os=linux arch=amd64 gomaxprocs=12
+[info] workload keys=512 value_bytes=4096 initial_mmap_size=32768 live_ticker_ms=50
+[info] lock_map view=mmaplock.RLock writer_growth=mmaplock.Lock (db.mmap)
+[trace] t_ms=13.344 event=db_opened
+[trace] t_ms=14.491 event=bucket_ready
+[trace] t_ms=15.430 event=writer_started
+[trace] t_ms=15.586 event=default_taken_no_channel_block
+[trace] t_ms=17.586 event=view_returned
+[trace] t_ms=25.579 event=writer_returned err=<nil>
+[trace] t_ms=26.484 event=finished
+[result] run_id=select-01 mode=select status=finished view_returned=true writer_err=<nil> elapsed_ms=28.360

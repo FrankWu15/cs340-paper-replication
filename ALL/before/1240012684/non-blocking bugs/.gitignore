@@ -1,0 +1,16 @@
+# Build artifacts (binaries are produced under WSL /tmp, not committed)
+/bin/
+bin/
+*.exe
+*.test
+
+# Python / editor junk
+__pycache__/
+*.pyc
+.DS_Store
+*.swp
+.idea/
+.vscode/
+
+# NOTE: results/raw/ logs, results/figures/, results/real-source-evidence/
+# and statistics.csv are INTENTIONALLY kept for reproducibility/traceability.
