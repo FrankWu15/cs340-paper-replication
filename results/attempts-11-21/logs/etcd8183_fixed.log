@@ -1,0 +1,12 @@
+=== RUN   TestRevision
+2026-11-21 10:33:56.717932 N | compactor: Starting auto-compaction at revision 90 (retention: 10 revisions)
+2026-11-21 10:33:56.728872 N | compactor: Finished auto-compaction at revision 90
+2026-11-21 10:34:01.739624 N | compactor: Starting auto-compaction at revision 190 (retention: 10 revisions)
+2026-11-21 10:34:01.750252 N | compactor: Finished auto-compaction at revision 190
+--- PASS: TestRevision (10.04s)
+=== RUN   TestRevisionPause
+2026-11-21 10:34:01.771928 N | compactor: Starting auto-compaction at revision 90 (retention: 10 revisions)
+2026-11-21 10:34:01.782916 N | compactor: Finished auto-compaction at revision 90
+--- PASS: TestRevisionPause (0.03s)
+PASS
+ok  	github.com/coreos/etcd/compactor	11.090s

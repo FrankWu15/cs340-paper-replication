@@ -1,6 +1,6 @@
 # 实验完成情况（只列实验，不含报告格式与仓库管理）
 
-- 快照：`origin/main` = `cd642c8`（2026-11-21，含 11-18 的 etcd 三条）；11-21 批次（#4033/#4474/#6278 + Table 6/7/9/10/11 统计）尚未推送
+- 快照：`origin/main` = `26afe62`（2026-11-21，11-21 批次已按统一布局上架：etcd 三条进 `code/cases/blocking/`、统计脚本进 `code/analysis/`、表进 `data/`、报告进 `report/appendix/`）
 - 口径：论文 *Understanding Real-World Concurrency Bugs in Go*（ASPLOS'19）自报的实验活动
 - 说明：本文只回答「论文做了哪些实验、我们做到哪」，不含 v1.0、LICENSE、commit 署名、报告写作等非实验项
 
@@ -22,9 +22,9 @@
 
 仓库里共有 **28 个 bug 点**：17 条落在论文 41 条内，另 11 条在集合外（`defdb743c`、`1cc69980`、etcd#6873、etcd double-lock、k8s#62464、#20697、etcd#4997、grpc#1546、k8s#9926、docker `0d9e543`、Moby#16309），集合外的不能计入分子。
 
-**etcd 6 条**：11-18 的 #6937/#5509/#4679（DEADLOCK/CLEAN，minimal 复现体）；11-21 的 #4033（HANG/PASS）、#4474（CRASH/CLEAN）、#6278（DEADLOCK/CLEAN），三条都跑在真实 etcd 源码上。详见 `ALL/11-21/README.md`。
+**etcd 6 条**：11-18 的 #6937/#5509/#4679（DEADLOCK/CLEAN，minimal 复现体）；11-21 的 #4033（HANG/PASS）、#4474（CRASH/CLEAN）、#6278（DEADLOCK/CLEAN），三条都跑在真实 etcd 源码上。详见 `docs/BATCH-11-21.md`。
 
-另有 3 条 etcd（#3593/#8183/#3060）尝试后**未复现**：补丁修的是测试/初始化自身的脆弱竞态，`-race` 跑 1~100 轮均 0 报告，原始日志在 `ALL/11-21/results/logs/`。
+另有 3 条 etcd（#3593/#8183/#3060）尝试后**未复现**：补丁修的是测试/初始化自身的脆弱竞态，`-race` 跑 1~100 轮均 0 报告，原始日志在 `results/attempts-11-21/logs/`，清单见 `results/attempts-11-21/attempts_1121.csv`。
 
 ---
 
@@ -42,9 +42,9 @@
 | 8  | gRPC-C 线程创建点             | §3.1 对照        | v1.10.0 源码实测：核心路径 **5 个**创建点、147.1K 行、0.034/KLOC，与论文 5 / 0.03 一致                        | ✅                |
 | 9  | 动态创建点测量                  | Table 3        | Go 侧三组实测：1000 并发 → **1019 goroutine**，÷论文比值 201.46 = 5.06（C 线程池 5 线程），自洽；存活时间列口径不可对齐    | 🟡 比值列复现         |
 | 10 | 并发原语用量                   | Table 4        | `p2_static.md` §4，Mutex 合计偏差 +1.8%                                                      | ✅                |
-| 11 | gRPC-C 原语对照              | 746 vs 786     | `report/grpc_c_vs_go.md`：C 侧 v1.11/v1.12 **精确 746**、5.51/KLOC；Go 侧 771（−1.9%）、8 类原语     | ✅                |
-| 12 | 原语比例时间演化（Fig 2/3）        | Fig 2 / Fig 3  | `report/fig23_evolution.md` + 两张 SVG：6 应用 × 14 季度，逐点偏差 0.5–3.3 pp；etcd 漂移 −12.9 pp      | ✅                |
-| 13 | blocking 致因分布            | Table 6        | `05_stats_figures.py` → `results/tables/table6_blocking_cause_app.csv`，6×6 逐格与论文一致      | ✅                |
+| 11 | gRPC-C 原语对照              | 746 vs 786     | `report/appendix/grpc_c_vs_go.md`：C 侧 v1.11/v1.12 **精确 746**、5.51/KLOC；Go 侧 771（−1.9%）、8 类原语     | ✅                |
+| 12 | 原语比例时间演化（Fig 2/3）        | Fig 2 / Fig 3  | `report/appendix/fig23_evolution.md` + 两张 SVG：6 应用 × 14 季度，逐点偏差 0.5–3.3 pp；etcd 漂移 −12.9 pp      | ✅                |
+| 13 | blocking 致因分布            | Table 6        | `05_stats_figures.py` → `data/tables/table6_blocking_cause_app.csv`，6×6 逐格与论文一致      | ✅                |
 | 14 | blocking 修复策略 + lift     | Table 7        | 同脚本，Table 7 逐格一致；lift Mutex×Moves **1.52**、Chan×Adds **1.42** 与论文同值                     | ✅                |
 | 15 | 内置死锁检测器                  | Table 8，2/21   | `docs/P5-CHECKLIST.md` + `results/data/p5_checklist.csv`                                | 🟡 6/13 检出（见 §3） |
 | 16 | non-blocking 致因分布        | Table 9        | 同脚本，6×6 逐格一致                                                                            | ✅                |
@@ -87,7 +87,7 @@ grpc 五条的死锁**成立**（SIGQUIT 栈可证），但不报的原因已实
 
 ## 4. Table 6/7/9/10/11 与 lift 明细
 
-脚本 `ALL/11-21/code/analysis/05_stats_figures.py`，报告 `ALL/11-21/report/tables_6_11.md`。
+脚本 `code/analysis/05_stats_figures.py`，报告 `report/appendix/tables_6_11.md`。
 
 五张表由 artifact 的两张 one-hot 标注表直接交叉统计（blocking 85 行、non-blocking 86 行），**逐格与论文一致，0 处差异**；脚本内置 `PAPER` 参考字典，任何一格对不上就以非零码退出。
 
@@ -117,7 +117,7 @@ Table 1/2/4/5/6/7/9/10/11 九张可交（其中六张逐格与论文一致），
 
 真正缺的只剩三处**口径问题**，不是没做：
 
-1. Table 3 的存活时间列口径不可对齐（见 `ALL/11-21/report/table3_dynamic.md`）；
+1. Table 3 的存活时间列口径不可对齐（见 `report/appendix/table3_dynamic.md`）；
 2. Table 8 的 real-repo 分母只有 6 条（minimal 5 条不能混算）；
 3. Fig 2/3 里 CockroachDB 形状不符（MAE 3.3 pp、r≈0），与 Table 4 里它 Total −18% 是同一件事。
 
