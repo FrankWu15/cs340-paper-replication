@@ -1,0 +1,7 @@
+raft2026/11/21 10:46:32 INFO: 1 became follower at term 2
+raft2026/11/21 10:46:32 INFO: newRaft 1 [peers: [], term: 2, commit: 3, applied: 0, lastindex: 3, lastterm: 2]
+raft2026/11/21 10:46:33 INFO: 1 is starting a new election at term 2
+raft2026/11/21 10:46:33 INFO: 1 became candidate at term 3
+raft2026/11/21 10:46:33 INFO: 1 received vote from 1 at term 3
+raft2026/11/21 10:46:33 INFO: 1 became leader at term 3
+raft2026/11/21 10:46:33 INFO: raft.node: 1 elected leader 1 at term 3

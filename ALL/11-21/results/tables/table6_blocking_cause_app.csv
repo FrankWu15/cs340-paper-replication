@@ -1,0 +1,8 @@
+﻿cause,Docker,Kubernetes,etcd,CockroachDB,gRPC,BoltDB,Total
+Mutex,9,6,5,4,2,2,28
+RWMutex,0,2,0,3,0,0,5
+Wait,3,0,0,0,0,0,3
+Chan,5,3,10,5,6,0,29
+Chan w/,2,6,5,0,2,1,16
+Lib,2,0,1,0,1,0,4
+Total,21,17,21,12,11,3,85

@@ -1,0 +1,1988 @@
+=== RUN   TestProposeOnCommit
+raft2026/11/21 10:15:17 INFO: 1 became follower at term 0
+raft2026/11/21 10:15:17 INFO: newRaft 1 [peers: [], term: 0, commit: 0, applied: 0, lastindex: 0, lastterm: 0]
+raft2026/11/21 10:15:17 INFO: 1 became follower at term 1
+raft2026/11/21 10:15:17 INFO: 2 became follower at term 0
+raft2026/11/21 10:15:17 INFO: newRaft 2 [peers: [], term: 0, commit: 0, applied: 0, lastindex: 0, lastterm: 0]
+raft2026/11/21 10:15:17 INFO: 2 became follower at term 1
+2026-11-21 10:15:17.362724 I | rafthttp: the connection with 2 became active
+2026-11-21 10:15:17.362809 I | rafthttp: the connection with 1 became active
+raft2026/11/21 10:15:17 INFO: 3 became follower at term 0
+raft2026/11/21 10:15:17 INFO: newRaft 3 [peers: [], term: 0, commit: 0, applied: 0, lastindex: 0, lastterm: 0]
+raft2026/11/21 10:15:17 INFO: 3 became follower at term 1
+2026-11-21 10:15:17.371864 I | rafthttp: the connection with 3 became active
+2026-11-21 10:15:17.371954 I | rafthttp: the connection with 2 became active
+2026-11-21 10:15:17.371993 I | rafthttp: the connection with 3 became active
+2026-11-21 10:15:17.372009 I | rafthttp: the connection with 1 became active
+raft2026/11/21 10:15:18 INFO: 1 is starting a new election at term 1
+raft2026/11/21 10:15:18 INFO: 1 became candidate at term 2
+raft2026/11/21 10:15:18 INFO: 1 received vote from 1 at term 2
+raft2026/11/21 10:15:18 INFO: 1 [logterm: 1, index: 3] sent vote request to 2 at term 2
+raft2026/11/21 10:15:18 INFO: 1 [logterm: 1, index: 3] sent vote request to 3 at term 2
+raft2026/11/21 10:15:18 INFO: 2 [term: 1] received a MsgVote message with higher term from 1 [term: 2]
+raft2026/11/21 10:15:18 INFO: 2 became follower at term 2
+raft2026/11/21 10:15:18 INFO: 2 [logterm: 1, index: 3, vote: 0] voted for 1 [logterm: 1, index: 3] at term 2
+raft2026/11/21 10:15:18 INFO: 3 [term: 1] received a MsgVote message with higher term from 1 [term: 2]
+raft2026/11/21 10:15:18 INFO: 3 became follower at term 2
+raft2026/11/21 10:15:18 INFO: 3 [logterm: 1, index: 3, vote: 0] voted for 1 [logterm: 1, index: 3] at term 2
+raft2026/11/21 10:15:18 INFO: 1 received vote from 2 at term 2
+raft2026/11/21 10:15:18 INFO: 1 [q:2] has received 2 votes and 0 vote rejections
+raft2026/11/21 10:15:18 INFO: 1 became leader at term 2
+raft2026/11/21 10:15:18 INFO: raft.node: 1 elected leader 1 at term 2
+raft2026/11/21 10:15:18 INFO: raft.node: 2 elected leader 1 at term 2
+raft2026/11/21 10:15:18 INFO: raft.node: 3 elected leader 1 at term 2
+raft2026/11/21 10:15:19 INFO: 2 is starting a new election at term 2
+raft2026/11/21 10:15:19 INFO: 2 became candidate at term 3
+raft2026/11/21 10:15:19 INFO: 2 received vote from 2 at term 3
+raft2026/11/21 10:15:19 INFO: 2 [logterm: 2, index: 7] sent vote request to 1 at term 3
+raft2026/11/21 10:15:19 INFO: 2 [logterm: 2, index: 7] sent vote request to 3 at term 3
+raft2026/11/21 10:15:19 INFO: raft.node: 2 lost leader 1 at term 3
+raft2026/11/21 10:15:19 INFO: 1 [term: 2] received a MsgVote message with higher term from 2 [term: 3]
+raft2026/11/21 10:15:19 INFO: 1 became follower at term 3
+raft2026/11/21 10:15:19 INFO: 3 [term: 2] received a MsgVote message with higher term from 2 [term: 3]
+raft2026/11/21 10:15:19 INFO: 1 [logterm: 2, index: 10, vote: 0] rejected vote from 2 [logterm: 2, index: 7] at term 3
+raft2026/11/21 10:15:19 INFO: 3 became follower at term 3
+raft2026/11/21 10:15:19 INFO: raft.node: 1 lost leader 1 at term 3
+raft2026/11/21 10:15:19 INFO: 3 [logterm: 2, index: 7, vote: 0] voted for 2 [logterm: 2, index: 7] at term 3
+raft2026/11/21 10:15:19 INFO: raft.node: 3 lost leader 1 at term 3
+raft2026/11/21 10:15:21 INFO: 2 is starting a new election at term 3
+raft2026/11/21 10:15:21 INFO: 2 became candidate at term 4
+raft2026/11/21 10:15:21 INFO: 2 received vote from 2 at term 4
+raft2026/11/21 10:15:21 INFO: 2 [logterm: 2, index: 7] sent vote request to 1 at term 4
+raft2026/11/21 10:15:21 INFO: 2 [logterm: 2, index: 7] sent vote request to 3 at term 4
+raft2026/11/21 10:15:21 INFO: 3 [term: 3] received a MsgVote message with higher term from 2 [term: 4]
+raft2026/11/21 10:15:21 INFO: 3 became follower at term 4
+raft2026/11/21 10:15:21 INFO: 3 [logterm: 2, index: 7, vote: 0] voted for 2 [logterm: 2, index: 7] at term 4
+raft2026/11/21 10:15:21 INFO: 1 [term: 3] received a MsgVote message with higher term from 2 [term: 4]
+raft2026/11/21 10:15:21 INFO: 1 became follower at term 4
+raft2026/11/21 10:15:21 INFO: 1 [logterm: 2, index: 10, vote: 0] rejected vote from 2 [logterm: 2, index: 7] at term 4
+raft2026/11/21 10:15:22 INFO: 2 is starting a new election at term 4
+raft2026/11/21 10:15:22 INFO: 2 became candidate at term 5
+raft2026/11/21 10:15:22 INFO: 2 received vote from 2 at term 5
+raft2026/11/21 10:15:22 INFO: 2 [logterm: 2, index: 7] sent vote request to 1 at term 5
+raft2026/11/21 10:15:22 INFO: 2 [logterm: 2, index: 7] sent vote request to 3 at term 5
+raft2026/11/21 10:15:22 INFO: 3 [term: 4] received a MsgVote message with higher term from 2 [term: 5]
+raft2026/11/21 10:15:22 INFO: 3 became follower at term 5
+raft2026/11/21 10:15:22 INFO: 3 [logterm: 2, index: 7, vote: 0] voted for 2 [logterm: 2, index: 7] at term 5
+raft2026/11/21 10:15:22 INFO: 1 [term: 4] received a MsgVote message with higher term from 2 [term: 5]
+raft2026/11/21 10:15:22 INFO: 1 became follower at term 5
+raft2026/11/21 10:15:22 INFO: 1 [logterm: 2, index: 10, vote: 0] rejected vote from 2 [logterm: 2, index: 7] at term 5
+raft2026/11/21 10:15:23 INFO: 2 is starting a new election at term 5
+raft2026/11/21 10:15:23 INFO: 2 became candidate at term 6
+raft2026/11/21 10:15:23 INFO: 2 received vote from 2 at term 6
+raft2026/11/21 10:15:23 INFO: 2 [logterm: 2, index: 7] sent vote request to 1 at term 6
+raft2026/11/21 10:15:23 INFO: 2 [logterm: 2, index: 7] sent vote request to 3 at term 6
+raft2026/11/21 10:15:23 INFO: 3 [term: 5] received a MsgVote message with higher term from 2 [term: 6]
+raft2026/11/21 10:15:23 INFO: 3 became follower at term 6
+raft2026/11/21 10:15:23 INFO: 3 [logterm: 2, index: 7, vote: 0] voted for 2 [logterm: 2, index: 7] at term 6
+raft2026/11/21 10:15:23 INFO: 1 [term: 5] received a MsgVote message with higher term from 2 [term: 6]
+raft2026/11/21 10:15:23 INFO: 1 became follower at term 6
+raft2026/11/21 10:15:23 INFO: 1 [logterm: 2, index: 10, vote: 0] rejected vote from 2 [logterm: 2, index: 7] at term 6
+raft2026/11/21 10:15:25 INFO: 2 is starting a new election at term 6
+raft2026/11/21 10:15:25 INFO: 2 became candidate at term 7
+raft2026/11/21 10:15:25 INFO: 2 received vote from 2 at term 7
+raft2026/11/21 10:15:25 INFO: 2 [logterm: 2, index: 7] sent vote request to 1 at term 7
+raft2026/11/21 10:15:25 INFO: 2 [logterm: 2, index: 7] sent vote request to 3 at term 7
+raft2026/11/21 10:15:25 INFO: 3 [term: 6] received a MsgVote message with higher term from 2 [term: 7]
+raft2026/11/21 10:15:25 INFO: 3 became follower at term 7
+raft2026/11/21 10:15:25 INFO: 3 [logterm: 2, index: 7, vote: 0] voted for 2 [logterm: 2, index: 7] at term 7
+raft2026/11/21 10:15:25 INFO: 1 [term: 6] received a MsgVote message with higher term from 2 [term: 7]
+raft2026/11/21 10:15:25 INFO: 1 became follower at term 7
+raft2026/11/21 10:15:25 INFO: 1 [logterm: 2, index: 10, vote: 0] rejected vote from 2 [logterm: 2, index: 7] at term 7
+raft2026/11/21 10:15:26 INFO: 2 is starting a new election at term 7
+raft2026/11/21 10:15:26 INFO: 2 became candidate at term 8
+raft2026/11/21 10:15:26 INFO: 2 received vote from 2 at term 8
+raft2026/11/21 10:15:26 INFO: 2 [logterm: 2, index: 7] sent vote request to 1 at term 8
+raft2026/11/21 10:15:26 INFO: 2 [logterm: 2, index: 7] sent vote request to 3 at term 8
+raft2026/11/21 10:15:26 INFO: 3 [term: 7] received a MsgVote message with higher term from 2 [term: 8]
+raft2026/11/21 10:15:26 INFO: 3 became follower at term 8
+raft2026/11/21 10:15:26 INFO: 3 [logterm: 2, index: 7, vote: 0] voted for 2 [logterm: 2, index: 7] at term 8
+raft2026/11/21 10:15:26 INFO: 1 [term: 7] received a MsgVote message with higher term from 2 [term: 8]
+raft2026/11/21 10:15:26 INFO: 1 became follower at term 8
+raft2026/11/21 10:15:26 INFO: 1 [logterm: 2, index: 10, vote: 0] rejected vote from 2 [logterm: 2, index: 7] at term 8
+raft2026/11/21 10:15:28 INFO: 2 is starting a new election at term 8
+raft2026/11/21 10:15:28 INFO: 2 became candidate at term 9
+raft2026/11/21 10:15:28 INFO: 2 received vote from 2 at term 9
+raft2026/11/21 10:15:28 INFO: 2 [logterm: 2, index: 7] sent vote request to 1 at term 9
+raft2026/11/21 10:15:28 INFO: 2 [logterm: 2, index: 7] sent vote request to 3 at term 9
+raft2026/11/21 10:15:28 INFO: 3 [term: 8] received a MsgVote message with higher term from 2 [term: 9]
+raft2026/11/21 10:15:28 INFO: 1 [term: 8] received a MsgVote message with higher term from 2 [term: 9]
+raft2026/11/21 10:15:28 INFO: 3 became follower at term 9
+raft2026/11/21 10:15:28 INFO: 1 became follower at term 9
+raft2026/11/21 10:15:28 INFO: 3 [logterm: 2, index: 7, vote: 0] voted for 2 [logterm: 2, index: 7] at term 9
+raft2026/11/21 10:15:28 INFO: 1 [logterm: 2, index: 10, vote: 0] rejected vote from 2 [logterm: 2, index: 7] at term 9
+raft2026/11/21 10:15:29 INFO: 2 is starting a new election at term 9
+raft2026/11/21 10:15:29 INFO: 2 became candidate at term 10
+raft2026/11/21 10:15:29 INFO: 2 received vote from 2 at term 10
+raft2026/11/21 10:15:29 INFO: 2 [logterm: 2, index: 7] sent vote request to 1 at term 10
+raft2026/11/21 10:15:29 INFO: 2 [logterm: 2, index: 7] sent vote request to 3 at term 10
+raft2026/11/21 10:15:29 INFO: 3 [term: 9] received a MsgVote message with higher term from 2 [term: 10]
+raft2026/11/21 10:15:29 INFO: 3 became follower at term 10
+raft2026/11/21 10:15:29 INFO: 3 [logterm: 2, index: 7, vote: 0] voted for 2 [logterm: 2, index: 7] at term 10
+raft2026/11/21 10:15:29 INFO: 1 [term: 9] received a MsgVote message with higher term from 2 [term: 10]
+raft2026/11/21 10:15:29 INFO: 1 became follower at term 10
+raft2026/11/21 10:15:29 INFO: 1 [logterm: 2, index: 10, vote: 0] rejected vote from 2 [logterm: 2, index: 7] at term 10
+raft2026/11/21 10:15:30 INFO: 2 is starting a new election at term 10
+raft2026/11/21 10:15:30 INFO: 2 became candidate at term 11
+raft2026/11/21 10:15:30 INFO: 2 received vote from 2 at term 11
+raft2026/11/21 10:15:30 INFO: 2 [logterm: 2, index: 7] sent vote request to 3 at term 11
+raft2026/11/21 10:15:30 INFO: 2 [logterm: 2, index: 7] sent vote request to 1 at term 11
+raft2026/11/21 10:15:30 INFO: 3 [term: 10] received a MsgVote message with higher term from 2 [term: 11]
+raft2026/11/21 10:15:30 INFO: 3 became follower at term 11
+raft2026/11/21 10:15:30 INFO: 3 [logterm: 2, index: 7, vote: 0] voted for 2 [logterm: 2, index: 7] at term 11
+raft2026/11/21 10:15:30 INFO: 1 [term: 10] received a MsgVote message with higher term from 2 [term: 11]
+raft2026/11/21 10:15:30 INFO: 1 became follower at term 11
+raft2026/11/21 10:15:30 INFO: 1 [logterm: 2, index: 10, vote: 0] rejected vote from 2 [logterm: 2, index: 7] at term 11
+raft2026/11/21 10:15:31 INFO: 2 is starting a new election at term 11
+raft2026/11/21 10:15:31 INFO: 2 became candidate at term 12
+raft2026/11/21 10:15:31 INFO: 2 received vote from 2 at term 12
+raft2026/11/21 10:15:31 INFO: 2 [logterm: 2, index: 7] sent vote request to 1 at term 12
+raft2026/11/21 10:15:31 INFO: 2 [logterm: 2, index: 7] sent vote request to 3 at term 12
+raft2026/11/21 10:15:31 INFO: 3 [term: 11] received a MsgVote message with higher term from 2 [term: 12]
+raft2026/11/21 10:15:31 INFO: 3 became follower at term 12
+raft2026/11/21 10:15:31 INFO: 3 [logterm: 2, index: 7, vote: 0] voted for 2 [logterm: 2, index: 7] at term 12
+raft2026/11/21 10:15:31 INFO: 1 [term: 11] received a MsgVote message with higher term from 2 [term: 12]
+raft2026/11/21 10:15:31 INFO: 1 became follower at term 12
+raft2026/11/21 10:15:31 INFO: 1 [logterm: 2, index: 10, vote: 0] rejected vote from 2 [logterm: 2, index: 7] at term 12
+raft2026/11/21 10:15:33 INFO: 2 is starting a new election at term 12
+raft2026/11/21 10:15:33 INFO: 2 became candidate at term 13
+raft2026/11/21 10:15:33 INFO: 2 received vote from 2 at term 13
+raft2026/11/21 10:15:33 INFO: 2 [logterm: 2, index: 7] sent vote request to 1 at term 13
+raft2026/11/21 10:15:33 INFO: 2 [logterm: 2, index: 7] sent vote request to 3 at term 13
+raft2026/11/21 10:15:33 INFO: 3 [term: 12] received a MsgVote message with higher term from 2 [term: 13]
+raft2026/11/21 10:15:33 INFO: 3 became follower at term 13
+raft2026/11/21 10:15:33 INFO: 3 [logterm: 2, index: 7, vote: 0] voted for 2 [logterm: 2, index: 7] at term 13
+raft2026/11/21 10:15:33 INFO: 1 [term: 12] received a MsgVote message with higher term from 2 [term: 13]
+raft2026/11/21 10:15:33 INFO: 1 became follower at term 13
+raft2026/11/21 10:15:33 INFO: 1 [logterm: 2, index: 10, vote: 0] rejected vote from 2 [logterm: 2, index: 7] at term 13
+raft2026/11/21 10:15:34 INFO: 2 is starting a new election at term 13
+raft2026/11/21 10:15:34 INFO: 2 became candidate at term 14
+raft2026/11/21 10:15:34 INFO: 2 received vote from 2 at term 14
+raft2026/11/21 10:15:34 INFO: 2 [logterm: 2, index: 7] sent vote request to 1 at term 14
+raft2026/11/21 10:15:34 INFO: 2 [logterm: 2, index: 7] sent vote request to 3 at term 14
+raft2026/11/21 10:15:34 INFO: 1 [term: 13] received a MsgVote message with higher term from 2 [term: 14]
+raft2026/11/21 10:15:34 INFO: 1 became follower at term 14
+raft2026/11/21 10:15:34 INFO: 1 [logterm: 2, index: 10, vote: 0] rejected vote from 2 [logterm: 2, index: 7] at term 14
+raft2026/11/21 10:15:34 INFO: 3 [term: 13] received a MsgVote message with higher term from 2 [term: 14]
+raft2026/11/21 10:15:34 INFO: 3 became follower at term 14
+raft2026/11/21 10:15:34 INFO: 3 [logterm: 2, index: 7, vote: 0] voted for 2 [logterm: 2, index: 7] at term 14
+raft2026/11/21 10:15:36 INFO: 2 is starting a new election at term 14
+raft2026/11/21 10:15:36 INFO: 2 became candidate at term 15
+raft2026/11/21 10:15:36 INFO: 2 received vote from 2 at term 15
+raft2026/11/21 10:15:36 INFO: 2 [logterm: 2, index: 7] sent vote request to 1 at term 15
+raft2026/11/21 10:15:36 INFO: 2 [logterm: 2, index: 7] sent vote request to 3 at term 15
+raft2026/11/21 10:15:36 INFO: 1 [term: 14] received a MsgVote message with higher term from 2 [term: 15]
+raft2026/11/21 10:15:36 INFO: 3 [term: 14] received a MsgVote message with higher term from 2 [term: 15]
+raft2026/11/21 10:15:36 INFO: 1 became follower at term 15
+raft2026/11/21 10:15:36 INFO: 3 became follower at term 15
+raft2026/11/21 10:15:36 INFO: 1 [logterm: 2, index: 10, vote: 0] rejected vote from 2 [logterm: 2, index: 7] at term 15
+raft2026/11/21 10:15:36 INFO: 3 [logterm: 2, index: 7, vote: 0] voted for 2 [logterm: 2, index: 7] at term 15
+raft2026/11/21 10:15:37 INFO: 2 is starting a new election at term 15
+raft2026/11/21 10:15:37 INFO: 2 became candidate at term 16
+raft2026/11/21 10:15:37 INFO: 2 received vote from 2 at term 16
+raft2026/11/21 10:15:37 INFO: 2 [logterm: 2, index: 7] sent vote request to 1 at term 16
+raft2026/11/21 10:15:37 INFO: 2 [logterm: 2, index: 7] sent vote request to 3 at term 16
+raft2026/11/21 10:15:37 INFO: 1 [term: 15] received a MsgVote message with higher term from 2 [term: 16]
+raft2026/11/21 10:15:37 INFO: 1 became follower at term 16
+raft2026/11/21 10:15:37 INFO: 1 [logterm: 2, index: 10, vote: 0] rejected vote from 2 [logterm: 2, index: 7] at term 16
+raft2026/11/21 10:15:37 INFO: 3 [term: 15] received a MsgVote message with higher term from 2 [term: 16]
+raft2026/11/21 10:15:37 INFO: 3 became follower at term 16
+raft2026/11/21 10:15:37 INFO: 3 [logterm: 2, index: 7, vote: 0] voted for 2 [logterm: 2, index: 7] at term 16
+raft2026/11/21 10:15:39 INFO: 2 is starting a new election at term 16
+raft2026/11/21 10:15:39 INFO: 2 became candidate at term 17
+raft2026/11/21 10:15:39 INFO: 2 received vote from 2 at term 17
+raft2026/11/21 10:15:39 INFO: 2 [logterm: 2, index: 7] sent vote request to 1 at term 17
+raft2026/11/21 10:15:39 INFO: 2 [logterm: 2, index: 7] sent vote request to 3 at term 17
+raft2026/11/21 10:15:39 INFO: 3 [term: 16] received a MsgVote message with higher term from 2 [term: 17]
+raft2026/11/21 10:15:39 INFO: 3 became follower at term 17
+raft2026/11/21 10:15:39 INFO: 3 [logterm: 2, index: 7, vote: 0] voted for 2 [logterm: 2, index: 7] at term 17
+raft2026/11/21 10:15:39 INFO: 1 [term: 16] received a MsgVote message with higher term from 2 [term: 17]
+raft2026/11/21 10:15:39 INFO: 1 became follower at term 17
+raft2026/11/21 10:15:39 INFO: 1 [logterm: 2, index: 10, vote: 0] rejected vote from 2 [logterm: 2, index: 7] at term 17
+raft2026/11/21 10:15:40 INFO: 2 is starting a new election at term 17
+raft2026/11/21 10:15:40 INFO: 2 became candidate at term 18
+raft2026/11/21 10:15:40 INFO: 2 received vote from 2 at term 18
+raft2026/11/21 10:15:40 INFO: 2 [logterm: 2, index: 7] sent vote request to 1 at term 18
+raft2026/11/21 10:15:40 INFO: 2 [logterm: 2, index: 7] sent vote request to 3 at term 18
+raft2026/11/21 10:15:40 INFO: 1 [term: 17] received a MsgVote message with higher term from 2 [term: 18]
+raft2026/11/21 10:15:40 INFO: 1 became follower at term 18
+raft2026/11/21 10:15:40 INFO: 1 [logterm: 2, index: 10, vote: 0] rejected vote from 2 [logterm: 2, index: 7] at term 18
+raft2026/11/21 10:15:40 INFO: 3 [term: 17] received a MsgVote message with higher term from 2 [term: 18]
+raft2026/11/21 10:15:40 INFO: 3 became follower at term 18
+raft2026/11/21 10:15:40 INFO: 3 [logterm: 2, index: 7, vote: 0] voted for 2 [logterm: 2, index: 7] at term 18
+raft2026/11/21 10:15:42 INFO: 2 is starting a new election at term 18
+raft2026/11/21 10:15:42 INFO: 2 became candidate at term 19
+raft2026/11/21 10:15:42 INFO: 2 received vote from 2 at term 19
+raft2026/11/21 10:15:42 INFO: 2 [logterm: 2, index: 7] sent vote request to 3 at term 19
+raft2026/11/21 10:15:42 INFO: 2 [logterm: 2, index: 7] sent vote request to 1 at term 19
+raft2026/11/21 10:15:42 INFO: 1 [term: 18] received a MsgVote message with higher term from 2 [term: 19]
+raft2026/11/21 10:15:42 INFO: 1 became follower at term 19
+raft2026/11/21 10:15:42 INFO: 1 [logterm: 2, index: 10, vote: 0] rejected vote from 2 [logterm: 2, index: 7] at term 19
+raft2026/11/21 10:15:42 INFO: 3 [term: 18] received a MsgVote message with higher term from 2 [term: 19]
+raft2026/11/21 10:15:42 INFO: 3 became follower at term 19
+raft2026/11/21 10:15:42 INFO: 3 [logterm: 2, index: 7, vote: 0] voted for 2 [logterm: 2, index: 7] at term 19
+raft2026/11/21 10:15:43 INFO: 2 is starting a new election at term 19
+raft2026/11/21 10:15:43 INFO: 2 became candidate at term 20
+raft2026/11/21 10:15:43 INFO: 2 received vote from 2 at term 20
+raft2026/11/21 10:15:43 INFO: 2 [logterm: 2, index: 7] sent vote request to 1 at term 20
+raft2026/11/21 10:15:43 INFO: 2 [logterm: 2, index: 7] sent vote request to 3 at term 20
+raft2026/11/21 10:15:43 INFO: 1 [term: 19] received a MsgVote message with higher term from 2 [term: 20]
+raft2026/11/21 10:15:43 INFO: 1 became follower at term 20
+raft2026/11/21 10:15:43 INFO: 1 [logterm: 2, index: 10, vote: 0] rejected vote from 2 [logterm: 2, index: 7] at term 20
+raft2026/11/21 10:15:43 INFO: 3 [term: 19] received a MsgVote message with higher term from 2 [term: 20]
+raft2026/11/21 10:15:43 INFO: 3 became follower at term 20
+raft2026/11/21 10:15:43 INFO: 3 [logterm: 2, index: 7, vote: 0] voted for 2 [logterm: 2, index: 7] at term 20
+raft2026/11/21 10:15:44 INFO: 2 is starting a new election at term 20
+raft2026/11/21 10:15:44 INFO: 2 became candidate at term 21
+raft2026/11/21 10:15:44 INFO: 2 received vote from 2 at term 21
+raft2026/11/21 10:15:44 INFO: 2 [logterm: 2, index: 7] sent vote request to 3 at term 21
+raft2026/11/21 10:15:44 INFO: 2 [logterm: 2, index: 7] sent vote request to 1 at term 21
+raft2026/11/21 10:15:44 INFO: 1 [term: 20] received a MsgVote message with higher term from 2 [term: 21]
+raft2026/11/21 10:15:44 INFO: 1 became follower at term 21
+raft2026/11/21 10:15:44 INFO: 1 [logterm: 2, index: 10, vote: 0] rejected vote from 2 [logterm: 2, index: 7] at term 21
+raft2026/11/21 10:15:44 INFO: 3 [term: 20] received a MsgVote message with higher term from 2 [term: 21]
+raft2026/11/21 10:15:44 INFO: 3 became follower at term 21
+raft2026/11/21 10:15:44 INFO: 3 [logterm: 2, index: 7, vote: 0] voted for 2 [logterm: 2, index: 7] at term 21
+raft2026/11/21 10:15:46 INFO: 2 is starting a new election at term 21
+raft2026/11/21 10:15:46 INFO: 2 became candidate at term 22
+raft2026/11/21 10:15:46 INFO: 2 received vote from 2 at term 22
+raft2026/11/21 10:15:46 INFO: 2 [logterm: 2, index: 7] sent vote request to 1 at term 22
+raft2026/11/21 10:15:46 INFO: 2 [logterm: 2, index: 7] sent vote request to 3 at term 22
+raft2026/11/21 10:15:46 INFO: 3 [term: 21] received a MsgVote message with higher term from 2 [term: 22]
+raft2026/11/21 10:15:46 INFO: 1 [term: 21] received a MsgVote message with higher term from 2 [term: 22]
+raft2026/11/21 10:15:46 INFO: 1 became follower at term 22
+raft2026/11/21 10:15:46 INFO: 3 became follower at term 22
+raft2026/11/21 10:15:46 INFO: 1 [logterm: 2, index: 10, vote: 0] rejected vote from 2 [logterm: 2, index: 7] at term 22
+raft2026/11/21 10:15:46 INFO: 3 [logterm: 2, index: 7, vote: 0] voted for 2 [logterm: 2, index: 7] at term 22
+raft2026/11/21 10:15:47 INFO: 2 is starting a new election at term 22
+raft2026/11/21 10:15:47 INFO: 2 became candidate at term 23
+raft2026/11/21 10:15:47 INFO: 2 received vote from 2 at term 23
+raft2026/11/21 10:15:47 INFO: 2 [logterm: 2, index: 7] sent vote request to 1 at term 23
+raft2026/11/21 10:15:47 INFO: 2 [logterm: 2, index: 7] sent vote request to 3 at term 23
+raft2026/11/21 10:15:47 INFO: 1 [term: 22] received a MsgVote message with higher term from 2 [term: 23]
+raft2026/11/21 10:15:47 INFO: 1 became follower at term 23
+raft2026/11/21 10:15:47 INFO: 1 [logterm: 2, index: 10, vote: 0] rejected vote from 2 [logterm: 2, index: 7] at term 23
+raft2026/11/21 10:15:47 INFO: 3 [term: 22] received a MsgVote message with higher term from 2 [term: 23]
+raft2026/11/21 10:15:47 INFO: 3 became follower at term 23
+raft2026/11/21 10:15:47 INFO: 3 [logterm: 2, index: 7, vote: 0] voted for 2 [logterm: 2, index: 7] at term 23
+raft2026/11/21 10:15:48 INFO: 2 is starting a new election at term 23
+raft2026/11/21 10:15:48 INFO: 2 became candidate at term 24
+raft2026/11/21 10:15:48 INFO: 2 received vote from 2 at term 24
+raft2026/11/21 10:15:48 INFO: 2 [logterm: 2, index: 7] sent vote request to 3 at term 24
+raft2026/11/21 10:15:48 INFO: 2 [logterm: 2, index: 7] sent vote request to 1 at term 24
+raft2026/11/21 10:15:48 INFO: 3 [term: 23] received a MsgVote message with higher term from 2 [term: 24]
+raft2026/11/21 10:15:48 INFO: 3 became follower at term 24
+raft2026/11/21 10:15:48 INFO: 3 [logterm: 2, index: 7, vote: 0] voted for 2 [logterm: 2, index: 7] at term 24
+raft2026/11/21 10:15:48 INFO: 1 [term: 23] received a MsgVote message with higher term from 2 [term: 24]
+raft2026/11/21 10:15:48 INFO: 1 became follower at term 24
+raft2026/11/21 10:15:48 INFO: 1 [logterm: 2, index: 10, vote: 0] rejected vote from 2 [logterm: 2, index: 7] at term 24
+raft2026/11/21 10:15:50 INFO: 2 is starting a new election at term 24
+raft2026/11/21 10:15:50 INFO: 2 became candidate at term 25
+raft2026/11/21 10:15:50 INFO: 2 received vote from 2 at term 25
+raft2026/11/21 10:15:50 INFO: 2 [logterm: 2, index: 7] sent vote request to 1 at term 25
+raft2026/11/21 10:15:50 INFO: 2 [logterm: 2, index: 7] sent vote request to 3 at term 25
+raft2026/11/21 10:15:50 INFO: 1 [term: 24] received a MsgVote message with higher term from 2 [term: 25]
+raft2026/11/21 10:15:50 INFO: 1 became follower at term 25
+raft2026/11/21 10:15:50 INFO: 1 [logterm: 2, index: 10, vote: 0] rejected vote from 2 [logterm: 2, index: 7] at term 25
+raft2026/11/21 10:15:50 INFO: 3 [term: 24] received a MsgVote message with higher term from 2 [term: 25]
+raft2026/11/21 10:15:50 INFO: 3 became follower at term 25
+raft2026/11/21 10:15:50 INFO: 3 [logterm: 2, index: 7, vote: 0] voted for 2 [logterm: 2, index: 7] at term 25
+raft2026/11/21 10:15:51 INFO: 2 is starting a new election at term 25
+raft2026/11/21 10:15:51 INFO: 2 became candidate at term 26
+raft2026/11/21 10:15:51 INFO: 2 received vote from 2 at term 26
+raft2026/11/21 10:15:51 INFO: 2 [logterm: 2, index: 7] sent vote request to 1 at term 26
+raft2026/11/21 10:15:51 INFO: 2 [logterm: 2, index: 7] sent vote request to 3 at term 26
+raft2026/11/21 10:15:51 INFO: 1 [term: 25] received a MsgVote message with higher term from 2 [term: 26]
+raft2026/11/21 10:15:51 INFO: 1 became follower at term 26
+raft2026/11/21 10:15:51 INFO: 1 [logterm: 2, index: 10, vote: 0] rejected vote from 2 [logterm: 2, index: 7] at term 26
+raft2026/11/21 10:15:51 INFO: 3 [term: 25] received a MsgVote message with higher term from 2 [term: 26]
+raft2026/11/21 10:15:51 INFO: 3 became follower at term 26
+raft2026/11/21 10:15:51 INFO: 3 [logterm: 2, index: 7, vote: 0] voted for 2 [logterm: 2, index: 7] at term 26
+raft2026/11/21 10:15:52 INFO: 2 is starting a new election at term 26
+raft2026/11/21 10:15:52 INFO: 2 became candidate at term 27
+raft2026/11/21 10:15:52 INFO: 2 received vote from 2 at term 27
+raft2026/11/21 10:15:52 INFO: 2 [logterm: 2, index: 7] sent vote request to 1 at term 27
+raft2026/11/21 10:15:52 INFO: 2 [logterm: 2, index: 7] sent vote request to 3 at term 27
+raft2026/11/21 10:15:52 INFO: 3 [term: 26] received a MsgVote message with higher term from 2 [term: 27]
+raft2026/11/21 10:15:52 INFO: 3 became follower at term 27
+raft2026/11/21 10:15:52 INFO: 3 [logterm: 2, index: 7, vote: 0] voted for 2 [logterm: 2, index: 7] at term 27
+raft2026/11/21 10:15:52 INFO: 1 [term: 26] received a MsgVote message with higher term from 2 [term: 27]
+raft2026/11/21 10:15:52 INFO: 1 became follower at term 27
+raft2026/11/21 10:15:52 INFO: 1 [logterm: 2, index: 10, vote: 0] rejected vote from 2 [logterm: 2, index: 7] at term 27
+raft2026/11/21 10:15:54 INFO: 2 is starting a new election at term 27
+raft2026/11/21 10:15:54 INFO: 2 became candidate at term 28
+raft2026/11/21 10:15:54 INFO: 2 received vote from 2 at term 28
+raft2026/11/21 10:15:54 INFO: 2 [logterm: 2, index: 7] sent vote request to 1 at term 28
+raft2026/11/21 10:15:54 INFO: 2 [logterm: 2, index: 7] sent vote request to 3 at term 28
+raft2026/11/21 10:15:54 INFO: 3 [term: 27] received a MsgVote message with higher term from 2 [term: 28]
+raft2026/11/21 10:15:54 INFO: 3 became follower at term 28
+raft2026/11/21 10:15:54 INFO: 3 [logterm: 2, index: 7, vote: 0] voted for 2 [logterm: 2, index: 7] at term 28
+raft2026/11/21 10:15:54 INFO: 1 [term: 27] received a MsgVote message with higher term from 2 [term: 28]
+raft2026/11/21 10:15:54 INFO: 1 became follower at term 28
+raft2026/11/21 10:15:54 INFO: 1 [logterm: 2, index: 10, vote: 0] rejected vote from 2 [logterm: 2, index: 7] at term 28
+raft2026/11/21 10:15:55 INFO: 2 is starting a new election at term 28
+raft2026/11/21 10:15:55 INFO: 2 became candidate at term 29
+raft2026/11/21 10:15:55 INFO: 2 received vote from 2 at term 29
+raft2026/11/21 10:15:55 INFO: 2 [logterm: 2, index: 7] sent vote request to 1 at term 29
+raft2026/11/21 10:15:55 INFO: 2 [logterm: 2, index: 7] sent vote request to 3 at term 29
+raft2026/11/21 10:15:55 INFO: 3 [term: 28] received a MsgVote message with higher term from 2 [term: 29]
+raft2026/11/21 10:15:55 INFO: 3 became follower at term 29
+raft2026/11/21 10:15:55 INFO: 3 [logterm: 2, index: 7, vote: 0] voted for 2 [logterm: 2, index: 7] at term 29
+raft2026/11/21 10:15:55 INFO: 1 [term: 28] received a MsgVote message with higher term from 2 [term: 29]
+raft2026/11/21 10:15:55 INFO: 1 became follower at term 29
+raft2026/11/21 10:15:55 INFO: 1 [logterm: 2, index: 10, vote: 0] rejected vote from 2 [logterm: 2, index: 7] at term 29
+raft2026/11/21 10:15:56 INFO: 2 is starting a new election at term 29
+raft2026/11/21 10:15:56 INFO: 2 became candidate at term 30
+raft2026/11/21 10:15:56 INFO: 2 received vote from 2 at term 30
+raft2026/11/21 10:15:56 INFO: 2 [logterm: 2, index: 7] sent vote request to 3 at term 30
+raft2026/11/21 10:15:56 INFO: 2 [logterm: 2, index: 7] sent vote request to 1 at term 30
+raft2026/11/21 10:15:56 INFO: 3 [term: 29] received a MsgVote message with higher term from 2 [term: 30]
+raft2026/11/21 10:15:56 INFO: 3 became follower at term 30
+raft2026/11/21 10:15:56 INFO: 3 [logterm: 2, index: 7, vote: 0] voted for 2 [logterm: 2, index: 7] at term 30
+raft2026/11/21 10:15:56 INFO: 1 [term: 29] received a MsgVote message with higher term from 2 [term: 30]
+raft2026/11/21 10:15:56 INFO: 1 became follower at term 30
+raft2026/11/21 10:15:56 INFO: 1 [logterm: 2, index: 10, vote: 0] rejected vote from 2 [logterm: 2, index: 7] at term 30
+raft2026/11/21 10:15:58 INFO: 2 is starting a new election at term 30
+raft2026/11/21 10:15:58 INFO: 2 became candidate at term 31
+raft2026/11/21 10:15:58 INFO: 2 received vote from 2 at term 31
+raft2026/11/21 10:15:58 INFO: 2 [logterm: 2, index: 7] sent vote request to 1 at term 31
+raft2026/11/21 10:15:58 INFO: 2 [logterm: 2, index: 7] sent vote request to 3 at term 31
+raft2026/11/21 10:15:58 INFO: 3 [term: 30] received a MsgVote message with higher term from 2 [term: 31]
+raft2026/11/21 10:15:58 INFO: 3 became follower at term 31
+raft2026/11/21 10:15:58 INFO: 3 [logterm: 2, index: 7, vote: 0] voted for 2 [logterm: 2, index: 7] at term 31
+raft2026/11/21 10:15:58 INFO: 1 [term: 30] received a MsgVote message with higher term from 2 [term: 31]
+raft2026/11/21 10:15:58 INFO: 1 became follower at term 31
+raft2026/11/21 10:15:58 INFO: 1 [logterm: 2, index: 10, vote: 0] rejected vote from 2 [logterm: 2, index: 7] at term 31
+raft2026/11/21 10:15:59 INFO: 2 is starting a new election at term 31
+raft2026/11/21 10:15:59 INFO: 2 became candidate at term 32
+raft2026/11/21 10:15:59 INFO: 2 received vote from 2 at term 32
+raft2026/11/21 10:15:59 INFO: 2 [logterm: 2, index: 7] sent vote request to 1 at term 32
+raft2026/11/21 10:15:59 INFO: 2 [logterm: 2, index: 7] sent vote request to 3 at term 32
+raft2026/11/21 10:15:59 INFO: 3 [term: 31] received a MsgVote message with higher term from 2 [term: 32]
+raft2026/11/21 10:15:59 INFO: 3 became follower at term 32
+raft2026/11/21 10:15:59 INFO: 1 [term: 31] received a MsgVote message with higher term from 2 [term: 32]
+raft2026/11/21 10:15:59 INFO: 1 became follower at term 32
+raft2026/11/21 10:15:59 INFO: 1 [logterm: 2, index: 10, vote: 0] rejected vote from 2 [logterm: 2, index: 7] at term 32
+raft2026/11/21 10:15:59 INFO: 3 [logterm: 2, index: 7, vote: 0] voted for 2 [logterm: 2, index: 7] at term 32
+raft2026/11/21 10:16:00 INFO: 2 is starting a new election at term 32
+raft2026/11/21 10:16:00 INFO: 2 became candidate at term 33
+raft2026/11/21 10:16:00 INFO: 2 received vote from 2 at term 33
+raft2026/11/21 10:16:00 INFO: 2 [logterm: 2, index: 7] sent vote request to 1 at term 33
+raft2026/11/21 10:16:00 INFO: 2 [logterm: 2, index: 7] sent vote request to 3 at term 33
+raft2026/11/21 10:16:00 INFO: 1 [term: 32] received a MsgVote message with higher term from 2 [term: 33]
+raft2026/11/21 10:16:00 INFO: 1 became follower at term 33
+raft2026/11/21 10:16:00 INFO: 1 [logterm: 2, index: 10, vote: 0] rejected vote from 2 [logterm: 2, index: 7] at term 33
+raft2026/11/21 10:16:00 INFO: 3 [term: 32] received a MsgVote message with higher term from 2 [term: 33]
+raft2026/11/21 10:16:00 INFO: 3 became follower at term 33
+raft2026/11/21 10:16:00 INFO: 3 [logterm: 2, index: 7, vote: 0] voted for 2 [logterm: 2, index: 7] at term 33
+raft2026/11/21 10:16:02 INFO: 2 is starting a new election at term 33
+raft2026/11/21 10:16:02 INFO: 2 became candidate at term 34
+raft2026/11/21 10:16:02 INFO: 2 received vote from 2 at term 34
+raft2026/11/21 10:16:02 INFO: 2 [logterm: 2, index: 7] sent vote request to 1 at term 34
+raft2026/11/21 10:16:02 INFO: 2 [logterm: 2, index: 7] sent vote request to 3 at term 34
+raft2026/11/21 10:16:02 INFO: 3 [term: 33] received a MsgVote message with higher term from 2 [term: 34]
+raft2026/11/21 10:16:02 INFO: 3 became follower at term 34
+raft2026/11/21 10:16:02 INFO: 3 [logterm: 2, index: 7, vote: 0] voted for 2 [logterm: 2, index: 7] at term 34
+raft2026/11/21 10:16:02 INFO: 1 [term: 33] received a MsgVote message with higher term from 2 [term: 34]
+raft2026/11/21 10:16:02 INFO: 1 became follower at term 34
+raft2026/11/21 10:16:02 INFO: 1 [logterm: 2, index: 10, vote: 0] rejected vote from 2 [logterm: 2, index: 7] at term 34
+panic: test timed out after 45s
+
+goroutine 521 [running]:
+testing.(*M).startAlarm.func1()
+	/usr/local/go1.10.8/src/testing/testing.go:1240 +0xfc
+created by time.goFunc
+	/usr/local/go1.10.8/src/time/sleep.go:172 +0x44
+
+goroutine 1 [chan receive]:
+testing.(*T).Run(0xc4201e20f0, 0x80f745, 0x13, 0x826310, 0x477a76)
+	/usr/local/go1.10.8/src/testing/testing.go:825 +0x301
+testing.runTests.func1(0xc4201e2000)
+	/usr/local/go1.10.8/src/testing/testing.go:1063 +0x64
+testing.tRunner(0xc4201e2000, 0xc420065df8)
+	/usr/local/go1.10.8/src/testing/testing.go:777 +0xd0
+testing.runTests(0xc4201ae0a0, 0xa1f3c0, 0x1, 0x1, 0x411a29)
+	/usr/local/go1.10.8/src/testing/testing.go:1061 +0x2c4
+testing.(*M).Run(0xc4201b8000, 0x0)
+	/usr/local/go1.10.8/src/testing/testing.go:978 +0x171
+main.main()
+	_testmain.go:42 +0x151
+
+goroutine 6 [chan receive]:
+github.com/coreos/etcd/pkg/logutil.(*MergeLogger).outputLoop(0xc42010f0c0)
+	/home/li/gopath/src/github.com/coreos/etcd/pkg/logutil/merge_logger.go:171 +0x40d
+created by github.com/coreos/etcd/pkg/logutil.NewMergeLogger
+	/home/li/gopath/src/github.com/coreos/etcd/pkg/logutil/merge_logger.go:89 +0x85
+
+goroutine 52 [chan receive]:
+github.com/coreos/etcd/contrib/raftexample.TestProposeOnCommit(0xc4201e20f0)
+	/home/li/gopath/src/github.com/coreos/etcd/contrib/raftexample/raftexample_test.go:105 +0x1ab
+testing.tRunner(0xc4201e20f0, 0x826310)
+	/usr/local/go1.10.8/src/testing/testing.go:777 +0xd0
+created by testing.(*T).Run
+	/usr/local/go1.10.8/src/testing/testing.go:824 +0x2e0
+
+goroutine 61 [chan receive]:
+github.com/coreos/etcd/rafthttp.(*streamHandler).ServeHTTP(0xc4201922a0, 0x8591c0, 0xc4200ca0e0, 0xc420190200)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/http.go:284 +0x9ed
+net/http.(*ServeMux).ServeHTTP(0xc4201922d0, 0x8591c0, 0xc4200ca0e0, 0xc420190200)
+	/usr/local/go1.10.8/src/net/http/server.go:2340 +0x130
+net/http.serverHandler.ServeHTTP(0xc42014e0d0, 0x8591c0, 0xc4200ca0e0, 0xc420190200)
+	/usr/local/go1.10.8/src/net/http/server.go:2697 +0xbc
+net/http.(*conn).serve(0xc4201ca140, 0x859700, 0xc4216b2040)
+	/usr/local/go1.10.8/src/net/http/server.go:1830 +0x651
+created by net/http.(*Server).Serve
+	/usr/local/go1.10.8/src/net/http/server.go:2798 +0x27b
+
+goroutine 54 [select]:
+github.com/coreos/etcd/raft.(*node).run(0xc4201b65f0, 0xc4201f40e0)
+	/home/li/gopath/src/github.com/coreos/etcd/raft/node.go:275 +0x5c5
+created by github.com/coreos/etcd/raft.StartNode
+	/home/li/gopath/src/github.com/coreos/etcd/raft/node.go:178 +0x5fe
+
+goroutine 91 [select]:
+github.com/coreos/etcd/raft.(*node).run(0xc4201626e0, 0xc4200ca1c0)
+	/home/li/gopath/src/github.com/coreos/etcd/raft/node.go:275 +0x5c5
+created by github.com/coreos/etcd/raft.StartNode
+	/home/li/gopath/src/github.com/coreos/etcd/raft/node.go:178 +0x5fe
+
+goroutine 9 [select]:
+github.com/coreos/etcd/rafthttp.(*streamWriter).run(0xc42014c540)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:140 +0x231
+created by github.com/coreos/etcd/rafthttp.startStreamWriter
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:127 +0x168
+
+goroutine 10 [select]:
+github.com/coreos/etcd/rafthttp.(*streamWriter).run(0xc42014c5b0)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:140 +0x231
+created by github.com/coreos/etcd/rafthttp.startStreamWriter
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:127 +0x168
+
+goroutine 11 [select]:
+github.com/coreos/etcd/rafthttp.(*pipeline).handle(0xc42012c400)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/pipeline.go:91 +0x158
+created by github.com/coreos/etcd/rafthttp.newPipeline
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/pipeline.go:77 +0x17e
+
+goroutine 12 [select]:
+github.com/coreos/etcd/rafthttp.(*pipeline).handle(0xc42012c400)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/pipeline.go:91 +0x158
+created by github.com/coreos/etcd/rafthttp.newPipeline
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/pipeline.go:77 +0x17e
+
+goroutine 13 [select]:
+github.com/coreos/etcd/rafthttp.(*pipeline).handle(0xc42012c400)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/pipeline.go:91 +0x158
+created by github.com/coreos/etcd/rafthttp.newPipeline
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/pipeline.go:77 +0x17e
+
+goroutine 14 [select]:
+github.com/coreos/etcd/rafthttp.(*pipeline).handle(0xc42012c400)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/pipeline.go:91 +0x158
+created by github.com/coreos/etcd/rafthttp.newPipeline
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/pipeline.go:77 +0x17e
+
+goroutine 15 [select]:
+github.com/coreos/etcd/rafthttp.startPeer.func1(0xc420840000, 0x859a80, 0xc4201c41c0, 0x859980, 0xc420071d80)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/peer.go:146 +0x128
+created by github.com/coreos/etcd/rafthttp.startPeer
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/peer.go:144 +0x5c3
+
+goroutine 16 [IO wait]:
+internal/poll.runtime_pollWait(0x7f8c8130c200, 0x72, 0xc420067100)
+	/usr/local/go1.10.8/src/runtime/netpoll.go:173 +0x57
+internal/poll.(*pollDesc).wait(0xc42012d298, 0x72, 0xffffffffffffff00, 0x856300, 0x9f25e0)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:85 +0x9b
+internal/poll.(*pollDesc).waitRead(0xc42012d298, 0xc4200cc000, 0x1000, 0x1000)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:90 +0x3d
+internal/poll.(*FD).Read(0xc42012d280, 0xc4200cc000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/internal/poll/fd_unix.go:157 +0x17d
+net.(*netFD).Read(0xc42012d280, 0xc4200cc000, 0x1000, 0x1000, 0xb42cdac34, 0xa2bc20, 0x0)
+	/usr/local/go1.10.8/src/net/fd_unix.go:202 +0x4f
+net.(*conn).Read(0xc42017a010, 0xc4200cc000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/net.go:176 +0x6a
+github.com/coreos/etcd/pkg/transport.timeoutConn.Read(0x85b0e0, 0xc42017a010, 0x12a05f200, 0x12a05f200, 0xc4200cc000, 0x1000, 0x1000, 0x6, 0x0, 0x0)
+	/home/li/gopath/src/github.com/coreos/etcd/pkg/transport/timeout_conn.go:43 +0x5d
+net/http.(*persistConn).Read(0xc4201806c0, 0xc4200cc000, 0x1000, 0x1000, 0xc4216b5970, 0xc4200cc004, 0x2)
+	/usr/local/go1.10.8/src/net/http/transport.go:1453 +0x136
+bufio.(*Reader).fill(0xc42221a060)
+	/usr/local/go1.10.8/src/bufio/bufio.go:100 +0x11e
+bufio.(*Reader).ReadSlice(0xc42221a060, 0xa, 0x2, 0x0, 0x0, 0x2, 0x0)
+	/usr/local/go1.10.8/src/bufio/bufio.go:341 +0x2c
+net/http/internal.readChunkLine(0xc42221a060, 0x2, 0x2, 0x2, 0x2, 0x0)
+	/usr/local/go1.10.8/src/net/http/internal/chunked.go:122 +0x34
+net/http/internal.(*chunkedReader).beginChunk(0xc4216b5950)
+	/usr/local/go1.10.8/src/net/http/internal/chunked.go:48 +0x32
+net/http/internal.(*chunkedReader).Read(0xc4216b5950, 0xc4201c0390, 0x1, 0x1, 0xc420067538, 0x42b1c9, 0x8)
+	/usr/local/go1.10.8/src/net/http/internal/chunked.go:93 +0x113
+net/http.(*body).readLocked(0xc42015a640, 0xc4201c0390, 0x1, 0x1, 0x1, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/http/transfer.go:778 +0x61
+net/http.(*body).Read(0xc42015a640, 0xc4201c0390, 0x1, 0x1, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/http/transfer.go:770 +0xdd
+net/http.(*bodyEOFSignal).Read(0xc42015a680, 0xc4201c0390, 0x1, 0x1, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/http/transport.go:2187 +0xdc
+io.ReadAtLeast(0x855600, 0xc42015a680, 0xc4201c0390, 0x1, 0x1, 0x1, 0x7f16e0, 0x1, 0xc422b61200)
+	/usr/local/go1.10.8/src/io/io.go:309 +0x86
+io.ReadFull(0x855600, 0xc42015a680, 0xc4201c0390, 0x1, 0x1, 0x1, 0x0, 0x0)
+	/usr/local/go1.10.8/src/io/io.go:327 +0x58
+github.com/coreos/etcd/rafthttp.(*msgAppV2Decoder).decode(0xc4201b8900, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, ...)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/msgappv2_codec.go:179 +0xa5
+github.com/coreos/etcd/rafthttp.(*streamReader).decodeLoop(0xc420840090, 0x857760, 0xc42015a680, 0x80bcc3, 0x8, 0x0, 0x0)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:311 +0x220
+github.com/coreos/etcd/rafthttp.(*streamReader).run(0xc420840090)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:275 +0x336
+created by github.com/coreos/etcd/rafthttp.startStreamReader
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:261 +0x181
+
+goroutine 66 [IO wait]:
+internal/poll.runtime_pollWait(0x7f8c8130c130, 0x72, 0xc4217c8ff0)
+	/usr/local/go1.10.8/src/runtime/netpoll.go:173 +0x57
+internal/poll.(*pollDesc).wait(0xc4201b8618, 0x72, 0xffffffffffffff00, 0x856300, 0x9f25e0)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:85 +0x9b
+internal/poll.(*pollDesc).waitRead(0xc4201b8618, 0xc420131000, 0x1000, 0x1000)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:90 +0x3d
+internal/poll.(*FD).Read(0xc4201b8600, 0xc420131000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/internal/poll/fd_unix.go:157 +0x17d
+net.(*netFD).Read(0xc4201b8600, 0xc420131000, 0x1000, 0x1000, 0xb94516604, 0xa2bc20, 0x0)
+	/usr/local/go1.10.8/src/net/fd_unix.go:202 +0x4f
+net.(*conn).Read(0xc4201b2008, 0xc420131000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/net.go:176 +0x6a
+github.com/coreos/etcd/pkg/transport.timeoutConn.Read(0x85b0e0, 0xc4201b2008, 0x12a05f200, 0x12a05f200, 0xc420131000, 0x1000, 0x1000, 0x2a, 0x0, 0x0)
+	/home/li/gopath/src/github.com/coreos/etcd/pkg/transport/timeout_conn.go:43 +0x5d
+net/http.(*persistConn).Read(0xc4201d25a0, 0xc420131000, 0x1000, 0x1000, 0x2a, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/http/transport.go:1453 +0x136
+bufio.(*Reader).fill(0xc42008ba40)
+	/usr/local/go1.10.8/src/bufio/bufio.go:100 +0x11e
+bufio.(*Reader).ReadSlice(0xc42008ba40, 0xa, 0x1000, 0xc420131000, 0x2, 0x1000, 0x0)
+	/usr/local/go1.10.8/src/bufio/bufio.go:341 +0x2c
+net/http/internal.readChunkLine(0xc42008ba40, 0x2, 0x1000, 0x24, 0x0, 0x8)
+	/usr/local/go1.10.8/src/net/http/internal/chunked.go:122 +0x34
+net/http/internal.(*chunkedReader).beginChunk(0xc4216b57d0)
+	/usr/local/go1.10.8/src/net/http/internal/chunked.go:48 +0x32
+net/http/internal.(*chunkedReader).Read(0xc4216b57d0, 0xc4201aa228, 0x8, 0x8, 0xc4217c9428, 0x42b1c9, 0xc400000008)
+	/usr/local/go1.10.8/src/net/http/internal/chunked.go:93 +0x113
+net/http.(*body).readLocked(0xc42015a4c0, 0xc4201aa228, 0x8, 0x8, 0x464758, 0x854e80, 0xc4217c9540)
+	/usr/local/go1.10.8/src/net/http/transfer.go:778 +0x61
+net/http.(*body).Read(0xc42015a4c0, 0xc4201aa228, 0x8, 0x8, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/http/transfer.go:770 +0xdd
+net/http.(*bodyEOFSignal).Read(0xc42015a500, 0xc4201aa228, 0x8, 0x8, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/http/transport.go:2187 +0xdc
+io.ReadAtLeast(0x855600, 0xc42015a500, 0xc4201aa228, 0x8, 0x8, 0x8, 0x77d040, 0xc42015a401, 0xc4201aa228)
+	/usr/local/go1.10.8/src/io/io.go:309 +0x86
+io.ReadFull(0x855600, 0xc42015a500, 0xc4201aa228, 0x8, 0x8, 0x669ece, 0xc42015a4c0, 0xc42015f980)
+	/usr/local/go1.10.8/src/io/io.go:327 +0x58
+encoding/binary.Read(0x855600, 0xc42015a500, 0x85ae40, 0xa49408, 0x768e20, 0xc4201aa220, 0xc4217c9770, 0x405695)
+	/usr/local/go1.10.8/src/encoding/binary/binary.go:171 +0xe5
+github.com/coreos/etcd/rafthttp.(*messageDecoder).decode(0xc420057e60, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, ...)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/msg_codec.go:47 +0xc8
+github.com/coreos/etcd/rafthttp.(*streamReader).decodeLoop(0xc420840120, 0x857760, 0xc42015a500, 0x80b83e, 0x7, 0x0, 0x0)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:311 +0x220
+github.com/coreos/etcd/rafthttp.(*streamReader).run(0xc420840120)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:275 +0x336
+created by github.com/coreos/etcd/rafthttp.startStreamReader
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:261 +0x181
+
+goroutine 67 [select]:
+github.com/coreos/etcd/rafthttp.startPeer.func2(0xc420840000, 0xc4201ba600, 0x859a80, 0xc4201c41c0, 0xc4201ba5d0, 0xc420057ec0, 0xc420840120)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/peer.go:162 +0x277
+created by github.com/coreos/etcd/rafthttp.startPeer
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/peer.go:159 +0x772
+
+goroutine 69 [select]:
+github.com/coreos/etcd/Godeps/_workspace/src/github.com/xiang90/probing.(*prober).AddHTTP.func1(0xc42001e820, 0xc420057ed0, 0x1, 0x1, 0xc4201ae220, 0xc420071dc0)
+	/home/li/gopath/src/github.com/coreos/etcd/Godeps/_workspace/src/github.com/xiang90/probing/prober.go:55 +0x102
+created by github.com/coreos/etcd/Godeps/_workspace/src/github.com/xiang90/probing.(*prober).AddHTTP
+	/home/li/gopath/src/github.com/coreos/etcd/Godeps/_workspace/src/github.com/xiang90/probing/prober.go:52 +0x1b7
+
+goroutine 70 [select]:
+github.com/coreos/etcd/rafthttp.monitorProbingStatus(0x85a840, 0xc420071dc0, 0xc420024a00, 0x1)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/probing_status.go:48 +0x107
+created by github.com/coreos/etcd/rafthttp.addPeerToProber
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/probing_status.go:42 +0x2b8
+
+goroutine 40 [select]:
+github.com/coreos/etcd/rafthttp.(*streamWriter).run(0xc420124150)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:140 +0x231
+created by github.com/coreos/etcd/rafthttp.startStreamWriter
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:127 +0x168
+
+goroutine 41 [select]:
+github.com/coreos/etcd/rafthttp.(*streamWriter).run(0xc420124310)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:140 +0x231
+created by github.com/coreos/etcd/rafthttp.startStreamWriter
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:127 +0x168
+
+goroutine 23 [select]:
+github.com/coreos/etcd/rafthttp.(*streamWriter).run(0xc420124230)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:140 +0x231
+created by github.com/coreos/etcd/rafthttp.startStreamWriter
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:127 +0x168
+
+goroutine 24 [select]:
+github.com/coreos/etcd/rafthttp.(*streamWriter).run(0xc4201242a0)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:140 +0x231
+created by github.com/coreos/etcd/rafthttp.startStreamWriter
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:127 +0x168
+
+goroutine 25 [select]:
+github.com/coreos/etcd/rafthttp.(*pipeline).handle(0xc4201b8300)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/pipeline.go:91 +0x158
+created by github.com/coreos/etcd/rafthttp.newPipeline
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/pipeline.go:77 +0x17e
+
+goroutine 26 [select]:
+github.com/coreos/etcd/rafthttp.(*pipeline).handle(0xc4201b8300)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/pipeline.go:91 +0x158
+created by github.com/coreos/etcd/rafthttp.newPipeline
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/pipeline.go:77 +0x17e
+
+goroutine 27 [select]:
+github.com/coreos/etcd/rafthttp.(*pipeline).handle(0xc4201b8300)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/pipeline.go:91 +0x158
+created by github.com/coreos/etcd/rafthttp.newPipeline
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/pipeline.go:77 +0x17e
+
+goroutine 28 [select]:
+github.com/coreos/etcd/rafthttp.(*pipeline).handle(0xc4201b8300)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/pipeline.go:91 +0x158
+created by github.com/coreos/etcd/rafthttp.newPipeline
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/pipeline.go:77 +0x17e
+
+goroutine 29 [select]:
+github.com/coreos/etcd/rafthttp.startPeer.func1(0xc4208401b0, 0x859a80, 0xc4201c41c0, 0x859980, 0xc420070040)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/peer.go:146 +0x128
+created by github.com/coreos/etcd/rafthttp.startPeer
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/peer.go:144 +0x5c3
+
+goroutine 30 [IO wait]:
+internal/poll.runtime_pollWait(0x7f8c8128d498, 0x72, 0xc420c53100)
+	/usr/local/go1.10.8/src/runtime/netpoll.go:173 +0x57
+internal/poll.(*pollDesc).wait(0xc42012d418, 0x72, 0xffffffffffffff00, 0x856300, 0x9f25e0)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:85 +0x9b
+internal/poll.(*pollDesc).waitRead(0xc42012d418, 0xc422524000, 0x1000, 0x1000)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:90 +0x3d
+internal/poll.(*FD).Read(0xc42012d400, 0xc422524000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/internal/poll/fd_unix.go:157 +0x17d
+net.(*netFD).Read(0xc42012d400, 0xc422524000, 0x1000, 0x1000, 0xb435fded1, 0xa2bc20, 0x0)
+	/usr/local/go1.10.8/src/net/fd_unix.go:202 +0x4f
+net.(*conn).Read(0xc4201b2038, 0xc422524000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/net.go:176 +0x6a
+github.com/coreos/etcd/pkg/transport.timeoutConn.Read(0x85b0e0, 0xc4201b2038, 0x12a05f200, 0x12a05f200, 0xc422524000, 0x1000, 0x1000, 0x6, 0x0, 0x0)
+	/home/li/gopath/src/github.com/coreos/etcd/pkg/transport/timeout_conn.go:43 +0x5d
+net/http.(*persistConn).Read(0xc4201807e0, 0xc422524000, 0x1000, 0x1000, 0xc4201bac50, 0xc422524004, 0x2)
+	/usr/local/go1.10.8/src/net/http/transport.go:1453 +0x136
+bufio.(*Reader).fill(0xc42231c5a0)
+	/usr/local/go1.10.8/src/bufio/bufio.go:100 +0x11e
+bufio.(*Reader).ReadSlice(0xc42231c5a0, 0xa, 0x2, 0x0, 0x0, 0x2, 0x0)
+	/usr/local/go1.10.8/src/bufio/bufio.go:341 +0x2c
+net/http/internal.readChunkLine(0xc42231c5a0, 0x2, 0x2, 0x2, 0x2, 0x0)
+	/usr/local/go1.10.8/src/net/http/internal/chunked.go:122 +0x34
+net/http/internal.(*chunkedReader).beginChunk(0xc4201bac30)
+	/usr/local/go1.10.8/src/net/http/internal/chunked.go:48 +0x32
+net/http/internal.(*chunkedReader).Read(0xc4201bac30, 0xc4200246d0, 0x1, 0x1, 0xc420c53538, 0x42b1c9, 0x8)
+	/usr/local/go1.10.8/src/net/http/internal/chunked.go:93 +0x113
+net/http.(*body).readLocked(0xc4216b3800, 0xc4200246d0, 0x1, 0x1, 0x1, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/http/transfer.go:778 +0x61
+net/http.(*body).Read(0xc4216b3800, 0xc4200246d0, 0x1, 0x1, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/http/transfer.go:770 +0xdd
+net/http.(*bodyEOFSignal).Read(0xc4216b3840, 0xc4200246d0, 0x1, 0x1, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/http/transport.go:2187 +0xdc
+io.ReadAtLeast(0x855600, 0xc4216b3840, 0xc4200246d0, 0x1, 0x1, 0x1, 0x7f16e0, 0x1, 0xc422b65d00)
+	/usr/local/go1.10.8/src/io/io.go:309 +0x86
+io.ReadFull(0x855600, 0xc4216b3840, 0xc4200246d0, 0x1, 0x1, 0x1, 0x0, 0x0)
+	/usr/local/go1.10.8/src/io/io.go:327 +0x58
+github.com/coreos/etcd/rafthttp.(*msgAppV2Decoder).decode(0xc42012d600, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, ...)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/msgappv2_codec.go:179 +0xa5
+github.com/coreos/etcd/rafthttp.(*streamReader).decodeLoop(0xc420840240, 0x857760, 0xc4216b3840, 0x80bcc3, 0x8, 0x0, 0x0)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:311 +0x220
+github.com/coreos/etcd/rafthttp.(*streamReader).run(0xc420840240)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:275 +0x336
+created by github.com/coreos/etcd/rafthttp.startStreamReader
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:261 +0x181
+
+goroutine 31 [IO wait]:
+internal/poll.runtime_pollWait(0x7f8c8128d2f8, 0x72, 0xc4220eeff0)
+	/usr/local/go1.10.8/src/runtime/netpoll.go:173 +0x57
+internal/poll.(*pollDesc).wait(0xc4200e4118, 0x72, 0xffffffffffffff00, 0x856300, 0x9f25e0)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:85 +0x9b
+internal/poll.(*pollDesc).waitRead(0xc4200e4118, 0xc422830000, 0x1000, 0x1000)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:90 +0x3d
+internal/poll.(*FD).Read(0xc4200e4100, 0xc422830000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/internal/poll/fd_unix.go:157 +0x17d
+net.(*netFD).Read(0xc4200e4100, 0xc422830000, 0x1000, 0x1000, 0xb435fb3ff, 0xa2bc20, 0x0)
+	/usr/local/go1.10.8/src/net/fd_unix.go:202 +0x4f
+net.(*conn).Read(0xc42282e000, 0xc422830000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/net.go:176 +0x6a
+github.com/coreos/etcd/pkg/transport.timeoutConn.Read(0x85b0e0, 0xc42282e000, 0x12a05f200, 0x12a05f200, 0xc422830000, 0x1000, 0x1000, 0x2a, 0x0, 0x0)
+	/home/li/gopath/src/github.com/coreos/etcd/pkg/transport/timeout_conn.go:43 +0x5d
+net/http.(*persistConn).Read(0xc4200206c0, 0xc422830000, 0x1000, 0x1000, 0x2a, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/http/transport.go:1453 +0x136
+bufio.(*Reader).fill(0xc42282a180)
+	/usr/local/go1.10.8/src/bufio/bufio.go:100 +0x11e
+bufio.(*Reader).ReadSlice(0xc42282a180, 0xa, 0x1000, 0xc422830000, 0x2, 0x1000, 0x0)
+	/usr/local/go1.10.8/src/bufio/bufio.go:341 +0x2c
+net/http/internal.readChunkLine(0xc42282a180, 0x2, 0x1000, 0x24, 0x0, 0x8)
+	/usr/local/go1.10.8/src/net/http/internal/chunked.go:122 +0x34
+net/http/internal.(*chunkedReader).beginChunk(0xc4201bb440)
+	/usr/local/go1.10.8/src/net/http/internal/chunked.go:48 +0x32
+net/http/internal.(*chunkedReader).Read(0xc4201bb440, 0xc4201c1780, 0x8, 0x8, 0xc4220ef428, 0x42b1c9, 0xc400000008)
+	/usr/local/go1.10.8/src/net/http/internal/chunked.go:93 +0x113
+net/http.(*body).readLocked(0xc4216b39c0, 0xc4201c1780, 0x8, 0x8, 0x464758, 0x854e80, 0xc4220ef540)
+	/usr/local/go1.10.8/src/net/http/transfer.go:778 +0x61
+net/http.(*body).Read(0xc4216b39c0, 0xc4201c1780, 0x8, 0x8, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/http/transfer.go:770 +0xdd
+net/http.(*bodyEOFSignal).Read(0xc4216b3a00, 0xc4201c1780, 0x8, 0x8, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/http/transport.go:2187 +0xdc
+io.ReadAtLeast(0x855600, 0xc4216b3a00, 0xc4201c1780, 0x8, 0x8, 0x8, 0x77d040, 0xc4216b3901, 0xc4201c1780)
+	/usr/local/go1.10.8/src/io/io.go:309 +0x86
+io.ReadFull(0x855600, 0xc4216b3a00, 0xc4201c1780, 0x8, 0x8, 0x669ece, 0xc4216b39c0, 0xc4201a6220)
+	/usr/local/go1.10.8/src/io/io.go:327 +0x58
+encoding/binary.Read(0x855600, 0xc4216b3a00, 0x85ae40, 0xa49408, 0x768e20, 0xc4201c1778, 0x0, 0x0)
+	/usr/local/go1.10.8/src/encoding/binary/binary.go:171 +0xe5
+github.com/coreos/etcd/rafthttp.(*messageDecoder).decode(0xc420158be0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, ...)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/msg_codec.go:47 +0xc8
+github.com/coreos/etcd/rafthttp.(*streamReader).decodeLoop(0xc4208402d0, 0x857760, 0xc4216b3a00, 0x80b83e, 0x7, 0x0, 0x0)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:311 +0x220
+github.com/coreos/etcd/rafthttp.(*streamReader).run(0xc4208402d0)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:275 +0x336
+created by github.com/coreos/etcd/rafthttp.startStreamReader
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:261 +0x181
+
+goroutine 32 [select]:
+github.com/coreos/etcd/rafthttp.startPeer.func2(0xc4208401b0, 0xc4201920c0, 0x859a80, 0xc4201c41c0, 0xc420192090, 0xc4201580a0, 0xc4208402d0)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/peer.go:162 +0x277
+created by github.com/coreos/etcd/rafthttp.startPeer
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/peer.go:159 +0x772
+
+goroutine 33 [select]:
+github.com/coreos/etcd/Godeps/_workspace/src/github.com/xiang90/probing.(*prober).AddHTTP.func1(0xc420162000, 0xc4201580b0, 0x1, 0x1, 0xc4201ae220, 0xc4200706c0)
+	/home/li/gopath/src/github.com/coreos/etcd/Godeps/_workspace/src/github.com/xiang90/probing/prober.go:55 +0x102
+created by github.com/coreos/etcd/Godeps/_workspace/src/github.com/xiang90/probing.(*prober).AddHTTP
+	/home/li/gopath/src/github.com/coreos/etcd/Godeps/_workspace/src/github.com/xiang90/probing/prober.go:52 +0x1b7
+
+goroutine 82 [select]:
+github.com/coreos/etcd/rafthttp.monitorProbingStatus(0x85a840, 0xc4200706c0, 0xc4201c0058, 0x1)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/probing_status.go:48 +0x107
+created by github.com/coreos/etcd/rafthttp.addPeerToProber
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/probing_status.go:42 +0x2b8
+
+goroutine 83 [IO wait]:
+internal/poll.runtime_pollWait(0x7f8c8130ce30, 0x72, 0x0)
+	/usr/local/go1.10.8/src/runtime/netpoll.go:173 +0x57
+internal/poll.(*pollDesc).wait(0xc42015c318, 0x72, 0xc4201ac200, 0x0, 0x0)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:85 +0x9b
+internal/poll.(*pollDesc).waitRead(0xc42015c318, 0xffffffffffffff00, 0x0, 0x0)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:90 +0x3d
+internal/poll.(*FD).Accept(0xc42015c300, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/internal/poll/fd_unix.go:372 +0x1a8
+net.(*netFD).accept(0xc42015c300, 0xc4201cae40, 0xc420a46d30, 0x402968)
+	/usr/local/go1.10.8/src/net/fd_unix.go:238 +0x42
+net.(*TCPListener).accept(0xc4201b2028, 0xc420a46d60, 0x4018c7, 0xc4201cae40)
+	/usr/local/go1.10.8/src/net/tcpsock_posix.go:136 +0x2e
+net.(*TCPListener).AcceptTCP(0xc4201b2028, 0xc420a46da8, 0xc420a46db0, 0x18)
+	/usr/local/go1.10.8/src/net/tcpsock.go:246 +0x49
+net/http.tcpKeepAliveListener.Accept(0xc4201b2028, 0x8265a0, 0xc4201cadc0, 0x8597c0, 0xc420192420)
+	/usr/local/go1.10.8/src/net/http/server.go:3219 +0x2f
+net/http.(*Server).Serve(0xc42014e0d0, 0x859580, 0xc4201b2028, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/http/server.go:2773 +0x1a5
+net/http.(*Server).ListenAndServe(0xc42014e0d0, 0xc42014e0d0, 0xc420042f00)
+	/usr/local/go1.10.8/src/net/http/server.go:2714 +0xa9
+github.com/coreos/etcd/contrib/raftexample.(*raftNode).serveRaft(0xc4201c41c0)
+	/home/li/gopath/src/github.com/coreos/etcd/contrib/raftexample/raft.go:224 +0x191
+created by github.com/coreos/etcd/contrib/raftexample.(*raftNode).startRaft
+	/home/li/gopath/src/github.com/coreos/etcd/contrib/raftexample/raft.go:177 +0x430
+
+goroutine 84 [chan send]:
+github.com/coreos/etcd/contrib/raftexample.(*raftNode).publishEntries(0xc4201c41c0, 0xc4201d26c0, 0x3, 0x4)
+	/home/li/gopath/src/github.com/coreos/etcd/contrib/raftexample/raft.go:82 +0xea
+github.com/coreos/etcd/contrib/raftexample.(*raftNode).serveChannels(0xc4201c41c0)
+	/home/li/gopath/src/github.com/coreos/etcd/contrib/raftexample/raft.go:207 +0x45d
+created by github.com/coreos/etcd/contrib/raftexample.(*raftNode).startRaft
+	/home/li/gopath/src/github.com/coreos/etcd/contrib/raftexample/raft.go:178 +0x455
+
+goroutine 150 [chan send]:
+github.com/coreos/etcd/contrib/raftexample.TestProposeOnCommit.func2(0xc4201e20f0, 0xc420513e60, 0xc4201b4180, 0xc4201d42a0, 0xc4201d4300)
+	/home/li/gopath/src/github.com/coreos/etcd/contrib/raftexample/raftexample_test.go:92 +0x19c
+created by github.com/coreos/etcd/contrib/raftexample.TestProposeOnCommit
+	/home/li/gopath/src/github.com/coreos/etcd/contrib/raftexample/raftexample_test.go:88 +0xfd
+
+goroutine 72 [select]:
+github.com/coreos/etcd/raft.(*node).run(0xc42001e8c0, 0xc4201f42a0)
+	/home/li/gopath/src/github.com/coreos/etcd/raft/node.go:275 +0x5c5
+created by github.com/coreos/etcd/raft.StartNode
+	/home/li/gopath/src/github.com/coreos/etcd/raft/node.go:178 +0x5fe
+
+goroutine 42 [select]:
+github.com/coreos/etcd/rafthttp.(*pipeline).handle(0xc4201b8080)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/pipeline.go:91 +0x158
+created by github.com/coreos/etcd/rafthttp.newPipeline
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/pipeline.go:77 +0x17e
+
+goroutine 43 [select]:
+github.com/coreos/etcd/rafthttp.(*pipeline).handle(0xc4201b8080)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/pipeline.go:91 +0x158
+created by github.com/coreos/etcd/rafthttp.newPipeline
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/pipeline.go:77 +0x17e
+
+goroutine 44 [select]:
+github.com/coreos/etcd/rafthttp.(*pipeline).handle(0xc4201b8080)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/pipeline.go:91 +0x158
+created by github.com/coreos/etcd/rafthttp.newPipeline
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/pipeline.go:77 +0x17e
+
+goroutine 45 [select]:
+github.com/coreos/etcd/rafthttp.(*pipeline).handle(0xc4201b8080)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/pipeline.go:91 +0x158
+created by github.com/coreos/etcd/rafthttp.newPipeline
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/pipeline.go:77 +0x17e
+
+goroutine 46 [select]:
+github.com/coreos/etcd/rafthttp.startPeer.func1(0xc420182090, 0x859a80, 0xc4201c43f0, 0x859980, 0xc4201ac300)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/peer.go:146 +0x128
+created by github.com/coreos/etcd/rafthttp.startPeer
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/peer.go:144 +0x5c3
+
+goroutine 47 [IO wait]:
+internal/poll.runtime_pollWait(0x7f8c8130cd60, 0x72, 0xc420c55100)
+	/usr/local/go1.10.8/src/runtime/netpoll.go:173 +0x57
+internal/poll.(*pollDesc).wait(0xc42015c498, 0x72, 0xffffffffffffff00, 0x856300, 0x9f25e0)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:85 +0x9b
+internal/poll.(*pollDesc).waitRead(0xc42015c498, 0xc4216a0000, 0x1000, 0x1000)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:90 +0x3d
+internal/poll.(*FD).Read(0xc42015c480, 0xc4216a0000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/internal/poll/fd_unix.go:157 +0x17d
+net.(*netFD).Read(0xc42015c480, 0xc4216a0000, 0x1000, 0x1000, 0xb41e477f2, 0xa2bc20, 0x0)
+	/usr/local/go1.10.8/src/net/fd_unix.go:202 +0x4f
+net.(*conn).Read(0xc4201b2068, 0xc4216a0000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/net.go:176 +0x6a
+github.com/coreos/etcd/pkg/transport.timeoutConn.Read(0x85b0e0, 0xc4201b2068, 0x12a05f200, 0x12a05f200, 0xc4216a0000, 0x1000, 0x1000, 0x6, 0x0, 0x0)
+	/home/li/gopath/src/github.com/coreos/etcd/pkg/transport/timeout_conn.go:43 +0x5d
+net/http.(*persistConn).Read(0xc4201d2360, 0xc4216a0000, 0x1000, 0x1000, 0xc4201ba950, 0xc4216a0004, 0x2)
+	/usr/local/go1.10.8/src/net/http/transport.go:1453 +0x136
+bufio.(*Reader).fill(0xc42016c780)
+	/usr/local/go1.10.8/src/bufio/bufio.go:100 +0x11e
+bufio.(*Reader).ReadSlice(0xc42016c780, 0xa, 0x2, 0x0, 0x0, 0x2, 0x0)
+	/usr/local/go1.10.8/src/bufio/bufio.go:341 +0x2c
+net/http/internal.readChunkLine(0xc42016c780, 0x2, 0x2, 0x2, 0x2, 0x0)
+	/usr/local/go1.10.8/src/net/http/internal/chunked.go:122 +0x34
+net/http/internal.(*chunkedReader).beginChunk(0xc4201ba930)
+	/usr/local/go1.10.8/src/net/http/internal/chunked.go:48 +0x32
+net/http/internal.(*chunkedReader).Read(0xc4201ba930, 0xc4201c02a8, 0x1, 0x1, 0xc420c55538, 0x42b1c9, 0x8)
+	/usr/local/go1.10.8/src/net/http/internal/chunked.go:93 +0x113
+net/http.(*body).readLocked(0xc4201e67c0, 0xc4201c02a8, 0x1, 0x1, 0x1, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/http/transfer.go:778 +0x61
+net/http.(*body).Read(0xc4201e67c0, 0xc4201c02a8, 0x1, 0x1, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/http/transfer.go:770 +0xdd
+net/http.(*bodyEOFSignal).Read(0xc4201e6800, 0xc4201c02a8, 0x1, 0x1, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/http/transport.go:2187 +0xdc
+io.ReadAtLeast(0x855600, 0xc4201e6800, 0xc4201c02a8, 0x1, 0x1, 0x1, 0x7f16e0, 0x1, 0xc422b65800)
+	/usr/local/go1.10.8/src/io/io.go:309 +0x86
+io.ReadFull(0x855600, 0xc4201e6800, 0xc4201c02a8, 0x1, 0x1, 0x1, 0x0, 0x0)
+	/usr/local/go1.10.8/src/io/io.go:327 +0x58
+github.com/coreos/etcd/rafthttp.(*msgAppV2Decoder).decode(0xc42012c300, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, ...)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/msgappv2_codec.go:179 +0xa5
+github.com/coreos/etcd/rafthttp.(*streamReader).decodeLoop(0xc420182120, 0x857760, 0xc4201e6800, 0x80bcc3, 0x8, 0x0, 0x0)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:311 +0x220
+github.com/coreos/etcd/rafthttp.(*streamReader).run(0xc420182120)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:275 +0x336
+created by github.com/coreos/etcd/rafthttp.startStreamReader
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:261 +0x181
+
+goroutine 48 [IO wait]:
+internal/poll.runtime_pollWait(0x7f8c8130cc90, 0x72, 0xc42159eff0)
+	/usr/local/go1.10.8/src/runtime/netpoll.go:173 +0x57
+internal/poll.(*pollDesc).wait(0xc42015c618, 0x72, 0xffffffffffffff00, 0x856300, 0x9f25e0)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:85 +0x9b
+internal/poll.(*pollDesc).waitRead(0xc42015c618, 0xc4216a4000, 0x1000, 0x1000)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:90 +0x3d
+internal/poll.(*FD).Read(0xc42015c600, 0xc4216a4000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/internal/poll/fd_unix.go:157 +0x17d
+net.(*netFD).Read(0xc42015c600, 0xc4216a4000, 0x1000, 0x1000, 0xb41d513c0, 0xa2bc20, 0x0)
+	/usr/local/go1.10.8/src/net/fd_unix.go:202 +0x4f
+net.(*conn).Read(0xc42000e008, 0xc4216a4000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/net.go:176 +0x6a
+github.com/coreos/etcd/pkg/transport.timeoutConn.Read(0x85b0e0, 0xc42000e008, 0x12a05f200, 0x12a05f200, 0xc4216a4000, 0x1000, 0x1000, 0x2a, 0x0, 0x0)
+	/home/li/gopath/src/github.com/coreos/etcd/pkg/transport/timeout_conn.go:43 +0x5d
+net/http.(*persistConn).Read(0xc4201d2480, 0xc4216a4000, 0x1000, 0x1000, 0x2a, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/http/transport.go:1453 +0x136
+bufio.(*Reader).fill(0xc4216a2360)
+	/usr/local/go1.10.8/src/bufio/bufio.go:100 +0x11e
+bufio.(*Reader).ReadSlice(0xc4216a2360, 0xa, 0x1000, 0xc4216a4000, 0x2, 0x1000, 0x0)
+	/usr/local/go1.10.8/src/bufio/bufio.go:341 +0x2c
+net/http/internal.readChunkLine(0xc4216a2360, 0x2, 0x1000, 0x24, 0x0, 0x8)
+	/usr/local/go1.10.8/src/net/http/internal/chunked.go:122 +0x34
+net/http/internal.(*chunkedReader).beginChunk(0xc4216b4210)
+	/usr/local/go1.10.8/src/net/http/internal/chunked.go:48 +0x32
+net/http/internal.(*chunkedReader).Read(0xc4216b4210, 0xc4201553f0, 0x8, 0x8, 0xc42159f428, 0x42b1c9, 0xc400000008)
+	/usr/local/go1.10.8/src/net/http/internal/chunked.go:93 +0x113
+net/http.(*body).readLocked(0xc4216b2340, 0xc4201553f0, 0x8, 0x8, 0x28, 0x200, 0x140)
+	/usr/local/go1.10.8/src/net/http/transfer.go:778 +0x61
+net/http.(*body).Read(0xc4216b2340, 0xc4201553f0, 0x8, 0x8, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/http/transfer.go:770 +0xdd
+net/http.(*bodyEOFSignal).Read(0xc4216b2380, 0xc4201553f0, 0x8, 0x8, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/http/transport.go:2187 +0xdc
+io.ReadAtLeast(0x855600, 0xc4216b2380, 0xc4201553f0, 0x8, 0x8, 0x8, 0x77d040, 0xc4216b2301, 0xc4201553f0)
+	/usr/local/go1.10.8/src/io/io.go:309 +0x86
+io.ReadFull(0x855600, 0xc4216b2380, 0xc4201553f0, 0x8, 0x8, 0x669ece, 0xc4216b2340, 0xc4201c38a0)
+	/usr/local/go1.10.8/src/io/io.go:327 +0x58
+encoding/binary.Read(0x855600, 0xc4216b2380, 0x85ae40, 0xa49408, 0x768e20, 0xc4201553e8, 0x0, 0x0)
+	/usr/local/go1.10.8/src/encoding/binary/binary.go:171 +0xe5
+github.com/coreos/etcd/rafthttp.(*messageDecoder).decode(0xc420158290, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, ...)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/msg_codec.go:47 +0xc8
+github.com/coreos/etcd/rafthttp.(*streamReader).decodeLoop(0xc4201821b0, 0x857760, 0xc4216b2380, 0x80b83e, 0x7, 0x0, 0x0)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:311 +0x220
+github.com/coreos/etcd/rafthttp.(*streamReader).run(0xc4201821b0)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:275 +0x336
+created by github.com/coreos/etcd/rafthttp.startStreamReader
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:261 +0x181
+
+goroutine 49 [select]:
+github.com/coreos/etcd/rafthttp.startPeer.func2(0xc420182090, 0xc4201605d0, 0x859a80, 0xc4201c43f0, 0xc4201605a0, 0xc420057c60, 0xc4201821b0)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/peer.go:162 +0x277
+created by github.com/coreos/etcd/rafthttp.startPeer
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/peer.go:159 +0x772
+
+goroutine 98 [select]:
+github.com/coreos/etcd/Godeps/_workspace/src/github.com/xiang90/probing.(*prober).AddHTTP.func1(0xc42016e410, 0xc420057c70, 0x1, 0x1, 0xc42018e1c0, 0xc4201ac340)
+	/home/li/gopath/src/github.com/coreos/etcd/Godeps/_workspace/src/github.com/xiang90/probing/prober.go:55 +0x102
+created by github.com/coreos/etcd/Godeps/_workspace/src/github.com/xiang90/probing.(*prober).AddHTTP
+	/home/li/gopath/src/github.com/coreos/etcd/Godeps/_workspace/src/github.com/xiang90/probing/prober.go:52 +0x1b7
+
+goroutine 99 [select]:
+github.com/coreos/etcd/rafthttp.monitorProbingStatus(0x85a840, 0xc4201ac340, 0xc4200246a0, 0x1)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/probing_status.go:48 +0x107
+created by github.com/coreos/etcd/rafthttp.addPeerToProber
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/probing_status.go:42 +0x2b8
+
+goroutine 100 [select]:
+github.com/coreos/etcd/rafthttp.(*streamWriter).run(0xc420124380)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:140 +0x231
+created by github.com/coreos/etcd/rafthttp.startStreamWriter
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:127 +0x168
+
+goroutine 101 [select]:
+github.com/coreos/etcd/rafthttp.(*streamWriter).run(0xc420124460)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:140 +0x231
+created by github.com/coreos/etcd/rafthttp.startStreamWriter
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:127 +0x168
+
+goroutine 102 [select]:
+github.com/coreos/etcd/rafthttp.(*pipeline).handle(0xc4201b8480)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/pipeline.go:91 +0x158
+created by github.com/coreos/etcd/rafthttp.newPipeline
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/pipeline.go:77 +0x17e
+
+goroutine 103 [select]:
+github.com/coreos/etcd/rafthttp.(*pipeline).handle(0xc4201b8480)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/pipeline.go:91 +0x158
+created by github.com/coreos/etcd/rafthttp.newPipeline
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/pipeline.go:77 +0x17e
+
+goroutine 104 [select]:
+github.com/coreos/etcd/rafthttp.(*pipeline).handle(0xc4201b8480)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/pipeline.go:91 +0x158
+created by github.com/coreos/etcd/rafthttp.newPipeline
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/pipeline.go:77 +0x17e
+
+goroutine 105 [select]:
+github.com/coreos/etcd/rafthttp.(*pipeline).handle(0xc4201b8480)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/pipeline.go:91 +0x158
+created by github.com/coreos/etcd/rafthttp.newPipeline
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/pipeline.go:77 +0x17e
+
+goroutine 89 [IO wait]:
+internal/poll.runtime_pollWait(0x7f8c8130caf0, 0x72, 0xc420632e58)
+	/usr/local/go1.10.8/src/runtime/netpoll.go:173 +0x57
+internal/poll.(*pollDesc).wait(0xc42012c198, 0x72, 0xffffffffffffff00, 0x856300, 0x9f25e0)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:85 +0x9b
+internal/poll.(*pollDesc).waitRead(0xc42012c198, 0xc420095d00, 0x1, 0x1)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:90 +0x3d
+internal/poll.(*FD).Read(0xc42012c180, 0xc420095d81, 0x1, 0x1, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/internal/poll/fd_unix.go:157 +0x17d
+net.(*netFD).Read(0xc42012c180, 0xc420095d81, 0x1, 0x1, 0xc4216a23c0, 0x0, 0x20002)
+	/usr/local/go1.10.8/src/net/fd_unix.go:202 +0x4f
+net.(*conn).Read(0xc4201b2078, 0xc420095d81, 0x1, 0x1, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/net.go:176 +0x6a
+net/http.(*connReader).backgroundRead(0xc420095d70)
+	/usr/local/go1.10.8/src/net/http/server.go:668 +0x5a
+created by net/http.(*connReader).startBackgroundRead
+	/usr/local/go1.10.8/src/net/http/server.go:664 +0xce
+
+goroutine 59 [select]:
+net/http.(*persistConn).readLoop(0xc4201d2360)
+	/usr/local/go1.10.8/src/net/http/transport.go:1717 +0x743
+created by net/http.(*Transport).dialConn
+	/usr/local/go1.10.8/src/net/http/transport.go:1237 +0x95a
+
+goroutine 60 [select]:
+net/http.(*persistConn).writeLoop(0xc4201d2360)
+	/usr/local/go1.10.8/src/net/http/transport.go:1822 +0x14b
+created by net/http.(*Transport).dialConn
+	/usr/local/go1.10.8/src/net/http/transport.go:1238 +0x97f
+
+goroutine 106 [select]:
+github.com/coreos/etcd/rafthttp.startPeer.func1(0xc420182240, 0x859a80, 0xc4201c43f0, 0x859980, 0xc4201ac380)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/peer.go:146 +0x128
+created by github.com/coreos/etcd/rafthttp.startPeer
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/peer.go:144 +0x5c3
+
+goroutine 107 [IO wait]:
+internal/poll.runtime_pollWait(0x7f8c8128d088, 0x72, 0xc420065100)
+	/usr/local/go1.10.8/src/runtime/netpoll.go:173 +0x57
+internal/poll.(*pollDesc).wait(0xc42015ca98, 0x72, 0xffffffffffffff00, 0x856300, 0x9f25e0)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:85 +0x9b
+internal/poll.(*pollDesc).waitRead(0xc42015ca98, 0xc422854000, 0x1000, 0x1000)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:90 +0x3d
+internal/poll.(*FD).Read(0xc42015ca80, 0xc422854000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/internal/poll/fd_unix.go:157 +0x17d
+net.(*netFD).Read(0xc42015ca80, 0xc422854000, 0x1000, 0x1000, 0xb435fe5e5, 0xa2bc20, 0x0)
+	/usr/local/go1.10.8/src/net/fd_unix.go:202 +0x4f
+net.(*conn).Read(0xc42282e008, 0xc422854000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/net.go:176 +0x6a
+github.com/coreos/etcd/pkg/transport.timeoutConn.Read(0x85b0e0, 0xc42282e008, 0x12a05f200, 0x12a05f200, 0xc422854000, 0x1000, 0x1000, 0x6, 0x0, 0x0)
+	/home/li/gopath/src/github.com/coreos/etcd/pkg/transport/timeout_conn.go:43 +0x5d
+net/http.(*persistConn).Read(0xc42283e000, 0xc422854000, 0x1000, 0x1000, 0xc4216b5e80, 0xc422854004, 0x2)
+	/usr/local/go1.10.8/src/net/http/transport.go:1453 +0x136
+bufio.(*Reader).fill(0xc42282a240)
+	/usr/local/go1.10.8/src/bufio/bufio.go:100 +0x11e
+bufio.(*Reader).ReadSlice(0xc42282a240, 0xa, 0x2, 0x0, 0x0, 0x2, 0x0)
+	/usr/local/go1.10.8/src/bufio/bufio.go:341 +0x2c
+net/http/internal.readChunkLine(0xc42282a240, 0x2, 0x2, 0x2, 0x2, 0x0)
+	/usr/local/go1.10.8/src/net/http/internal/chunked.go:122 +0x34
+net/http/internal.(*chunkedReader).beginChunk(0xc4216b5e60)
+	/usr/local/go1.10.8/src/net/http/internal/chunked.go:48 +0x32
+net/http/internal.(*chunkedReader).Read(0xc4216b5e60, 0xc4201c0498, 0x1, 0x1, 0xc420065538, 0x42b1c9, 0x8)
+	/usr/local/go1.10.8/src/net/http/internal/chunked.go:93 +0x113
+net/http.(*body).readLocked(0xc42015abc0, 0xc4201c0498, 0x1, 0x1, 0x1, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/http/transfer.go:778 +0x61
+net/http.(*body).Read(0xc42015abc0, 0xc4201c0498, 0x1, 0x1, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/http/transfer.go:770 +0xdd
+net/http.(*bodyEOFSignal).Read(0xc42015ac00, 0xc4201c0498, 0x1, 0x1, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/http/transport.go:2187 +0xdc
+io.ReadAtLeast(0x855600, 0xc42015ac00, 0xc4201c0498, 0x1, 0x1, 0x1, 0x7f16e0, 0x1, 0xc422ad7200)
+	/usr/local/go1.10.8/src/io/io.go:309 +0x86
+io.ReadFull(0x855600, 0xc42015ac00, 0xc4201c0498, 0x1, 0x1, 0x1, 0x0, 0x0)
+	/usr/local/go1.10.8/src/io/io.go:327 +0x58
+github.com/coreos/etcd/rafthttp.(*msgAppV2Decoder).decode(0xc4201b8a80, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, ...)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/msgappv2_codec.go:179 +0xa5
+github.com/coreos/etcd/rafthttp.(*streamReader).decodeLoop(0xc4201822d0, 0x857760, 0xc42015ac00, 0x80bcc3, 0x8, 0x0, 0x0)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:311 +0x220
+github.com/coreos/etcd/rafthttp.(*streamReader).run(0xc4201822d0)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:275 +0x336
+created by github.com/coreos/etcd/rafthttp.startStreamReader
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:261 +0x181
+
+goroutine 108 [IO wait]:
+internal/poll.runtime_pollWait(0x7f8c8128d158, 0x72, 0xc420524ff0)
+	/usr/local/go1.10.8/src/runtime/netpoll.go:173 +0x57
+internal/poll.(*pollDesc).wait(0xc42012d798, 0x72, 0xffffffffffffff00, 0x856300, 0x9f25e0)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:85 +0x9b
+internal/poll.(*pollDesc).waitRead(0xc42012d798, 0xc422848000, 0x1000, 0x1000)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:90 +0x3d
+internal/poll.(*FD).Read(0xc42012d780, 0xc422848000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/internal/poll/fd_unix.go:157 +0x17d
+net.(*netFD).Read(0xc42012d780, 0xc422848000, 0x1000, 0x1000, 0xb435fe8f6, 0xa2bc20, 0x0)
+	/usr/local/go1.10.8/src/net/fd_unix.go:202 +0x4f
+net.(*conn).Read(0xc4201b2060, 0xc422848000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/net.go:176 +0x6a
+github.com/coreos/etcd/pkg/transport.timeoutConn.Read(0x85b0e0, 0xc4201b2060, 0x12a05f200, 0x12a05f200, 0xc422848000, 0x1000, 0x1000, 0x2a, 0x0, 0x0)
+	/home/li/gopath/src/github.com/coreos/etcd/pkg/transport/timeout_conn.go:43 +0x5d
+net/http.(*persistConn).Read(0xc420180900, 0xc422848000, 0x1000, 0x1000, 0x2a, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/http/transport.go:1453 +0x136
+bufio.(*Reader).fill(0xc42231cba0)
+	/usr/local/go1.10.8/src/bufio/bufio.go:100 +0x11e
+bufio.(*Reader).ReadSlice(0xc42231cba0, 0xa, 0x1000, 0xc422848000, 0x2, 0x1000, 0x0)
+	/usr/local/go1.10.8/src/bufio/bufio.go:341 +0x2c
+net/http/internal.readChunkLine(0xc42231cba0, 0x2, 0x1000, 0x24, 0x0, 0x8)
+	/usr/local/go1.10.8/src/net/http/internal/chunked.go:122 +0x34
+net/http/internal.(*chunkedReader).beginChunk(0xc4216b5ce0)
+	/usr/local/go1.10.8/src/net/http/internal/chunked.go:48 +0x32
+net/http/internal.(*chunkedReader).Read(0xc4216b5ce0, 0xc422b93000, 0x8, 0x8, 0xc420525428, 0x42b1c9, 0xc400000008)
+	/usr/local/go1.10.8/src/net/http/internal/chunked.go:93 +0x113
+net/http.(*body).readLocked(0xc42015aa80, 0xc422b93000, 0x8, 0x8, 0x464758, 0x854e80, 0xc420525540)
+	/usr/local/go1.10.8/src/net/http/transfer.go:778 +0x61
+net/http.(*body).Read(0xc42015aa80, 0xc422b93000, 0x8, 0x8, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/http/transfer.go:770 +0xdd
+net/http.(*bodyEOFSignal).Read(0xc42015aac0, 0xc422b93000, 0x8, 0x8, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/http/transport.go:2187 +0xdc
+io.ReadAtLeast(0x855600, 0xc42015aac0, 0xc422b93000, 0x8, 0x8, 0x8, 0x77d040, 0xc42015aa01, 0xc422b93000)
+	/usr/local/go1.10.8/src/io/io.go:309 +0x86
+io.ReadFull(0x855600, 0xc42015aac0, 0xc422b93000, 0x8, 0x8, 0x669ece, 0xc42015aa80, 0xc422b751e0)
+	/usr/local/go1.10.8/src/io/io.go:327 +0x58
+encoding/binary.Read(0x855600, 0xc42015aac0, 0x85ae40, 0xa49408, 0x768e20, 0xc422b92ff8, 0x0, 0x0)
+	/usr/local/go1.10.8/src/encoding/binary/binary.go:171 +0xe5
+github.com/coreos/etcd/rafthttp.(*messageDecoder).decode(0xc42285e000, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, ...)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/msg_codec.go:47 +0xc8
+github.com/coreos/etcd/rafthttp.(*streamReader).decodeLoop(0xc420182360, 0x857760, 0xc42015aac0, 0x80b83e, 0x7, 0x0, 0x0)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:311 +0x220
+github.com/coreos/etcd/rafthttp.(*streamReader).run(0xc420182360)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:275 +0x336
+created by github.com/coreos/etcd/rafthttp.startStreamReader
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:261 +0x181
+
+goroutine 109 [select]:
+github.com/coreos/etcd/rafthttp.startPeer.func2(0xc420182240, 0xc420192480, 0x859a80, 0xc4201c43f0, 0xc420192450, 0xc420057c90, 0xc420182360)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/peer.go:162 +0x277
+created by github.com/coreos/etcd/rafthttp.startPeer
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/peer.go:159 +0x772
+
+goroutine 110 [select]:
+github.com/coreos/etcd/Godeps/_workspace/src/github.com/xiang90/probing.(*prober).AddHTTP.func1(0xc42016e460, 0xc420057cc0, 0x1, 0x1, 0xc42018e1c0, 0xc4201ac3c0)
+	/home/li/gopath/src/github.com/coreos/etcd/Godeps/_workspace/src/github.com/xiang90/probing/prober.go:55 +0x102
+created by github.com/coreos/etcd/Godeps/_workspace/src/github.com/xiang90/probing.(*prober).AddHTTP
+	/home/li/gopath/src/github.com/coreos/etcd/Godeps/_workspace/src/github.com/xiang90/probing/prober.go:52 +0x1b7
+
+goroutine 111 [select]:
+github.com/coreos/etcd/rafthttp.monitorProbingStatus(0x85a840, 0xc4201ac3c0, 0xc4200246a2, 0x1)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/probing_status.go:48 +0x107
+created by github.com/coreos/etcd/rafthttp.addPeerToProber
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/probing_status.go:42 +0x2b8
+
+goroutine 112 [IO wait]:
+internal/poll.runtime_pollWait(0x7f8c8130ca20, 0x72, 0x0)
+	/usr/local/go1.10.8/src/runtime/netpoll.go:173 +0x57
+internal/poll.(*pollDesc).wait(0xc42015c998, 0x72, 0xc42015ae00, 0x0, 0x0)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:85 +0x9b
+internal/poll.(*pollDesc).waitRead(0xc42015c998, 0xffffffffffffff00, 0x0, 0x0)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:90 +0x3d
+internal/poll.(*FD).Accept(0xc42015c980, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/internal/poll/fd_unix.go:372 +0x1a8
+net.(*netFD).accept(0xc42015c980, 0xc422114800, 0xc421592d30, 0x402968)
+	/usr/local/go1.10.8/src/net/fd_unix.go:238 +0x42
+net.(*TCPListener).accept(0xc42000e030, 0xc421592d60, 0x4018c7, 0xc422114800)
+	/usr/local/go1.10.8/src/net/tcpsock_posix.go:136 +0x2e
+net.(*TCPListener).AcceptTCP(0xc42000e030, 0xc421592da8, 0xc421592db0, 0x18)
+	/usr/local/go1.10.8/src/net/tcpsock.go:246 +0x49
+net/http.tcpKeepAliveListener.Accept(0xc42000e030, 0x8265a0, 0xc422114780, 0x8597c0, 0xc4201bad20)
+	/usr/local/go1.10.8/src/net/http/server.go:3219 +0x2f
+net/http.(*Server).Serve(0xc42012e680, 0x859580, 0xc42000e030, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/http/server.go:2773 +0x1a5
+net/http.(*Server).ListenAndServe(0xc42012e680, 0xc42012e680, 0xc420632700)
+	/usr/local/go1.10.8/src/net/http/server.go:2714 +0xa9
+github.com/coreos/etcd/contrib/raftexample.(*raftNode).serveRaft(0xc4201c43f0)
+	/home/li/gopath/src/github.com/coreos/etcd/contrib/raftexample/raft.go:224 +0x191
+created by github.com/coreos/etcd/contrib/raftexample.(*raftNode).startRaft
+	/home/li/gopath/src/github.com/coreos/etcd/contrib/raftexample/raft.go:177 +0x430
+
+goroutine 113 [select]:
+github.com/coreos/etcd/contrib/raftexample.(*raftNode).serveChannels(0xc4201c43f0)
+	/home/li/gopath/src/github.com/coreos/etcd/contrib/raftexample/raft.go:189 +0x261
+created by github.com/coreos/etcd/contrib/raftexample.(*raftNode).startRaft
+	/home/li/gopath/src/github.com/coreos/etcd/contrib/raftexample/raft.go:178 +0x455
+
+goroutine 87 [select]:
+net/http.(*persistConn).readLoop(0xc4201d2480)
+	/usr/local/go1.10.8/src/net/http/transport.go:1717 +0x743
+created by net/http.(*Transport).dialConn
+	/usr/local/go1.10.8/src/net/http/transport.go:1237 +0x95a
+
+goroutine 88 [select]:
+net/http.(*persistConn).writeLoop(0xc4201d2480)
+	/usr/local/go1.10.8/src/net/http/transport.go:1822 +0x14b
+created by net/http.(*Transport).dialConn
+	/usr/local/go1.10.8/src/net/http/transport.go:1238 +0x97f
+
+goroutine 62 [chan receive]:
+github.com/coreos/etcd/rafthttp.(*streamHandler).ServeHTTP(0xc4201922a0, 0x8591c0, 0xc4216b6000, 0xc420190100)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/http.go:284 +0x9ed
+net/http.(*ServeMux).ServeHTTP(0xc4201922d0, 0x8591c0, 0xc4216b6000, 0xc420190100)
+	/usr/local/go1.10.8/src/net/http/server.go:2340 +0x130
+net/http.serverHandler.ServeHTTP(0xc42014e0d0, 0x8591c0, 0xc4216b6000, 0xc420190100)
+	/usr/local/go1.10.8/src/net/http/server.go:2697 +0xbc
+net/http.(*conn).serve(0xc4201ca1e0, 0x859700, 0xc420071ec0)
+	/usr/local/go1.10.8/src/net/http/server.go:1830 +0x651
+created by net/http.(*Server).Serve
+	/usr/local/go1.10.8/src/net/http/server.go:2798 +0x27b
+
+goroutine 63 [IO wait]:
+internal/poll.runtime_pollWait(0x7f8c8130cbc0, 0x72, 0xc4201f1e58)
+	/usr/local/go1.10.8/src/runtime/netpoll.go:173 +0x57
+internal/poll.(*pollDesc).wait(0xc42012c118, 0x72, 0xffffffffffffff00, 0x856300, 0x9f25e0)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:85 +0x9b
+internal/poll.(*pollDesc).waitRead(0xc42012c118, 0xc4216b4000, 0x1, 0x1)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:90 +0x3d
+internal/poll.(*FD).Read(0xc42012c100, 0xc4216b4011, 0x1, 0x1, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/internal/poll/fd_unix.go:157 +0x17d
+net.(*netFD).Read(0xc42012c100, 0xc4216b4011, 0x1, 0x1, 0xc42016c7e0, 0x0, 0x20002)
+	/usr/local/go1.10.8/src/net/fd_unix.go:202 +0x4f
+net.(*conn).Read(0xc4201b2070, 0xc4216b4011, 0x1, 0x1, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/net.go:176 +0x6a
+net/http.(*connReader).backgroundRead(0xc4216b4000)
+	/usr/local/go1.10.8/src/net/http/server.go:668 +0x5a
+created by net/http.(*connReader).startBackgroundRead
+	/usr/local/go1.10.8/src/net/http/server.go:664 +0xce
+
+goroutine 92 [select]:
+github.com/coreos/etcd/rafthttp.(*streamWriter).run(0xc4201565b0)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:140 +0x231
+created by github.com/coreos/etcd/rafthttp.startStreamWriter
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:127 +0x168
+
+goroutine 93 [select]:
+github.com/coreos/etcd/rafthttp.(*streamWriter).run(0xc420156690)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:140 +0x231
+created by github.com/coreos/etcd/rafthttp.startStreamWriter
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:127 +0x168
+
+goroutine 94 [select]:
+github.com/coreos/etcd/rafthttp.(*pipeline).handle(0xc42012c580)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/pipeline.go:91 +0x158
+created by github.com/coreos/etcd/rafthttp.newPipeline
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/pipeline.go:77 +0x17e
+
+goroutine 95 [select]:
+github.com/coreos/etcd/rafthttp.(*pipeline).handle(0xc42012c580)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/pipeline.go:91 +0x158
+created by github.com/coreos/etcd/rafthttp.newPipeline
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/pipeline.go:77 +0x17e
+
+goroutine 96 [select]:
+github.com/coreos/etcd/rafthttp.(*pipeline).handle(0xc42012c580)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/pipeline.go:91 +0x158
+created by github.com/coreos/etcd/rafthttp.newPipeline
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/pipeline.go:77 +0x17e
+
+goroutine 97 [select]:
+github.com/coreos/etcd/rafthttp.(*pipeline).handle(0xc42012c580)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/pipeline.go:91 +0x158
+created by github.com/coreos/etcd/rafthttp.newPipeline
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/pipeline.go:77 +0x17e
+
+goroutine 130 [select]:
+github.com/coreos/etcd/rafthttp.startPeer.func1(0xc4216bc240, 0x859a80, 0xc420156150, 0x859980, 0xc4216b25c0)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/peer.go:146 +0x128
+created by github.com/coreos/etcd/rafthttp.startPeer
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/peer.go:144 +0x5c3
+
+goroutine 131 [IO wait]:
+internal/poll.runtime_pollWait(0x7f8c8130c950, 0x72, 0xc420c57100)
+	/usr/local/go1.10.8/src/runtime/netpoll.go:173 +0x57
+internal/poll.(*pollDesc).wait(0xc42012c918, 0x72, 0xffffffffffffff00, 0x856300, 0x9f25e0)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:85 +0x9b
+internal/poll.(*pollDesc).waitRead(0xc42012c918, 0xc4220f5000, 0x1000, 0x1000)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:90 +0x3d
+internal/poll.(*FD).Read(0xc42012c900, 0xc4220f5000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/internal/poll/fd_unix.go:157 +0x17d
+net.(*netFD).Read(0xc42012c900, 0xc4220f5000, 0x1000, 0x1000, 0xb41e49ac0, 0xa2bc20, 0x0)
+	/usr/local/go1.10.8/src/net/fd_unix.go:202 +0x4f
+net.(*conn).Read(0xc42000e0e0, 0xc4220f5000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/net.go:176 +0x6a
+github.com/coreos/etcd/pkg/transport.timeoutConn.Read(0x85b0e0, 0xc42000e0e0, 0x12a05f200, 0x12a05f200, 0xc4220f5000, 0x1000, 0x1000, 0x6, 0x0, 0x0)
+	/home/li/gopath/src/github.com/coreos/etcd/pkg/transport/timeout_conn.go:43 +0x5d
+net/http.(*persistConn).Read(0xc420180240, 0xc4220f5000, 0x1000, 0x1000, 0xc420192680, 0xc4220f5004, 0x2)
+	/usr/local/go1.10.8/src/net/http/transport.go:1453 +0x136
+bufio.(*Reader).fill(0xc42016cc60)
+	/usr/local/go1.10.8/src/bufio/bufio.go:100 +0x11e
+bufio.(*Reader).ReadSlice(0xc42016cc60, 0xa, 0x2, 0x0, 0x0, 0x2, 0x0)
+	/usr/local/go1.10.8/src/bufio/bufio.go:341 +0x2c
+net/http/internal.readChunkLine(0xc42016cc60, 0x2, 0x2, 0x2, 0x2, 0x0)
+	/usr/local/go1.10.8/src/net/http/internal/chunked.go:122 +0x34
+net/http/internal.(*chunkedReader).beginChunk(0xc420192660)
+	/usr/local/go1.10.8/src/net/http/internal/chunked.go:48 +0x32
+net/http/internal.(*chunkedReader).Read(0xc420192660, 0xc4201c0318, 0x1, 0x1, 0xc420c57538, 0x42b1c9, 0x8)
+	/usr/local/go1.10.8/src/net/http/internal/chunked.go:93 +0x113
+net/http.(*body).readLocked(0xc4201ac840, 0xc4201c0318, 0x1, 0x1, 0x1, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/http/transfer.go:778 +0x61
+net/http.(*body).Read(0xc4201ac840, 0xc4201c0318, 0x1, 0x1, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/http/transfer.go:770 +0xdd
+net/http.(*bodyEOFSignal).Read(0xc4201ac880, 0xc4201c0318, 0x1, 0x1, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/http/transport.go:2187 +0xdc
+io.ReadAtLeast(0x855600, 0xc4201ac880, 0xc4201c0318, 0x1, 0x1, 0x1, 0x7f16e0, 0x1, 0xc422b65900)
+	/usr/local/go1.10.8/src/io/io.go:309 +0x86
+io.ReadFull(0x855600, 0xc4201ac880, 0xc4201c0318, 0x1, 0x1, 0x1, 0x0, 0x0)
+	/usr/local/go1.10.8/src/io/io.go:327 +0x58
+github.com/coreos/etcd/rafthttp.(*msgAppV2Decoder).decode(0xc4201b8280, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, ...)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/msgappv2_codec.go:179 +0xa5
+github.com/coreos/etcd/rafthttp.(*streamReader).decodeLoop(0xc4216bc2d0, 0x857760, 0xc4201ac880, 0x80bcc3, 0x8, 0x0, 0x0)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:311 +0x220
+github.com/coreos/etcd/rafthttp.(*streamReader).run(0xc4216bc2d0)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:275 +0x336
+created by github.com/coreos/etcd/rafthttp.startStreamReader
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:261 +0x181
+
+goroutine 132 [IO wait]:
+internal/poll.runtime_pollWait(0x7f8c8130c880, 0x72, 0xc421598ff0)
+	/usr/local/go1.10.8/src/runtime/netpoll.go:173 +0x57
+internal/poll.(*pollDesc).wait(0xc42012ca98, 0x72, 0xffffffffffffff00, 0x856300, 0x9f25e0)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:85 +0x9b
+internal/poll.(*pollDesc).waitRead(0xc42012ca98, 0xc4220fa000, 0x1000, 0x1000)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:90 +0x3d
+internal/poll.(*FD).Read(0xc42012ca80, 0xc4220fa000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/internal/poll/fd_unix.go:157 +0x17d
+net.(*netFD).Read(0xc42012ca80, 0xc4220fa000, 0x1000, 0x1000, 0xb41e5ff71, 0xa2bc20, 0x0)
+	/usr/local/go1.10.8/src/net/fd_unix.go:202 +0x4f
+net.(*conn).Read(0xc42017a000, 0xc4220fa000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/net.go:176 +0x6a
+github.com/coreos/etcd/pkg/transport.timeoutConn.Read(0x85b0e0, 0xc42017a000, 0x12a05f200, 0x12a05f200, 0xc4220fa000, 0x1000, 0x1000, 0x2a, 0x0, 0x0)
+	/home/li/gopath/src/github.com/coreos/etcd/pkg/transport/timeout_conn.go:43 +0x5d
+net/http.(*persistConn).Read(0xc420180360, 0xc4220fa000, 0x1000, 0x1000, 0x2a, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/http/transport.go:1453 +0x136
+bufio.(*Reader).fill(0xc42008afc0)
+	/usr/local/go1.10.8/src/bufio/bufio.go:100 +0x11e
+bufio.(*Reader).ReadSlice(0xc42008afc0, 0xa, 0x1000, 0xc4220fa000, 0x2, 0x1000, 0x0)
+	/usr/local/go1.10.8/src/bufio/bufio.go:341 +0x2c
+net/http/internal.readChunkLine(0xc42008afc0, 0x2, 0x1000, 0x24, 0x0, 0x8)
+	/usr/local/go1.10.8/src/net/http/internal/chunked.go:122 +0x34
+net/http/internal.(*chunkedReader).beginChunk(0xc4216b5470)
+	/usr/local/go1.10.8/src/net/http/internal/chunked.go:48 +0x32
+net/http/internal.(*chunkedReader).Read(0xc4216b5470, 0xc422b92fc0, 0x8, 0x8, 0xc421599428, 0x42b1c9, 0xc400000008)
+	/usr/local/go1.10.8/src/net/http/internal/chunked.go:93 +0x113
+net/http.(*body).readLocked(0xc4216b31c0, 0xc422b92fc0, 0x8, 0x8, 0x464758, 0x854e80, 0xc421599540)
+	/usr/local/go1.10.8/src/net/http/transfer.go:778 +0x61
+net/http.(*body).Read(0xc4216b31c0, 0xc422b92fc0, 0x8, 0x8, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/http/transfer.go:770 +0xdd
+net/http.(*bodyEOFSignal).Read(0xc4216b3200, 0xc422b92fc0, 0x8, 0x8, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/http/transport.go:2187 +0xdc
+io.ReadAtLeast(0x855600, 0xc4216b3200, 0xc422b92fc0, 0x8, 0x8, 0x8, 0x77d040, 0xc4216b3101, 0xc422b92fc0)
+	/usr/local/go1.10.8/src/io/io.go:309 +0x86
+io.ReadFull(0x855600, 0xc4216b3200, 0xc422b92fc0, 0x8, 0x8, 0x669ece, 0xc4216b31c0, 0xc422b75180)
+	/usr/local/go1.10.8/src/io/io.go:327 +0x58
+encoding/binary.Read(0x855600, 0xc4216b3200, 0x85ae40, 0xa49408, 0x768e20, 0xc422b92fb8, 0x0, 0x0)
+	/usr/local/go1.10.8/src/encoding/binary/binary.go:171 +0xe5
+github.com/coreos/etcd/rafthttp.(*messageDecoder).decode(0xc4201589e0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, ...)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/msg_codec.go:47 +0xc8
+github.com/coreos/etcd/rafthttp.(*streamReader).decodeLoop(0xc4216bc360, 0x857760, 0xc4216b3200, 0x80b83e, 0x7, 0x0, 0x0)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:311 +0x220
+github.com/coreos/etcd/rafthttp.(*streamReader).run(0xc4216bc360)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:275 +0x336
+created by github.com/coreos/etcd/rafthttp.startStreamReader
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:261 +0x181
+
+goroutine 133 [select]:
+github.com/coreos/etcd/rafthttp.startPeer.func2(0xc4216bc240, 0xc4216b45d0, 0x859a80, 0xc420156150, 0xc4216b45a0, 0xc420158410, 0xc4216bc360)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/peer.go:162 +0x277
+created by github.com/coreos/etcd/rafthttp.startPeer
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/peer.go:159 +0x772
+
+goroutine 134 [select]:
+github.com/coreos/etcd/Godeps/_workspace/src/github.com/xiang90/probing.(*prober).AddHTTP.func1(0xc420162730, 0xc420158420, 0x1, 0x1, 0xc420150380, 0xc4216b2600)
+	/home/li/gopath/src/github.com/coreos/etcd/Godeps/_workspace/src/github.com/xiang90/probing/prober.go:55 +0x102
+created by github.com/coreos/etcd/Godeps/_workspace/src/github.com/xiang90/probing.(*prober).AddHTTP
+	/home/li/gopath/src/github.com/coreos/etcd/Godeps/_workspace/src/github.com/xiang90/probing/prober.go:52 +0x1b7
+
+goroutine 135 [select]:
+github.com/coreos/etcd/rafthttp.monitorProbingStatus(0x85a840, 0xc4216b2600, 0xc4200247b7, 0x1)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/probing_status.go:48 +0x107
+created by github.com/coreos/etcd/rafthttp.addPeerToProber
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/probing_status.go:42 +0x2b8
+
+goroutine 136 [select]:
+github.com/coreos/etcd/rafthttp.(*streamWriter).run(0xc420156770)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:140 +0x231
+created by github.com/coreos/etcd/rafthttp.startStreamWriter
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:127 +0x168
+
+goroutine 137 [select]:
+github.com/coreos/etcd/rafthttp.(*streamWriter).run(0xc420156850)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:140 +0x231
+created by github.com/coreos/etcd/rafthttp.startStreamWriter
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:127 +0x168
+
+goroutine 138 [select]:
+github.com/coreos/etcd/rafthttp.(*pipeline).handle(0xc42012c780)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/pipeline.go:91 +0x158
+created by github.com/coreos/etcd/rafthttp.newPipeline
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/pipeline.go:77 +0x17e
+
+goroutine 139 [select]:
+github.com/coreos/etcd/rafthttp.(*pipeline).handle(0xc42012c780)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/pipeline.go:91 +0x158
+created by github.com/coreos/etcd/rafthttp.newPipeline
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/pipeline.go:77 +0x17e
+
+goroutine 140 [select]:
+github.com/coreos/etcd/rafthttp.(*pipeline).handle(0xc42012c780)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/pipeline.go:91 +0x158
+created by github.com/coreos/etcd/rafthttp.newPipeline
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/pipeline.go:77 +0x17e
+
+goroutine 141 [select]:
+github.com/coreos/etcd/rafthttp.(*pipeline).handle(0xc42012c780)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/pipeline.go:91 +0x158
+created by github.com/coreos/etcd/rafthttp.newPipeline
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/pipeline.go:77 +0x17e
+
+goroutine 142 [select]:
+github.com/coreos/etcd/rafthttp.startPeer.func1(0xc4216bc3f0, 0x859a80, 0xc420156150, 0x859980, 0xc4216b2640)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/peer.go:146 +0x128
+created by github.com/coreos/etcd/rafthttp.startPeer
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/peer.go:144 +0x5c3
+
+goroutine 143 [IO wait]:
+internal/poll.runtime_pollWait(0x7f8c8130c7b0, 0x72, 0xc4217c7100)
+	/usr/local/go1.10.8/src/runtime/netpoll.go:173 +0x57
+internal/poll.(*pollDesc).wait(0xc42012cc18, 0x72, 0xffffffffffffff00, 0x856300, 0x9f25e0)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:85 +0x9b
+internal/poll.(*pollDesc).waitRead(0xc42012cc18, 0xc4220f6000, 0x1000, 0x1000)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:90 +0x3d
+internal/poll.(*FD).Read(0xc42012cc00, 0xc4220f6000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/internal/poll/fd_unix.go:157 +0x17d
+net.(*netFD).Read(0xc42012cc00, 0xc4220f6000, 0x1000, 0x1000, 0xb42d3cf3b, 0xa2bc20, 0x0)
+	/usr/local/go1.10.8/src/net/fd_unix.go:202 +0x4f
+net.(*conn).Read(0xc4201b20a8, 0xc4220f6000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/net.go:176 +0x6a
+github.com/coreos/etcd/pkg/transport.timeoutConn.Read(0x85b0e0, 0xc4201b20a8, 0x12a05f200, 0x12a05f200, 0xc4220f6000, 0x1000, 0x1000, 0x6, 0x0, 0x0)
+	/home/li/gopath/src/github.com/coreos/etcd/pkg/transport/timeout_conn.go:43 +0x5d
+net/http.(*persistConn).Read(0xc420180480, 0xc4220f6000, 0x1000, 0x1000, 0xc4216b5310, 0xc4220f6004, 0x2)
+	/usr/local/go1.10.8/src/net/http/transport.go:1453 +0x136
+bufio.(*Reader).fill(0xc4200a1bc0)
+	/usr/local/go1.10.8/src/bufio/bufio.go:100 +0x11e
+bufio.(*Reader).ReadSlice(0xc4200a1bc0, 0xa, 0x2, 0x0, 0x0, 0x2, 0x0)
+	/usr/local/go1.10.8/src/bufio/bufio.go:341 +0x2c
+net/http/internal.readChunkLine(0xc4200a1bc0, 0x2, 0x2, 0x2, 0x2, 0x0)
+	/usr/local/go1.10.8/src/net/http/internal/chunked.go:122 +0x34
+net/http/internal.(*chunkedReader).beginChunk(0xc4216b52f0)
+	/usr/local/go1.10.8/src/net/http/internal/chunked.go:48 +0x32
+net/http/internal.(*chunkedReader).Read(0xc4216b52f0, 0xc420024b28, 0x1, 0x1, 0xc4217c7538, 0x42b1c9, 0x8)
+	/usr/local/go1.10.8/src/net/http/internal/chunked.go:93 +0x113
+net/http.(*body).readLocked(0xc4216b3080, 0xc420024b28, 0x1, 0x1, 0x1, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/http/transfer.go:778 +0x61
+net/http.(*body).Read(0xc4216b3080, 0xc420024b28, 0x1, 0x1, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/http/transfer.go:770 +0xdd
+net/http.(*bodyEOFSignal).Read(0xc4216b30c0, 0xc420024b28, 0x1, 0x1, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/http/transport.go:2187 +0xdc
+io.ReadAtLeast(0x855600, 0xc4216b30c0, 0xc420024b28, 0x1, 0x1, 0x1, 0x7f16e0, 0x1, 0xc422b65a00)
+	/usr/local/go1.10.8/src/io/io.go:309 +0x86
+io.ReadFull(0x855600, 0xc4216b30c0, 0xc420024b28, 0x1, 0x1, 0x1, 0x0, 0x0)
+	/usr/local/go1.10.8/src/io/io.go:327 +0x58
+github.com/coreos/etcd/rafthttp.(*msgAppV2Decoder).decode(0xc42012d100, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, ...)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/msgappv2_codec.go:179 +0xa5
+github.com/coreos/etcd/rafthttp.(*streamReader).decodeLoop(0xc4216bc480, 0x857760, 0xc4216b30c0, 0x80bcc3, 0x8, 0x0, 0x0)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:311 +0x220
+github.com/coreos/etcd/rafthttp.(*streamReader).run(0xc4216bc480)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:275 +0x336
+created by github.com/coreos/etcd/rafthttp.startStreamReader
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:261 +0x181
+
+goroutine 144 [IO wait]:
+internal/poll.runtime_pollWait(0x7f8c8130c6e0, 0x72, 0xc4217c2ff0)
+	/usr/local/go1.10.8/src/runtime/netpoll.go:173 +0x57
+internal/poll.(*pollDesc).wait(0xc42012cd98, 0x72, 0xffffffffffffff00, 0x856300, 0x9f25e0)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:85 +0x9b
+internal/poll.(*pollDesc).waitRead(0xc42012cd98, 0xc4200c7000, 0x1000, 0x1000)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:90 +0x3d
+internal/poll.(*FD).Read(0xc42012cd80, 0xc4200c7000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/internal/poll/fd_unix.go:157 +0x17d
+net.(*netFD).Read(0xc42012cd80, 0xc4200c7000, 0x1000, 0x1000, 0xb94516654, 0xa2bc20, 0x0)
+	/usr/local/go1.10.8/src/net/fd_unix.go:202 +0x4f
+net.(*conn).Read(0xc42000e0d8, 0xc4200c7000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/net.go:176 +0x6a
+github.com/coreos/etcd/pkg/transport.timeoutConn.Read(0x85b0e0, 0xc42000e0d8, 0x12a05f200, 0x12a05f200, 0xc4200c7000, 0x1000, 0x1000, 0x2a, 0x0, 0x0)
+	/home/li/gopath/src/github.com/coreos/etcd/pkg/transport/timeout_conn.go:43 +0x5d
+net/http.(*persistConn).Read(0xc4201805a0, 0xc4200c7000, 0x1000, 0x1000, 0x2a, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/http/transport.go:1453 +0x136
+bufio.(*Reader).fill(0xc42016cb40)
+	/usr/local/go1.10.8/src/bufio/bufio.go:100 +0x11e
+bufio.(*Reader).ReadSlice(0xc42016cb40, 0xa, 0x1000, 0xc4200c7000, 0x2, 0x1000, 0x0)
+	/usr/local/go1.10.8/src/bufio/bufio.go:341 +0x2c
+net/http/internal.readChunkLine(0xc42016cb40, 0x2, 0x1000, 0x24, 0x0, 0x8)
+	/usr/local/go1.10.8/src/net/http/internal/chunked.go:122 +0x34
+net/http/internal.(*chunkedReader).beginChunk(0xc4216b5170)
+	/usr/local/go1.10.8/src/net/http/internal/chunked.go:48 +0x32
+net/http/internal.(*chunkedReader).Read(0xc4216b5170, 0xc4201c1920, 0x8, 0x8, 0xc4217c3428, 0x42b1c9, 0xc400000008)
+	/usr/local/go1.10.8/src/net/http/internal/chunked.go:93 +0x113
+net/http.(*body).readLocked(0xc4216b2f40, 0xc4201c1920, 0x8, 0x8, 0x464758, 0x854e80, 0xc4217c3540)
+	/usr/local/go1.10.8/src/net/http/transfer.go:778 +0x61
+net/http.(*body).Read(0xc4216b2f40, 0xc4201c1920, 0x8, 0x8, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/http/transfer.go:770 +0xdd
+net/http.(*bodyEOFSignal).Read(0xc4216b2f80, 0xc4201c1920, 0x8, 0x8, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/http/transport.go:2187 +0xdc
+io.ReadAtLeast(0x855600, 0xc4216b2f80, 0xc4201c1920, 0x8, 0x8, 0x8, 0x77d040, 0xc4216b2f01, 0xc4201c1920)
+	/usr/local/go1.10.8/src/io/io.go:309 +0x86
+io.ReadFull(0x855600, 0xc4216b2f80, 0xc4201c1920, 0x8, 0x8, 0x669ece, 0xc4216b2f40, 0xc4201a6340)
+	/usr/local/go1.10.8/src/io/io.go:327 +0x58
+encoding/binary.Read(0x855600, 0xc4216b2f80, 0x85ae40, 0xa49408, 0x768e20, 0xc4201c1918, 0xc4217c3770, 0x405695)
+	/usr/local/go1.10.8/src/encoding/binary/binary.go:171 +0xe5
+github.com/coreos/etcd/rafthttp.(*messageDecoder).decode(0xc4201588e0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, ...)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/msg_codec.go:47 +0xc8
+github.com/coreos/etcd/rafthttp.(*streamReader).decodeLoop(0xc4216bc510, 0x857760, 0xc4216b2f80, 0x80b83e, 0x7, 0x0, 0x0)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:311 +0x220
+github.com/coreos/etcd/rafthttp.(*streamReader).run(0xc4216bc510)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:275 +0x336
+created by github.com/coreos/etcd/rafthttp.startStreamReader
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/stream.go:261 +0x181
+
+goroutine 145 [select]:
+github.com/coreos/etcd/rafthttp.startPeer.func2(0xc4216bc3f0, 0xc4216b4630, 0x859a80, 0xc420156150, 0xc4216b4600, 0xc420158440, 0xc4216bc510)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/peer.go:162 +0x277
+created by github.com/coreos/etcd/rafthttp.startPeer
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/peer.go:159 +0x772
+
+goroutine 146 [select]:
+github.com/coreos/etcd/Godeps/_workspace/src/github.com/xiang90/probing.(*prober).AddHTTP.func1(0xc420162780, 0xc420158450, 0x1, 0x1, 0xc420150380, 0xc4216b2680)
+	/home/li/gopath/src/github.com/coreos/etcd/Godeps/_workspace/src/github.com/xiang90/probing/prober.go:55 +0x102
+created by github.com/coreos/etcd/Godeps/_workspace/src/github.com/xiang90/probing.(*prober).AddHTTP
+	/home/li/gopath/src/github.com/coreos/etcd/Godeps/_workspace/src/github.com/xiang90/probing/prober.go:52 +0x1b7
+
+goroutine 147 [select]:
+github.com/coreos/etcd/rafthttp.monitorProbingStatus(0x85a840, 0xc4216b2680, 0xc4200247b9, 0x1)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/probing_status.go:48 +0x107
+created by github.com/coreos/etcd/rafthttp.addPeerToProber
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/probing_status.go:42 +0x2b8
+
+goroutine 148 [IO wait]:
+internal/poll.runtime_pollWait(0x7f8c8130c610, 0x72, 0x0)
+	/usr/local/go1.10.8/src/runtime/netpoll.go:173 +0x57
+internal/poll.(*pollDesc).wait(0xc42012ce98, 0x72, 0xc4216b2800, 0x0, 0x0)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:85 +0x9b
+internal/poll.(*pollDesc).waitRead(0xc42012ce98, 0xffffffffffffff00, 0x0, 0x0)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:90 +0x3d
+internal/poll.(*FD).Accept(0xc42012ce80, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/internal/poll/fd_unix.go:372 +0x1a8
+net.(*netFD).accept(0xc42012ce80, 0xc4200b5a20, 0xc4220e6d30, 0x402968)
+	/usr/local/go1.10.8/src/net/fd_unix.go:238 +0x42
+net.(*TCPListener).accept(0xc4201b2098, 0xc4220e6d60, 0x4018c7, 0xc4200b5a20)
+	/usr/local/go1.10.8/src/net/tcpsock_posix.go:136 +0x2e
+net.(*TCPListener).AcceptTCP(0xc4201b2098, 0xc4220e6da8, 0xc4220e6db0, 0x18)
+	/usr/local/go1.10.8/src/net/tcpsock.go:246 +0x49
+net/http.tcpKeepAliveListener.Accept(0xc4201b2098, 0x8265a0, 0xc4200b59a0, 0x8597c0, 0xc4216b4cc0)
+	/usr/local/go1.10.8/src/net/http/server.go:3219 +0x2f
+net/http.(*Server).Serve(0xc4201bc820, 0x859580, 0xc4201b2098, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/http/server.go:2773 +0x1a5
+net/http.(*Server).ListenAndServe(0xc4201bc820, 0xc4201bc820, 0xc420635f00)
+	/usr/local/go1.10.8/src/net/http/server.go:2714 +0xa9
+github.com/coreos/etcd/contrib/raftexample.(*raftNode).serveRaft(0xc420156150)
+	/home/li/gopath/src/github.com/coreos/etcd/contrib/raftexample/raft.go:224 +0x191
+created by github.com/coreos/etcd/contrib/raftexample.(*raftNode).startRaft
+	/home/li/gopath/src/github.com/coreos/etcd/contrib/raftexample/raft.go:177 +0x430
+
+goroutine 149 [chan send]:
+github.com/coreos/etcd/contrib/raftexample.(*raftNode).publishEntries(0xc420156150, 0xc422a7e0e0, 0x3, 0x3)
+	/home/li/gopath/src/github.com/coreos/etcd/contrib/raftexample/raft.go:82 +0xea
+github.com/coreos/etcd/contrib/raftexample.(*raftNode).serveChannels(0xc420156150)
+	/home/li/gopath/src/github.com/coreos/etcd/contrib/raftexample/raft.go:207 +0x45d
+created by github.com/coreos/etcd/contrib/raftexample.(*raftNode).startRaft
+	/home/li/gopath/src/github.com/coreos/etcd/contrib/raftexample/raft.go:178 +0x455
+
+goroutine 160 [select]:
+net/http.(*persistConn).readLoop(0xc420180480)
+	/usr/local/go1.10.8/src/net/http/transport.go:1717 +0x743
+created by net/http.(*Transport).dialConn
+	/usr/local/go1.10.8/src/net/http/transport.go:1237 +0x95a
+
+goroutine 152 [select]:
+github.com/coreos/etcd/contrib/raftexample.TestProposeOnCommit.func2(0xc4201e20f0, 0xc420513e60, 0xc42016c120, 0xc420512000, 0xc4201d47e0)
+	/home/li/gopath/src/github.com/coreos/etcd/contrib/raftexample/raftexample_test.go:90 +0xfd
+created by github.com/coreos/etcd/contrib/raftexample.TestProposeOnCommit
+	/home/li/gopath/src/github.com/coreos/etcd/contrib/raftexample/raftexample_test.go:88 +0xfd
+
+goroutine 154 [chan send]:
+github.com/coreos/etcd/contrib/raftexample.TestProposeOnCommit.func2(0xc4201e20f0, 0xc420513e60, 0xc42016c720, 0xc420512960, 0xc4205129c0)
+	/home/li/gopath/src/github.com/coreos/etcd/contrib/raftexample/raftexample_test.go:92 +0x19c
+created by github.com/coreos/etcd/contrib/raftexample.TestProposeOnCommit
+	/home/li/gopath/src/github.com/coreos/etcd/contrib/raftexample/raftexample_test.go:88 +0xfd
+
+goroutine 77 [chan receive]:
+github.com/coreos/etcd/rafthttp.(*streamHandler).ServeHTTP(0xc4201922a0, 0x8591c0, 0xc4201f4460, 0xc420410500)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/http.go:284 +0x9ed
+net/http.(*ServeMux).ServeHTTP(0xc4201922d0, 0x8591c0, 0xc4201f4460, 0xc420410500)
+	/usr/local/go1.10.8/src/net/http/server.go:2340 +0x130
+net/http.serverHandler.ServeHTTP(0xc42014e0d0, 0x8591c0, 0xc4201f4460, 0xc420410500)
+	/usr/local/go1.10.8/src/net/http/server.go:2697 +0xbc
+net/http.(*conn).serve(0xc4200b4a00, 0x859700, 0xc4201e6f00)
+	/usr/local/go1.10.8/src/net/http/server.go:1830 +0x651
+created by net/http.(*Server).Serve
+	/usr/local/go1.10.8/src/net/http/server.go:2798 +0x27b
+
+goroutine 117 [IO wait]:
+internal/poll.runtime_pollWait(0x7f8c8130c470, 0x72, 0xc4201efe58)
+	/usr/local/go1.10.8/src/runtime/netpoll.go:173 +0x57
+internal/poll.(*pollDesc).wait(0xc42012cf98, 0x72, 0xffffffffffffff00, 0x856300, 0x9f25e0)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:85 +0x9b
+internal/poll.(*pollDesc).waitRead(0xc42012cf98, 0xc4216b4e00, 0x1, 0x1)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:90 +0x3d
+internal/poll.(*FD).Read(0xc42012cf80, 0xc4216b4eb1, 0x1, 0x1, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/internal/poll/fd_unix.go:157 +0x17d
+net.(*netFD).Read(0xc42012cf80, 0xc4216b4eb1, 0x1, 0x1, 0xc42008b020, 0x0, 0x20002)
+	/usr/local/go1.10.8/src/net/fd_unix.go:202 +0x4f
+net.(*conn).Read(0xc4201b20b8, 0xc4216b4eb1, 0x1, 0x1, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/net.go:176 +0x6a
+net/http.(*connReader).backgroundRead(0xc4216b4ea0)
+	/usr/local/go1.10.8/src/net/http/server.go:668 +0x5a
+created by net/http.(*connReader).startBackgroundRead
+	/usr/local/go1.10.8/src/net/http/server.go:664 +0xce
+
+goroutine 162 [chan receive]:
+github.com/coreos/etcd/rafthttp.(*streamHandler).ServeHTTP(0xc4201baba0, 0x8591c0, 0xc4200ca2a0, 0xc420190a00)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/http.go:284 +0x9ed
+net/http.(*ServeMux).ServeHTTP(0xc4201babd0, 0x8591c0, 0xc4200ca2a0, 0xc420190a00)
+	/usr/local/go1.10.8/src/net/http/server.go:2340 +0x130
+net/http.serverHandler.ServeHTTP(0xc42012e680, 0x8591c0, 0xc4200ca2a0, 0xc420190a00)
+	/usr/local/go1.10.8/src/net/http/server.go:2697 +0xbc
+net/http.(*conn).serve(0xc4201ca280, 0x859700, 0xc4216b2bc0)
+	/usr/local/go1.10.8/src/net/http/server.go:1830 +0x651
+created by net/http.(*Server).Serve
+	/usr/local/go1.10.8/src/net/http/server.go:2798 +0x27b
+
+goroutine 75 [select]:
+net/http.(*persistConn).readLoop(0xc420180240)
+	/usr/local/go1.10.8/src/net/http/transport.go:1717 +0x743
+created by net/http.(*Transport).dialConn
+	/usr/local/go1.10.8/src/net/http/transport.go:1237 +0x95a
+
+goroutine 161 [select]:
+net/http.(*persistConn).writeLoop(0xc420180480)
+	/usr/local/go1.10.8/src/net/http/transport.go:1822 +0x14b
+created by net/http.(*Transport).dialConn
+	/usr/local/go1.10.8/src/net/http/transport.go:1238 +0x97f
+
+goroutine 73 [select]:
+net/http.(*persistConn).readLoop(0xc4201805a0)
+	/usr/local/go1.10.8/src/net/http/transport.go:1717 +0x743
+created by net/http.(*Transport).dialConn
+	/usr/local/go1.10.8/src/net/http/transport.go:1237 +0x95a
+
+goroutine 74 [select]:
+net/http.(*persistConn).writeLoop(0xc4201805a0)
+	/usr/local/go1.10.8/src/net/http/transport.go:1822 +0x14b
+created by net/http.(*Transport).dialConn
+	/usr/local/go1.10.8/src/net/http/transport.go:1238 +0x97f
+
+goroutine 163 [chan receive]:
+github.com/coreos/etcd/rafthttp.(*streamHandler).ServeHTTP(0xc4201baba0, 0x8591c0, 0xc4216b60e0, 0xc420190900)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/http.go:284 +0x9ed
+net/http.(*ServeMux).ServeHTTP(0xc4201babd0, 0x8591c0, 0xc4216b60e0, 0xc420190900)
+	/usr/local/go1.10.8/src/net/http/server.go:2340 +0x130
+net/http.serverHandler.ServeHTTP(0xc42012e680, 0x8591c0, 0xc4216b60e0, 0xc420190900)
+	/usr/local/go1.10.8/src/net/http/server.go:2697 +0xbc
+net/http.(*conn).serve(0xc4201ca320, 0x859700, 0xc4216b2980)
+	/usr/local/go1.10.8/src/net/http/server.go:1830 +0x651
+created by net/http.(*Server).Serve
+	/usr/local/go1.10.8/src/net/http/server.go:2798 +0x27b
+
+goroutine 115 [select]:
+net/http.(*persistConn).readLoop(0xc420180360)
+	/usr/local/go1.10.8/src/net/http/transport.go:1717 +0x743
+created by net/http.(*Transport).dialConn
+	/usr/local/go1.10.8/src/net/http/transport.go:1237 +0x95a
+
+goroutine 116 [select]:
+net/http.(*persistConn).writeLoop(0xc420180360)
+	/usr/local/go1.10.8/src/net/http/transport.go:1822 +0x14b
+created by net/http.(*Transport).dialConn
+	/usr/local/go1.10.8/src/net/http/transport.go:1238 +0x97f
+
+goroutine 76 [select]:
+net/http.(*persistConn).writeLoop(0xc420180240)
+	/usr/local/go1.10.8/src/net/http/transport.go:1822 +0x14b
+created by net/http.(*Transport).dialConn
+	/usr/local/go1.10.8/src/net/http/transport.go:1238 +0x97f
+
+goroutine 78 [chan receive]:
+github.com/coreos/etcd/rafthttp.(*streamHandler).ServeHTTP(0xc4201922a0, 0x8591c0, 0xc4201f4380, 0xc420410100)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/http.go:284 +0x9ed
+net/http.(*ServeMux).ServeHTTP(0xc4201922d0, 0x8591c0, 0xc4201f4380, 0xc420410100)
+	/usr/local/go1.10.8/src/net/http/server.go:2340 +0x130
+net/http.serverHandler.ServeHTTP(0xc42014e0d0, 0x8591c0, 0xc4201f4380, 0xc420410100)
+	/usr/local/go1.10.8/src/net/http/server.go:2697 +0xbc
+net/http.(*conn).serve(0xc4200b4b40, 0x859700, 0xc4201e6bc0)
+	/usr/local/go1.10.8/src/net/http/server.go:1830 +0x651
+created by net/http.(*Server).Serve
+	/usr/local/go1.10.8/src/net/http/server.go:2798 +0x27b
+
+goroutine 164 [IO wait]:
+internal/poll.runtime_pollWait(0x7f8c8130c540, 0x72, 0xc420637658)
+	/usr/local/go1.10.8/src/runtime/netpoll.go:173 +0x57
+internal/poll.(*pollDesc).wait(0xc42012cf18, 0x72, 0xffffffffffffff00, 0x856300, 0x9f25e0)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:85 +0x9b
+internal/poll.(*pollDesc).waitRead(0xc42012cf18, 0xc4216b4f00, 0x1, 0x1)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:90 +0x3d
+internal/poll.(*FD).Read(0xc42012cf00, 0xc4216b4f71, 0x1, 0x1, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/internal/poll/fd_unix.go:157 +0x17d
+net.(*netFD).Read(0xc42012cf00, 0xc4216b4f71, 0x1, 0x1, 0xc4206377ac, 0xc4206377a8, 0x0)
+	/usr/local/go1.10.8/src/net/fd_unix.go:202 +0x4f
+net.(*conn).Read(0xc4201b20b0, 0xc4216b4f71, 0x1, 0x1, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/net.go:176 +0x6a
+net/http.(*connReader).backgroundRead(0xc4216b4f60)
+	/usr/local/go1.10.8/src/net/http/server.go:668 +0x5a
+created by net/http.(*connReader).startBackgroundRead
+	/usr/local/go1.10.8/src/net/http/server.go:664 +0xce
+
+goroutine 79 [IO wait]:
+internal/poll.runtime_pollWait(0x7f8c8130c2d0, 0x72, 0xc420042e58)
+	/usr/local/go1.10.8/src/runtime/netpoll.go:173 +0x57
+internal/poll.(*pollDesc).wait(0xc42015c098, 0x72, 0xffffffffffffff00, 0x856300, 0x9f25e0)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:85 +0x9b
+internal/poll.(*pollDesc).waitRead(0xc42015c098, 0xc4201baf00, 0x1, 0x1)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:90 +0x3d
+internal/poll.(*FD).Read(0xc42015c080, 0xc4201baf11, 0x1, 0x1, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/internal/poll/fd_unix.go:157 +0x17d
+net.(*netFD).Read(0xc42015c080, 0xc4201baf11, 0x1, 0x1, 0xc42016cba0, 0x0, 0x20002)
+	/usr/local/go1.10.8/src/net/fd_unix.go:202 +0x4f
+net.(*conn).Read(0xc42000e100, 0xc4201baf11, 0x1, 0x1, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/net.go:176 +0x6a
+net/http.(*connReader).backgroundRead(0xc4201baf00)
+	/usr/local/go1.10.8/src/net/http/server.go:668 +0x5a
+created by net/http.(*connReader).startBackgroundRead
+	/usr/local/go1.10.8/src/net/http/server.go:664 +0xce
+
+goroutine 80 [IO wait]:
+internal/poll.runtime_pollWait(0x7f8c8130c3a0, 0x72, 0xc420043e58)
+	/usr/local/go1.10.8/src/runtime/netpoll.go:173 +0x57
+internal/poll.(*pollDesc).wait(0xc42015c018, 0x72, 0xffffffffffffff00, 0x856300, 0x9f25e0)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:85 +0x9b
+internal/poll.(*pollDesc).waitRead(0xc42015c018, 0xc4201bb100, 0x1, 0x1)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:90 +0x3d
+internal/poll.(*FD).Read(0xc42015c000, 0xc4201bb151, 0x1, 0x1, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/internal/poll/fd_unix.go:157 +0x17d
+net.(*netFD).Read(0xc42015c000, 0xc4201bb151, 0x1, 0x1, 0xc42016ccc0, 0x0, 0x20002)
+	/usr/local/go1.10.8/src/net/fd_unix.go:202 +0x4f
+net.(*conn).Read(0xc42000e0f0, 0xc4201bb151, 0x1, 0x1, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/net.go:176 +0x6a
+net/http.(*connReader).backgroundRead(0xc4201bb140)
+	/usr/local/go1.10.8/src/net/http/server.go:668 +0x5a
+created by net/http.(*connReader).startBackgroundRead
+	/usr/local/go1.10.8/src/net/http/server.go:664 +0xce
+
+goroutine 120 [IO wait]:
+internal/poll.runtime_pollWait(0x7f8c8130c060, 0x72, 0xc42003fe58)
+	/usr/local/go1.10.8/src/runtime/netpoll.go:173 +0x57
+internal/poll.(*pollDesc).wait(0xc4201b8698, 0x72, 0xffffffffffffff00, 0x856300, 0x9f25e0)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:85 +0x9b
+internal/poll.(*pollDesc).waitRead(0xc4201b8698, 0xc4201ba200, 0x1, 0x1)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:90 +0x3d
+internal/poll.(*FD).Read(0xc4201b8680, 0xc4201ba251, 0x1, 0x1, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/internal/poll/fd_unix.go:157 +0x17d
+net.(*netFD).Read(0xc4201b8680, 0xc4201ba251, 0x1, 0x1, 0xc42221a0c0, 0x0, 0x20002)
+	/usr/local/go1.10.8/src/net/fd_unix.go:202 +0x4f
+net.(*conn).Read(0xc42000e2f8, 0xc4201ba251, 0x1, 0x1, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/net.go:176 +0x6a
+net/http.(*connReader).backgroundRead(0xc4201ba240)
+	/usr/local/go1.10.8/src/net/http/server.go:668 +0x5a
+created by net/http.(*connReader).startBackgroundRead
+	/usr/local/go1.10.8/src/net/http/server.go:664 +0xce
+
+goroutine 183 [chan receive]:
+github.com/coreos/etcd/rafthttp.(*streamHandler).ServeHTTP(0xc4216b4b40, 0x8591c0, 0xc4201f4540, 0xc420190f00)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/http.go:284 +0x9ed
+net/http.(*ServeMux).ServeHTTP(0xc4216b4b70, 0x8591c0, 0xc4201f4540, 0xc420190f00)
+	/usr/local/go1.10.8/src/net/http/server.go:2340 +0x130
+net/http.serverHandler.ServeHTTP(0xc4201bc820, 0x8591c0, 0xc4201f4540, 0xc420190f00)
+	/usr/local/go1.10.8/src/net/http/server.go:2697 +0xbc
+net/http.(*conn).serve(0xc4221141e0, 0x859700, 0xc4216b3500)
+	/usr/local/go1.10.8/src/net/http/server.go:1830 +0x651
+created by net/http.(*Server).Serve
+	/usr/local/go1.10.8/src/net/http/server.go:2798 +0x27b
+
+goroutine 178 [select]:
+net/http.(*persistConn).readLoop(0xc4201d25a0)
+	/usr/local/go1.10.8/src/net/http/transport.go:1717 +0x743
+created by net/http.(*Transport).dialConn
+	/usr/local/go1.10.8/src/net/http/transport.go:1237 +0x95a
+
+goroutine 179 [select]:
+net/http.(*persistConn).writeLoop(0xc4201d25a0)
+	/usr/local/go1.10.8/src/net/http/transport.go:1822 +0x14b
+created by net/http.(*Transport).dialConn
+	/usr/local/go1.10.8/src/net/http/transport.go:1238 +0x97f
+
+goroutine 65 [chan receive]:
+github.com/coreos/etcd/rafthttp.(*streamHandler).ServeHTTP(0xc4201baba0, 0x8591c0, 0xc4216b61c0, 0xc420190d00)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/http.go:284 +0x9ed
+net/http.(*ServeMux).ServeHTTP(0xc4201babd0, 0x8591c0, 0xc4216b61c0, 0xc420190d00)
+	/usr/local/go1.10.8/src/net/http/server.go:2340 +0x130
+net/http.serverHandler.ServeHTTP(0xc42012e680, 0x8591c0, 0xc4216b61c0, 0xc420190d00)
+	/usr/local/go1.10.8/src/net/http/server.go:2697 +0xbc
+net/http.(*conn).serve(0xc4201ca000, 0x859700, 0xc4216b23c0)
+	/usr/local/go1.10.8/src/net/http/server.go:1830 +0x651
+created by net/http.(*Server).Serve
+	/usr/local/go1.10.8/src/net/http/server.go:2798 +0x27b
+
+goroutine 118 [select]:
+net/http.(*persistConn).readLoop(0xc4201806c0)
+	/usr/local/go1.10.8/src/net/http/transport.go:1717 +0x743
+created by net/http.(*Transport).dialConn
+	/usr/local/go1.10.8/src/net/http/transport.go:1237 +0x95a
+
+goroutine 119 [select]:
+net/http.(*persistConn).writeLoop(0xc4201806c0)
+	/usr/local/go1.10.8/src/net/http/transport.go:1822 +0x14b
+created by net/http.(*Transport).dialConn
+	/usr/local/go1.10.8/src/net/http/transport.go:1238 +0x97f
+
+goroutine 194 [chan receive]:
+github.com/coreos/etcd/rafthttp.(*streamHandler).ServeHTTP(0xc4201baba0, 0x8591c0, 0xc4200ca380, 0xc420528200)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/http.go:284 +0x9ed
+net/http.(*ServeMux).ServeHTTP(0xc4201babd0, 0x8591c0, 0xc4200ca380, 0xc420528200)
+	/usr/local/go1.10.8/src/net/http/server.go:2340 +0x130
+net/http.serverHandler.ServeHTTP(0xc42012e680, 0x8591c0, 0xc4200ca380, 0xc420528200)
+	/usr/local/go1.10.8/src/net/http/server.go:2697 +0xbc
+net/http.(*conn).serve(0xc4201ca460, 0x859700, 0xc420071f80)
+	/usr/local/go1.10.8/src/net/http/server.go:1830 +0x651
+created by net/http.(*Server).Serve
+	/usr/local/go1.10.8/src/net/http/server.go:2798 +0x27b
+
+goroutine 195 [IO wait]:
+internal/poll.runtime_pollWait(0x7f8c8128d568, 0x72, 0xc420636e58)
+	/usr/local/go1.10.8/src/runtime/netpoll.go:173 +0x57
+internal/poll.(*pollDesc).wait(0xc4201b8718, 0x72, 0xffffffffffffff00, 0x856300, 0x9f25e0)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:85 +0x9b
+internal/poll.(*pollDesc).waitRead(0xc4201b8718, 0xc4216b5500, 0x1, 0x1)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:90 +0x3d
+internal/poll.(*FD).Read(0xc4201b8700, 0xc4216b55d1, 0x1, 0x1, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/internal/poll/fd_unix.go:157 +0x17d
+net.(*netFD).Read(0xc4201b8700, 0xc4216b55d1, 0x1, 0x1, 0xc4201e21e0, 0x859740, 0xc4200240c8)
+	/usr/local/go1.10.8/src/net/fd_unix.go:202 +0x4f
+net.(*conn).Read(0xc42000e320, 0xc4216b55d1, 0x1, 0x1, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/net.go:176 +0x6a
+net/http.(*connReader).backgroundRead(0xc4216b55c0)
+	/usr/local/go1.10.8/src/net/http/server.go:668 +0x5a
+created by net/http.(*connReader).startBackgroundRead
+	/usr/local/go1.10.8/src/net/http/server.go:664 +0xce
+
+goroutine 181 [select]:
+net/http.(*persistConn).readLoop(0xc4201807e0)
+	/usr/local/go1.10.8/src/net/http/transport.go:1717 +0x743
+created by net/http.(*Transport).dialConn
+	/usr/local/go1.10.8/src/net/http/transport.go:1237 +0x95a
+
+goroutine 182 [select]:
+net/http.(*persistConn).writeLoop(0xc4201807e0)
+	/usr/local/go1.10.8/src/net/http/transport.go:1822 +0x14b
+created by net/http.(*Transport).dialConn
+	/usr/local/go1.10.8/src/net/http/transport.go:1238 +0x97f
+
+goroutine 184 [IO wait]:
+internal/poll.runtime_pollWait(0x7f8c8128d3c8, 0x72, 0xc42003f658)
+	/usr/local/go1.10.8/src/runtime/netpoll.go:173 +0x57
+internal/poll.(*pollDesc).wait(0xc42012d498, 0x72, 0xffffffffffffff00, 0x856300, 0x9f25e0)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:85 +0x9b
+internal/poll.(*pollDesc).waitRead(0xc42012d498, 0xc4201ba900, 0x1, 0x1)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:90 +0x3d
+internal/poll.(*FD).Read(0xc42012d480, 0xc4201ba9d1, 0x1, 0x1, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/internal/poll/fd_unix.go:157 +0x17d
+net.(*netFD).Read(0xc42012d480, 0xc4201ba9d1, 0x1, 0x1, 0xc42231c600, 0x0, 0x20002)
+	/usr/local/go1.10.8/src/net/fd_unix.go:202 +0x4f
+net.(*conn).Read(0xc4201b2040, 0xc4201ba9d1, 0x1, 0x1, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/net.go:176 +0x6a
+net/http.(*connReader).backgroundRead(0xc4201ba9c0)
+	/usr/local/go1.10.8/src/net/http/server.go:668 +0x5a
+created by net/http.(*connReader).startBackgroundRead
+	/usr/local/go1.10.8/src/net/http/server.go:664 +0xce
+
+goroutine 168 [select]:
+net/http.(*persistConn).readLoop(0xc42283e000)
+	/usr/local/go1.10.8/src/net/http/transport.go:1717 +0x743
+created by net/http.(*Transport).dialConn
+	/usr/local/go1.10.8/src/net/http/transport.go:1237 +0x95a
+
+goroutine 166 [select]:
+net/http.(*persistConn).readLoop(0xc4200206c0)
+	/usr/local/go1.10.8/src/net/http/transport.go:1717 +0x743
+created by net/http.(*Transport).dialConn
+	/usr/local/go1.10.8/src/net/http/transport.go:1237 +0x95a
+
+goroutine 121 [chan receive]:
+github.com/coreos/etcd/rafthttp.(*streamHandler).ServeHTTP(0xc4216b4b40, 0x8591c0, 0xc4216b62a0, 0xc4200e6000)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/http.go:284 +0x9ed
+net/http.(*ServeMux).ServeHTTP(0xc4216b4b70, 0x8591c0, 0xc4216b62a0, 0xc4200e6000)
+	/usr/local/go1.10.8/src/net/http/server.go:2340 +0x130
+net/http.serverHandler.ServeHTTP(0xc4201bc820, 0x8591c0, 0xc4216b62a0, 0xc4200e6000)
+	/usr/local/go1.10.8/src/net/http/server.go:2697 +0xbc
+net/http.(*conn).serve(0xc4200b4c80, 0x859700, 0xc4201e7240)
+	/usr/local/go1.10.8/src/net/http/server.go:1830 +0x651
+created by net/http.(*Server).Serve
+	/usr/local/go1.10.8/src/net/http/server.go:2798 +0x27b
+
+goroutine 167 [select]:
+net/http.(*persistConn).writeLoop(0xc4200206c0)
+	/usr/local/go1.10.8/src/net/http/transport.go:1822 +0x14b
+created by net/http.(*Transport).dialConn
+	/usr/local/go1.10.8/src/net/http/transport.go:1238 +0x97f
+
+goroutine 122 [IO wait]:
+internal/poll.runtime_pollWait(0x7f8c8128d228, 0x72, 0xc4201eee58)
+	/usr/local/go1.10.8/src/runtime/netpoll.go:173 +0x57
+internal/poll.(*pollDesc).wait(0xc42015c798, 0x72, 0xffffffffffffff00, 0x856300, 0x9f25e0)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:85 +0x9b
+internal/poll.(*pollDesc).waitRead(0xc42015c798, 0xc420192900, 0x1, 0x1)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:90 +0x3d
+internal/poll.(*FD).Read(0xc42015c780, 0xc420192941, 0x1, 0x1, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/internal/poll/fd_unix.go:157 +0x17d
+net.(*netFD).Read(0xc42015c780, 0xc420192941, 0x1, 0x1, 0xc4201e21e0, 0x859740, 0xc4200240c8)
+	/usr/local/go1.10.8/src/net/fd_unix.go:202 +0x4f
+net.(*conn).Read(0xc42017a020, 0xc420192941, 0x1, 0x1, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/net.go:176 +0x6a
+net/http.(*connReader).backgroundRead(0xc420192930)
+	/usr/local/go1.10.8/src/net/http/server.go:668 +0x5a
+created by net/http.(*connReader).startBackgroundRead
+	/usr/local/go1.10.8/src/net/http/server.go:664 +0xce
+
+goroutine 124 [chan receive]:
+github.com/coreos/etcd/rafthttp.(*streamHandler).ServeHTTP(0xc4216b4b40, 0x8591c0, 0xc4200ca460, 0xc420528400)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/http.go:284 +0x9ed
+net/http.(*ServeMux).ServeHTTP(0xc4216b4b70, 0x8591c0, 0xc4200ca460, 0xc420528400)
+	/usr/local/go1.10.8/src/net/http/server.go:2340 +0x130
+net/http.serverHandler.ServeHTTP(0xc4201bc820, 0x8591c0, 0xc4200ca460, 0xc420528400)
+	/usr/local/go1.10.8/src/net/http/server.go:2697 +0xbc
+net/http.(*conn).serve(0xc4200b4dc0, 0x859700, 0xc42015a780)
+	/usr/local/go1.10.8/src/net/http/server.go:1830 +0x651
+created by net/http.(*Server).Serve
+	/usr/local/go1.10.8/src/net/http/server.go:2798 +0x27b
+
+goroutine 186 [select]:
+net/http.(*persistConn).readLoop(0xc420180900)
+	/usr/local/go1.10.8/src/net/http/transport.go:1717 +0x743
+created by net/http.(*Transport).dialConn
+	/usr/local/go1.10.8/src/net/http/transport.go:1237 +0x95a
+
+goroutine 187 [select]:
+net/http.(*persistConn).writeLoop(0xc420180900)
+	/usr/local/go1.10.8/src/net/http/transport.go:1822 +0x14b
+created by net/http.(*Transport).dialConn
+	/usr/local/go1.10.8/src/net/http/transport.go:1238 +0x97f
+
+goroutine 125 [chan receive]:
+github.com/coreos/etcd/rafthttp.(*streamHandler).ServeHTTP(0xc4216b4b40, 0x8591c0, 0xc4216b6380, 0xc4200e6300)
+	/home/li/gopath/src/github.com/coreos/etcd/rafthttp/http.go:284 +0x9ed
+net/http.(*ServeMux).ServeHTTP(0xc4216b4b70, 0x8591c0, 0xc4216b6380, 0xc4200e6300)
+	/usr/local/go1.10.8/src/net/http/server.go:2340 +0x130
+net/http.serverHandler.ServeHTTP(0xc4201bc820, 0x8591c0, 0xc4216b6380, 0xc4200e6300)
+	/usr/local/go1.10.8/src/net/http/server.go:2697 +0xbc
+net/http.(*conn).serve(0xc4200b4f00, 0x859700, 0xc4201e75c0)
+	/usr/local/go1.10.8/src/net/http/server.go:1830 +0x651
+created by net/http.(*Server).Serve
+	/usr/local/go1.10.8/src/net/http/server.go:2798 +0x27b
+
+goroutine 169 [select]:
+net/http.(*persistConn).writeLoop(0xc42283e000)
+	/usr/local/go1.10.8/src/net/http/transport.go:1822 +0x14b
+created by net/http.(*Transport).dialConn
+	/usr/local/go1.10.8/src/net/http/transport.go:1238 +0x97f
+
+goroutine 196 [IO wait]:
+internal/poll.runtime_pollWait(0x7f8c8128cfb8, 0x72, 0xc42003ee58)
+	/usr/local/go1.10.8/src/runtime/netpoll.go:173 +0x57
+internal/poll.(*pollDesc).wait(0xc42015cb18, 0x72, 0xffffffffffffff00, 0x856300, 0x9f25e0)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:85 +0x9b
+internal/poll.(*pollDesc).waitRead(0xc42015cb18, 0xc4216b5b00, 0x1, 0x1)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:90 +0x3d
+internal/poll.(*FD).Read(0xc42015cb00, 0xc4216b5b11, 0x1, 0x1, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/internal/poll/fd_unix.go:157 +0x17d
+net.(*netFD).Read(0xc42015cb00, 0xc4216b5b11, 0x1, 0x1, 0xc4201e23c0, 0x859740, 0xc4200240c8)
+	/usr/local/go1.10.8/src/net/fd_unix.go:202 +0x4f
+net.(*conn).Read(0xc42017a040, 0xc4216b5b11, 0x1, 0x1, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/net.go:176 +0x6a
+net/http.(*connReader).backgroundRead(0xc4216b5b00)
+	/usr/local/go1.10.8/src/net/http/server.go:668 +0x5a
+created by net/http.(*connReader).startBackgroundRead
+	/usr/local/go1.10.8/src/net/http/server.go:664 +0xce
+
+goroutine 126 [IO wait]:
+internal/poll.runtime_pollWait(0x7f8c8128cee8, 0x72, 0xc422837658)
+	/usr/local/go1.10.8/src/runtime/netpoll.go:173 +0x57
+internal/poll.(*pollDesc).wait(0xc42015cb98, 0x72, 0xffffffffffffff00, 0x856300, 0x9f25e0)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:85 +0x9b
+internal/poll.(*pollDesc).waitRead(0xc42015cb98, 0xc420192d00, 0x1, 0x1)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:90 +0x3d
+internal/poll.(*FD).Read(0xc42015cb80, 0xc420192d31, 0x1, 0x1, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/internal/poll/fd_unix.go:157 +0x17d
+net.(*netFD).Read(0xc42015cb80, 0xc420192d31, 0x1, 0x1, 0x0, 0x0, 0x20002)
+	/usr/local/go1.10.8/src/net/fd_unix.go:202 +0x4f
+net.(*conn).Read(0xc42017a048, 0xc420192d31, 0x1, 0x1, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/net.go:176 +0x6a
+net/http.(*connReader).backgroundRead(0xc420192d20)
+	/usr/local/go1.10.8/src/net/http/server.go:668 +0x5a
+created by net/http.(*connReader).startBackgroundRead
+	/usr/local/go1.10.8/src/net/http/server.go:664 +0xce
+FAIL	github.com/coreos/etcd/contrib/raftexample	45.011s

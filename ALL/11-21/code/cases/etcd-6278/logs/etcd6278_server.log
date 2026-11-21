@@ -1,0 +1,36 @@
+2026-11-21 10:48:14.642801 I | etcdmain: etcd Version: 3.0.0+git
+2026-11-21 10:48:14.642846 I | etcdmain: Git SHA: Not provided (use ./build instead of go build)
+2026-11-21 10:48:14.642849 I | etcdmain: Go Version: go1.10.8
+2026-11-21 10:48:14.642851 I | etcdmain: Go OS/Arch: linux/amd64
+2026-11-21 10:48:14.642855 I | etcdmain: setting maximum number of CPUs to 4, total number of available CPUs is 4
+2026-11-21 10:48:14.642898 I | embed: listening for peers on http://127.0.0.1:23801
+2026-11-21 10:48:14.642908 I | embed: listening for client requests on 127.0.0.1:23791
+2026-11-21 10:48:14.644849 I | etcdserver: name = default
+2026-11-21 10:48:14.644859 I | etcdserver: data dir = /tmp/e6278
+2026-11-21 10:48:14.644862 I | etcdserver: member dir = /tmp/e6278/member
+2026-11-21 10:48:14.644864 I | etcdserver: heartbeat = 100ms
+2026-11-21 10:48:14.644867 I | etcdserver: election = 1000ms
+2026-11-21 10:48:14.644869 I | etcdserver: snapshot count = 10000
+2026-11-21 10:48:14.644875 I | etcdserver: advertise client URLs = http://127.0.0.1:23791
+2026-11-21 10:48:14.644877 I | etcdserver: initial advertise peer URLs = http://127.0.0.1:23801
+2026-11-21 10:48:14.644882 I | etcdserver: initial cluster = default=http://127.0.0.1:23801
+2026-11-21 10:48:14.653688 I | etcdserver: starting member bdae9bbc11dd390d in cluster d1cfaf999eb97a2a
+2026-11-21 10:48:14.653714 I | raft: bdae9bbc11dd390d became follower at term 0
+2026-11-21 10:48:14.653719 I | raft: newRaft bdae9bbc11dd390d [peers: [], term: 0, commit: 0, applied: 0, lastindex: 0, lastterm: 0]
+2026-11-21 10:48:14.653723 I | raft: bdae9bbc11dd390d became follower at term 1
+2026-11-21 10:48:14.673038 I | etcdserver: starting server... [version: 3.0.0+git, cluster version: to_be_decided]
+2026-11-21 10:48:14.673537 I | membership: added member bdae9bbc11dd390d [http://127.0.0.1:23801] to cluster d1cfaf999eb97a2a
+2026-11-21 10:48:14.954164 I | raft: bdae9bbc11dd390d is starting a new election at term 1
+2026-11-21 10:48:14.954252 I | raft: bdae9bbc11dd390d became candidate at term 2
+2026-11-21 10:48:14.954260 I | raft: bdae9bbc11dd390d received vote from bdae9bbc11dd390d at term 2
+2026-11-21 10:48:14.954350 I | raft: bdae9bbc11dd390d became leader at term 2
+2026-11-21 10:48:14.954365 I | raft: raft.node: bdae9bbc11dd390d elected leader bdae9bbc11dd390d at term 2
+2026-11-21 10:48:14.954649 I | etcdserver: setting up the initial cluster version to 3.0
+2026-11-21 10:48:14.955059 N | membership: set the initial cluster version to 3.0
+2026-11-21 10:48:14.955078 I | api: enabled capabilities for version 3.0
+2026-11-21 10:48:14.955134 I | etcdserver: published {Name:default ClientURLs:[http://127.0.0.1:23791]} to cluster d1cfaf999eb97a2a
+2026-11-21 10:48:14.955150 I | embed: ready to serve client requests
+2026-11-21 10:48:14.955329 E | etcdmain: forgot to set Type=notify in systemd service file?
+2026-11-21 10:48:14.956583 N | embed: serving insecure client requests on 127.0.0.1:23791, this is strongly discouraged!
+2026-11-21 10:48:21.734230 N | osutil: received terminated signal, shutting down...
+2026-11-21 10:48:21.734251 I | etcdserver: skipped leadership transfer for single member cluster

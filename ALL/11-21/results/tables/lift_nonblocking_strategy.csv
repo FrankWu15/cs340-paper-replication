@@ -1,0 +1,31 @@
+﻿lift,cause,fix,n_AB,n_A,n_B,N
+28.67,msg lib,Misc.,1,1,3,86
+9.56,lib,Misc.,2,6,3,86
+2.23,anon.,Data Private,4,11,14,86
+2.21,chan,Moves,7,16,17,86
+1.69,lib,Moves,2,6,17,86
+1.69,waitgroup,Moves,2,6,17,86
+1.61,chan,Bypass,3,16,10,86
+1.43,lib,Bypass,1,6,10,86
+1.43,waitgroup,Bypass,1,6,10,86
+1.34,traditional,Data Private,10,46,14,86
+1.20,traditional,Adds,27,46,42,86
+1.02,waitgroup,Adds,3,6,42,86
+0.93,traditional,Bypass,5,46,10,86
+0.93,anon.,Adds,5,11,42,86
+0.92,anon.,Moves,2,11,17,86
+0.77,chan,Adds,6,16,42,86
+0.44,traditional,Moves,4,46,17,86
+0.34,lib,Adds,1,6,42,86
+0.00,anon.,Bypass,0,11,10,86
+0.00,anon.,Misc.,0,11,3,86
+0.00,chan,Data Private,0,16,14,86
+0.00,chan,Misc.,0,16,3,86
+0.00,lib,Data Private,0,6,14,86
+0.00,traditional,Misc.,0,46,3,86
+0.00,msg lib,Adds,0,1,42,86
+0.00,msg lib,Moves,0,1,17,86
+0.00,msg lib,Bypass,0,1,10,86
+0.00,msg lib,Data Private,0,1,14,86
+0.00,waitgroup,Data Private,0,6,14,86
+0.00,waitgroup,Misc.,0,6,3,86

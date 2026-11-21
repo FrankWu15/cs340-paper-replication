@@ -1,0 +1,7 @@
+﻿workload,concurrency,side,goroutines,os_threads,g_over_t,paper_ratio,implied_c_threads,rps,note
+sync_ping_pong,1,client,18,7,2.57,7.33,2.46,3940,Go 侧实测；os_threads 为 Go 进程线程数
+sync_ping_pong,1,server,10,5,2.00,4.00,2.50,3940,server 侧不为每 RPC 起 goroutine
+qps_unconstrained,200,client,216,7,30.86,201.46,1.07,0,论文 201.46 对应约 1000 并发
+qps_unconstrained,200,server,10,5,2.00,6.36,1.57,0,
+qps_unconstrained,1000,client,1019,7,145.57,201.46,5.06,0,反推 C 线程 5.06≈5，与 gRPC-C 线程池规模自洽
+qps_unconstrained,1000,server,14,8,1.75,6.36,2.20,0,server goroutine 数与论文隐含值差 2.9 倍

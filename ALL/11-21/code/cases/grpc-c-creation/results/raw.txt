@@ -1,0 +1,34 @@
+## 1. 物理线程创建 API（严格口径）
+pthread_create:
+  src/core/lib/gpr/thd_posix.cc:97:  thread_started = (pthread_create(&p, &attr, &thread_body, a) == 0);
+CreateThread:
+  src/core/lib/gpr/thd_windows.cc:88:  handle = CreateThread(NULL, 64 * 1024, thread_body, info, 0, NULL);
+  src/cpp/server/create_default_thread_pool.cc:34:CreateThreadPoolFunc g_ctp_impl = CreateDefaultThreadPoolImpl;
+  src/cpp/server/create_default_thread_pool.cc:40:void SetCreateThreadPool(CreateThreadPoolFunc func) { g_ctp_impl = func; }
+  src/cpp/server/thread_pool_interface.h:36:typedef ThreadPoolInterface* (*CreateThreadPoolFunc)(void);
+  src/cpp/server/thread_pool_interface.h:37:void SetCreateThreadPool(CreateThreadPoolFunc func);
+std::thread 构造（产品代码 src/）:
+  src/cpp/server/dynamic_thread_pool.cc:30:      thd_(new std::thread(&DynamicThreadPool::DynamicThread::ThreadFunc,
+  src/cpp/thread_manager/thread_manager.cc:34:  thd_ = std::thread(&ThreadManager::WorkerThread::Run, this);
+  src/cpp/thread_manager/thread_manager.h:88:  // and starts a new std::thread to calls the Run() function.
+
+## 2. gRPC 自有线程封装 gpr_thd_new 的调用点
+  src/core/lib/gpr/thd.h:42:int gpr_thd_new(gpr_thd_id* t, const char* thd_name,
+  src/core/lib/gpr/thd_posix.cc:52:/* Body of every thread started via gpr_thd_new. */
+  src/core/lib/gpr/thd_posix.cc:74:int gpr_thd_new(gpr_thd_id* t, const char* thd_name,
+  src/core/lib/gpr/thd_windows.cc:57:/* Body of every thread started via gpr_thd_new. */
+  src/core/lib/gpr/thd_windows.cc:70:int gpr_thd_new(gpr_thd_id* t, const char* thd_name,
+  src/core/lib/iomgr/ev_poll_posix.cc:1375:  GPR_ASSERT(gpr_thd_new(&t_id, "grpc_poller", &run_poll, pargs, &opt));
+  src/core/lib/iomgr/executor.cc:107:    gpr_thd_new(&g_thread_state[0].id, "grpc_executor", executor_thread,
+  src/core/lib/iomgr/executor.cc:267:        gpr_thd_new(&g_thread_state[cur_thread_count].id, "gpr_executor",
+  src/core/lib/iomgr/timer_manager.cc:91:  // The call to gpr_thd_new() has to be under the same lock used by
+  src/core/lib/iomgr/timer_manager.cc:93:  // (internally by gpr_thd_new) and read there. Otherwise it's possible for ct
+  src/core/lib/iomgr/timer_manager.cc:97:  gpr_thd_new(&ct->t, "grpc_global_timer", timer_thread, ct, &opt);
+  src/core/lib/profiling/basic_timers.cc:206:  GPR_ASSERT(gpr_thd_new(&g_writing_thread, "timer_output_thread",
+
+## 3. 代码行数（.c/.cc/.h/.hpp）
+src/all      130598
+src/core     100578
+src/cpp      6179
+include      17475
+src+include  148073

@@ -1,0 +1,221 @@
+=== RUN   TestElectionOnPrefixOfExistingKey
+panic: test timed out after 5m0s
+
+goroutine 29125 [running]:
+testing.(*M).startAlarm.func1()
+	/usr/local/go1.10.8/src/testing/testing.go:1240 +0xfc
+created by time.goFunc
+	/usr/local/go1.10.8/src/time/sleep.go:172 +0x44
+
+goroutine 1 [chan receive, 4 minutes]:
+testing.(*T).Run(0xc4202bc0f0, 0xdbda85, 0x21, 0xdddc08, 0x488501)
+	/usr/local/go1.10.8/src/testing/testing.go:825 +0x301
+testing.runTests.func1(0xc4202bc000)
+	/usr/local/go1.10.8/src/testing/testing.go:1063 +0x64
+testing.tRunner(0xc4202bc000, 0xc420295dd0)
+	/usr/local/go1.10.8/src/testing/testing.go:777 +0xd0
+testing.runTests(0xc4202ae080, 0x1244980, 0x71, 0x71, 0xc42007e660)
+	/usr/local/go1.10.8/src/testing/testing.go:1061 +0x2c4
+testing.(*M).Run(0xc4200d2800, 0x0)
+	/usr/local/go1.10.8/src/testing/testing.go:978 +0x171
+github.com/coreos/etcd/integration.TestMain(0xc4200d2800)
+	/home/li/gopath/src/github.com/coreos/etcd/integration/main_test.go:15 +0x2b
+main.main()
+	_testmain.go:270 +0x151
+
+goroutine 22 [chan receive]:
+github.com/coreos/etcd/pkg/logutil.(*MergeLogger).outputLoop(0xc4201876c0)
+	/home/li/gopath/src/github.com/coreos/etcd/pkg/logutil/merge_logger.go:174 +0x40d
+created by github.com/coreos/etcd/pkg/logutil.NewMergeLogger
+	/home/li/gopath/src/github.com/coreos/etcd/pkg/logutil/merge_logger.go:92 +0x85
+
+goroutine 63 [chan receive]:
+github.com/coreos/etcd/pkg/logutil.(*MergeLogger).outputLoop(0xc4201f3da0)
+	/home/li/gopath/src/github.com/coreos/etcd/pkg/logutil/merge_logger.go:174 +0x40d
+created by github.com/coreos/etcd/pkg/logutil.NewMergeLogger
+	/home/li/gopath/src/github.com/coreos/etcd/pkg/logutil/merge_logger.go:92 +0x85
+
+goroutine 68 [sleep]:
+time.Sleep(0x989680)
+	/usr/local/go1.10.8/src/runtime/time.go:102 +0x166
+github.com/coreos/etcd/integration.(*cluster).waitMembersMatch(0xc4202ae0a0, 0xc4202bc0f0, 0xc420400280, 0x1, 0x1)
+	/home/li/gopath/src/github.com/coreos/etcd/integration/cluster.go:331 +0x63
+github.com/coreos/etcd/integration.(*cluster).Launch(0xc4202ae0a0, 0xc4202bc0f0)
+	/home/li/gopath/src/github.com/coreos/etcd/integration/cluster.go:168 +0x1b8
+github.com/coreos/etcd/integration.NewClusterV3(0xc4202bc0f0, 0xc4201fca40, 0x4ebe10)
+	/home/li/gopath/src/github.com/coreos/etcd/integration/cluster.go:840 +0xa1
+github.com/coreos/etcd/integration.TestElectionOnPrefixOfExistingKey(0xc4202bc0f0)
+	/home/li/gopath/src/github.com/coreos/etcd/integration/v3_election_test.go:201 +0x64
+testing.tRunner(0xc4202bc0f0, 0xdddc08)
+	/usr/local/go1.10.8/src/testing/testing.go:777 +0xd0
+created by testing.(*T).Run
+	/usr/local/go1.10.8/src/testing/testing.go:824 +0x2e0
+
+goroutine 69 [IO wait, 4 minutes]:
+internal/poll.runtime_pollWait(0x7f69d90cbbc0, 0x72, 0x0)
+	/usr/local/go1.10.8/src/runtime/netpoll.go:173 +0x57
+internal/poll.(*pollDesc).wait(0xc4200d3018, 0x72, 0xc4201a0f00, 0x0, 0x0)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:85 +0x9b
+internal/poll.(*pollDesc).waitRead(0xc4200d3018, 0xffffffffffffff00, 0x0, 0x0)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:90 +0x3d
+internal/poll.(*FD).Accept(0xc4200d3000, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/internal/poll/fd_unix.go:372 +0x1a8
+net.(*netFD).accept(0xc4200d3000, 0xc420051f98, 0x4eb9b1, 0xc4202be090)
+	/usr/local/go1.10.8/src/net/fd_unix.go:238 +0x42
+net.(*UnixListener).accept(0xc4201f90b0, 0x1200cd2, 0x2a, 0x2d2)
+	/usr/local/go1.10.8/src/net/unixsock_posix.go:162 +0x32
+net.(*UnixListener).Accept(0xc4201f90b0, 0xc400000008, 0xc4201a01c0, 0x1200cd2, 0xc420051f60)
+	/usr/local/go1.10.8/src/net/unixsock.go:253 +0x49
+github.com/coreos/etcd/integration.(*bridge).serveListen(0xc420082d80)
+	/home/li/gopath/src/github.com/coreos/etcd/integration/bridge.go:89 +0x114
+created by github.com/coreos/etcd/integration.newBridge
+	/home/li/gopath/src/github.com/coreos/etcd/integration/bridge.go:53 +0x29c
+
+goroutine 71 [select]:
+github.com/coreos/etcd/mvcc/backend.(*backend).run(0xc420082fc0)
+	/home/li/gopath/src/github.com/coreos/etcd/mvcc/backend/backend.go:193 +0x180
+created by github.com/coreos/etcd/mvcc/backend.newBackend
+	/home/li/gopath/src/github.com/coreos/etcd/mvcc/backend/backend.go:119 +0x241
+
+goroutine 72 [select, 4 minutes]:
+github.com/coreos/etcd/wal.(*filePipeline).run(0xc4201fcc80)
+	/home/li/gopath/src/github.com/coreos/etcd/wal/file_pipeline.go:89 +0x139
+created by github.com/coreos/etcd/wal.newFilePipeline
+	/home/li/gopath/src/github.com/coreos/etcd/wal/file_pipeline.go:47 +0x11a
+
+goroutine 73 [runnable]:
+github.com/coreos/etcd/raft.(*node).run(0xc4200831a0, 0xc4202bc3c0)
+	/home/li/gopath/src/github.com/coreos/etcd/raft/node.go:314 +0x5d6
+created by github.com/coreos/etcd/raft.StartNode
+	/home/li/gopath/src/github.com/coreos/etcd/raft/node.go:211 +0x618
+
+goroutine 74 [select]:
+github.com/coreos/etcd/lease.(*lessor).runLoop(0xc4200833e0)
+	/home/li/gopath/src/github.com/coreos/etcd/lease/lessor.go:386 +0x164
+created by github.com/coreos/etcd/lease.newLessor
+	/home/li/gopath/src/github.com/coreos/etcd/lease/lessor.go:171 +0x156
+
+goroutine 75 [select, 4 minutes]:
+github.com/coreos/etcd/pkg/schedule.(*fifo).run(0xc420083440)
+	/home/li/gopath/src/github.com/coreos/etcd/pkg/schedule/schedule.go:146 +0x242
+created by github.com/coreos/etcd/pkg/schedule.NewFIFOScheduler
+	/home/li/gopath/src/github.com/coreos/etcd/pkg/schedule/schedule.go:71 +0x156
+
+goroutine 76 [select]:
+github.com/coreos/etcd/mvcc.(*watchableStore).syncWatchersLoop(0xc4202be510)
+	/home/li/gopath/src/github.com/coreos/etcd/mvcc/watchable_store.go:281 +0x1d6
+created by github.com/coreos/etcd/mvcc.newWatchableStore
+	/home/li/gopath/src/github.com/coreos/etcd/mvcc/watchable_store.go:84 +0x20e
+
+goroutine 77 [select, 4 minutes]:
+github.com/coreos/etcd/mvcc.(*watchableStore).syncVictimsLoop(0xc4202be510)
+	/home/li/gopath/src/github.com/coreos/etcd/mvcc/watchable_store.go:307 +0x18c
+created by github.com/coreos/etcd/mvcc.newWatchableStore
+	/home/li/gopath/src/github.com/coreos/etcd/mvcc/watchable_store.go:85 +0x230
+
+goroutine 78 [select]:
+github.com/coreos/etcd/etcdserver.(*EtcdServer).run(0xc4203e0000)
+	/home/li/gopath/src/github.com/coreos/etcd/etcdserver/server.go:594 +0x455
+created by github.com/coreos/etcd/etcdserver.(*EtcdServer).start
+	/home/li/gopath/src/github.com/coreos/etcd/etcdserver/server.go:490 +0x2e7
+
+goroutine 80 [select, 4 minutes]:
+github.com/coreos/etcd/etcdserver.(*EtcdServer).purgeFile(0xc4203e0000)
+	/home/li/gopath/src/github.com/coreos/etcd/etcdserver/server.go:501 +0x166
+created by github.com/coreos/etcd/etcdserver.(*EtcdServer).Start
+	/home/li/gopath/src/github.com/coreos/etcd/etcdserver/server.go:466 +0x8f
+
+goroutine 81 [select]:
+github.com/coreos/etcd/etcdserver.monitorFileDescriptor(0xc42008d080)
+	/home/li/gopath/src/github.com/coreos/etcd/etcdserver/metrics.go:89 +0x17e
+created by github.com/coreos/etcd/etcdserver.(*EtcdServer).Start
+	/home/li/gopath/src/github.com/coreos/etcd/etcdserver/server.go:467 +0xb8
+
+goroutine 98 [select]:
+github.com/coreos/etcd/etcdserver.(*EtcdServer).monitorVersions(0xc4203e0000)
+	/home/li/gopath/src/github.com/coreos/etcd/etcdserver/server.go:1373 +0x159
+created by github.com/coreos/etcd/etcdserver.(*EtcdServer).Start
+	/home/li/gopath/src/github.com/coreos/etcd/etcdserver/server.go:468 +0xda
+
+goroutine 99 [IO wait, 4 minutes]:
+internal/poll.runtime_pollWait(0x7f69d90cbe30, 0x72, 0x0)
+	/usr/local/go1.10.8/src/runtime/netpoll.go:173 +0x57
+internal/poll.(*pollDesc).wait(0xc4200d2898, 0x72, 0xc420167300, 0x0, 0x0)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:85 +0x9b
+internal/poll.(*pollDesc).waitRead(0xc4200d2898, 0xffffffffffffff00, 0x0, 0x0)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:90 +0x3d
+internal/poll.(*FD).Accept(0xc4200d2880, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/internal/poll/fd_unix.go:372 +0x1a8
+net.(*netFD).accept(0xc4200d2880, 0xc420408688, 0x7f69d9127d90, 0x0)
+	/usr/local/go1.10.8/src/net/fd_unix.go:238 +0x42
+net.(*UnixListener).accept(0xc4201f8f00, 0xc4204086a8, 0x4122f8, 0x30)
+	/usr/local/go1.10.8/src/net/unixsock_posix.go:162 +0x32
+net.(*UnixListener).Accept(0xc4201f8f00, 0xd037e0, 0xc42025cae0, 0xc5af80, 0x12358e0)
+	/usr/local/go1.10.8/src/net/unixsock.go:253 +0x49
+net/http.(*Server).Serve(0xc4203d8820, 0xe4f3c0, 0xc420200bc0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/http/server.go:2773 +0x1a5
+net/http/httptest.(*Server).goServe.func1(0xc4202d4a80)
+	/usr/local/go1.10.8/src/net/http/httptest/server.go:280 +0x6d
+created by net/http/httptest.(*Server).goServe
+	/usr/local/go1.10.8/src/net/http/httptest/server.go:278 +0x5c
+
+goroutine 83 [select]:
+github.com/coreos/etcd/etcdserver.(*raftNode).start.func1(0xc4203e0030)
+	/home/li/gopath/src/github.com/coreos/etcd/etcdserver/raft.go:151 +0x224
+created by github.com/coreos/etcd/etcdserver.(*raftNode).start
+	/home/li/gopath/src/github.com/coreos/etcd/etcdserver/raft.go:144 +0x195
+
+goroutine 84 [select]:
+github.com/coreos/etcd/pkg/schedule.(*fifo).run(0xc4201c6420)
+	/home/li/gopath/src/github.com/coreos/etcd/pkg/schedule/schedule.go:146 +0x242
+created by github.com/coreos/etcd/pkg/schedule.NewFIFOScheduler
+	/home/li/gopath/src/github.com/coreos/etcd/pkg/schedule/schedule.go:71 +0x156
+
+goroutine 104 [IO wait, 4 minutes]:
+internal/poll.runtime_pollWait(0x7f69d90cbd60, 0x72, 0x0)
+	/usr/local/go1.10.8/src/runtime/netpoll.go:173 +0x57
+internal/poll.(*pollDesc).wait(0xc4200d2b18, 0x72, 0xc420167200, 0x0, 0x0)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:85 +0x9b
+internal/poll.(*pollDesc).waitRead(0xc4200d2b18, 0xffffffffffffff00, 0x0, 0x0)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:90 +0x3d
+internal/poll.(*FD).Accept(0xc4200d2b00, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/internal/poll/fd_unix.go:372 +0x1a8
+net.(*netFD).accept(0xc4200d2b00, 0xc420408e88, 0x7f69d9127d90, 0x0)
+	/usr/local/go1.10.8/src/net/fd_unix.go:238 +0x42
+net.(*UnixListener).accept(0xc4201f8f60, 0xc420408ea8, 0x4122f8, 0x30)
+	/usr/local/go1.10.8/src/net/unixsock_posix.go:162 +0x32
+net.(*UnixListener).Accept(0xc4201f8f60, 0xd037e0, 0xc42025ca20, 0xc5af80, 0x12358e0)
+	/usr/local/go1.10.8/src/net/unixsock.go:253 +0x49
+net/http.(*Server).Serve(0xc4203d88f0, 0xe4f3c0, 0xc420200bf0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/http/server.go:2773 +0x1a5
+net/http/httptest.(*Server).goServe.func1(0xc4202d4e70)
+	/usr/local/go1.10.8/src/net/http/httptest/server.go:280 +0x6d
+created by net/http/httptest.(*Server).goServe
+	/usr/local/go1.10.8/src/net/http/httptest/server.go:278 +0x5c
+
+goroutine 105 [select]:
+github.com/coreos/etcd/etcdserver/api/v3rpc.monitorLeader.func1(0xc4203e0000, 0xc420201640)
+	/home/li/gopath/src/github.com/coreos/etcd/etcdserver/api/v3rpc/interceptor.go:147 +0x120
+created by github.com/coreos/etcd/etcdserver/api/v3rpc.monitorLeader
+	/home/li/gopath/src/github.com/coreos/etcd/etcdserver/api/v3rpc/interceptor.go:142 +0x87
+
+goroutine 106 [IO wait, 4 minutes]:
+internal/poll.runtime_pollWait(0x7f69d90cbc90, 0x72, 0x0)
+	/usr/local/go1.10.8/src/runtime/netpoll.go:173 +0x57
+internal/poll.(*pollDesc).wait(0xc4200d2e98, 0x72, 0xc42007e600, 0x0, 0x0)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:85 +0x9b
+internal/poll.(*pollDesc).waitRead(0xc4200d2e98, 0xffffffffffffff00, 0x0, 0x0)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:90 +0x3d
+internal/poll.(*FD).Accept(0xc4200d2e80, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/internal/poll/fd_unix.go:372 +0x1a8
+net.(*netFD).accept(0xc4200d2e80, 0xc4200cba40, 0xc420409f38, 0x4097a6)
+	/usr/local/go1.10.8/src/net/fd_unix.go:238 +0x42
+net.(*UnixListener).accept(0xc4201f9020, 0x4d00000000000007, 0x0, 0x4dbe666a8c77fd15)
+	/usr/local/go1.10.8/src/net/unixsock_posix.go:162 +0x32
+net.(*UnixListener).Accept(0xc4201f9020, 0xc420030df0, 0xc420409f58, 0x18, 0xc420409f50)
+	/usr/local/go1.10.8/src/net/unixsock.go:253 +0x49
+google.golang.org/grpc.(*Server).Serve(0xc4200cb860, 0xe4f3c0, 0xc420200c60, 0x0, 0x0)
+	/home/li/gopath/src/google.golang.org/grpc/server.go:348 +0x161
+created by github.com/coreos/etcd/integration.(*member).Launch
+	/home/li/gopath/src/github.com/coreos/etcd/integration/cluster.go:643 +0x900
+FAIL	github.com/coreos/etcd/integration	300.053s

@@ -1,0 +1,10 @@
+﻿no,file,line,api,role,kind,in_core5
+1,src/core/lib/gpr/thd_posix.cc,97,pthread_create,POSIX 线程创建的唯一实现,physical,yes
+2,src/core/lib/gpr/thd_windows.cc,88,CreateThread,Windows 线程创建的唯一实现,physical,no
+3,src/cpp/thread_manager/thread_manager.cc,34,std::thread,CompletionQueue 工作线程池,physical,yes
+4,src/cpp/server/dynamic_thread_pool.cc,30,new std::thread,server 默认线程池,physical,yes
+5,src/core/lib/iomgr/timer_manager.cc,97,gpr_thd_new,全局 timer 线程,logical,yes
+6,src/core/lib/iomgr/executor.cc,107,gpr_thd_new,executor 固定线程,logical,yes
+7,src/core/lib/iomgr/executor.cc,267,gpr_thd_new,executor 动态扩容,logical,no
+8,src/core/lib/iomgr/ev_poll_posix.cc,1375,gpr_thd_new,poller 线程,logical,no
+9,src/core/lib/profiling/basic_timers.cc,206,gpr_thd_new,profiling 输出线程,logical,no

@@ -1,0 +1,160 @@
+=== RUN   TestProposeOnCommit
+raft2026/11/21 10:16:02 INFO: 1 became follower at term 0
+raft2026/11/21 10:16:02 INFO: newRaft 1 [peers: [], term: 0, commit: 0, applied: 0, lastindex: 0, lastterm: 0]
+raft2026/11/21 10:16:02 INFO: 1 became follower at term 1
+raft2026/11/21 10:16:02 INFO: 2 became follower at term 0
+raft2026/11/21 10:16:02 INFO: newRaft 2 [peers: [], term: 0, commit: 0, applied: 0, lastindex: 0, lastterm: 0]
+raft2026/11/21 10:16:02 INFO: 2 became follower at term 1
+2026-11-21 10:16:02.823958 I | rafthttp: the connection with 2 became active
+2026-11-21 10:16:02.824027 I | rafthttp: the connection with 1 became active
+raft2026/11/21 10:16:02 INFO: 3 became follower at term 0
+raft2026/11/21 10:16:02 INFO: newRaft 3 [peers: [], term: 0, commit: 0, applied: 0, lastindex: 0, lastterm: 0]
+raft2026/11/21 10:16:02 INFO: 3 became follower at term 1
+2026-11-21 10:16:02.833529 I | rafthttp: the connection with 3 became active
+2026-11-21 10:16:02.833574 I | rafthttp: the connection with 1 became active
+2026-11-21 10:16:02.833937 I | rafthttp: the connection with 3 became active
+2026-11-21 10:16:02.833963 I | rafthttp: the connection with 2 became active
+raft2026/11/21 10:16:04 INFO: 1 is starting a new election at term 1
+raft2026/11/21 10:16:04 INFO: 1 became candidate at term 2
+raft2026/11/21 10:16:04 INFO: 1 received vote from 1 at term 2
+raft2026/11/21 10:16:04 INFO: 1 [logterm: 1, index: 3] sent vote request to 2 at term 2
+raft2026/11/21 10:16:04 INFO: 1 [logterm: 1, index: 3] sent vote request to 3 at term 2
+raft2026/11/21 10:16:04 INFO: 3 [term: 1] received a MsgVote message with higher term from 1 [term: 2]
+raft2026/11/21 10:16:04 INFO: 3 became follower at term 2
+raft2026/11/21 10:16:04 INFO: 2 [term: 1] received a MsgVote message with higher term from 1 [term: 2]
+raft2026/11/21 10:16:04 INFO: 2 became follower at term 2
+raft2026/11/21 10:16:04 INFO: 2 [logterm: 1, index: 3, vote: 0] voted for 1 [logterm: 1, index: 3] at term 2
+raft2026/11/21 10:16:04 INFO: 3 [logterm: 1, index: 3, vote: 0] voted for 1 [logterm: 1, index: 3] at term 2
+raft2026/11/21 10:16:04 INFO: 1 received vote from 3 at term 2
+raft2026/11/21 10:16:04 INFO: 1 [q:2] has received 2 votes and 0 vote rejections
+raft2026/11/21 10:16:04 INFO: 1 became leader at term 2
+raft2026/11/21 10:16:04 INFO: raft.node: 1 elected leader 1 at term 2
+raft2026/11/21 10:16:04 INFO: raft.node: 2 elected leader 1 at term 2
+raft2026/11/21 10:16:04 INFO: raft.node: 3 elected leader 1 at term 2
+2026-11-21 10:16:04.210745 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.210789 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.210794 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.210887 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.210911 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.210914 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.210986 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211006 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211024 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211033 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211042 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211050 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211058 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211157 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211181 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211185 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211187 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211190 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211193 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211195 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211198 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211200 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211202 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211227 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211231 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211233 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211236 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211239 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211241 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211247 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211254 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211268 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211272 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211275 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211319 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211411 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211434 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211438 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211441 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211445 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211448 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211451 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211454 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211457 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211460 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211466 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211469 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211472 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211474 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211477 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211480 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211484 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211499 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211502 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211505 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211528 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211532 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211535 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211537 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211539 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211542 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211545 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211547 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211550 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211552 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211555 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211558 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211560 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211563 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211565 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211568 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211570 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211573 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211578 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211580 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211582 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211584 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211587 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211589 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211591 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211594 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211596 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211598 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211600 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211603 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211605 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.211608 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.220396 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.220424 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.220428 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.220468 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.220482 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.220486 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.220507 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.220525 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.220527 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.220530 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.220555 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.220558 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.220560 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.220809 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.220840 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.220870 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.220872 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.220874 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.220921 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.220925 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.220928 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.220930 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.220933 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.220935 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.220938 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.220940 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.220965 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.220973 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.220976 W | rafthttp: failed to process raft message (raft: stopped)
+--- PASS: TestProposeOnCommit (1.41s)
+2026-11-21 10:16:04.220979 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.220982 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.220984 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.220987 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.220991 W | rafthttp: failed to process raft message (raft: stopped)
+PASS
+2026-11-21 10:16:04.220993 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.220996 W | rafthttp: failed to process raft message (raft: stopped)
+2026-11-21 10:16:04.220999 W | rafthttp: failed to process raft message (raft: stopped)
+ok  	github.com/coreos/etcd/contrib/raftexample	1.414s

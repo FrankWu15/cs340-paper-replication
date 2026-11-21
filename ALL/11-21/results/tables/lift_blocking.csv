@@ -1,0 +1,31 @@
+﻿lift,cause,fix,n_AB,n_A,n_B,N
+4.25,Lib,Misc.,2,4,10,85
+2.83,Wait,Misc.,1,3,10,85
+2.43,RWMutex,Moves,2,5,14,85
+2.43,RWMutex,Removes,3,5,21,85
+2.02,Wait,Moves,1,3,14,85
+1.63,Chan,Changes,5,29,9,85
+1.52,Mutex,Moves,7,28,14,85
+1.42,Chan,Adds,15,29,31,85
+1.35,Wait,Removes,1,3,21,85
+1.18,Chan w/,Changes,2,16,9,85
+1.17,Chan,Misc.,4,29,10,85
+1.16,Mutex,Removes,8,28,21,85
+1.14,Chan w/,Moves,3,16,14,85
+1.03,Chan w/,Adds,6,16,31,85
+1.01,Chan w/,Removes,4,16,21,85
+1.01,Lib,Removes,1,4,21,85
+0.88,Mutex,Adds,9,28,31,85
+0.69,Lib,Adds,1,4,31,85
+0.67,Mutex,Changes,2,28,9,85
+0.61,Mutex,Misc.,2,28,10,85
+0.56,Chan,Removes,4,29,21,85
+0.53,Chan w/,Misc.,1,16,10,85
+0.21,Chan,Moves,1,29,14,85
+0.00,Wait,Adds,0,3,31,85
+0.00,Wait,Changes,0,3,9,85
+0.00,Lib,Moves,0,4,14,85
+0.00,Lib,Changes,0,4,9,85
+0.00,RWMutex,Adds,0,5,31,85
+0.00,RWMutex,Changes,0,5,9,85
+0.00,RWMutex,Misc.,0,5,10,85

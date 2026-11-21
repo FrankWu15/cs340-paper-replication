@@ -1,0 +1,6 @@
+﻿side,version,primitive_types,usage_sites,code_kloc,raw_kloc,per_kloc_code,per_kloc_raw
+gRPC-C,v1.12.0,1,746,89.3,135.4,8.35,5.51
+gRPC-Go,f6692351(2018-05-21),7,771,32.1,44.1,24.04,17.48
+gRPC-Go(含测试),f6692351(2018-05-21),7,1258,52.8,68.9,23.83,18.25
+论文 gRPC-C,-,1,746,,140.8,,5.3
+论文 gRPC-Go,-,8,786,53.1,,14.8,

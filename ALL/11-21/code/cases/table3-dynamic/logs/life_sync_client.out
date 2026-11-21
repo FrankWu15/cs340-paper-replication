@@ -1,0 +1,7 @@
+INFO: 2026/11/21 11:12:04 parsed scheme: ""
+INFO: 2026/11/21 11:12:04 scheme "" not registered, fallback to default scheme
+INFO: 2026/11/21 11:12:04 Client profiling address:  [::]:12809
+INFO: 2026/11/21 11:12:04 ccResolverWrapper: sending new addresses to cc: [{127.0.0.1:33611 0  <nil>}]
+INFO: 2026/11/21 11:12:04 ClientConn switching balancer to "pick_first"
+INFO: 2026/11/21 11:12:04 pickfirstBalancer: HandleSubConnStateChange: 0x104dfc4d60b0, CONNECTING
+INFO: 2026/11/21 11:12:04 pickfirstBalancer: HandleSubConnStateChange: 0x104dfc4d60b0, READY

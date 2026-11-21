@@ -1,0 +1,4 @@
+﻿case,category,repo,bug_id,fix_commit,buggy_basis,trigger,buggy_verdict,fixed_verdict,owner,evidence
+etcd-4033,blocking,etcd,etcd#4033,b7cf2385e6874d07f32f183007e50f4448b7e3a2,b7cf2385^,contrib/raftexample TestProposeOnCommit（测试由 fix 移植）,HANG,PASS,1240012318,code/cases/etcd-4033/logs/etcd4033_buggy.log（45s 超时，3 个 serveChannels goroutine 卡在 raft.go:207/189）
+etcd-4474,blocking,etcd,etcd#4474,0cb304ec61019c5ff2f6260245ef30fb6dc9711a,0cb304ec^,raftexample 单节点：启动→写→终止→同 waldir 重启→再写,CRASH,CLEAN,1240012318,code/cases/etcd-4474/logs/etcd4474_buggy_run2.log（SIGSEGV at raft.go:107 publishEntries）
+etcd-6278,blocking,etcd,etcd#6278,9497e9678cdc64785847993c96ff2748e09ef9a1,9497e967^,真实 etcd server + Put "testa" 后 NewElection("test").Campaign,DEADLOCK,CLEAN,1240012318,code/cases/etcd-6278/logs/etcd6278_buggy.log（CAMPAIGN_FAIL 5.00s context deadline exceeded）

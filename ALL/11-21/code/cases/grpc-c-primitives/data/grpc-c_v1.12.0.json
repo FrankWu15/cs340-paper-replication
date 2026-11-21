@@ -1,0 +1,35 @@
+{
+  "root": "C:\\Users\\Li\\AppData\\Local\\Temp\\grpcc",
+  "version": "v1.12.0",
+  "subdirs": [
+    "src/core",
+    "include"
+  ],
+  "files": 852,
+  "code_lines": 89291,
+  "raw_lines": 135416,
+  "kloc_code": 89.3,
+  "kloc_raw": 135.4,
+  "counts": {
+    "mu_lock": 329,
+    "mu_unlock": 411,
+    "mu_trylock": 6,
+    "mu_init": 87,
+    "mu_destroy": 75,
+    "rwlock_rdlock": 0,
+    "rwlock_wrlock": 0,
+    "rwlock_unlock": 0,
+    "cv_wait": 31,
+    "cv_signal": 35,
+    "cv_broadcast": 14
+  },
+  "lock_usage": 746,
+  "lock_usage_all": 746,
+  "per_kloc_code": 8.35,
+  "per_kloc_raw": 5.51,
+  "header_decls_skipped": 7,
+  "per_dir_usage": {
+    "src/core": 943,
+    "include": 45
+  }
+}

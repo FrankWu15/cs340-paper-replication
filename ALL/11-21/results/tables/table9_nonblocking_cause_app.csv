@@ -1,0 +1,8 @@
+﻿cause,Docker,Kubernetes,etcd,CockroachDB,gRPC,BoltDB,Total
+traditional,9,8,9,10,8,2,46
+anon.,6,3,0,1,1,0,11
+waitgroup,0,1,2,3,0,0,6
+lib,1,0,2,2,1,0,6
+chan,6,5,3,0,2,0,16
+msg lib,1,0,0,0,0,0,1
+Total,23,17,16,16,12,2,86

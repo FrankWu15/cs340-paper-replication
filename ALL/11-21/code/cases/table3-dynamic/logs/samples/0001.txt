@@ -1,0 +1,137 @@
+goroutine 2389 [running]:
+runtime/pprof.writeGoroutineStacks({0x1003488, 0x2d7ff2669e00})
+	C:/Program Files (x86)/Go/src/runtime/pprof/pprof.go:816 +0x69
+runtime/pprof.writeGoroutine({0x1003488?, 0x2d7ff2669e00?}, 0x2d7ff2994160?)
+	C:/Program Files (x86)/Go/src/runtime/pprof/pprof.go:779 +0x25
+runtime/pprof.(*Profile).WriteTo(0x10683c0?, {0x1003488?, 0x2d7ff2669e00?}, 0xc?)
+	C:/Program Files (x86)/Go/src/runtime/pprof/pprof.go:405 +0x149
+net/http/pprof.handler.ServeHTTP({0x2d7ff2640101, 0x9}, {0x1007298, 0x2d7ff2669e00}, 0x2d7ff2988dc0)
+	C:/Program Files (x86)/Go/src/net/http/pprof/pprof.go:272 +0x554
+net/http/pprof.Index({0x1007298, 0x2d7ff2669e00}, 0x2d7ff2988dc0?)
+	C:/Program Files (x86)/Go/src/net/http/pprof/pprof.go:391 +0xdc
+net/http.HandlerFunc.ServeHTTP(0x1085ae0?, {0x1007298?, 0x2d7ff2669e00?}, 0x6dfd9a?)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2358 +0x29
+net/http.(*ServeMux).ServeHTTP(0x48c379?, {0x1007298, 0x2d7ff2669e00}, 0x2d7ff2988dc0)
+	C:/Program Files (x86)/Go/src/net/http/server.go:2923 +0x1cf
+net/http.serverHandler.ServeHTTP({0x2d7ff298e240?}, {0x1007298?, 0x2d7ff2669e00?}, 0x1?)
+	C:/Program Files (x86)/Go/src/net/http/server.go:3436 +0x8e
+net/http.(*conn).serve(0x2d7ff28e9200, {0x1008550, 0x2d7ff27db0e0})
+	C:/Program Files (x86)/Go/src/net/http/server.go:2157 +0x6dc
+created by net/http.(*Server).Serve in goroutine 20
+	C:/Program Files (x86)/Go/src/net/http/server.go:3604 +0x4fd
+
+goroutine 1 [chan receive]:
+main.main()
+	C:/Users/Li/AppData/Local/Temp/benchbuild/grpc/benchmark/server/main.go:54 +0x251
+
+goroutine 20 [IO wait]:
+internal/poll.runtime_pollWait(0x7f5b67344e00, 0x72)
+	C:/Program Files (x86)/Go/src/runtime/netpoll.go:351 +0x85
+internal/poll.(*pollDesc).wait(0x2d7ff2709180?, 0x2d7ff25d01a8?, 0x0)
+	C:/Program Files (x86)/Go/src/internal/poll/fd_poll_runtime.go:84 +0x27
+internal/poll.(*pollDesc).waitRead(...)
+	C:/Program Files (x86)/Go/src/internal/poll/fd_poll_runtime.go:89
+internal/poll.(*FD).Accept(0x2d7ff2709180)
+	C:/Program Files (x86)/Go/src/internal/poll/fd_unix.go:618 +0x27d
+net.(*netFD).accept(0x2d7ff2709180)
+	C:/Program Files (x86)/Go/src/net/fd_unix.go:149 +0x29
+net.(*TCPListener).accept(0x2d7ff2685480)
+	C:/Program Files (x86)/Go/src/net/tcpsock_posix.go:159 +0x1b
+net.(*TCPListener).Accept(0x2d7ff2685480)
+	C:/Program Files (x86)/Go/src/net/tcpsock.go:387 +0x30
+net/http.(*Server).Serve(0x2d7ff26bc500, {0x1007178, 0x2d7ff2685480})
+	C:/Program Files (x86)/Go/src/net/http/server.go:3574 +0x379
+net/http.Serve(...)
+	C:/Program Files (x86)/Go/src/net/http/server.go:3038
+main.main.func1()
+	C:/Users/Li/AppData/Local/Temp/benchbuild/grpc/benchmark/server/main.go:43 +0x178
+created by main.main in goroutine 1
+	C:/Users/Li/AppData/Local/Temp/benchbuild/grpc/benchmark/server/main.go:37 +0x69
+
+goroutine 21 [IO wait]:
+internal/poll.runtime_pollWait(0x7f5b67345000, 0x72)
+	C:/Program Files (x86)/Go/src/runtime/netpoll.go:351 +0x85
+internal/poll.(*pollDesc).wait(0x2d7ff2709080?, 0x100?, 0x0)
+	C:/Program Files (x86)/Go/src/internal/poll/fd_poll_runtime.go:84 +0x27
+internal/poll.(*pollDesc).waitRead(...)
+	C:/Program Files (x86)/Go/src/internal/poll/fd_poll_runtime.go:89
+internal/poll.(*FD).Accept(0x2d7ff2709080)
+	C:/Program Files (x86)/Go/src/internal/poll/fd_unix.go:618 +0x27d
+net.(*netFD).accept(0x2d7ff2709080)
+	C:/Program Files (x86)/Go/src/net/fd_unix.go:149 +0x29
+net.(*TCPListener).accept(0x2d7ff2685400)
+	C:/Program Files (x86)/Go/src/net/tcpsock_posix.go:159 +0x1b
+net.(*TCPListener).Accept(0x2d7ff2685400)
+	C:/Program Files (x86)/Go/src/net/tcpsock.go:387 +0x30
+google.golang.org/grpc.(*Server).Serve(0x2d7ff283c000, {0x1007178, 0x2d7ff2685400})
+	C:/Users/Li/AppData/Local/Temp/benchbuild/grpc/server.go:544 +0x308
+created by google.golang.org/grpc/benchmark.StartServer in goroutine 1
+	C:/Users/Li/AppData/Local/Temp/benchbuild/grpc/benchmark/benchmark.go:169 +0x445
+
+goroutine 6 [select]:
+google.golang.org/grpc/transport.(*controlBuffer).get(0x2d7ff25fa000, 0x1)
+	C:/Users/Li/AppData/Local/Temp/benchbuild/grpc/transport/controlbuf.go:293 +0x10a
+google.golang.org/grpc/transport.(*loopyWriter).run(0x2d7ff282a3c0)
+	C:/Users/Li/AppData/Local/Temp/benchbuild/grpc/transport/controlbuf.go:370 +0x38
+google.golang.org/grpc/transport.newHTTP2Server.func2()
+	C:/Users/Li/AppData/Local/Temp/benchbuild/grpc/transport/http2_server.go:276 +0xd0
+created by google.golang.org/grpc/transport.newHTTP2Server in goroutine 5
+	C:/Users/Li/AppData/Local/Temp/benchbuild/grpc/transport/http2_server.go:273 +0x10b1
+
+goroutine 7 [select]:
+google.golang.org/grpc/transport.(*http2Server).keepalive(0x2d7ff2552200)
+	C:/Users/Li/AppData/Local/Temp/benchbuild/grpc/transport/http2_server.go:868 +0x1a5
+created by google.golang.org/grpc/transport.newHTTP2Server in goroutine 5
+	C:/Users/Li/AppData/Local/Temp/benchbuild/grpc/transport/http2_server.go:281 +0x10fd
+
+goroutine 8 [IO wait]:
+internal/poll.runtime_pollWait(0x7f5b67344c00, 0x72)
+	C:/Program Files (x86)/Go/src/runtime/netpoll.go:351 +0x85
+internal/poll.(*pollDesc).wait(0x2d7ff25f0000?, 0x2d7ff2880000?, 0x0)
+	C:/Program Files (x86)/Go/src/internal/poll/fd_poll_runtime.go:84 +0x27
+internal/poll.(*pollDesc).waitRead(...)
+	C:/Program Files (x86)/Go/src/internal/poll/fd_poll_runtime.go:89
+internal/poll.(*FD).Read(0x2d7ff25f0000, {0x2d7ff2880000, 0x20000, 0x20000})
+	C:/Program Files (x86)/Go/src/internal/poll/fd_unix.go:170 +0x2a8
+net.(*netFD).Read(0x2d7ff25f0000, {0x2d7ff2880000?, 0x2d7ff25dee48?, 0x2d7ff25ded28?})
+	C:/Program Files (x86)/Go/src/net/fd_posix.go:68 +0x25
+net.(*conn).Read(0x2d7ff2556028, {0x2d7ff2880000?, 0x1?, 0x0?})
+	C:/Program Files (x86)/Go/src/net/net.go:196 +0x45
+bufio.(*Reader).Read(0x2d7ff25f2000, {0x2d7ff25f6038, 0x9, 0x0?})
+	C:/Program Files (x86)/Go/src/bufio/bufio.go:245 +0x193
+io.ReadAtLeast({0x10031c8, 0x2d7ff25f2000}, {0x2d7ff25f6038, 0x9, 0x9}, 0x9)
+	C:/Program Files (x86)/Go/src/io/io.go:335 +0x83
+io.ReadFull(...)
+	C:/Program Files (x86)/Go/src/io/io.go:354
+golang.org/x/net/http2.readFrameHeader({0x2d7ff25f6038, 0x9, 0x0?}, {0x10031c8?, 0x2d7ff25f2000?})
+	C:/Users/Li/go/pkg/mod/golang.org/x/net@v0.0.0-20180530234432-1e491301e022/http2/frame.go:237 +0x65
+golang.org/x/net/http2.(*Framer).ReadFrame(0x2d7ff25f6000)
+	C:/Users/Li/go/pkg/mod/golang.org/x/net@v0.0.0-20180530234432-1e491301e022/http2/frame.go:492 +0x7c
+google.golang.org/grpc/transport.(*http2Server).HandleStreams(0x2d7ff2552200, 0x2d7ff25881b0, 0x100ce08)
+	C:/Users/Li/AppData/Local/Temp/benchbuild/grpc/transport/http2_server.go:427 +0x86
+google.golang.org/grpc.(*Server).serveStreams(0x2d7ff283c000, {0x100aa78, 0x2d7ff2552200})
+	C:/Users/Li/AppData/Local/Temp/benchbuild/grpc/server.go:676 +0xf0
+google.golang.org/grpc.(*Server).handleRawConn.func2()
+	C:/Users/Li/AppData/Local/Temp/benchbuild/grpc/server.go:631 +0x1f
+google.golang.org/grpc.(*Server).handleRawConn.func3()
+	C:/Users/Li/AppData/Local/Temp/benchbuild/grpc/server.go:639 +0x32
+created by google.golang.org/grpc.(*Server).handleRawConn in goroutine 5
+	C:/Users/Li/AppData/Local/Temp/benchbuild/grpc/server.go:638 +0x679
+
+goroutine 2390 [IO wait]:
+internal/poll.runtime_pollWait(0x7f5b67344a00, 0x72)
+	C:/Program Files (x86)/Go/src/runtime/netpoll.go:351 +0x85
+internal/poll.(*pollDesc).wait(0x2d7ff25f0a80?, 0x2d7ff298e261?, 0x0)
+	C:/Program Files (x86)/Go/src/internal/poll/fd_poll_runtime.go:84 +0x27
+internal/poll.(*pollDesc).waitRead(...)
+	C:/Program Files (x86)/Go/src/internal/poll/fd_poll_runtime.go:89
+internal/poll.(*FD).Read(0x2d7ff25f0a80, {0x2d7ff298e261, 0x1, 0x1})
+	C:/Program Files (x86)/Go/src/internal/poll/fd_unix.go:170 +0x2a8
+net.(*netFD).Read(0x2d7ff25f0a80, {0x2d7ff298e261?, 0x0?, 0x0?})
+	C:/Program Files (x86)/Go/src/net/fd_posix.go:68 +0x25
+net.(*conn).Read(0x2d7ff2926420, {0x2d7ff298e261?, 0x100000000000000?, 0x100aa78?})
+	C:/Program Files (x86)/Go/src/net/net.go:196 +0x45
+net/http.(*connReader).backgroundRead(0x2d7ff298e240)
+	C:/Program Files (x86)/Go/src/net/http/server.go:746 +0x32
+created by net/http.(*connReader).startBackgroundRead in goroutine 2389
+	C:/Program Files (x86)/Go/src/net/http/server.go:742 +0xba
