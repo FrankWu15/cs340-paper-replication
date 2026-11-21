@@ -1,0 +1,12 @@
+############ grpc  fix=c29d6389e66f5da1a226df88607857aab4db9f7a  pkg=.  test=TestKeepaliveAwakenDeadlockProbe$  probe=grpc-1459  race=norace  iters=3  timeout=30s
+  [buggy] 探针已注入: keepalive_awaken_probe_test.go 
+  [buggy] iter1: TIMEOUT
+  [buggy] iter2: TIMEOUT
+  [buggy] iter3: TIMEOUT
+  [buggy] SUMMARY pass=0 fail=0 timeout=3 race=0 notrun=0 error=0
+  [fixed] 探针已注入: keepalive_awaken_probe_test.go 
+  [fixed] iter1: PASS
+  [fixed] iter2: PASS
+  [fixed] iter3: PASS
+  [fixed] SUMMARY pass=3 fail=0 timeout=0 race=0 notrun=0 error=0
+############ DONE grpc

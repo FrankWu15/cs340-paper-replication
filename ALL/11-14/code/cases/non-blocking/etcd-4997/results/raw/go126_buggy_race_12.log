@@ -1,0 +1,22 @@
+==================
+WARNING: DATA RACE
+Read at 0x00c00011e048 by goroutine 9:
+  main.(*consistentIndex).ConsistentIndex()
+      /mnt/c/Users/30683/WorkBuddy/2026-11-05-11-07-12/non-blocking-bugs-repro/etcd-consistent-index-race/buggy/main.go:26 +0xb7
+  main.main.func2()
+      /mnt/c/Users/30683/WorkBuddy/2026-11-05-11-07-12/non-blocking-bugs-repro/etcd-consistent-index-race/buggy/main.go:49 +0xb2
+
+Previous write at 0x00c00011e048 by goroutine 8:
+  main.(*consistentIndex).setConsistentIndex()
+      /mnt/c/Users/30683/WorkBuddy/2026-11-05-11-07-12/non-blocking-bugs-repro/etcd-consistent-index-race/buggy/main.go:25 +0xb7
+  main.main.func1()
+      /mnt/c/Users/30683/WorkBuddy/2026-11-05-11-07-12/non-blocking-bugs-repro/etcd-consistent-index-race/buggy/main.go:42 +0xb2
+
+Goroutine 9 (running) created at:
+  main.main()
+      /mnt/c/Users/30683/WorkBuddy/2026-11-05-11-07-12/non-blocking-bugs-repro/etcd-consistent-index-race/buggy/main.go:45 +0x384
+
+Goroutine 8 (finished) created at:
+  main.main()
+      /mnt/c/Users/30683/WorkBuddy/2026-11-05-11-07-12/non-blocking-bugs-repro/etcd-consistent-index-race/buggy/main.go:38 +0x264
+==================

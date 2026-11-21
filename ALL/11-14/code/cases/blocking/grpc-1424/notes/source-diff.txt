@@ -1,0 +1,51 @@
+################################################################
+# 两版本源码差异（buggy 39c8c386  vs  fixed 4e56696c）
+################################################################
+
+--- 差异文件清单 ---
+Files /home/xlm/grpccases/leak/buggy/gopath/src/google.golang.org/grpc/clientconn.go and /home/xlm/grpccases/leak/fixed/gopath/src/google.golang.org/grpc/clientconn.go differ
+Files /home/xlm/grpccases/leak/buggy/gopath/src/google.golang.org/grpc/clientconn_test.go and /home/xlm/grpccases/leak/fixed/gopath/src/google.golang.org/grpc/clientconn_test.go differ
+
+--- clientconn.go 差异 ---
+--- /home/xlm/grpccases/leak/buggy/gopath/src/google.golang.org/grpc/clientconn.go	2017-08-05 04:14:02.000000000 +0800
++++ /home/xlm/grpccases/leak/fixed/gopath/src/google.golang.org/grpc/clientconn.go	2017-08-05 04:40:50.000000000 +0800
+@@ -611,6 +611,15 @@
+ // connections accordingly.  If doneChan is not nil, it is closed after the
+ // first successfull connection is made.
+ func (cc *ClientConn) lbWatcher(doneChan chan struct{}) {
++	defer func() {
++		// In case channel from cc.dopts.balancer.Notify() gets closed before a
++		// successful connection gets established, don't forget to notify the
++		// caller.
++		if doneChan != nil {
++			close(doneChan)
++		}
++	}()
++
+ 	for addrs := range cc.dopts.balancer.Notify() {
+ 		var (
+ 			add []Address   // Addresses need to setup connections.
+
+--- clientconn_test.go 差异 ---
+--- /home/xlm/grpccases/leak/buggy/gopath/src/google.golang.org/grpc/clientconn_test.go	2017-08-05 04:14:02.000000000 +0800
++++ /home/xlm/grpccases/leak/fixed/gopath/src/google.golang.org/grpc/clientconn_test.go	2017-08-05 04:40:50.000000000 +0800
+@@ -374,3 +374,19 @@
+ 		t.Fatalf("cc.dopts.copts.Keepalive.Time = %v , want 100ms", v)
+ 	}
+ }
++
++func TestClientLBWatcherWithClosedBalancer(t *testing.T) {
++	b := newBlockingBalancer()
++	cc := &ClientConn{dopts: dialOptions{balancer: b}}
++
++	doneChan := make(chan struct{})
++	go cc.lbWatcher(doneChan)
++	// Balancer closes before any successful connections.
++	b.Close()
++
++	select {
++	case <-doneChan:
++	case <-time.After(100 * time.Millisecond):
++		t.Fatal("lbWatcher with closed balancer didn't close doneChan after 100ms")
++	}
++}

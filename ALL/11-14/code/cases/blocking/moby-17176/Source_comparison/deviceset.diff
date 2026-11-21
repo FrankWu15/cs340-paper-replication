@@ -1,0 +1,10 @@
+--- "/home/dreaming/Docker_moby17176_\345\256\236\351\252\214\346\217\220\344\272\244/\346\272\220\347\240\201\345\257\271\346\257\224/deviceset_before.go"	2026-11-04 17:57:22.106171978 +0800
++++ "/home/dreaming/Docker_moby17176_\345\256\236\351\252\214\346\217\220\344\272\244/\346\272\220\347\240\201\345\257\271\346\257\224/deviceset_after.go"	2026-11-04 17:57:22.129171398 +0800
+@@ -599,6 +599,7 @@
+ 
+ 	// If there are no deleted devices, there is nothing to do.
+ 	if devices.nrDeletedDevices == 0 {
++		devices.Unlock()
+ 		return nil
+ 	}
+ 

@@ -1,0 +1,45 @@
+[info] run_id=buggy-10 mode=buggy go=go1.26.8 os=linux arch=amd64 gomaxprocs=12
+[info] workload keys=512 value_bytes=4096 initial_mmap_size=32768 live_ticker_ms=50
+[info] lock_map view=mmaplock.RLock writer_growth=mmaplock.Lock (db.mmap)
+[trace] t_ms=6.613 event=db_opened
+[trace] t_ms=7.372 event=bucket_ready
+[trace] t_ms=8.305 event=view_entered mmaplock=RLock_held
+[trace] t_ms=8.907 event=writer_signalled
+[trace] t_ms=8.964 event=writer_started
+fatal error: all goroutines are asleep - deadlock!
+
+goroutine 1 [chan receive]:
+github.com/cs340-replication/boltdb392/internal/harness.Run.func5(0x64d4094b9e8?)
+	/mnt/c/Users/30683/WorkBuddy/2026-11-05-11-07-12/boltdb392-replication/internal/harness/harness.go:168 +0xc5
+github.com/boltdb/bolt.(*DB).View(0x64d40944000?, 0x64d4094bd58)
+	/mnt/c/Users/30683/WorkBuddy/2026-11-05-11-07-12/boltdb392-replication/third_party/bolt/db.go:629 +0x6c
+github.com/cs340-replication/boltdb392/internal/harness.Run({{0x7ffc192b9289, 0x5}, {0x7ffc192b9297, 0x8}, 0x200, 0x1000, 0x8000, 0x32})
+	/mnt/c/Users/30683/WorkBuddy/2026-11-05-11-07-12/boltdb392-replication/internal/harness/harness.go:163 +0x990
+main.main()
+	/mnt/c/Users/30683/WorkBuddy/2026-11-05-11-07-12/boltdb392-replication/cmd/repro/main.go:44 +0x265
+
+goroutine 3 [sync.RWMutex.Lock]:
+sync.runtime_SemacquireRWMutex(0x64d40916648?, 0xf6?, 0x60f340?)
+	/usr/lib/go-1.26/src/runtime/sema.go:105 +0x25
+sync.(*RWMutex).Lock(0x64d4081a167?)
+	/usr/lib/go-1.26/src/sync/rwmutex.go:155 +0x6b
+github.com/boltdb/bolt.(*DB).mmap(0x64d409003c0, 0x9000)
+	/mnt/c/Users/30683/WorkBuddy/2026-11-05-11-07-12/boltdb392-replication/third_party/bolt/db.go:246 +0x51
+github.com/boltdb/bolt.(*DB).allocate(0x64d409003c0, 0x2)
+	/mnt/c/Users/30683/WorkBuddy/2026-11-05-11-07-12/boltdb392-replication/third_party/bolt/db.go:849 +0xfa
+github.com/boltdb/bolt.(*Tx).allocate(0x64d409980e0, 0x2)
+	/mnt/c/Users/30683/WorkBuddy/2026-11-05-11-07-12/boltdb392-replication/third_party/bolt/tx.go:456 +0x25
+github.com/boltdb/bolt.(*node).spill(0x64d4087e230)
+	/mnt/c/Users/30683/WorkBuddy/2026-11-05-11-07-12/boltdb392-replication/third_party/bolt/node.go:368 +0x2aa
+github.com/boltdb/bolt.(*Bucket).spill(0x64d40982100)
+	/mnt/c/Users/30683/WorkBuddy/2026-11-05-11-07-12/boltdb392-replication/third_party/bolt/bucket.go:570 +0x32e
+github.com/boltdb/bolt.(*Bucket).spill(0x64d409980f8)
+	/mnt/c/Users/30683/WorkBuddy/2026-11-05-11-07-12/boltdb392-replication/third_party/bolt/bucket.go:537 +0xf4
+github.com/boltdb/bolt.(*Tx).Commit(0x64d409980e0)
+	/mnt/c/Users/30683/WorkBuddy/2026-11-05-11-07-12/boltdb392-replication/third_party/bolt/tx.go:163 +0xe5
+github.com/boltdb/bolt.(*DB).Update(0x64d40916f0f?, 0x64d40916f60)
+	/mnt/c/Users/30683/WorkBuddy/2026-11-05-11-07-12/boltdb392-replication/third_party/bolt/db.go:605 +0xca
+github.com/cs340-replication/boltdb392/internal/harness.Run.func4()
+	/mnt/c/Users/30683/WorkBuddy/2026-11-05-11-07-12/boltdb392-replication/internal/harness/harness.go:144 +0x12c
+created by github.com/cs340-replication/boltdb392/internal/harness.Run in goroutine 1
+	/mnt/c/Users/30683/WorkBuddy/2026-11-05-11-07-12/boltdb392-replication/internal/harness/harness.go:140 +0x853

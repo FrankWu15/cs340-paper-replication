@@ -1,0 +1,173 @@
+seed: 63066
+=== RUN   TestParallelTransactions
+==================
+WARNING: DATA RACE
+Write at 0x00c420146141 by goroutine 25:
+  testing.(*common).FailNow()
+      /usr/local/go1.10.8/src/testing/testing.go:552 +0x4a
+  github.com/boltdb/bolt.TestParallelTransactions.func1.1.1.1()
+      /home/li/gopath/src/github.com/boltdb/bolt/functional_test.go:60 +0x2b8
+
+Previous write at 0x00c420146141 by goroutine 73:
+  testing.(*common).FailNow()
+      /usr/local/go1.10.8/src/testing/testing.go:552 +0x4a
+  github.com/boltdb/bolt.TestParallelTransactions.func1.1.1.1()
+      /home/li/gopath/src/github.com/boltdb/bolt/functional_test.go:60 +0x2b8
+
+Goroutine 25 (running) created at:
+  github.com/boltdb/bolt.TestParallelTransactions.func1.1.1()
+      /home/li/gopath/src/github.com/boltdb/bolt/functional_test.go:45 +0xcb
+
+Goroutine 73 (finished) created at:
+  github.com/boltdb/bolt.TestParallelTransactions.func1.1.1()
+      /home/li/gopath/src/github.com/boltdb/bolt/functional_test.go:45 +0xcb
+==================
+unexpected fault address 0x7f2c16daff00
+fatal error: fault
+[signal SIGBUS: bus error code=0x2 addr=0x7f2c16daff00 pc=0x85fc97]
+
+goroutine 990 [running]:
+runtime.throw(0x93e812, 0x5)
+	/usr/local/go1.10.8/src/runtime/panic.go:616 +0x81 fp=0xc420256ab0 sp=0xc420256a90 pc=0x455be1
+runtime.sigpanic()
+	/usr/local/go1.10.8/src/runtime/signal_unix.go:385 +0x273 fp=0xc420256b00 sp=0xc420256ab0 pc=0x46d633
+github.com/boltdb/bolt.(*branchPageElement).key(...)
+	/home/li/gopath/src/github.com/boltdb/bolt/page.go:106
+github.com/boltdb/bolt.(*Cursor).search.func1(0x48ef, 0xc420256bb0)
+	/home/li/gopath/src/github.com/boltdb/bolt/cursor.go:106 +0x97 fp=0xc420256b80 sp=0xc420256b00 pc=0x85fc97
+sort.Search(0x91de, 0xc420256c88, 0x0)
+	/usr/local/go1.10.8/src/sort/search.go:66 +0x6a fp=0xc420256bb8 sp=0xc420256b80 pc=0x5306fa
+github.com/boltdb/bolt.(*Cursor).search(0xc420256e38, 0xc4201b4280, 0x243, 0x243, 0x7f2c16d67000)
+	/home/li/gopath/src/github.com/boltdb/bolt/cursor.go:103 +0x34d fp=0xc420256cd8 sp=0xc420256bb8 pc=0x8413ad
+github.com/boltdb/bolt.(*Cursor).Get(0xc420256e38, 0xc4201b4280, 0x243, 0x243, 0x0, 0x0, 0xc4201665a0)
+	/home/li/gopath/src/github.com/boltdb/bolt/cursor.go:56 +0x17a fp=0xc420256d90 sp=0xc420256cd8 pc=0x84060a
+github.com/boltdb/bolt.(*Transaction).Get(0xc4203fa160, 0x93efff, 0x7, 0xc4201b4280, 0x243, 0x243, 0x0, 0x0, 0x0, 0x1, ...)
+	/home/li/gopath/src/github.com/boltdb/bolt/transaction.go:85 +0x29c fp=0xc420256e70 sp=0xc420256d90 pc=0x8516dc
+github.com/boltdb/bolt.TestParallelTransactions.func1.1.1.1(0xc4200c4280, 0xc4201183e0, 0xc42020e000, 0xc4201460f0, 0xc420096880, 0xc420216000)
+	/home/li/gopath/src/github.com/boltdb/bolt/functional_test.go:56 +0x21b fp=0xc420256fb0 sp=0xc420256e70 pc=0x866a6b
+runtime.goexit()
+	/usr/local/go1.10.8/src/runtime/asm_amd64.s:2361 +0x1 fp=0xc420256fb8 sp=0xc420256fb0 pc=0x487f01
+created by github.com/boltdb/bolt.TestParallelTransactions.func1.1.1
+	/home/li/gopath/src/github.com/boltdb/bolt/functional_test.go:45 +0xcc
+
+goroutine 1 [chan receive]:
+testing.(*T).Run(0xc420146000, 0x944bd0, 0x18, 0x9550c0, 0xc420055c01)
+	/usr/local/go1.10.8/src/testing/testing.go:825 +0x597
+testing.runTests.func1(0xc420146000)
+	/usr/local/go1.10.8/src/testing/testing.go:1063 +0xa5
+testing.tRunner(0xc420146000, 0xc420055db0)
+	/usr/local/go1.10.8/src/testing/testing.go:777 +0x16e
+testing.runTests(0xc420118300, 0xb842e0, 0x3e, 0x3e, 0xc42013a000)
+	/usr/local/go1.10.8/src/testing/testing.go:1061 +0x4e2
+testing.(*M).Run(0xc42013a000, 0x0)
+	/usr/local/go1.10.8/src/testing/testing.go:978 +0x2ce
+main.main()
+	_testmain.go:176 +0x22b
+
+goroutine 19 [syscall]:
+syscall.Syscall6(0x12, 0x5, 0xc4204a8000, 0x1000, 0x1000, 0x0, 0x0, 0xc420288120, 0xc4200514a0, 0x4544ed)
+	/usr/local/go1.10.8/src/syscall/asm_linux_amd64.s:44 +0x5
+syscall.Pwrite(0x5, 0xc4204a8000, 0x1000, 0x1000, 0x1000, 0xb89440, 0x2000, 0xc420051548)
+	/usr/local/go1.10.8/src/syscall/zsyscall_linux_amd64.go:1345 +0x91
+internal/poll.(*FD).Pwrite(0xc42009a500, 0xc4204a8000, 0x1000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/internal/poll/fd_unix.go:292 +0x16f
+os.(*File).pwrite(0xc420098078, 0xc4204a8000, 0x1000, 0x1000, 0x1000, 0x0, 0xb89440, 0x0)
+	/usr/local/go1.10.8/src/os/file_unix.go:251 +0x7e
+os.(*File).WriteAt(0xc420098078, 0xc4204a8000, 0x1000, 0x1000, 0x1000, 0x1000, 0x8d5ec0, 0xc42023c210)
+	/usr/local/go1.10.8/src/os/file.go:174 +0x11e
+github.com/boltdb/bolt.(*RWTransaction).writeMeta(0xc4202dcc00, 0x0, 0x0)
+	/home/li/gopath/src/github.com/boltdb/bolt/rwtransaction.go:309 +0x3b4
+github.com/boltdb/bolt.(*RWTransaction).Commit(0xc4202dcc00, 0x0, 0x0)
+	/home/li/gopath/src/github.com/boltdb/bolt/rwtransaction.go:157 +0x1d3
+github.com/boltdb/bolt.TestParallelTransactions.func1.1(0xc42020e000, 0xc4200c45e0, 0x13)
+	/home/li/gopath/src/github.com/boltdb/bolt/functional_test.go:98 +0x355
+github.com/boltdb/bolt.withOpenDB.func1(0xc42020e000, 0xc4200c45e0, 0x13)
+	/home/li/gopath/src/github.com/boltdb/bolt/db_test.go:259 +0xc8
+github.com/boltdb/bolt.withDB(0xc42003e950)
+	/home/li/gopath/src/github.com/boltdb/bolt/db_test.go:240 +0x169
+github.com/boltdb/bolt.withOpenDB(0xc42003e9f0)
+	/home/li/gopath/src/github.com/boltdb/bolt/db_test.go:254 +0x73
+github.com/boltdb/bolt.TestParallelTransactions.func1(0x73c9bc735476ec2e, 0xe9e9a2c08ebac192, 0xc42014a000, 0x28f, 0x28f, 0x0)
+	/home/li/gopath/src/github.com/boltdb/bolt/functional_test.go:26 +0x233
+reflect.Value.call(0x8d56e0, 0xc420118320, 0x13, 0x93e459, 0x4, 0xc42009a410, 0x3, 0x3, 0xc42003ede8, 0xc42008f0e0, ...)
+	/usr/local/go1.10.8/src/reflect/value.go:447 +0xa92
+reflect.Value.Call(0x8d56e0, 0xc420118320, 0x13, 0xc42009a410, 0x3, 0x3, 0xc42008f0e0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/reflect/value.go:308 +0xc1
+testing/quick.Check(0x8d56e0, 0xc420118320, 0xc420118340, 0x404b30, 0xc42003ef38)
+	/usr/local/go1.10.8/src/testing/quick/quick.go:289 +0x29f
+github.com/boltdb/bolt.TestParallelTransactions(0xc4201460f0)
+	/home/li/gopath/src/github.com/boltdb/bolt/functional_test.go:18 +0x127
+testing.tRunner(0xc4201460f0, 0x9550c0)
+	/usr/local/go1.10.8/src/testing/testing.go:777 +0x16e
+created by testing.(*T).Run
+	/usr/local/go1.10.8/src/testing/testing.go:824 +0x565
+
+goroutine 20 [select]:
+github.com/boltdb/bolt.TestParallelTransactions.func1.1.1(0x9, 0xc420096880, 0xc42007aa80, 0xc4200c4280, 0xc4201183e0, 0xc42020e000, 0xc4201460f0)
+	/home/li/gopath/src/github.com/boltdb/bolt/functional_test.go:38 +0x17c
+created by github.com/boltdb/bolt.TestParallelTransactions.func1.1
+	/home/li/gopath/src/github.com/boltdb/bolt/functional_test.go:32 +0x17d
+
+goroutine 1020 [semacquire]:
+sync.runtime_SemacquireMutex(0xc4201460f4, 0x2100000000)
+	/usr/local/go1.10.8/src/runtime/sema.go:71 +0x3d
+sync.(*Mutex).Lock(0xc4201460f0)
+	/usr/local/go1.10.8/src/sync/mutex.go:134 +0x172
+sync.(*RWMutex).Lock(0xc4201460f0)
+	/usr/local/go1.10.8/src/sync/rwmutex.go:93 +0x49
+testing.(*common).Helper(0xc4201460f0)
+	/usr/local/go1.10.8/src/testing/testing.go:645 +0x3f
+github.com/stretchr/testify/assert.NoError(0x98c540, 0xc4201460f0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x15c)
+	/home/li/gopath/src/github.com/stretchr/testify/assert/assertions.go:1140 +0x19e
+github.com/boltdb/bolt.TestParallelTransactions.func1.1.1.1(0xc4200c4280, 0xc4201183e0, 0xc42020e000, 0xc4201460f0, 0xc420096880, 0xc420216000)
+	/home/li/gopath/src/github.com/boltdb/bolt/functional_test.go:57 +0x27b
+created by github.com/boltdb/bolt.TestParallelTransactions.func1.1.1
+	/home/li/gopath/src/github.com/boltdb/bolt/functional_test.go:45 +0xcc
+
+goroutine 1034 [semacquire]:
+sync.runtime_SemacquireMutex(0xc4201460f4, 0x2100000000)
+	/usr/local/go1.10.8/src/runtime/sema.go:71 +0x3d
+sync.(*Mutex).Lock(0xc4201460f0)
+	/usr/local/go1.10.8/src/sync/mutex.go:134 +0x172
+sync.(*RWMutex).Lock(0xc4201460f0)
+	/usr/local/go1.10.8/src/sync/rwmutex.go:93 +0x49
+testing.(*common).Helper(0xc4201460f0)
+	/usr/local/go1.10.8/src/testing/testing.go:645 +0x3f
+github.com/stretchr/testify/assert.NoError(0x98c540, 0xc4201460f0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x148)
+	/home/li/gopath/src/github.com/stretchr/testify/assert/assertions.go:1140 +0x19e
+github.com/boltdb/bolt.TestParallelTransactions.func1.1.1.1(0xc4200c4280, 0xc4201183e0, 0xc42020e000, 0xc4201460f0, 0xc420096880, 0xc420216000)
+	/home/li/gopath/src/github.com/boltdb/bolt/functional_test.go:57 +0x27b
+created by github.com/boltdb/bolt.TestParallelTransactions.func1.1.1
+	/home/li/gopath/src/github.com/boltdb/bolt/functional_test.go:45 +0xcc
+
+goroutine 992 [runnable]:
+sync.runtime_SemacquireMutex(0xc4201460f4, 0x1300000000)
+	/usr/local/go1.10.8/src/runtime/sema.go:71 +0x3d
+sync.(*Mutex).Lock(0xc4201460f0)
+	/usr/local/go1.10.8/src/sync/mutex.go:134 +0x172
+sync.(*RWMutex).Lock(0xc4201460f0)
+	/usr/local/go1.10.8/src/sync/rwmutex.go:93 +0x49
+testing.(*common).Helper(0xc4201460f0)
+	/usr/local/go1.10.8/src/testing/testing.go:645 +0x3f
+github.com/stretchr/testify/assert.Equal(0x98c540, 0xc4201460f0, 0x8ace60, 0xc4203ebb40, 0x8ace60, 0xc4203ebb60, 0x0, 0x0, 0x0, 0x0)
+	/home/li/gopath/src/github.com/stretchr/testify/assert/assertions.go:330 +0x598
+github.com/boltdb/bolt.TestParallelTransactions.func1.1.1.1(0xc4200c4280, 0xc4201183e0, 0xc42020e000, 0xc4201460f0, 0xc420096880, 0xc420216000)
+	/home/li/gopath/src/github.com/boltdb/bolt/functional_test.go:57 +0x395
+created by github.com/boltdb/bolt.TestParallelTransactions.func1.1.1
+	/home/li/gopath/src/github.com/boltdb/bolt/functional_test.go:45 +0xcc
+
+goroutine 1035 [runnable]:
+github.com/boltdb/bolt.(*Cursor).search(0xc420232e38, 0xc42015e000, 0x132, 0x132, 0x7f2c16c84000)
+	/home/li/gopath/src/github.com/boltdb/bolt/cursor.go:88 +0x6c5
+github.com/boltdb/bolt.(*Cursor).search(0xc420232e38, 0xc42015e000, 0x132, 0x132, 0x7f2c16c7a000)
+	/home/li/gopath/src/github.com/boltdb/bolt/cursor.go:118 +0x53c
+github.com/boltdb/bolt.(*Cursor).Get(0xc420232e38, 0xc42015e000, 0x132, 0x132, 0x0, 0x0, 0xc42015c000)
+	/home/li/gopath/src/github.com/boltdb/bolt/cursor.go:56 +0x17a
+github.com/boltdb/bolt.(*Transaction).Get(0xc420462a20, 0x93efff, 0x7, 0xc42015e000, 0x132, 0x132, 0x0, 0x0, 0x0, 0x1, ...)
+	/home/li/gopath/src/github.com/boltdb/bolt/transaction.go:85 +0x29c
+github.com/boltdb/bolt.TestParallelTransactions.func1.1.1.1(0xc4200c4280, 0xc4201183e0, 0xc42020e000, 0xc4201460f0, 0xc420096880, 0xc420216000)
+	/home/li/gopath/src/github.com/boltdb/bolt/functional_test.go:56 +0x21b
+created by github.com/boltdb/bolt.TestParallelTransactions.func1.1.1
+	/home/li/gopath/src/github.com/boltdb/bolt/functional_test.go:45 +0xcc
+exit status 2
+FAIL	github.com/boltdb/bolt	1.279s

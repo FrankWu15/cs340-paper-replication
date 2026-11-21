@@ -1,0 +1,15 @@
+# build artifacts
+/bin/
+*.exe
+*.test
+*.out
+
+# editor / OS junk
+.idea/
+.vscode/
+*.swp
+.DS_Store
+__pycache__/
+*.pyc
+
+# keep results/raw (raw logs), results/figures, and *.csv as traceable evidence

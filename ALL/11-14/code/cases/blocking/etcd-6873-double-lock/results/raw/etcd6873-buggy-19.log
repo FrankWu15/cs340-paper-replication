@@ -1,0 +1,31 @@
+fatal error: all goroutines are asleep - deadlock!
+
+goroutine 1 [chan receive]:
+main.main()
+	/mnt/c/Users/30683/WorkBuddy/2026-11-05-11-07-12/etcd-bugs-repro/cmd/repro/main.go:43 +0x1a8
+
+goroutine 34 [chan receive]:
+repro/internal/bugs.(*wbs6873).StopBuggy(0x35bd44d16080)
+	/mnt/c/Users/30683/WorkBuddy/2026-11-05-11-07-12/etcd-bugs-repro/internal/bugs/etcd6873.go:86 +0x8b
+repro/internal/bugs.Trigger6873(0x0)
+	/mnt/c/Users/30683/WorkBuddy/2026-11-05-11-07-12/etcd-bugs-repro/internal/bugs/etcd6873.go:114 +0x53
+main.main.func1()
+	/mnt/c/Users/30683/WorkBuddy/2026-11-05-11-07-12/etcd-bugs-repro/cmd/repro/main.go:33 +0x65
+created by main.main in goroutine 1
+	/mnt/c/Users/30683/WorkBuddy/2026-11-05-11-07-12/etcd-bugs-repro/cmd/repro/main.go:30 +0x190
+
+goroutine 35 [sync.Mutex.Lock]:
+internal/sync.runtime_SemacquireMutex(0x0?, 0x0?, 0x35bd44d000f0?)
+	/usr/lib/go-1.26/src/runtime/sema.go:95 +0x25
+internal/sync.(*Mutex).lockSlow(0x35bd44d16080)
+	/usr/lib/go-1.26/src/internal/sync/mutex.go:149 +0x15d
+internal/sync.(*Mutex).Lock(...)
+	/usr/lib/go-1.26/src/internal/sync/mutex.go:70
+sync.(*Mutex).Lock(...)
+	/usr/lib/go-1.26/src/sync/mutex.go:46
+repro/internal/bugs.(*wbs6873).coalesce6873(0x0?)
+	/mnt/c/Users/30683/WorkBuddy/2026-11-05-11-07-12/etcd-bugs-repro/internal/bugs/etcd6873.go:75 +0x32
+repro/internal/bugs.newWBS6873.func1()
+	/mnt/c/Users/30683/WorkBuddy/2026-11-05-11-07-12/etcd-bugs-repro/internal/bugs/etcd6873.go:68 +0x65
+created by repro/internal/bugs.newWBS6873 in goroutine 34
+	/mnt/c/Users/30683/WorkBuddy/2026-11-05-11-07-12/etcd-bugs-repro/internal/bugs/etcd6873.go:65 +0xbf
