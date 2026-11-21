@@ -1,0 +1,5 @@
+watchBroadcast ready: receivers=2
+bcast: enter (holds wb.mu.Lock, reads len(receivers) directly)
+bcast: done, responses=1 coalesced=1
+delete: done, receivers=1
+exit=0

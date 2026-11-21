@@ -1,0 +1,12 @@
+test_patch=applied
+build_rc=0
+run_rc=1   (124=被外部杀掉/静默挂起, 2=信号退出)
+deadlock_msg=0
+goroutines=0
+runs=1
+testtimeout_panic=0
+--- last lines:
+=== RUN   TestInflightStreamClosing
+--- FAIL: TestInflightStreamClosing (5.00s)
+	transport_test.go:418: Test timed out, expected a StreamError.
+FAIL

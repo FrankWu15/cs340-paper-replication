@@ -1,0 +1,4 @@
+client ready, calling Close
+close: waiting for watcher to stop
+close ok
+exit=0
