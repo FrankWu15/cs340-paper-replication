@@ -1,0 +1,20 @@
+# Build outputs
+/bin/
+*.test
+*.out
+
+# Generated experiment artefacts that are not source (raw logs and reports
+# are intentionally COMMITTED for traceability; see docs/TRACEABILITY.md).
+# Nothing under results/ is ignored on purpose.
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.idea/
+.vscode/
+
+# Local scratch
+/tmp/
+*.log.bak

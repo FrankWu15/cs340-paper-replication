@@ -1,0 +1,25 @@
+=== [b3/buggy] 编译 ===
+编译成功
+
+=== [b3/buggy] 运行 ===
+[1] Open 成功: /tmp/bolt-b3.db
+[2] 建 bucket 成功
+[3] Close 完成
+[4] 第 1 次 Begin(false) 返回: database not open  <-- 期望 ErrDatabaseNotOpen
+[5] 第 2 次 Begin(false)，buggy 版本会卡死在这里 ...
+fatal error: all goroutines are asleep - deadlock!
+
+goroutine 1 [semacquire]:
+sync.runtime_Semacquire(0xc82008e114)
+	/usr/local/go-versions/go1.6.4/src/runtime/sema.go:47 +0x26
+sync.(*Mutex).Lock(0xc82008e110)
+	/usr/local/go-versions/go1.6.4/src/sync/mutex.go:83 +0x1c4
+github.com/boltdb/bolt.(*DB).beginTx(0xc82008e000, 0x486398, 0x0, 0x0)
+	/home/xlm/boltcases/b3/buggy/gopath/src/github.com/boltdb/bolt/db.go:349 +0x68
+github.com/boltdb/bolt.(*DB).Begin(0xc82008e000, 0x1fda8e00, 0x5fb160, 0x0, 0x0)
+	/home/xlm/boltcases/b3/buggy/gopath/src/github.com/boltdb/bolt/db.go:339 +0x60
+main.runClosed(0xc82008e000)
+	/home/xlm/boltcases/b3/buggy/gopath/src/repro/main.go:74 +0x349
+main.main()
+	/home/xlm/boltcases/b3/buggy/gopath/src/repro/main.go:55 +0x3b6
+退出码: 0

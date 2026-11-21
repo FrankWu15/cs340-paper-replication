@@ -1,0 +1,44 @@
+Docker moby#0d9e543 Test Summary
+
+1. Minimal Reproduction
+Before Fix:
+The Stop() method holds the container state mutex.
+It calls Kill(), which attempts to acquire the same mutex.
+The operation blocks.
+
+After Fix:
+The Stop() method calls the internal kill() method directly.
+The operation completes successfully.
+
+Result: PASS
+
+2. Source Code Comparison
+Before Fix:
+container.Kill()
+
+After Fix:
+container.kill()
+
+Result: CONFIRMED
+
+3. Existing Test Analysis
+The original container_test.go contains tests for Stop() and Kill().
+However, no dedicated regression test for this specific deadlock scenario was identified.
+
+Result: NO DEDICATED REGRESSION TEST FOUND
+
+4. Full Docker Test Suite
+Not executed.
+The project is from 2013 and may require legacy dependencies and container infrastructure.
+
+Result: NOT RUN
+
+5. Go Runtime Deadlock Detection
+
+A standalone program attempted to acquire the same mutex twice
+in the main goroutine.
+
+The Go Runtime reported:
+fatal error: all goroutines are asleep - deadlock!
+
+Result: DEADLOCK DETECTED

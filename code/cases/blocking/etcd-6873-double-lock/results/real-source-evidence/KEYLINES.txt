@@ -1,0 +1,26 @@
+etcd#6873 watchBroadcasts.stop (buggy watch_broadcasts.go):
+57:	wbs.mu.Lock()
+80:	wbs.mu.Unlock()
+84:	wbs.mu.Lock()
+85:	defer wbs.mu.Unlock()
+100:	wbs.mu.Lock()
+101:	defer wbs.mu.Unlock()
+117:func (wbs *watchBroadcasts) stop() {
+118:	wbs.mu.Lock()
+119:	defer wbs.mu.Unlock()
+125:	close(wbs.updatec)
+126:	<-wbs.donec
+
+double-lock httpClusterClient (buggy client.go):
+178:func (c *httpClusterClient) Do(ctx context.Context, act httpAction) (resp *http.Response, body []byte, err error) {
+179:	c.RLock()
+213:func (c *httpClusterClient) Endpoints() []string {
+214:	c.RLock()
+225:func (c *httpClusterClient) Sync(ctx context.Context) error {
+226:	c.Lock()
+
+double-lock List trigger (buggy members.go):
+111:func (m *httpMembersAPI) List(ctx context.Context) ([]Member, error) {
+113:	resp, body, err := m.client.Do(ctx, req)
+137:	resp, body, err := m.client.Do(ctx, req)
+164:	resp, _, err := m.client.Do(ctx, req)

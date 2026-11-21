@@ -1,0 +1,23 @@
+fatal error: all goroutines are asleep - deadlock!
+
+goroutine 1 [chan receive]:
+main.main()
+	/mnt/c/Users/30683/WorkBuddy/2026-11-05-11-07-12/etcd-bugs-repro/cmd/repro/main.go:43 +0x1a8
+
+goroutine 34 [sync.RWMutex.RLock]:
+sync.runtime_SemacquireRWMutexR(0x0?, 0x0?, 0x2000000000000?)
+	/usr/lib/go-1.26/src/runtime/sema.go:100 +0x25
+sync.(*RWMutex).RLock(...)
+	/usr/lib/go-1.26/src/sync/rwmutex.go:74
+repro/internal/bugs.(*httpClusterClientRepro).Endpoints(0x1909e8d14cf0)
+	/mnt/c/Users/30683/WorkBuddy/2026-11-05-11-07-12/etcd-bugs-repro/internal/bugs/etcdDoubleLock.go:38 +0x50
+repro/internal/bugs.(*httpClusterClientRepro).List(...)
+	/mnt/c/Users/30683/WorkBuddy/2026-11-05-11-07-12/etcd-bugs-repro/internal/bugs/etcdDoubleLock.go:46
+repro/internal/bugs.(*httpClusterClientRepro).SyncBuggy(0x1909e8d14cf0, {0x0?, 0x0?})
+	/mnt/c/Users/30683/WorkBuddy/2026-11-05-11-07-12/etcd-bugs-repro/internal/bugs/etcdDoubleLock.go:53 +0x5b
+repro/internal/bugs.TriggerDoubleLock(0x0)
+	/mnt/c/Users/30683/WorkBuddy/2026-11-05-11-07-12/etcd-bugs-repro/internal/bugs/etcdDoubleLock.go:77 +0xb2
+main.main.func1()
+	/mnt/c/Users/30683/WorkBuddy/2026-11-05-11-07-12/etcd-bugs-repro/cmd/repro/main.go:35 +0xac
+created by main.main in goroutine 1
+	/mnt/c/Users/30683/WorkBuddy/2026-11-05-11-07-12/etcd-bugs-repro/cmd/repro/main.go:30 +0x190

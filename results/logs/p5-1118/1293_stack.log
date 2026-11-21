@@ -1,0 +1,4 @@
+=== RUN   TestInflightStreamClosing
+--- FAIL: TestInflightStreamClosing (5.00s)
+	transport_test.go:418: Test timed out, expected a StreamError.
+FAIL

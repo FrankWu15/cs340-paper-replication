@@ -1,0 +1,31 @@
+goroutine 19 [running]:
+google.golang.org/grpc_test.stackAll()
+	/home/xlm/grpc1424-leak/buggy/xu_dialcontext_leak_test.go:143 +0x4d
+google.golang.org/grpc_test.writeDump(0xc0001c2d00, {0xc0001ae140, 0x9a})
+	/home/xlm/grpc1424-leak/buggy/xu_dialcontext_leak_test.go:153 +0x34
+google.golang.org/grpc_test.TestXuDialContextLeak(0xc0001c2d00)
+	/home/xlm/grpc1424-leak/buggy/xu_dialcontext_leak_test.go:370 +0x131c
+testing.tRunner(0xc0001c2d00, 0x95fa58)
+	/usr/local/go-versions/go1.22.9/src/testing/testing.go:1689 +0xfb
+created by testing.(*T).Run in goroutine 1
+	/usr/local/go-versions/go1.22.9/src/testing/testing.go:1742 +0x390
+
+goroutine 1 [chan receive]:
+testing.(*T).Run(0xc0001c2b60, {0x9285e7?, 0x0?}, 0x95fa58)
+	/usr/local/go-versions/go1.22.9/src/testing/testing.go:1750 +0x3ab
+testing.runTests.func1(0xc0001c2b60)
+	/usr/local/go-versions/go1.22.9/src/testing/testing.go:2161 +0x37
+testing.tRunner(0xc0001c2b60, 0xc000223c70)
+	/usr/local/go-versions/go1.22.9/src/testing/testing.go:1689 +0xfb
+testing.runTests(0xc00019e150, {0xcf6620, 0x2b, 0x2b}, {0x1?, 0x50f5ce?, 0xcffd80?})
+	/usr/local/go-versions/go1.22.9/src/testing/testing.go:2159 +0x445
+testing.(*M).Run(0xc00019b5e0)
+	/usr/local/go-versions/go1.22.9/src/testing/testing.go:2027 +0x68b
+main.main()
+	_testmain.go:159 +0x16c
+
+goroutine 21 [chan receive]:
+google.golang.org/grpc.DialContext.func3()
+	/home/xlm/grpc1424-leak/buggy/clientconn.go:409 +0x1d3
+created by google.golang.org/grpc.DialContext in goroutine 20
+	/home/xlm/grpc1424-leak/buggy/clientconn.go:386 +0x865

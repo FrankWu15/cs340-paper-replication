@@ -1,0 +1,13 @@
+panic: send on closed channel
+
+goroutine 8 [running]:
+google.golang.org/grpc/transport.(*serverHandlerTransport).do(0xc420178230, 0xc42007a4b0, 0xc420042eb8, 0x472831)
+	/home/li/gopath/src/google.golang.org/grpc/transport/handler_server.go:170 +0x161
+google.golang.org/grpc/transport.(*serverHandlerTransport).Write(0xc420178230, 0xc42009a640, 0xc420018720, 0x3, 0x8, 0xc420018728, 0x4, 0x8, 0xc420018730, 0x0, ...)
+	/home/li/gopath/src/google.golang.org/grpc/transport/handler_server.go:256 +0x18c
+google.golang.org/grpc/transport.TestHandlerTransport_HandleStreams_WriteStatusWrite.func1(0xc420011770, 0xc42009a640)
+	/home/li/gopath/src/google.golang.org/grpc/transport/handler_server_test.go:425 +0x47a
+created by google.golang.org/grpc/transport.testHandlerTransportHandleStreams.func1
+	/home/li/gopath/src/google.golang.org/grpc/transport/handler_server_test.go:432 +0x5d
+exit status 2
+FAIL	google.golang.org/grpc/transport	0.011s

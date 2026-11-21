@@ -1,0 +1,4 @@
+case=moby-0d9e543
+go=go version go1.27.3 windows/386
+repro_rc=0 repro_buggy=TIMEOUT repro_fixed=CLEAN
+detector_rc=2 detector=DEADLOCK

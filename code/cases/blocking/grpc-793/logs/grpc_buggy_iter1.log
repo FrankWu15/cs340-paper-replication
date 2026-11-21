@@ -1,0 +1,50 @@
+=== RUN   TestServerGracefulStopIdempotent
+panic: test timed out after 30s
+
+goroutine 18 [running]:
+testing.(*M).startAlarm.func1()
+	/usr/local/go1.10.8/src/testing/testing.go:1240 +0xfc
+created by time.goFunc
+	/usr/local/go1.10.8/src/time/sleep.go:172 +0x44
+
+goroutine 1 [chan receive]:
+testing.(*T).Run(0xc4201880f0, 0x8e828d, 0x20, 0x8fb4d0, 0x479401)
+	/usr/local/go1.10.8/src/testing/testing.go:825 +0x301
+testing.runTests.func1(0xc420188000)
+	/usr/local/go1.10.8/src/testing/testing.go:1063 +0x64
+testing.tRunner(0xc420188000, 0xc420061df8)
+	/usr/local/go1.10.8/src/testing/testing.go:777 +0xd0
+testing.runTests(0xc420134300, 0xb69ce0, 0x27, 0x27, 0x411c49)
+	/usr/local/go1.10.8/src/testing/testing.go:1061 +0x2c4
+testing.(*M).Run(0xc420178000, 0x0)
+	/usr/local/go1.10.8/src/testing/testing.go:978 +0x171
+main.main()
+	_testmain.go:118 +0x151
+
+goroutine 6 [semacquire]:
+sync.runtime_SemacquireMutex(0xc4200b345c, 0xc4200a8600)
+	/usr/local/go1.10.8/src/runtime/sema.go:71 +0x3d
+sync.(*Mutex).Lock(0xc4200b3458)
+	/usr/local/go1.10.8/src/sync/mutex.go:134 +0x108
+google.golang.org/grpc.(*Server).GracefulStop(0xc4200b3400)
+	/home/li/gopath/src/google.golang.org/grpc/server.go:801 +0x2b3
+google.golang.org/grpc/test_test.testServerGracefulStopIdempotent(0xc4201880f0, 0x8dca11, 0x9, 0x8d855f, 0x3, 0x0, 0x0, 0x0)
+	/home/li/gopath/src/google.golang.org/grpc/test/end2end_test.go:573 +0x128
+google.golang.org/grpc/test_test.TestServerGracefulStopIdempotent(0xc4201880f0)
+	/home/li/gopath/src/google.golang.org/grpc/test/end2end_test.go:562 +0x166
+testing.tRunner(0xc4201880f0, 0x8fb4d0)
+	/usr/local/go1.10.8/src/testing/testing.go:777 +0xd0
+created by testing.(*T).Run
+	/usr/local/go1.10.8/src/testing/testing.go:824 +0x2e0
+
+goroutine 9 [semacquire]:
+sync.runtime_SemacquireMutex(0xc4200b345c, 0x0)
+	/usr/local/go1.10.8/src/runtime/sema.go:71 +0x3d
+sync.(*Mutex).Lock(0xc4200b3458)
+	/usr/local/go1.10.8/src/sync/mutex.go:134 +0x108
+google.golang.org/grpc.(*Server).Serve(0xc4200b3400, 0x935cc0, 0xc42000e080, 0x0, 0x0)
+	/home/li/gopath/src/google.golang.org/grpc/server.go:318 +0x45
+created by google.golang.org/grpc/test_test.(*test).startServer
+	/home/li/gopath/src/google.golang.org/grpc/test/end2end_test.go:467 +0x3c8
+exit status 2
+FAIL	google.golang.org/grpc/test	30.007s

@@ -1,0 +1,162 @@
+=== RUN   TestKeepaliveAwakenDeadlockProbe
+panic: test timed out after 30s
+
+goroutine 53 [running]:
+testing.(*M).startAlarm.func1()
+	/usr/local/go1.10.8/src/testing/testing.go:1240 +0xfc
+created by time.goFunc
+	/usr/local/go1.10.8/src/time/sleep.go:172 +0x44
+
+goroutine 1 [chan receive]:
+testing.(*T).Run(0xc42018a0f0, 0x907036, 0x20, 0x91a4b0, 0x479b01)
+	/usr/local/go1.10.8/src/testing/testing.go:825 +0x301
+testing.runTests.func1(0xc42018a000)
+	/usr/local/go1.10.8/src/testing/testing.go:1063 +0x64
+testing.tRunner(0xc42018a000, 0xc420063df8)
+	/usr/local/go1.10.8/src/testing/testing.go:777 +0xd0
+testing.runTests(0xc4201743e0, 0xb9c3c0, 0x30, 0x30, 0x411ca9)
+	/usr/local/go1.10.8/src/testing/testing.go:1061 +0x2c4
+testing.(*M).Run(0xc42017a000, 0x0)
+	/usr/local/go1.10.8/src/testing/testing.go:978 +0x171
+main.main()
+	_testmain.go:164 +0x151
+
+goroutine 6 [semacquire]:
+sync.runtime_SemacquireMutex(0xc42009f340, 0x868900)
+	/usr/local/go1.10.8/src/runtime/sema.go:71 +0x3d
+sync.(*Mutex).Lock(0xc42009f33c)
+	/usr/local/go1.10.8/src/sync/mutex.go:134 +0x108
+google.golang.org/grpc/transport.(*http2Client).NewStream(0xc42009f1e0, 0x957540, 0xc4201e25a0, 0xc420072d80, 0x959420, 0xc42009f1e0, 0x0)
+	/home/li/gopath/src/google.golang.org/grpc/transport/http2_client.go:389 +0x7cd
+google.golang.org/grpc.invoke(0x957540, 0xc4201e2570, 0x908b85, 0x23, 0x882f40, 0xc420174940, 0x882f40, 0xc420174960, 0xc420196000, 0x0, ...)
+	/home/li/gopath/src/google.golang.org/grpc/call.go:246 +0x7d0
+google.golang.org/grpc.Invoke(0x957500, 0xc420072d20, 0x908b85, 0x23, 0x882f40, 0xc420174940, 0x882f40, 0xc420174960, 0xc420196000, 0x0, ...)
+	/home/li/gopath/src/google.golang.org/grpc/call.go:134 +0x19c
+google.golang.org/grpc/test/grpc_testing.(*testServiceClient).EmptyCall(0xc42000e080, 0x957500, 0xc420072d20, 0xc420174940, 0x0, 0x0, 0x0, 0xc420174680, 0x0, 0x0)
+	/home/li/gopath/src/google.golang.org/grpc/test/grpc_testing/test.pb.go:399 +0xcb
+google.golang.org/grpc_test.TestKeepaliveAwakenDeadlockProbe(0xc42018a0f0)
+	/home/li/gopath/src/google.golang.org/grpc/keepalive_awaken_probe_test.go:74 +0x4cc
+testing.tRunner(0xc42018a0f0, 0x91a4b0)
+	/usr/local/go1.10.8/src/testing/testing.go:777 +0xd0
+created by testing.(*T).Run
+	/usr/local/go1.10.8/src/testing/testing.go:824 +0x2e0
+
+goroutine 7 [IO wait]:
+internal/poll.runtime_pollWait(0x7f13ca699f00, 0x72, 0x0)
+	/usr/local/go1.10.8/src/runtime/netpoll.go:173 +0x57
+internal/poll.(*pollDesc).wait(0xc42017a098, 0x72, 0xc42006e900, 0x0, 0x0)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:85 +0x9b
+internal/poll.(*pollDesc).waitRead(0xc42017a098, 0xffffffffffffff00, 0x0, 0x0)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:90 +0x3d
+internal/poll.(*FD).Accept(0xc42017a080, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/internal/poll/fd_unix.go:372 +0x1a8
+net.(*netFD).accept(0xc42017a080, 0xc4201a2000, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/fd_unix.go:238 +0x42
+net.(*TCPListener).accept(0xc42000e068, 0x457ad0, 0xc42005fea0, 0xc42005fea8)
+	/usr/local/go1.10.8/src/net/tcpsock_posix.go:136 +0x2e
+net.(*TCPListener).Accept(0xc42000e068, 0x919fd8, 0xc4200208c0, 0x9594e0, 0xc4201a2000)
+	/usr/local/go1.10.8/src/net/tcpsock.go:259 +0x49
+google.golang.org/grpc.(*Server).Serve(0xc4200208c0, 0x956c00, 0xc42000e068, 0x0, 0x0)
+	/home/li/gopath/src/google.golang.org/grpc/server.go:445 +0x179
+created by google.golang.org/grpc_test.TestKeepaliveAwakenDeadlockProbe
+	/home/li/gopath/src/google.golang.org/grpc/keepalive_awaken_probe_test.go:54 +0x167
+
+goroutine 12 [IO wait]:
+internal/poll.runtime_pollWait(0x7f13ca699e30, 0x72, 0xc4201efb88)
+	/usr/local/go1.10.8/src/runtime/netpoll.go:173 +0x57
+internal/poll.(*pollDesc).wait(0xc42017a298, 0x72, 0xffffffffffffff00, 0x953320, 0xb5c650)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:85 +0x9b
+internal/poll.(*pollDesc).waitRead(0xc42017a298, 0xc4201a6000, 0x8000, 0x8000)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:90 +0x3d
+internal/poll.(*FD).Read(0xc42017a280, 0xc4201a6000, 0x8000, 0x8000, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/internal/poll/fd_unix.go:157 +0x17d
+net.(*netFD).Read(0xc42017a280, 0xc4201a6000, 0x8000, 0x8000, 0x11, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/fd_unix.go:202 +0x4f
+net.(*conn).Read(0xc42000e088, 0xc4201a6000, 0x8000, 0x8000, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/net.go:176 +0x6a
+bufio.(*Reader).Read(0xc420072720, 0xc4201b8038, 0x9, 0x9, 0x9, 0x0, 0x0)
+	/usr/local/go1.10.8/src/bufio/bufio.go:216 +0x238
+io.ReadAtLeast(0x951b80, 0xc420072720, 0xc4201b8038, 0x9, 0x9, 0x9, 0xc4201efdc0, 0x401afe, 0xc4201efe6f)
+	/usr/local/go1.10.8/src/io/io.go:309 +0x86
+io.ReadFull(0x951b80, 0xc420072720, 0xc4201b8038, 0x9, 0x9, 0x76fd5d, 0xc4200266cc, 0xc42025a040)
+	/usr/local/go1.10.8/src/io/io.go:327 +0x58
+golang.org/x/net/http2.readFrameHeader(0xc4201b8038, 0x9, 0x9, 0x951b80, 0xc420072720, 0x0, 0x0, 0x6af69a65, 0x1dd16530)
+	/home/li/gopath/src/golang.org/x/net/http2/frame.go:237 +0x7b
+golang.org/x/net/http2.(*Framer).ReadFrame(0xc4201b8000, 0x79a52f, 0xc42001e780, 0x7070e0910100402, 0x0)
+	/home/li/gopath/src/golang.org/x/net/http2/frame.go:492 +0xa4
+google.golang.org/grpc/transport.(*framer).readFrame(0xc420095e30, 0xc4200266c0, 0xc4200266c0, 0x0, 0x0)
+	/home/li/gopath/src/google.golang.org/grpc/transport/http_util.go:613 +0x2f
+google.golang.org/grpc/transport.(*http2Client).reader(0xc42009f1e0)
+	/home/li/gopath/src/google.golang.org/grpc/transport/http2_client.go:1175 +0xc0
+created by google.golang.org/grpc/transport.newHTTP2Client
+	/home/li/gopath/src/google.golang.org/grpc/transport/http2_client.go:261 +0xb8c
+
+goroutine 9 [select]:
+google.golang.org/grpc.(*addrConn).transportMonitor(0xc420198000)
+	/home/li/gopath/src/google.golang.org/grpc/clientconn.go:1093 +0x1c0
+google.golang.org/grpc.(*ClientConn).resetAddrConn.func1(0xc420198000)
+	/home/li/gopath/src/google.golang.org/grpc/clientconn.go:817 +0x1ba
+created by google.golang.org/grpc.(*ClientConn).resetAddrConn
+	/home/li/gopath/src/google.golang.org/grpc/clientconn.go:808 +0x7db
+
+goroutine 18 [IO wait]:
+internal/poll.runtime_pollWait(0x7f13ca699d60, 0x72, 0xc42004c940)
+	/usr/local/go1.10.8/src/runtime/netpoll.go:173 +0x57
+internal/poll.(*pollDesc).wait(0xc42019e018, 0x72, 0xffffffffffffff00, 0x953320, 0xb5c650)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:85 +0x9b
+internal/poll.(*pollDesc).waitRead(0xc42019e018, 0xc4201bc000, 0x8000, 0x8000)
+	/usr/local/go1.10.8/src/internal/poll/fd_poll_runtime.go:90 +0x3d
+internal/poll.(*FD).Read(0xc42019e000, 0xc4201bc000, 0x8000, 0x8000, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/internal/poll/fd_unix.go:157 +0x17d
+net.(*netFD).Read(0xc42019e000, 0xc4201bc000, 0x8000, 0x8000, 0x2f, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/fd_unix.go:202 +0x4f
+net.(*conn).Read(0xc4201a2000, 0xc4201bc000, 0x8000, 0x8000, 0x0, 0x0, 0x0)
+	/usr/local/go1.10.8/src/net/net.go:176 +0x6a
+bufio.(*Reader).Read(0xc4201ba000, 0xc4201ce038, 0x9, 0x9, 0x9, 0x0, 0x0)
+	/usr/local/go1.10.8/src/bufio/bufio.go:216 +0x238
+io.ReadAtLeast(0x951b80, 0xc4201ba000, 0xc4201ce038, 0x9, 0x9, 0x9, 0xc42004cb78, 0x401afe, 0xc42004cc27)
+	/usr/local/go1.10.8/src/io/io.go:309 +0x86
+io.ReadFull(0x951b80, 0xc4201ba000, 0xc4201ce038, 0x9, 0x9, 0xc42004cbc0, 0x479bd6, 0x6af69a65)
+	/usr/local/go1.10.8/src/io/io.go:327 +0x58
+golang.org/x/net/http2.readFrameHeader(0xc4201ce038, 0x9, 0x9, 0x951b80, 0xc4201ba000, 0x0, 0x0, 0xc42004cc50, 0x7902c2)
+	/home/li/gopath/src/golang.org/x/net/http2/frame.go:237 +0x7b
+golang.org/x/net/http2.(*Framer).ReadFrame(0xc4201ce000, 0x954120, 0xc4200266a0, 0x0, 0x0)
+	/home/li/gopath/src/golang.org/x/net/http2/frame.go:492 +0xa4
+google.golang.org/grpc/transport.(*framer).readFrame(0xc4201a0060, 0xc4200266a0, 0xc4200266a0, 0x0, 0x0)
+	/home/li/gopath/src/google.golang.org/grpc/transport/http_util.go:613 +0x2f
+google.golang.org/grpc/transport.(*http2Server).HandleStreams(0xc4201ae180, 0xc4201a01e0, 0x91a010)
+	/home/li/gopath/src/google.golang.org/grpc/transport/http2_server.go:388 +0x2f5
+google.golang.org/grpc.(*Server).serveStreams(0xc4200208c0, 0x958ee0, 0xc4201ae180)
+	/home/li/gopath/src/google.golang.org/grpc/server.go:548 +0x139
+google.golang.org/grpc.(*Server).serveHTTP2Transport(0xc4200208c0, 0x9594e0, 0xc4201a2000, 0x0, 0x0)
+	/home/li/gopath/src/google.golang.org/grpc/server.go:541 +0x41e
+google.golang.org/grpc.(*Server).handleRawConn(0xc4200208c0, 0x9594e0, 0xc4201a2000)
+	/home/li/gopath/src/google.golang.org/grpc/server.go:508 +0x458
+created by google.golang.org/grpc.(*Server).Serve
+	/home/li/gopath/src/google.golang.org/grpc/server.go:477 +0x556
+
+goroutine 13 [select]:
+google.golang.org/grpc/transport.(*http2Client).controller(0xc42009f1e0)
+	/home/li/gopath/src/google.golang.org/grpc/transport/http2_client.go:1249 +0x128
+created by google.golang.org/grpc/transport.newHTTP2Client
+	/home/li/gopath/src/google.golang.org/grpc/transport/http2_client.go:291 +0xcc2
+
+goroutine 14 [chan receive]:
+google.golang.org/grpc/transport.(*http2Client).keepalive(0xc42009f1e0)
+	/home/li/gopath/src/google.golang.org/grpc/transport/http2_client.go:1308 +0x385
+created by google.golang.org/grpc/transport.newHTTP2Client
+	/home/li/gopath/src/google.golang.org/grpc/transport/http2_client.go:293 +0xd59
+
+goroutine 19 [select]:
+google.golang.org/grpc/transport.(*http2Server).controller(0xc4201ae180)
+	/home/li/gopath/src/google.golang.org/grpc/transport/http2_server.go:1044 +0x10b
+created by google.golang.org/grpc/transport.newHTTP2Server
+	/home/li/gopath/src/google.golang.org/grpc/transport/http2_server.go:225 +0x875
+
+goroutine 20 [select]:
+google.golang.org/grpc/transport.(*http2Server).keepalive(0xc4201ae180)
+	/home/li/gopath/src/google.golang.org/grpc/transport/http2_server.go:985 +0x229
+created by google.golang.org/grpc/transport.newHTTP2Server
+	/home/li/gopath/src/google.golang.org/grpc/transport/http2_server.go:226 +0x89a
+exit status 2
+FAIL	google.golang.org/grpc	30.008s

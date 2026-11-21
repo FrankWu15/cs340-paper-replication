@@ -1,0 +1,52 @@
+{
+  "version": "fixed",
+  "context_mode": "deadline",
+  "n": 1,
+  "round": 3,
+  "observation_window_ms": 200,
+  "hard_timeout_ms": 5000,
+  "deadline_ms": 1500,
+  "returned_calls": 1,
+  "context_errors": 1,
+  "dial_errors": [
+    "context deadline exceeded"
+  ],
+  "target_stacks_before": 0,
+  "target_stacks_after": 0,
+  "lbwatcher_stacks_before": 0,
+  "lbwatcher_stacks_after": 0,
+  "goroutines_before": 2,
+  "goroutines_after": 2,
+  "per_call": [
+    {
+      "iter": 1,
+      "trigger": "context-deadline",
+      "target_seen_ms": 8.034,
+      "cancel_ms": 1506.644,
+      "return_ms": 1507.518,
+      "return_elapsed_ms": 1500.871,
+      "dial_returned": true,
+      "returned_nil_conn": true,
+      "dial_error": "context deadline exceeded",
+      "target_stacks_before": 1,
+      "target_stacks_samples": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "target_stacks_after": 0,
+      "lbwatcher_stacks_after": 0,
+      "goroutines_after": 2
+    }
+  ],
+  "events": [
+    "--- call 1 ---",
+    "    6.681ms  balancer.Start(\"xu.invalid:443\")",
+    "    6.693ms  balancer.Notify #1",
+    "    6.696ms  balancer.Notify #2",
+    " 1507.465ms  balancer.Close -\u003e close(Notify)"
+  ],
+  "started_at": "2026-11-19T19:30:23+08:00",
+  "finished_at": "2026-11-19T19:30:24+08:00"
+}

@@ -1,0 +1,5 @@
+bug,mode,trials,deadlocks_detected,elapsed_ms_mean,elapsed_ms_sd
+doublelock,buggy,20,20,nan,0.0
+doublelock,fixed,20,0,0.7525,0.18638334153029879
+etcd6873,buggy,20,20,nan,0.0
+etcd6873,fixed,20,0,0.8645,0.4160585896241057

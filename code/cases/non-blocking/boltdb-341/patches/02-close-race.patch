@@ -1,0 +1,40 @@
+commit c69cb102ce8f7609b57f75d0ccb10862167001e7
+Merge: 55af28c e929eba
+Author: Ben Johnson <benbjohnson@yahoo.com>
+Date:   Thu May 21 09:02:35 2015 -0600
+
+    Merge pull request #377 from benbjohnson/close-race
+
+    Wait for pending transactions on close
+
+说明：上游这次修复是一个 merge commit，go-concurrency-bugs 数据集里的 .txt 只记录了
+merge 信息。真正的代码改动在分支提交 e929eba（"Wait for pending tx on close."）里，
+内容附在下面。
+
+commit e929eba364732aa3a7eb76e2c9c38b7d23b8a980
+Author: Ben Johnson <benbjohnson@yahoo.com>
+Date:   Wed May 20 22:10:07 2015 -0600
+
+    Wait for pending tx on close.
+
+    This commit fixes the DB.Close() function so that it waits for any
+    open transactions to finish before closing.
+
+diff --git a/db.go b/db.go
+--- a/db.go
++++ b/db.go
+@@ -351,8 +351,15 @@ func (db *DB) init() error {
+ // Close releases all database resources.
+ // All transactions must be closed before closing the database.
+ func (db *DB) Close() error {
++	db.rwlock.Lock()
++	defer db.rwlock.Unlock()
++
+ 	db.metalock.Lock()
+ 	defer db.metalock.Unlock()
++
++	db.mmaplock.RLock()
++	defer db.mmaplock.RUnlock()
++
+ 	return db.close()
+ }

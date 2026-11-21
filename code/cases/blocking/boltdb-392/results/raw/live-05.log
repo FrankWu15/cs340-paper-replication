@@ -1,0 +1,9 @@
+[info] run_id=live-05 mode=live go=go1.26.8 os=linux arch=amd64 gomaxprocs=12
+[info] workload keys=512 value_bytes=4096 initial_mmap_size=32768 live_ticker_ms=50
+[info] lock_map view=mmaplock.RLock writer_growth=mmaplock.Lock (db.mmap)
+[trace] t_ms=9.581 event=db_opened
+[trace] t_ms=10.697 event=bucket_ready
+[trace] t_ms=16.868 event=live_ticker_started period_ms=50
+[trace] t_ms=20.009 event=view_entered mmaplock=RLock_held
+[trace] t_ms=22.354 event=writer_signalled
+[trace] t_ms=22.458 event=writer_started

@@ -1,0 +1,28 @@
+=== [b2/buggy] 编译 ===
+编译成功
+
+=== [b2/buggy] 运行 ===
+[1] Open 成功: /tmp/bolt-b2.db
+[2] 建 bucket 成功
+[3] 写事务已打开并写入 k1（尚未提交）
+[4] Close 在写事务未提交时就返回了，耗时 35.92µs  <-- buggy 行为
+[5] 写事务继续写入并提交 ...
+panic: runtime error: invalid memory address or nil pointer dereference
+[signal 0xb code=0x1 addr=0x0 pc=0x493bd5]
+
+goroutine 1 [running]:
+panic(0x51d980, 0xc82000a0f0)
+	/usr/local/go-versions/go1.6.4/src/runtime/panic.go:481 +0x3e6
+github.com/boltdb/bolt.(*Bucket).pageNode(0xc820071398, 0x4, 0x7fffffd9, 0x0)
+	/home/xlm/boltcases/b2/buggy/gopath/src/github.com/boltdb/bolt/bucket.go:692 +0x2e5
+github.com/boltdb/bolt.(*Cursor).search(0xc820041ac0, 0xc820041958, 0x1, 0x1, 0x4)
+	/home/xlm/boltcases/b2/buggy/gopath/src/github.com/boltdb/bolt/cursor.go:238 +0x40
+github.com/boltdb/bolt.(*Cursor).seek(0xc820041ac0, 0xc820041958, 0x1, 0x1, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, ...)
+	/home/xlm/boltcases/b2/buggy/gopath/src/github.com/boltdb/bolt/cursor.go:152 +0xda
+github.com/boltdb/bolt.(*Bucket).spill(0xc820071398, 0x0, 0x0)
+	/home/xlm/boltcases/b2/buggy/gopath/src/github.com/boltdb/bolt/bucket.go:520 +0x5e5
+github.com/boltdb/bolt.(*Tx).Commit(0xc820071380, 0x0, 0x0)
+	/home/xlm/boltcases/b2/buggy/gopath/src/github.com/boltdb/bolt/tx.go:151 +0x1d4
+main.main()
+	/home/xlm/boltcases/b2/buggy/gopath/src/repro/main.go:78 +0xb51
+退出码: 0

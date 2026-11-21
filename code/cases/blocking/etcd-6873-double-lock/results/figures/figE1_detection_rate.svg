@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="300">
+<rect width="560" height="300" fill="white"/>
+<text x="280.0" y="22" font-size="14" text-anchor="middle" font-family="sans-serif">Go runtime deadlock detector: reproducibility</text>
+<line x1="60" y1="250" x2="500" y2="250" stroke="black"/>
+<line x1="60" y1="40" x2="60" y2="250" stroke="black"/>
+<text x="54" y="254.0" font-size="10" text-anchor="end">0</text>
+<line x1="60" y1="250.0" x2="500" y2="250.0" stroke="#ddd"/>
+<text x="54" y="212.0" font-size="10" text-anchor="end">20</text>
+<line x1="60" y1="208.0" x2="500" y2="208.0" stroke="#ddd"/>
+<text x="54" y="170.0" font-size="10" text-anchor="end">40</text>
+<line x1="60" y1="166.0" x2="500" y2="166.0" stroke="#ddd"/>
+<text x="54" y="128.0" font-size="10" text-anchor="end">60</text>
+<line x1="60" y1="124.0" x2="500" y2="124.0" stroke="#ddd"/>
+<text x="54" y="86.0" font-size="10" text-anchor="end">80</text>
+<line x1="60" y1="82.0" x2="500" y2="82.0" stroke="#ddd"/>
+<text x="54" y="44.0" font-size="10" text-anchor="end">100</text>
+<line x1="60" y1="40.0" x2="500" y2="40.0" stroke="#ddd"/>
+<rect x="146.66666666666669" y="40.0" width="90" height="210.0" fill="#c0392b"/>
+<text x="191.66666666666669" y="34.0" font-size="12" text-anchor="middle">100%</text>
+<text x="191.66666666666669" y="266" font-size="11" text-anchor="middle">doublelock</text>
+<rect x="323.33333333333337" y="40.0" width="90" height="210.0" fill="#c0392b"/>
+<text x="368.33333333333337" y="34.0" font-size="12" text-anchor="middle">100%</text>
+<text x="368.33333333333337" y="266" font-size="11" text-anchor="middle">etcd6873</text>
+<text x="14" y="150.0" font-size="11" transform="rotate(-90 14 150.0)" text-anchor="middle">Detection rate (%)</text>
+</svg>

@@ -1,0 +1,17 @@
+############ grpc1424  path=go1.22.9-module  test=TestClientLBWatcherWithClosedBalancer$  iters=3  timeout=60s
+  下载 4e56696c6c5a8cd7b711a1eb8936463559361da5 ...
+  [fixed] 源码核验通过：4e56696c6c5a8cd7b711a1eb8936463559361da5
+  下载 39c8c3866d926d95e11c03508bf83d00f2963f91 ...
+  [buggy] 源码核验通过：39c8c3866d926d95e11c03508bf83d00f2963f91
+  [buggy] 测试文件已补齐（与 fixed 一致）
+  [buggy] iter1: FAIL(assert)  rc=1
+  [buggy] iter2: FAIL(assert)  rc=1
+  [buggy] iter3: FAIL(assert)  rc=1
+  [buggy] SUMMARY pass=0 fail=3 other=0
+  [fixed] iter1: PASS  rc=0
+  [fixed] iter2: PASS  rc=0
+  [fixed] iter3: PASS  rc=0
+  [fixed] SUMMARY pass=3 fail=0 other=0
+  [grpc1424] REPRODUCED  buggy_fail=3/3  fixed_pass=3/3
+############ RESULT: REPRODUCED
+############ DONE grpc1424

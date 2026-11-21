@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 346" font-family="Helvetica,Arial,sans-serif">
+<rect width="760" height="346" fill="#ffffff"/>
+<text x="24" y="32" font-size="17" font-weight="bold" fill="#2c3e50">Data-race detection — kubernetes-capabilities-race</text>
+<text x="24" y="51" font-size="12" fill="#607d8b">"WARNING: DATA RACE" reported / 20 runs (go build -race)</text>
+<text x="238" y="86" text-anchor="end" font-size="12.5" fill="#34495e">Go 1.26  buggy  -race</text>
+<rect x="260" y="73" width="420" height="20" rx="3" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="0.5"/>
+<rect x="260" y="73" width="420.0" height="20" rx="3" fill="#c0392b"/>
+<text x="690" y="88" font-size="12.5" font-weight="bold" fill="#2c3e50">20/20</text>
+<text x="238" y="132" text-anchor="end" font-size="12.5" fill="#34495e">Go 1.26  fixed  -race</text>
+<rect x="260" y="119" width="420" height="20" rx="3" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="0.5"/>
+<text x="690" y="134" font-size="12.5" font-weight="bold" fill="#2c3e50">0/20</text>
+<text x="238" y="178" text-anchor="end" font-size="12.5" fill="#34495e">Go 1.26  buggy  plain</text>
+<rect x="260" y="165" width="420" height="20" rx="3" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="0.5"/>
+<text x="690" y="180" font-size="12.5" font-weight="bold" fill="#2c3e50">0/20</text>
+<text x="238" y="224" text-anchor="end" font-size="12.5" fill="#34495e">Go 1.26  fixed  plain</text>
+<rect x="260" y="211" width="420" height="20" rx="3" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="0.5"/>
+<text x="690" y="226" font-size="12.5" font-weight="bold" fill="#2c3e50">0/20</text>
+<text x="238" y="270" text-anchor="end" font-size="12.5" fill="#34495e">Go 1.8   buggy  -race</text>
+<rect x="260" y="257" width="420" height="20" rx="3" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="0.5"/>
+<rect x="260" y="257" width="420.0" height="20" rx="3" fill="#c0392b"/>
+<text x="690" y="272" font-size="12.5" font-weight="bold" fill="#2c3e50">20/20</text>
+<text x="238" y="316" text-anchor="end" font-size="12.5" fill="#34495e">Go 1.8   fixed  -race</text>
+<rect x="260" y="303" width="420" height="20" rx="3" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="0.5"/>
+<text x="690" y="318" font-size="12.5" font-weight="bold" fill="#2c3e50">0/20</text>
+<text x="24" y="352" font-size="11.5" fill="#7f8c8d">Red = race present (bug reproduced)   Green = fix removes race   Grey = plain build (no detector; silent, NO deadlock)</text>
+</svg>

@@ -1,0 +1,57 @@
+grpc#1850 —— 客户端发送配额泄漏导致写大消息超时
+fix=484b3ebb4ab56d3decc8240d599718bdbefcf7eb
+pkg=test  test=TestClientDoesntDeadlockWhileWritingErrornousLargeMessages$  env=tcp-clear
+
+结论：已复现（独立两轮各 50 次：8/50、10/50）
+  buggy 侧：RPC 卡在写操作上，直到测试自己的 10s deadline 才返回 DeadlineExceeded
+            （期望是 ResourceExhausted）
+  fixed 侧：50/50 PASS，0 异常
+
+===============================================================================
+为什么 3 次循环看不出问题、50 次才看出来
+===============================================================================
+这条 bug 不是"必然死锁"，而是"按概率泄漏连接级发送配额"。
+
+transport/http2_client.go 的 Write() 循环里连续申请三种配额：
+
+    streamQuota = s.sendQuotaPool.get(MaxInt32)   // 流窗口
+    tq          = t.sendQuotaPool.get(size)       // 连接窗口
+    ltq         = t.localSendQuota.get(size)      // 本地软额度 128KB（连接级共享）
+
+只有第三处失败时，buggy 会直接 return 而不把已借到的 tq 还给连接级池；
+fixed 补上的正是这一行 t.sendQuotaPool.add(tq)。
+
+要走到第三处失败，必须让 loopyWriter 的入队速度持续快于出队速度，把 128KB 本地
+软额度吃干净，此时大量 Write 堆在 localSendQuota.get 上、且每个都已持有 tq；
+这时流被 RST 或 context 取消，才会成批泄漏。这个时序是概率性的。
+
+单轮 0.22s 就跑完的黑盒测试里，3 次命中概率太低（上一轮 13 次全 PASS），
+循环 50 次稳定看到 16%~20%。
+
+===============================================================================
+判定口径的修正（上一轮误判的原因）
+===============================================================================
+上一轮只把 go test 的整体 `test timed out` 当作命中，把
+`--- FAIL ... DeadlineExceeded` 归成 OTHER，因而漏判。
+
+实际官方测试内部给每条 RPC 设了 10s deadline，RPC 卡在写操作上时，
+先到期的就是这个 deadline，表现为测试 FAIL 而不是测试整体超时。
+
+现在的判定：
+  DEADLINE_HIT  → 输出含 "DeadlineExceeded"      （复现）
+  TIMEOUT       → 输出含 "test timed out"         （复现，更强形态）
+  PASS          → 以 ok 开头
+  OTHER         → 其余
+
+===============================================================================
+证据
+===============================================================================
+iter3/    上一轮的 3 次对照（两侧各 3 份，全 PASS）
+          保留下来，正好说明"循环次数少时看不出来"
+          summary_iter3.txt 是当时的原始汇总
+loop50/
+  buggy_summary.txt   50 次逐行判定，SUMMARY pass=42 deadline_hit=8 hit_rate=16%
+  fixed_summary.txt   50 次逐行判定，SUMMARY pass=50 deadline_hit=0
+  buggy_hit_iter{4,6,8,16,25,26,28,43}.log   8 份命中原始输出
+
+重跑：bash code/cases/grpc-1850/run_loop.sh 50
