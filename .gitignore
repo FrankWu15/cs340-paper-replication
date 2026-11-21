@@ -101,6 +101,10 @@ go-concurrency-bugs-master/
 2026-11-13/
 .workbuddy/
 
+# Reading-report and translation builders: local study material, not part of
+# the replication deliverable. They also need go-study.pdf, which stays local.
+docx_src/
+
 # Root-level files superseded by code/harness/ and data/repo.lock.tsv
 /Makefile
 /run.sh
