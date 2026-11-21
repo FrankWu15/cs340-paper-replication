@@ -1,4 +1,4 @@
-# analysis —— P0–P2 分析脚本
+# analysis —— P0–P6 分析脚本
 
 论文复现的前半段：把「论文说了什么」变成能核对的数字。脚本按流水线编号，
 `_paths.sh` 提供路径与 Go 工具链变量，`local.env` 可覆盖。
@@ -13,6 +13,20 @@
 | `06_feasibility.py` | 44 条目标的可行性筛选（能不能在本机复现） | `data/feasibility_44.csv` |
 | `07_audit_bug_table.py` | 审计 bug 表：`Reproduced?` 三值统计、空行来源 | 审计结论（见 `p1_limitation.md`） |
 | `check_pins.py` | 校验 6 仓库 commit 数是否与论文一致 | 通过/不通过 |
+| `04_lifecycle.py` | 由申报/修复时间算 bug 生命周期 CDF（论文 Figure 4） | `data/bug_lifetime.csv`、`data/lifecycle_cdf.csv`、`report/figures/fig4_bug_lifetime.svg` |
+| `05_stats_figures.py` | 从 artifact one-hot 表重算 Table 6/7/9/10/11 与两组 lift，内置论文数字自检（任一格不符非零退出） | `data/tables/*.csv`、`report/appendix/tables_6_11.md` |
+| `08_evolution.py` | 6 应用 × 14 季度采样，统计原语比例随时间的演化（Figure 2/3 的自测数据） | `data/evolution_primitive_usage.csv` |
+| `09_fig23.py` | 反解论文 PDF 的矢量曲线并插值到 14 个刻度，与我们的实测画在同一张图（辅助脚本 `extract_fig23.py`） | `report/figures/fig{2,3}_*.svg`、`data/fig23_compare.csv` |
+
+## 三个测量子目录（论文 §3.1 / §3.2 的 C 侧对照）
+
+不与 Go 侧流水线混号，各自一个目录，内含脚本、原始输出与说明：
+
+| 目录 | 做什么 | 产出 |
+|---|---|---|
+| `grpc-c-creation/` | 数 gRPC-C 线程创建点，验证 Table 2 第七行的 5 与 0.03/KLOC | 创建点清单、版本敏感性（v1.10/1.11/1.12/1.20） |
+| `grpc-c-primitives/` | 数 gRPC-C 的 `gpr_mu_*` 调用，验证 §3.2 的 746 | 746 精确命中，C vs Go 对照表 |
+| `table3-dynamic/` | 实测运行时 goroutine 数，验证 Table 3 的 201.46 比值 | 1000 并发 → 1019 goroutine，比值 5.06 |
 
 ## 已知结论（这三条别再重算）
 

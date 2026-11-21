@@ -105,3 +105,6 @@ go-concurrency-bugs-master/
 /Makefile
 /run.sh
 /repo.lock.tsv
+
+### Full Chinese translation of the paper: kept locally, not redistributed
+2609_CS340_Research_Paper_Replication.zh.md
