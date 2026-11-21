@@ -1,0 +1,5 @@
+=== RUN   TestFollowLogsClosedConsumer
+VERDICT: OK  reader returned and the file watcher was removed
+--- PASS: TestFollowLogsClosedConsumer (2.21s)
+PASS
+ok  	github.com/docker/docker/daemon/logger/jsonfilelog	2.208s

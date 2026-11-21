@@ -1,0 +1,5 @@
+=== RUN   TestExitedFilter
+VERDICT: OK (returned)
+--- PASS: TestExitedFilter (0.07s)
+PASS
+ok  	github.com/docker/docker/daemon	0.081s

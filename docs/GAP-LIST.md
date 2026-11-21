@@ -4,6 +4,10 @@
 - 核查对象：`origin/main` = `cc996c6`（2026-11-21，朱奕铭 "add two cases"），28 个提交，1114 个文件，5.4 MB
 - 依据：`2609_CS340_Research_Paper_Replication.pdf`（第 1 节报告、第 3 节 Git 检查）+ `go-study.pdf`（ASPLOS'19）
 
+> **本文是 `cc996c6` 时点的快照，不是当前状态。** 其后 11-18/11-21 两批已经把 Table 6/7/9/10/11、
+> Fig 2/3、Table 3 比值列、补充 7 条复现等缺口补掉，下面的 ❌ 有一半已不成立。
+> 当前完成度只看 [`COMPLETION-STATUS.md`](COMPLETION-STATUS.md)；本文保留作「当时缺什么」的记录。
+
 ---
 
 ## A. 课程硬性要求（Git / 仓库）

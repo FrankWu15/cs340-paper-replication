@@ -1,0 +1,29 @@
+=== RUN   TestFollowLogsClosedConsumer
+VERDICT: BUG  reader never returned after the consumer closed
+  goroutine 6 [running]:
+  github.com/docker/docker/daemon/logger/jsonfilelog.TestFollowLogsClosedConsumer(0xc420086180)
+  /home/li/gopath/src/github.com/docker/docker/daemon/logger/jsonfilelog/zz_repro_followlogs_test.go:87 +0x85e
+  testing.tRunner(0xc420086180, 0x5b0650)
+  /home/li/toolchain/go1.7.6/src/testing/testing.go:610 +0x81
+  ---
+  goroutine 1 [chan receive]:
+  testing.(*T).Run(0xc4200860c0, 0x59fcde, 0x1c, 0x5b0650, 0xc42003bd01)
+  /home/li/toolchain/go1.7.6/src/testing/testing.go:647 +0x316
+  testing.RunTests.func1(0xc4200860c0)
+  /home/li/toolchain/go1.7.6/src/testing/testing.go:793 +0x6d
+  ---
+  goroutine 7 [select]:
+  github.com/docker/docker/daemon/logger/jsonfilelog.followLogs(0xc420028058, 0xc420014840, 0xc42006a720, 0x0, 0x0, 0x0)
+  /home/li/gopath/src/github.com/docker/docker/daemon/logger/jsonfilelog/read.go:303 +0x9a9
+  github.com/docker/docker/daemon/logger/jsonfilelog.(*JSONFileLogger).readLogs(0xc42000af40, 0xc420014840, 0x0, 0x0, 0x0, 0x0, 0x1)
+  /home/li/gopath/src/github.com/docker/docker/daemon/logger/jsonfilelog/read.go:107 +0x6c0
+  ---
+  goroutine 10 [semacquire]:
+  sync.runtime_notifyListWait(0xc42000b0d0, 0x0)
+  /home/li/toolchain/go1.7.6/src/runtime/sema.go:267 +0x122
+  sync.(*Cond).Wait(0xc42000b0c0)
+  /home/li/toolchain/go1.7.6/src/sync/cond.go:57 +0x80
+  ---
+--- PASS: TestFollowLogsClosedConsumer (5.03s)
+PASS
+ok  	github.com/docker/docker/daemon/logger/jsonfilelog	5.030s

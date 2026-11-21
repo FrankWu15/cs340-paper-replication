@@ -1,0 +1,19 @@
+=== RUN   TestExitedFilter
+VERDICT: DEADLOCK  Daemon.Containers() did not return within 5s
+  github.com/docker/docker/daemon.TestExitedFilter(0xc8201b0480)
+  /home/li/gopath/src/github.com/docker/docker/daemon/zz_repro_exited_test.go:82 +0xe7e
+  github.com/docker/docker/daemon/_test/_testmain.go:78 +0x116
+  sync.(*Mutex).Lock(0xc82010d3b0)
+  github.com/docker/docker/daemon.(*State).GetExitCode(0xc82010d3b0, 0xa48b28)
+  /home/li/gopath/src/github.com/docker/docker/daemon/state.go:128 +0x28
+  github.com/docker/docker/daemon.(*Daemon).Containers.func2(0xc820071380, 0x0, 0x0)
+  /home/li/gopath/src/github.com/docker/docker/daemon/list.go:102 +0x555
+  github.com/docker/docker/daemon.(*Daemon).Containers(0xc8200fab40, 0xc820176a80, 0xc82001b980)
+  /home/li/gopath/src/github.com/docker/docker/daemon/list.go:152 +0xb3b
+  github.com/docker/docker/daemon.TestExitedFilter.func1(0xc82001b980, 0xc8200fab40, 0xc820176a80)
+  /home/li/gopath/src/github.com/docker/docker/daemon/zz_repro_exited_test.go:72 +0x56
+  created by github.com/docker/docker/daemon.TestExitedFilter
+  /home/li/gopath/src/github.com/docker/docker/daemon/zz_repro_exited_test.go:74 +0xb2d
+--- PASS: TestExitedFilter (5.07s)
+PASS
+ok  	github.com/docker/docker/daemon	5.082s

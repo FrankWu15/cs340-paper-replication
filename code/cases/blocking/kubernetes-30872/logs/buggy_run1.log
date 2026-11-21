@@ -1,0 +1,2 @@
+VERDICT: DEADLOCK
+ClustersSynced 卡在 HasSynced 回调里：外层已持锁，回调再次加锁

@@ -26,6 +26,10 @@
 
 `data/repro_summary_1121.csv` 是本批 3 行，字段与 `repro_summary_1118.csv` 一致，合并后即 28 行。
 
+> 同一天稍后的「补充 7 条」批次（docker 4 + kubernetes 2 + cockroachdb 1，`code/cases/` 下带 † 标记）
+> 又把总数推到 **24/41、blocking 17/21、non-blocking 7/20、仓库 35 个 bug 点**。本节的
+> 17/41 是 etcd 批结束时的数字，不含补充批次。
+
 ## 三条各自的方法差异（不可混算）
 
 | 条目 | kind | 判据 | 备注 |

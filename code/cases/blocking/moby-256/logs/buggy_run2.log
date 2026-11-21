@@ -1,0 +1,2 @@
+VERDICT: DEADLOCK
+CmdStream 5s 未读完：子进程卡在 stderr 写入，父进程卡在等 stdout EOF

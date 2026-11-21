@@ -1,0 +1,5 @@
+=== RUN   TestCmdStreamStderrFlood
+VERDICT: OK (5 bytes, err=<nil>)
+--- PASS: TestCmdStreamStderrFlood (0.00s)
+PASS
+ok  	command-line-arguments	0.006s

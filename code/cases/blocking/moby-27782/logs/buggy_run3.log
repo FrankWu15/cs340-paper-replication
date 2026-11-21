@@ -1,0 +1,2 @@
+VERDICT: DEADLOCK
+followLogs 卡在 Msg <- msg：消费者已断开，无缓冲通道无人接收

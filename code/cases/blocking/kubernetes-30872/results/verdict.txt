@@ -1,0 +1,6 @@
+case: kubernetes-30872
+runs per side: 3
+buggy failures: 3/3
+fixed failures: 0/3
+
+REPRODUCED

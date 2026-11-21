@@ -1,0 +1,2 @@
+VERDICT: DEADLOCK
+Containers() 3s 未返回，卡在 lock 与 GetExitCode 的嵌套加锁

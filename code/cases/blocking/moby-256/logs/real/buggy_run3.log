@@ -1,0 +1,8 @@
+=== RUN   TestCmdStreamStderrFlood
+VERDICT: DEADLOCK  CmdStream reader did not finish within 5s
+  archive.go: inside the goroutine, io.Copy(pipeW, stdout) waits for
+  stdout EOF while the child is stuck writing stderr; stderr is only
+  read after io.Copy returns
+--- PASS: TestCmdStreamStderrFlood (5.00s)
+PASS
+ok  	command-line-arguments	5.003s

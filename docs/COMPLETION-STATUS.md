@@ -13,14 +13,25 @@
 | etcd        |       13 |      6 |     46% |      7 |
 | grpc-go     |       10 |      7 |     70% |      3 |
 | boltdb      |        4 |      3 |     75% |      1 |
-| docker      |        8 |      1 |     13% |      7 |
-| kubernetes  |        4 |      0 |      0% |      4 |
-| cockroachdb |        2 |      0 |      0% |      2 |
-| **合计**      |   **41** | **17** | **41%** | **24** |
+| docker      |        8 |      5 |     63% |      3 |
+| kubernetes  |        4 |      2 |     50% |      2 |
+| cockroachdb |        2 |      1 |     50% |      1 |
+| **合计**      |   **41** | **24** | **59%** | **17** |
 
-按类型：blocking **13/21**（62%）、non-blocking **4/20**（20%）。
+按类型：blocking **17/21**（81%）、non-blocking **7/20**（35%）。
 
-仓库里共有 **28 个 bug 点**：17 条落在论文 41 条内，另 11 条在集合外（`defdb743c`、`1cc69980`、etcd#6873、etcd double-lock、k8s#62464、#20697、etcd#4997、grpc#1546、k8s#9926、docker `0d9e543`、Moby#16309），集合外的不能计入分子。
+仓库里共有 **35 个 bug 点**：24 条落在论文 41 条内，另 11 条在集合外（`defdb743c`、`1cc69980`、etcd#6873、etcd double-lock、k8s#62464、#20697、etcd#4997、grpc#1546、k8s#9926、docker `0d9e543`、Moby#16309），集合外的不能计入分子。
+
+**11-21 补充 7 条**（docker 4、kubernetes 2、cockroachdb 1），全部在 41 条内，已全部上架到
+`code/cases/`。**形态必须分开看**，混写会被判虚报：
+
+| 形态 | 条数 | 哪些 |
+|---|---:|---|
+| `real-repo`（上游函数本体原样执行） | 2 | `moby-8909`（`Daemon.Containers()`）、`moby-256`（上游 `archive.go`） |
+| `minimal`（按补丁还原调用序列，标准库重写） | 5 | `moby-27782`、`moby-28682`、`kubernetes-30872`、`kubernetes-36377`、`cockroachdb-17112` |
+
+`moby-27782` 试过 real-repo 但结论不成立（卡在 fsnotify 而非目标行），**不计入 real-repo**，仍以
+minimal 为准。依据与命令见 `code/cases/real-repo-notes.md`。
 
 **etcd 6 条**：11-18 的 #6937/#5509/#4679（DEADLOCK/CLEAN，minimal 复现体）；11-21 的 #4033（HANG/PASS）、#4474（CRASH/CLEAN）、#6278（DEADLOCK/CLEAN），三条都跑在真实 etcd 源码上。详见 `docs/BATCH-11-21.md`。
 
@@ -37,7 +48,7 @@
 | 3  | 人工判读候选                   | → 171 个真 bug   | 不做，全部采用 artifact 标签（有声明）                                                                | ⬜ 主动跳过           |
 | 4  | 二维分类                     | Table 5        | 用 artifact 标签重算，与原表一致                                                                   | ✅                |
 | 5  | bug 生命周期                 | Fig 4          | `report/appendix/p6_lifecycle.md` + `report/figures/fig4_bug_lifetime.svg`，63 条（3/6 应用） | ✅ 缩小规模           |
-| 6  | 复现 bug                   | §4，41 条        | 仓库共 **28 个 bug 点**，其中 **17 条落在论文 41 条内**，另 11 条在集合外                                     | 🟡 17/41，仓库 28   |
+| 6  | 复现 bug                   | §4，41 条        | 仓库共 **35 个 bug 点**，其中 **24 条落在论文 41 条内**，另 11 条在集合外                                     | 🟡 24/41，仓库 35   |
 | 7  | goroutine 创建点            | Table 2        | `p2_static.md`，Total 列平均偏差 4.5%                                                         | ✅                |
 | 8  | gRPC-C 线程创建点             | §3.1 对照        | v1.10.0 源码实测：核心路径 **5 个**创建点、147.1K 行、0.034/KLOC，与论文 5 / 0.03 一致                        | ✅                |
 | 9  | 动态创建点测量                  | Table 3        | Go 侧三组实测：1000 并发 → **1019 goroutine**，÷论文比值 201.46 = 5.06（C 线程池 5 线程），自洽；存活时间列口径不可对齐    | 🟡 比值列复现         |
@@ -58,19 +69,24 @@
 
 ## 3. P5 检测器实测明细
 
-### Table 8（内置死锁检测器，13 个 blocking 点）
+### Table 8（内置死锁检测器，17 个 blocking 点）
 
 | 分类                       | 已测 |    检出 | 说明                                              |
 | ------------------------ | -: | ----: | ----------------------------------------------- |
 | `real-repo`（链接真实源码/官方测试） |  6 | **1** | 只有 boltdb-392；grpc 793/1293/1424/1459/1850 全部不报 |
 | `minimal`（自写最小重实现）       |  5 | **5** | cockroachdb、etcd#6873×2、k8s#62464/#20697        |
-| 合计                       | 11 |     6 | 未测 2：`boltdb-begin-lock-leak`、`moby-17176`      |
+| 合计                       | 11 |     6 | 未测 6：`boltdb-begin-lock-leak`、`moby-17176`，以及 11-21 新增的 `moby-8909`、`moby-256`、`moby-27782`、`kubernetes-30872` |
+
+11-21 新增的 4 条 blocking **没有检测器证据，不进分子也不进分母**。它们的
+`VERDICT: DEADLOCK` 是驱动侧**外部超时**判的（3~5s 未返回），日志里没有
+`all goroutines are asleep - deadlock!`——名字一样，判据不是一回事。补测时
+`moby-8909`、`moby-256` 若报，才可进 `real-repo` 那一行。
 
 与论文 2/21 的对话方式：只能拿 `real-repo` 那行比，即 **1/6**；`minimal` 的 5/5 只证明复现体确实死锁，不能算「Go 抓到了真实 bug」。
 
 grpc 五条的死锁**成立**（SIGQUIT 栈可证），但不报的原因已实测确认：`checkdead()` 要求全体 goroutine 睡死且 timers 为空、netpoll 无事件，真实 server 永远有 IO/select 协程存活。证据在 `results/logs/p5-1118/`。
 
-### Table 12（`-race`，6 个 non-blocking 点）
+### Table 12（`-race`，10 个 non-blocking 点，已测 6）
 
 | bug               | 形态                                      | 运行次数 |  检出 | 首次命中 |
 | ----------------- | --------------------------------------- | ---: | --: | ---: |
@@ -82,6 +98,11 @@ grpc 五条的死锁**成立**（SIGQUIT 栈可证），但不报的原因已实
 | boltdb#341        | Close 不等写事务                             |   未跑 |   — |    — |
 
 实测 **3/6**，方向与论文一致：纯 data race 能报，order/atomicity 类天然检不到（论文 lib 0/2、chan 0/1 同理）。
+
+11-21 新增的 3 条 non-blocking（`moby-28682`、`kubernetes-36377`、`cockroachdb-17112`）**没跑
+`-race`**：本机 `go build -race` 能过，但产物启动即 `0xC0000139`（race 运行时 DLL 缺失）。
+改用了可观测不变量（漏发计数、store 对象是否被改写、快照长度 vs 决策长度），
+能证明 bug 成立，但**不能替 Table 12 记检出**。
 
 ---
 
@@ -113,12 +134,12 @@ lift 对照：
 ## 5. 一句话结论
 
 实验侧已经完成的是「**静态测量 + 一部分复现 + 两个检测器实验 + 两张时间图 + 五张统计表 + 两处跨语言对照**」：  
-Table 1/2/4/5/6/7/9/10/11 九张可交（其中六张逐格与论文一致），41 条复现 17/41（仓库 28 个 bug 点），Table 8/12 有实测但分母小，Fig 4 已出图（63/171 条），Fig 2/3 已出图（6 应用 × 14 季度），Table 3 比值列已复现，gRPC-C 与 gRPC-Go 的原语对照已补（746 精确命中）。
+Table 1/2/4/5/6/7/9/10/11 九张可交（其中六张逐格与论文一致），41 条复现 24/41（仓库 35 个 bug 点，11-21 新增的 7 条里 real-repo 2 条、minimal 5 条），Table 8/12 有实测但分母小，Fig 4 已出图（63/171 条），Fig 2/3 已出图（6 应用 × 14 季度），Table 3 比值列已复现，gRPC-C 与 gRPC-Go 的原语对照已补（746 精确命中）。
 
 真正缺的只剩三处**口径问题**，不是没做：
 
 1. Table 3 的存活时间列口径不可对齐（见 `report/appendix/table3_dynamic.md`）；
-2. Table 8 的 real-repo 分母只有 6 条（minimal 5 条不能混算）；
+2. Table 8 的 real-repo 分母只有 6 条（minimal 5 条不能混算，11-21 新增 4 条未测）；
 3. Fig 2/3 里 CockroachDB 形状不符（MAE 3.3 pp、r≈0），与 Table 4 里它 Total −18% 是同一件事。
 
-另有 **41 条里还剩 24 条**未复现，集中在 docker（7）、kubernetes（4）、etcd（7）、cockroachdb（2）、grpc（3）、boltdb（1）。
+另有 **41 条里还剩 17 条**未复现，集中在 etcd（7）、docker（3）、grpc（3）、kubernetes（2）、cockroachdb（1）、boltdb（1）。
