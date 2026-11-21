@@ -1,0 +1,13 @@
+===== Docker moby#0d9e543 Minimal Reproduction =====
+
+====== Before Fix ======
+  [Stop] Acquiring the state lock
+  [Stop] Simulating container shutdown timeout
+  [Kill] Attempting to acquire the state lock
+Result: Operation timed out after 2 seconds (lock blocked)
+
+====== After Fix ======
+  [Stop] Acquiring the state lock
+  [Stop] Simulating container shutdown timeout
+  [kill] Executing internal kill without acquiring the lock
+Result: Completed successfully

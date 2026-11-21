@@ -1,0 +1,20 @@
+--- /home/dreaming/projects/moby-volume-before/moby-59311faaed4e3384fc8da738a57a25f17ae07e05/daemon/volumes.go	2015-09-15 22:55:51.000000000 +0800
++++ /home/dreaming/projects/moby-volume-after/moby-2d21996eec8d3e6100f19fa0d0fa7adad25285ca/daemon/volumes.go	2015-09-16 01:38:53.000000000 +0800
+@@ -227,6 +227,8 @@
+ 
+ // Count returns the usage count of the passed in volume
+ func (s *volumeStore) Count(v volume.Volume) int {
++	s.mu.Lock()
++	defer s.mu.Unlock()
+ 	vc, exists := s.vols[v.Name()]
+ 	if !exists {
+ 		return 0
+@@ -236,6 +238,8 @@
+ 
+ // List returns all the available volumes
+ func (s *volumeStore) List() []volume.Volume {
++	s.mu.Lock()
++	defer s.mu.Unlock()
+ 	var ls []volume.Volume
+ 	for _, vc := range s.vols {
+ 		ls = append(ls, vc.Volume)

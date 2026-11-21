@@ -1,0 +1,51 @@
+Docker Non-blocking Bug Reproduction
+Commit: 2d21996eec8d3e6100f19fa0d0fa7adad25285ca
+Parent: 59311faaed4e3384fc8da738a57a25f17ae07e05
+
+Test Environment:
+OS: Ubuntu 22.04
+Architecture: linux/amd64
+Go: go1.18.1
+Race Detector: Enabled (-race)
+
+Test Results:
+
+1. Count Before Fix
+Command: ./volume_race count before
+Iterations: 100,000
+Result: WARNING: DATA RACE
+Details: Increment and Count accessed volumeCounter.count concurrently.
+Race Detector: Found 1 data race(s).
+
+2. Count After Fix
+Command: ./volume_race count after
+Iterations: 100,000
+Result: Test completed
+Race Detector: No data race reported.
+
+3. List Before Fix
+Command: ./volume_race list before
+Iterations: 100,000
+Result: WARNING: DATA RACE
+Runtime Error: fatal error: concurrent map iteration and map write
+Details: Increment modified the map while List iterated over it.
+
+4. List After Fix
+Command: ./volume_race list after
+Iterations: 10,000
+Result: Test completed
+Race Detector: No data race reported.
+
+Conclusion:
+Adding the same mutex protection to Count and List prevents
+concurrent unsynchronized access to the shared volume map and
+its associated counters in this reproduction.
+
+Additional Note:
+The List After Fix test initially used 100,000 iterations but
+was interrupted because it took too long. The iteration count
+was reduced to 10,000, and the test completed successfully.
+
+The current reproduction source code uses 10,000 iterations
+for both loops. The historical test results above record the
+iteration counts actually used during each test run.

@@ -1,0 +1,16 @@
+===== Go Runtime Deadlock Detection =====
+Main goroutine acquired the mutex
+Attempting to acquire the same mutex again...
+fatal error: all goroutines are asleep - deadlock!
+
+goroutine 1 [sync.Mutex.Lock]:
+internal/sync.runtime_SemacquireMutex(0xa1c45e2c050?, 0x60?, 0x2e?)
+	C:/Program Files (x86)/Go/src/runtime/sema.go:95 +0x25
+internal/sync.(*Mutex).lockSlow(0xa1c45e32120)
+	C:/Program Files (x86)/Go/src/internal/sync/mutex.go:149 +0x15a
+internal/sync.(*Mutex).Lock(...)
+	C:/Program Files (x86)/Go/src/internal/sync/mutex.go:70
+sync.(*Mutex).Lock(...)
+	C:/Program Files (x86)/Go/src/sync/mutex.go:46
+main.main()
+	C:/Users/Li/Desktop/新建文件夹 (2)/code/cases/blocking/moby-0d9e543/detector/runtime_deadlock.go:17 +0x10e

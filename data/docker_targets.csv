@@ -1,0 +1,3 @@
+﻿uid,bug_id,app,behavior,fix_commit,parent_commit,source_file,cause_group,in_paper_repro_targets,has_case,case_path,verdict_2026_11_21
+docker@0d9e5436,,docker,blocking,0d9e54367f7bf7da9670de723d533eaa920868c8,9c3d2b6a4ed46eb3549416ceffd61683ad0a8efe,container.go,shared_memory,no,yes,code/cases/blocking/moby-0d9e543,"repro_buggy=TIMEOUT repro_fixed=CLEAN detector=DEADLOCK"
+Moby#16309,Moby#16309,docker,non-blocking,2d21996eec8d3e6100f19fa0d0fa7adad25285ca,59311faaed4e3384fc8da738a57a25f17ae07e05,daemon/volumes.go,shared_memory,no,yes,code/cases/non-blocking/moby-2d21996,"NOT_RECHECKED（-race 需 Linux，虚拟机未开）"
