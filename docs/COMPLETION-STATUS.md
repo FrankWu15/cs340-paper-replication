@@ -1,6 +1,6 @@
 # 实验完成情况（只列实验，不含报告格式与仓库管理）
 
-- 快照：`origin/main` = `26afe62`（2026-11-21，11-21 批次已按统一布局上架：etcd 三条进 `code/cases/blocking/`、统计脚本进 `code/analysis/`、表进 `data/`、报告进 `report/appendix/`）
+- 快照：`origin/main` = `941159b`（2026-11-21；11-21 etcd 三条进 `code/cases/blocking/`、统计脚本进 `code/analysis/`、表进 `data/`；同日补充 7 条按 blocking/non-blocking 分入 `code/cases/`）
 - 口径：论文 *Understanding Real-World Concurrency Bugs in Go*（ASPLOS'19）自报的实验活动
 - 说明：本文只回答「论文做了哪些实验、我们做到哪」，不含 v1.0、LICENSE、commit 署名、报告写作等非实验项
 
