@@ -1,4 +1,0 @@
-case,category,repo,bug_id,fix_commit,buggy_basis,trigger,buggy_verdict,fixed_verdict,owner,evidence
-etcd-6937,blocking,etcd,etcd#6937,91ff6f30b50a14158ec10cdd24836d775a336f52,91ff6f30b5^,bcast() 持 wb.mu.Lock 后调用 size() 取 RLock（同一把 RWMutex）,DEADLOCK,CLEAN,1240012318,logs/buggy.log（exit=2，all goroutines are asleep）+ logs/fixed.log（exit=0）
-etcd-5509,blocking,etcd,etcd#5509,1d8813052292e6053957fae01d080fde9717f3fc,1d88130522^,acquire() 先 client.mu.RLock 后 r.mu.Lock，与 reconnect() 的 r.mu→client.mu(写) 成环,DEADLOCK,CLEAN,1240012318,logs/buggy.log（ABBA 两侧栈）+ logs/fixed.log（500 轮通过）
-etcd-4679,blocking,etcd,etcd#4679,d21d2e6624bc5400e52baa45804668f5f9b6a161,d21d2e6624^,Close() 全程持 c.mu 并等待 watcher 退出，而 watcher 退出路径需要 c.mu,DEADLOCK,CLEAN,1240012318,logs/buggy.log（栈停在 watcher.Close 的 <-donec）+ logs/fixed.log（exit=0）

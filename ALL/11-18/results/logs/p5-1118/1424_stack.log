@@ -1,4 +1,0 @@
-=== RUN   TestClientLBWatcherWithClosedBalancer
---- FAIL: TestClientLBWatcherWithClosedBalancer (0.10s)
-	clientconn_test.go:390: lbWatcher with closed balancer didn't close doneChan after 100ms
-FAIL

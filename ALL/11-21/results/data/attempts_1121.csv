@@ -1,5 +1,0 @@
-﻿bug_id,category,method,buggy_result,fixed_result,verdict,reason,log
-etcd#3593,non-blocking,go test -race -run TestWriteReadTimeoutListener ./pkg/transport,PASS（0 race）,PASS（0 race）,NOT_REPRODUCED,race 在 time.AfterFunc(5×wtimeoutd=50ms) 回调里调 t.Fatal；测试本身 30ms 内结束，timer 从不触发,results/logs/etcd3593_buggy.log
-etcd#8183,non-blocking,go test -race -run TestRevision ./compactor,PASS（2 tests / 0 race）,PASS（0 race）,NOT_REPRODUCED,fakeRevGetter.rev 只在 compactor 单 goroutine 路径被读写，-race 打不出并发,results/logs/etcd8183_buggy.log
-etcd#3060,non-blocking,go test -race -count=100 -run TestStopRaftWhenWaitingForApplyDone ./etcdserver,PASS×100（0 race）,PASS×100（0 race）,NOT_REPRODUCED,r.stopped 在 go r.run() 之后才创建的窗口极窄；100 轮未命中 nil-channel 阻塞,results/logs/etcd3060_buggy_100.log
-etcd#6278(integration),blocking,go test -run TestElectionOnPrefixOfExistingKey ./integration,300s timed out,300s timed out,METHOD_BLOCKED,fixed 侧同样起不来集群：2016 版 integration 框架在本环境卡在 member.Launch；改用真实 server+驱动器后复现成功,results/logs/etcd6278_integration_buggy.log

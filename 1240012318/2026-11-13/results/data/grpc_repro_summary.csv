@@ -1,4 +1,0 @@
-case,fix_commit,behavior,tier,buggy_verdict,fixed_verdict,reproduced,hit_rate,evidence,note
-grpc-1459,c29d6389e66f5da1a226df88607857aab4db9f7a,blocking,B,TIMEOUT x3,PASS x3,yes,3/3,results/logs/grpc-1459,keepalive 唤醒令牌不复位
-grpc-1667,a62701e4aa1d276bec70311251d62a478404d63f,non-blocking,B,RACE x3,PASS x3,yes,3/3,results/logs/grpc-1667,subConns map 无同步
-grpc-1850,484b3ebb4ab56d3decc8240d599718bdbefcf7eb,blocking,A,DEADLINE 8/50 与 10/50,PASS 50/50,yes,16%~20%,results/logs/grpc-1850/loop50,发送配额泄漏；3 次循环看不出来，需 loop50

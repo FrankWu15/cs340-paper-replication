@@ -1,7 +1,0 @@
-# 关闭换行符自动转换：artifact 里的 169 个补丁按字节匹配，
-# 一旦 LF 被转成 CRLF，git apply 的上下文行就对不上。
-* -text
-
-# 脚本统一 LF，保证在 Linux 虚机上可直接执行
-*.sh   text eol=lf
-*.py   text eol=lf
