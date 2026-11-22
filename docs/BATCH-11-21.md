@@ -24,7 +24,9 @@
 | blocking | 10/21 (48%) | **13/21 (62%)** |
 | etcd | 3/13 | **6/13** |
 
-`data/repro_summary_1121.csv` 是本批 3 行，字段与 `repro_summary_1118.csv` 一致，合并后即 28 行。
+`data/repro_summary_1121.csv` 是本批 3 行，字段与 `repro_summary_1118.csv` 一致。
+2026-11-22 已把这两批共 6 行并入 `results/data/repro_summary.csv`，主表 33 条，
+逐条清单见 [`REPRODUCTION-TABLE.md`](REPRODUCTION-TABLE.md)。
 
 > 同一天稍后的「补充 7 条」批次（docker 4 + kubernetes 2 + cockroachdb 1，`code/cases/` 下带 † 标记）
 > 又把总数推到 **24/41、blocking 17/21、non-blocking 7/20、仓库 35 个 bug 点**。本节的

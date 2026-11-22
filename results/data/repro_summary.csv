@@ -26,3 +26,9 @@ kubernetes-30872,blocking,kubernetes,kubernetes#30872,681d153050930f67945fc308ad
 moby-28682,non-blocking,docker,Moby#28682,4e262f63876018ca78d54a98eee3f533352b0ac9,fix^,run.sh（ready 与 ctx.Done 双 case select）,BUG 3/3（漏发 85~105/200）,OK 3/3,李振炜 1240012318,code/cases/non-blocking/moby-28682/results
 kubernetes-36377,non-blocking,kubernetes,kubernetes#36377,647b826d697abdc50aa4808fa21604c9f6fe80a4,fix^,run.sh（GetByKey 原地修改 share 对象）,BUG 3/3（annotations 1→2）,OK 3/3,李振炜 1240012318,code/cases/non-blocking/kubernetes-36377/results
 cockroachdb-17112,non-blocking,cockroachdb,cockroachdb#17112,d5a604c99d9e9741f7f2242de204abde1b47c2d9,fix^,run.sh（checkpoint 锁内决策锁外读）,BUG 3/3（约 210 次/2s）,OK 3/3,李振炜 1240012318,code/cases/non-blocking/cockroachdb-17112/results
+etcd-6937,blocking,etcd,etcd#6937,91ff6f30b50a14158ec10cdd24836d775a336f52,91ff6f30b5^,bcast() 持 wb.mu.Lock 后调 size() 取 RLock（同一把 RWMutex）,DEADLOCK,CLEAN,李振炜 1240012318,code/cases/blocking/etcd-6937/logs
+etcd-5509,blocking,etcd,etcd#5509,1d8813052292e6053957fae01d080fde9717f3fc,1d88130522^,acquire() 先 client.mu.RLock 后 r.mu.Lock 与 reconnect() 成环,DEADLOCK,CLEAN,李振炜 1240012318,code/cases/blocking/etcd-5509/logs
+etcd-4679,blocking,etcd,etcd#4679,d21d2e6624bc5400e52baa45804668f5f9b6a161,d21d2e6624^,Close() 全程持 c.mu 并等 watcher 退出而退出路径需要 c.mu,DEADLOCK,CLEAN,李振炜 1240012318,code/cases/blocking/etcd-4679/logs
+etcd-4033,blocking,etcd,etcd#4033,b7cf2385e6874d07f32f183007e50f4448b7e3a2,b7cf2385^,contrib/raftexample TestProposeOnCommit（测试由 fix 移植）,HANG,PASS,李振炜 1240012318,code/cases/blocking/etcd-4033/logs
+etcd-4474,blocking,etcd,etcd#4474,0cb304ec61019c5ff2f6260245ef30fb6dc9711a,0cb304ec^,raftexample 单节点启动写终止后同 waldir 重启再写,CRASH,CLEAN,李振炜 1240012318,code/cases/blocking/etcd-4474/logs
+etcd-6278,blocking,etcd,etcd#6278,9497e9678cdc64785847993c96ff2748e09ef9a1,9497e967^,真实 etcd server 写入 testa 后 NewElection(test).Campaign,DEADLOCK,CLEAN,李振炜 1240012318,code/cases/blocking/etcd-6278/logs

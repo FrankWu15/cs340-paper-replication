@@ -33,6 +33,9 @@
 `moby-27782` 试过 real-repo 但结论不成立（卡在 fsnotify 而非目标行），**不计入 real-repo**，仍以
 minimal 为准。依据与命令见 `code/cases/real-repo-notes.md`。
 
+**逐条清单**（24 条已复现 + 17 条缺口，可直接贴进演示）见 [`REPRODUCTION-TABLE.md`](REPRODUCTION-TABLE.md)；
+本文只保留汇总口径，两份数字由同一套 CSV 算出，若不一致以该文件的重算脚本为准。
+
 **etcd 6 条**：11-18 的 #6937/#5509/#4679（DEADLOCK/CLEAN，minimal 复现体）；11-21 的 #4033（HANG/PASS）、#4474（CRASH/CLEAN）、#6278（DEADLOCK/CLEAN），三条都跑在真实 etcd 源码上。详见 `docs/BATCH-11-21.md`。
 
 另有 3 条 etcd（#3593/#8183/#3060）尝试后**未复现**：补丁修的是测试/初始化自身的脆弱竞态，`-race` 跑 1~100 轮均 0 报告，原始日志在 `results/attempts-11-21/logs/`，清单见 `results/attempts-11-21/attempts_1121.csv`。
