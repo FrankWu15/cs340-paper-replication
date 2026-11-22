@@ -283,7 +283,103 @@ bash code/cases/blocking/moby-256/run_real.sh
 
 ---
 
-# 七、已知限制
+# 七、预期输出 / Expected output
+
+跑完一个 case，应该能对上下面这些东西。产物形态按执行范式分四类，都是仓库里已有的真实格式。
+
+## 7.1 判定六态
+
+| 值 | 含义 | 谁产出 |
+|---|---|---|
+| `PASS` | 测试 / 程序正常完成 | `p4_case.sh`、`run.sh` |
+| `FAIL` | 测试断言失败或 panic | 同上 |
+| `TIMEOUT` | 超出单次超时，进程被 kill | 同上 |
+| `NOTRUN` | `-run` 正则没匹配到任何测试却输出 `ok`，**不能算通过** | `p4_case.sh` |
+| `ERROR` | 编译失败、仓库缺失等环境错误 | 同上 |
+| `DEADLINE` | RPC 卡到测试自身 deadline（需 `P4_DEADLINE_HIT=1` 才计入） | `p4_case.sh` |
+
+## 7.2 四种产物形态
+
+| 形态 | 文件 | 出现的 case |
+|---|---|---|
+| 逐次判定汇总 | `logs/summary.txt` | grpc 全部（793 / 1293 / 1424 / 1459 / 1546 / 1667 / 1687 / 1850） |
+| 单行结论 | `results/verdict.txt`，如 `buggy=HANG fixed=PASS` | 11-21 补充的 minimal 双二进制 case |
+| 逐轮机械可读 | `results/summary.csv`，含 `exit_code`、`wall_clock_ms`、`deadlocked` | boltdb-392、etcd-6873、k8s-62464、cockroachdb-1cc69980 |
+| 机器可读总表 | `results/data/repro_summary.csv`（33 行，跨全部 case） | 全仓库 |
+
+## 7.3 真实样例
+
+Go 原生检测器类，`code/cases/blocking/boltdb-392/results/raw/buggy-01.log` 末尾：
+
+```
+fatal error: all goroutines are asleep - deadlock!
+```
+
+同一 case 的 `results/summary.csv`：
+
+```
+mode,run,exit_code,wall_clock_ms,deadlock_reported,timed_out,last_trace_ms,result_line,log_file
+buggy,01,2,422,1,0,14.492,"NA",results/raw/buggy-01.log
+```
+
+`-race` 类，`code/cases/non-blocking/etcd-4997/results/real-source-evidence/sample_race_report.log`：
+
+```
+WARNING: DATA RACE
+Write at 0x00c0000c6048 by goroutine 8:
+  main.(*consistentIndex).setConsistentIndex()
+```
+
+命中时退出码是 **66**，不是 0 —— 这是区分「跑了但没命中」和「干净通过」的关键。
+
+## 7.4 什么算「这一条复现成功」
+
+- **blocking**（论文 §5）：buggy 侧必须卡住（`TIMEOUT` 或 Go 原生 deadlock、exit 2），fixed 侧干净退出；
+- **non-blocking**（论文 §6）：buggy 侧必须报竞争或崩溃（`WARNING: DATA RACE` / exit 66、SIGSEGV、panic），fixed 侧干净；
+- `NOTRUN` 不算通过，超时也不等于 bug —— 先用 fixed 侧和一次空跑排除环境导致的 Dial 卡死；
+- 概率型 bug 跑 3 次看不出来是正常的（`grpc#1850` 是 8/50），要看多次统计，不能只报单次；
+- 每条 case 的期望结论对照 [results/data/repro_summary.csv](results/data/repro_summary.csv) 的 buggy / fixed 两列；细节在 `code/cases/<类>/<bug>/README.md`。
+
+---
+
+# 八、运行耗时 / Runtime
+
+口径先说清楚：下表墙钟是**按脚本参数推算的上限**（轮次 × 单次超时 × 两侧），不是实测中位数；
+**不含**首次拉 6 个上游仓、装 Go 1.5.4 / 1.6.4 / 1.7.6 / 1.10.8 老工具链、老项目首次编译的时间。
+唯一有完整实测记录的是 `boltdb-392`：40 次试验共约 **75 秒**
+（`code/cases/blocking/boltdb-392/report/report.md` 第 67 行，每条墙钟在 `results/summary.csv`）。
+
+| 执行范式 | 代表 case | 脚本参数 | 单条墙钟上限 |
+|---|---|---|---|
+| 上游官方测试 | grpc-793 / 1459 / 1667 | 3 次 × 30s × 2 侧 | ≈ 3 分钟 |
+| 同上 | grpc-1293 / 1424 / 1687 | 3 次 × 60s × 2 侧 | ≈ 6 分钟 |
+| 同上 | grpc-1546 | 3 次 × 120s × 2 侧 | ≈ 12 分钟 |
+| 同上（概率型） | grpc-1850 | 50 次 × 40s × 2 侧 | 上限 ≈ 67 分钟，命中即返回，通常 3~5 分钟 |
+| Go 原生检测器 | boltdb-392 | 10 轮 × 5s × 2 模式 | ≈ 100 秒（实测 75 秒） |
+| 同上 | kubernetes-62464-20697（2 条 bug） | 20 轮 × 5s × 2 模式 | ≈ 7 分钟 |
+| 同上 | etcd-6873-double-lock（2 条 bug） | 20 轮 × 8s × 2 模式 | ≈ 11 分钟 |
+| 同上 | cockroachdb-1cc69980 | 20 轮 × 2 侧，无外层 timeout | 秒级，主要时间在 `go build` |
+| minimal 双二进制 | 11-21 补充的 7 条 | 3 轮 × 2 侧，watchdog 2~10s | ≈ 1~2 分钟 |
+| real-repo（连虚拟机 + 老 Go） | moby-8909 / moby-256 | 单次编译 + 运行 | 首编 10~20 分钟，之后秒级 |
+| `-race` 概率统计 | etcd-4997 / kubernetes-9926 | 20 轮 × 5000 iter，双 Go 工具链 | 实测约 12 秒完成全部 120 次运行 |
+
+**从零跑完整个仓库**：33 个 case，含 clone、装多套 Go、老项目首编，累加约**半天到一天**；
+只重跑已编译好的核心 case，约 **2~3 小时**。
+
+想快速验证而不等满轮，这些脚本支持压参数：
+
+```bash
+REPEAT=3 TIMEOUT_SEC=2s bash scripts/run_experiments.sh   # boltdb-392 / etcd-6873 / k8s-62464 这一族
+RUNS=1 bash run.sh                                        # minimal 双二进制这一族
+N=3 ITERS=100 bash scripts/run_experiments.sh             # etcd-4997 / k8s-9926 这一族
+bash run.sh 1 10                                          # grpc 类：1 轮 × 10s
+```
+
+自己掐表用 `/usr/bin/time -p bash run.sh`，别用 shell 内置 `time` 的默认输出（不好对比）。
+
+---
+
+# 九、已知限制
 
 - **41 条里还剩 17 条**：etcd 7、docker 3、grpc 3、kubernetes 2、cockroachdb 1、boltdb 1。
   其中 3 条（etcd#3593 / #8183 / #3060）是**试过没复现**，负面结果留在
