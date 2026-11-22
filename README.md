@@ -207,6 +207,7 @@ Chan×Changes = **1.63**，高于它报的 1.42 与 1.52。只有把「样本数
 │   ├── analysis/        P0–P2 分析脚本（挖提交、AST 静态统计、与论文比对、可行性筛选）
 │   ├── harness/         复现驱动（p4_case.sh / p4_probe.sh / p4_deps.sh / 08_repro_boltdb.sh 等）
 │   ├── tools/           goast：Go AST 统计工具
+│   ├── extension/       扩展实验：并行度(GOMAXPROCS)对触发率/强度与 -race 检出的影响（980 次）
 │   └── cases/
 │       ├── blocking/        22 个目录 / 24 条（论文 §5）
 │       ├── non-blocking/    11 个目录 / 11 条（论文 §6）
