@@ -1,0 +1,25 @@
+case: kubernetes-36377
+date: 2026-11-25
+host: VMware ubuntu1804-p4 / Ubuntu 18.04.6 LTS, kernel 4.15.0-213, 4 cores, 7.8 GB
+toolchain: go1.27.3 linux/amd64 (/usr/local/go), gcc 7.5.0
+why-vm: 本机 Windows 上 -race 产物启动即 0xC0000139（缺 race 运行时 DLL），检测器只能在 Linux 上跑
+command: CASES=kubernetes-36377 RUNS=10 RACE_RUNS=100 bash ../run_race.sh
+
+A. 不变量（不带 -race，10 轮/侧）
+   buggy: 10/10 退出码 3，VERDICT: BUG
+          store 内对象被 reconcile 改写，annotations 从 1 个变 2 个，10 轮一致
+   fixed: 10/10 退出码 0，VERDICT: OK，annotations 恒为 1
+
+B. 数据竞争检测器（-race，100 轮/侧，GORACE=halt_on_error=1）
+   buggy: 100/100 报告竞争，首次命中 = 第 1 轮，退出码 66（halt_on_error）
+   fixed: 0/100 报告竞争，退出码 0，无误报
+
+竞争落点（logs/vm-1125/race/sample_buggy.log）：
+   Read  at 0x00c0001180f0 by goroutine 8:
+     main.main.func1()              buggy/main.go:71     len(obj.Annotations)
+   Previous write at 0x00c0001180f0 by goroutine 9:
+     runtime.mapassign_faststr()
+     main.reconcile()               buggy/main.go:57     ns.Annotations[...] = "true"
+
+判定：竞争点正好落在 bug 机制上（store 返回共享指针、reconcile 原地改 map），
+   不是旁支的偶然竞争；100% 首轮命中说明窗口足够宽，不依赖极端调度。

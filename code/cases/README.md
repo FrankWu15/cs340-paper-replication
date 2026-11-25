@@ -55,8 +55,11 @@
 
 † 这 3 条全部是 **minimal** 形态，没有 real-repo 证据：`moby-28682` 要跑着的 containerd，
 两条 k8s / crdb 分别要活的控制面与 cgo + RocksDB。本机 `-race` 不可用
-（`go build -race` 能过，产物启动即 `0xC0000139`），所以竞争类改用可观测不变量判定。
-原因与替代方案见 [`real-repo-notes.md`](real-repo-notes.md) 第五节。
+（`go build -race` 能过，产物启动即 `0xC0000139`），所以 11-21 首版改用可观测不变量判定。
+2026-11-25 已在 Ubuntu 18.04 虚拟机上补跑检测器（`run_race.sh`，各 100 轮）：
+`kubernetes-36377` 与 `cockroachdb-17112` **100/100 首轮命中**，`moby-28682` **0/100**
+（它不是数据竞争）。原因与替代方案见 [`real-repo-notes.md`](real-repo-notes.md) 第五节，
+批次记录见 [`docs/BATCH-11-25.md`](../../../docs/BATCH-11-25.md)。
 
 `moby-2d21996/` 也在本目录，但它**不在论文 41 条集合内**（171 条总表内，`reproduced` 为空），
 不计入上面的 10 条。

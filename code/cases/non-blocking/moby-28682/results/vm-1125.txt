@@ -1,0 +1,22 @@
+case: moby-28682
+date: 2026-11-25
+host: VMware ubuntu1804-p4 / Ubuntu 18.04.6 LTS, kernel 4.15.0-213, 4 cores, 7.8 GB
+toolchain: go1.27.3 linux/amd64 (/usr/local/go), gcc 7.5.0
+why-vm: 本机 Windows 上 -race 产物启动即 0xC0000139（缺 race 运行时 DLL），检测器只能在 Linux 上跑
+command: CASES=moby-28682 RUNS=10 RACE_RUNS=100 bash ../run_race.sh
+
+A. 不变量（不带 -race，10 轮/侧）
+   buggy: 10/10 退出码 3，VERDICT: BUG
+          200 次试验漏发 close stdin 88~115 次（中位 98，均值 99.7）—— 与"约一半"的预测一致
+   fixed: 10/10 退出码 0，VERDICT: OK，漏发恒为 0
+
+B. 数据竞争检测器（-race，100 轮/侧，GORACE=halt_on_error=1）
+   buggy: 0/100 报告竞争
+   fixed: 0/100 报告竞争
+
+判定：本缺陷不是数据竞争，检测器 0/100 是正确结果。
+   漏发的原因是 select 在两个 case 同时就绪时等概率随机，stdinClose 全程受 mutex 保护，
+   不存在任何未同步访问，ThreadSanitizer 没有任何可报的目标。
+
+对 Table 12 的意义：这条属于"论文三个原因中的第一条——并非所有非阻塞型缺陷都是数据竞争"的实例，
+   无论跑多少次都不该被检出。

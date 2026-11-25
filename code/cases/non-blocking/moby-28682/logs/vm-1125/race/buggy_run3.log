@@ -1,0 +1,3 @@
+trials=200 missed_close_stdin=97
+VERDICT: BUG
+97/200 次未发送 close stdin：select 选中 ctx.Done，ready 分支被丢弃

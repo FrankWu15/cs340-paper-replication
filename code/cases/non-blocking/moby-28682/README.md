@@ -68,3 +68,20 @@ RUNS=5 bash run.sh
 ```
 
 单文件、无外部依赖。
+
+## 7. 竞争检测（2026-11-25，Ubuntu 18.04 虚拟机）
+
+本机 Windows 上 `-race` 产物启动即 `0xC0000139`（缺 race 运行时 DLL），此前一直没跑检测器。
+2026-11-25 在虚拟机 `ubuntu1804-p4`（Ubuntu 18.04.6 / go1.27.3 / gcc 7.5 / 4 核）上补跑：
+
+| 段 | 设置 | 结果 |
+|---|---|---|
+| 不变量 | 不带 `-race`，10 轮/侧 | buggy 10/10 BUG（漏发 88~115 / 200），fixed 0/10 |
+| 竞争检测 | `-race`，100 轮/侧，`GORACE=halt_on_error=1` | **buggy 0/100，fixed 0/100** |
+
+0/100 是正确结果，不是检测失败：本缺陷是 `select` 在两个 case 同时就绪时等概率随机，
+`stdinClose` 全程受 mutex 保护，没有任何未同步访问，ThreadSanitizer 没有可报的目标。
+这正是论文「并非所有非阻塞型缺陷都是数据竞争」那条原因的实例。
+
+重跑：`CASES=moby-28682 RUNS=10 RACE_RUNS=100 bash ../run_race.sh`
+逐轮日志见 `logs/vm-1125/`，汇总见 `results/vm-1125.txt`。

@@ -1,0 +1,24 @@
+case: cockroachdb-17112
+date: 2026-11-25
+host: VMware ubuntu1804-p4 / Ubuntu 18.04.6 LTS, kernel 4.15.0-213, 4 cores, 7.8 GB
+toolchain: go1.27.3 linux/amd64 (/usr/local/go), gcc 7.5.0
+why-vm: 本机 Windows 上 -race 产物启动即 0xC0000139（缺 race 运行时 DLL），检测器只能在 Linux 上跑
+command: CASES=cockroachdb-17112 RUNS=10 RACE_RUNS=100 bash ../run_race.sh
+
+A. 不变量（不带 -race，10 轮/侧）
+   buggy: 10/10 退出码 3，VERDICT: BUG
+          2 秒窗口内快照与决策时刻不一致 100~169 次（中位 128，均值 131.8）
+   fixed: 10/10 退出码 0，VERDICT: OK，违规恒为 0
+
+B. 数据竞争检测器（-race，100 轮/侧，GORACE=halt_on_error=1）
+   buggy: 100/100 报告竞争，首次命中 = 第 1 轮，退出码 66（halt_on_error）
+   fixed: 0/100 报告竞争，退出码 0，无误报
+
+竞争落点（logs/vm-1125/race/sample_buggy.log）：
+   Write at 0x00c0000a8048 by goroutine 11:
+     main.(*backupState).exportFile()   buggy/main.go:41   s.files = append(...)
+   Previous read at 0x00c0000a8048 by main goroutine:
+     main.(*backupState).checkpoint()   buggy/main.go:62   append(nil, s.files...)
+
+判定：竞争点就是"锁内决策、锁外读文件列表"这条机制本身；不变量违背与竞争报告指向同一处。
+   100% 首轮命中，与 fixed 侧 0/100 一起，说明检测器报的确实是修复补丁消除掉的那处访问。

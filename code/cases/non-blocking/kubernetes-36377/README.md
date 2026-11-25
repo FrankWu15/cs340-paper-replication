@@ -44,7 +44,8 @@ baseNamespace, ok := namespaceObj.(*api_v1.Namespace)
 - 仍为 1 → `VERDICT: OK`
 - 被改写 → `VERDICT: BUG`（退出码 3）
 
-这里没有用 `-race`（本机不可用），而是用「共享对象是否被污染」这个不变量判定。
+原记录（2026-11-21）没有用 `-race`（本机 Windows 不可用），而是用「共享对象是否被污染」这个不变量判定。
+2026-11-25 已在 Linux 虚拟机上补跑检测器，见第 7 节。
 
 ## 5. 实测
 
@@ -56,3 +57,26 @@ buggy 未触发 runtime 的 map 并发致命错误，说明本机调度下先命
 ```bash
 bash run.sh
 ```
+
+## 7. 竞争检测（2026-11-25，Ubuntu 18.04 虚拟机）
+
+本机 Windows 上 `-race` 不可用（缺 race 运行时 DLL），2026-11-25 在虚拟机
+`ubuntu1804-p4`（Ubuntu 18.04.6 / go1.27.3 / gcc 7.5 / 4 核）上补跑：
+
+| 段 | 设置 | 结果 |
+|---|---|---|
+| 不变量 | 不带 `-race`，10 轮/侧 | buggy 10/10 BUG（annotations 1→2），fixed 0/10 |
+| 竞争检测 | `-race`，100 轮/侧，`GORACE=halt_on_error=1` | **buggy 100/100，首次命中第 1 轮**；fixed 0/100 |
+
+竞争点落在机制本身，不是旁支的偶然竞争：
+
+```text
+Read  at 0x... by goroutine 8:  main.main.func1()  buggy/main.go:71   len(obj.Annotations)
+Write at 0x... by goroutine 9:  main.reconcile()   buggy/main.go:57   ns.Annotations[...] = "true"
+```
+
+fixed 侧 0/100，说明检测器报的确实是 DeepCopy 消除掉的那处访问。原始报告见
+`logs/vm-1125/race/sample_buggy.log`。
+
+重跑：`CASES=kubernetes-36377 RUNS=10 RACE_RUNS=100 bash ../run_race.sh`
+汇总见 `results/vm-1125.txt`。

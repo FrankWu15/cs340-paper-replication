@@ -1,0 +1,20 @@
+==================
+WARNING: DATA RACE
+Read at 0x00c000190048 by main goroutine:
+  main.(*backupState).checkpoint()
+      /home/li/repro-add/cases/cockroachdb-17112/buggy/main.go:62 +0x18e
+  main.main()
+      /home/li/repro-add/cases/cockroachdb-17112/buggy/main.go:83 +0x231
+
+Previous write at 0x00c000190048 by goroutine 14:
+  main.(*backupState).exportFile()
+      /home/li/repro-add/cases/cockroachdb-17112/buggy/main.go:41 +0xf6
+  main.main.func1()
+      /home/li/repro-add/cases/cockroachdb-17112/buggy/main.go:76 +0xc9
+  main.main.gowrap1()
+      /home/li/repro-add/cases/cockroachdb-17112/buggy/main.go:78 +0x38
+
+Goroutine 14 (running) created at:
+  main.main()
+      /home/li/repro-add/cases/cockroachdb-17112/buggy/main.go:74 +0x10b
+==================

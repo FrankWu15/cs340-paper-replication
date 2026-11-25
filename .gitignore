@@ -112,3 +112,7 @@ docx_src/
 
 ### Full Chinese translation of the paper: kept locally, not redistributed
 2609_CS340_Research_Paper_Replication.zh.md
+
+### Local hand-off bundle from the 2026-11-25 VM rerun (raw copy of all 668 logs).
+### The tracked evidence is code/cases/non-blocking/<case>/logs/vm-1125/.
+/add/

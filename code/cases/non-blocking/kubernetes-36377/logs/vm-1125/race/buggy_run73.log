@@ -1,0 +1,22 @@
+==================
+WARNING: DATA RACE
+Read at 0x00c0000a00f0 by goroutine 8:
+  main.main.func1()
+      /home/li/repro-add/cases/kubernetes-36377/buggy/main.go:71 +0xe9
+
+Previous write at 0x00c0000a00f0 by goroutine 9:
+  runtime.mapassign_faststr()
+      /usr/local/go/src/internal/runtime/maps/runtime_faststr.go:261 +0x0
+  main.reconcile()
+      /home/li/repro-add/cases/kubernetes-36377/buggy/main.go:57 +0x85
+  main.main.func2()
+      /home/li/repro-add/cases/kubernetes-36377/buggy/main.go:79 +0xa5
+
+Goroutine 8 (running) created at:
+  main.main()
+      /home/li/repro-add/cases/kubernetes-36377/buggy/main.go:67 +0x284
+
+Goroutine 9 (running) created at:
+  main.main()
+      /home/li/repro-add/cases/kubernetes-36377/buggy/main.go:76 +0x32c
+==================

@@ -89,7 +89,7 @@ minimal 为准。依据与命令见 `code/cases/real-repo-notes.md`。
 
 grpc 五条的死锁**成立**（SIGQUIT 栈可证），但不报的原因已实测确认：`checkdead()` 要求全体 goroutine 睡死且 timers 为空、netpoll 无事件，真实 server 永远有 IO/select 协程存活。证据在 `results/logs/p5-1118/`。
 
-### Table 12（`-race`，10 个 non-blocking 点，已测 6）
+### Table 12（`-race`，10 个 non-blocking 点，已测 8 条 + 1 条单列）
 
 | bug               | 形态                                      | 运行次数 |  检出 | 首次命中 |
 | ----------------- | --------------------------------------- | ---: | --: | ---: |
@@ -102,10 +102,25 @@ grpc 五条的死锁**成立**（SIGQUIT 栈可证），但不报的原因已实
 
 实测 **3/6**，方向与论文一致：纯 data race 能报，order/atomicity 类天然检不到（论文 lib 0/2、chan 0/1 同理）。
 
-11-21 新增的 3 条 non-blocking（`moby-28682`、`kubernetes-36377`、`cockroachdb-17112`）**没跑
-`-race`**：本机 `go build -race` 能过，但产物启动即 `0xC0000139`（race 运行时 DLL 缺失）。
-改用了可观测不变量（漏发计数、store 对象是否被改写、快照长度 vs 决策长度），
-能证明 bug 成立，但**不能替 Table 12 记检出**。
+11-21 新增的 3 条 non-blocking（`moby-28682`、`kubernetes-36377`、`cockroachdb-17112`）原先**没跑
+`-race`**：本机 `go build -race` 能过，但产物启动即 `0xC0000139`（race 运行时 DLL 缺失），
+只能用可观测不变量（漏发计数、store 对象是否被改写、快照长度 vs 决策长度）证明 bug 成立。
+
+2026-11-25 在 Ubuntu 18.04 虚拟机上补跑，检测器链路打通（详见 `docs/BATCH-11-25.md`）：
+
+| bug | 形态 | 不变量（10 轮/侧） | `-race` 100 轮 | 首次命中 |
+| --- | --- | --- | ---: | ---: |
+| kubernetes#36377 | minimal | BUG 10/10 | **100/100** | 1 |
+| cockroachdb#17112 | minimal | BUG 10/10 | **100/100** | 1 |
+| moby#28682 | minimal | BUG 10/10 | 0/100 | — |
+
+口径三条：
+
+1. 这三条的形态是 **minimal**，不是上游源码，所以**单独列，不并进上表**；上表的 3/6 与这里的 2/2 不是一回事。
+2. 若把两者合成一句可说的话：`-race` 实测 **5/8**（上表 6 条里的 3 条 + 这里 2 条）。
+3. `moby#28682` 的 0/100 **不是检测失败**：它是 `select` 在两个 case 同时就绪时等概率随机，导致漏发
+   close stdin，全程有 mutex 保护，不存在未同步访问——正是论文「并非所有非阻塞型缺陷都是数据竞争」
+   那条原因的实例，跑多少次都不该报。
 
 ---
 

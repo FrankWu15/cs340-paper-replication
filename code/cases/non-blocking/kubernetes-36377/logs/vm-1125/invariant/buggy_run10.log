@@ -1,0 +1,2 @@
+VERDICT: BUG
+store 里的对象被 reconcile 改写：annotations 从 1 个变成 2 个
