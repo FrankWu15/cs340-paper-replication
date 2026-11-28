@@ -1,0 +1,21 @@
+VERDICT=COMMITTING
+panic: runtime error: invalid memory address or nil pointer dereference
+[signal SIGSEGV: segmentation violation code=0x1 addr=0x0 pc=0x4f132b]
+
+goroutine 1 [running]:
+github.com/boltdb/bolt.(*DB).page(...)
+	/home/li/gopath/src/github.com/boltdb/bolt/db.go:603
+github.com/boltdb/bolt.(*Tx).page(...)
+	/home/li/gopath/src/github.com/boltdb/bolt/tx.go:505
+github.com/boltdb/bolt.(*Bucket).pageNode(0xc42008e5c8, 0x4, 0x1, 0x0)
+	/home/li/gopath/src/github.com/boltdb/bolt/bucket.go:692 +0x1fb
+github.com/boltdb/bolt.(*Cursor).search(0xc420051b20, 0xc420051a08, 0x1, 0x20, 0x4)
+	/home/li/gopath/src/github.com/boltdb/bolt/cursor.go:238 +0x72
+github.com/boltdb/bolt.(*Cursor).seek(0xc420051b20, 0xc420051a08, 0x1, 0x20, 0x1, 0x20, 0x5265e0, 0x0, 0x0, 0x0, ...)
+	/home/li/gopath/src/github.com/boltdb/bolt/cursor.go:152 +0x182
+github.com/boltdb/bolt.(*Bucket).spill(0xc42008e5c8, 0xd65bfad, 0x5f16c0)
+	/home/li/gopath/src/github.com/boltdb/bolt/bucket.go:520 +0x340
+github.com/boltdb/bolt.(*Tx).Commit(0xc42008e5b0, 0x1, 0x1)
+	/home/li/gopath/src/github.com/boltdb/bolt/tx.go:151 +0x18b
+main.main()
+	/home/li/gopath/src/bprobeC/main.go:44 +0x63c

@@ -44,6 +44,7 @@ func (db *DB) Close() error {
 |---|---|
 | 李振炜 | `logs/boltdb_341_buggy.log`（`VERDICT=BUG close_returned_early closeMs=0`）、`logs/boltdb_341_fixed.log`、`logs/boltdb_341_sigsegv_evidence.log`、`shots/boltdb341_{buggy,fixed}.png` |
 | 许汝轩 | `logs/b2_buggy.log`、`logs/b2_fixed.log`、`code/main.go`、`code/README-upstream.md` |
+| `-race` 补测（2026-11-28） | `logs/vm-1128/`（`SUMMARY.md`、`boltdb341.csv`、`boltdb341C.csv`、18 个运行日志）、`scripts/run_341_race.sh`、`scripts/run_341_race_C.sh` |
 | 修复补丁 | `patches/02-close-race.patch` |
 
 ## 踩过的坑：补丁自带的测试是无效的
@@ -51,6 +52,24 @@ func (db *DB) Close() error {
 `TestDB.Close()` 里的 `db` 是 `*TestDB`（包装类型），调用的是 `TestDB.Close()` →
 `MustCheck()` → 开一个写事务，卡在 `rwlock` 上；`bolt.DB.Close()` 一次都没被执行到。
 同名方法静默劫持了调用。所以这条必须用独立探针判，不能用官方测试。
+
+## `-race` 实测（2026-11-28 · VM，给 Table 12 补证据）
+
+三套探针 × 两侧 × 3 轮 = 18 次运行，**0 条 `WARNING: DATA RACE`**（go1.10.8，buggy `55af28c` / fixed `c69cb102`）。
+
+| 探针 | buggy | fixed |
+|---|---|---|
+| A 原样（不 Commit） | `VERDICT=BUG close_returned_early closeMs=0` ×3 | `VERDICT=OK close_waited closeMs=160` ×3 |
+| B 并发 Put + Close | `puts≈97–100 万`，**不崩** ×3 | `puts≈109–136 万` ×3 |
+| C Close 后继续 Commit | **SIGSEGV ×3** | `COMMIT_OK` + `CLOSE_DONE` ×3 |
+
+- **探针 B 是必要的反例**："并发"不等于"触雷"——bolt 的 `Put` 只写事务内存里的 node，`Commit` 才落 mmap；
+- **探针 C 才是真路径**：崩溃栈 `Tx.Commit → Bucket.spill → Cursor.search → Bucket.pageNode`（`bucket.go:692`）；
+- **`-race` 看不见它**：这是对象生命周期 / `munmap` 问题，不在 TSan 的定义域，而且进程先 SIGSEGV，来不及出报告。
+
+**结论：Table 12 记「实测、未检出」（0 / 9 轮）**；本 case 的复现凭据是"Close 提前返回 / Commit SIGSEGV"，与检测器无关。
+
+证据在 `logs/vm-1128/`（`SUMMARY.md`、两份 CSV、18 个日志），探针与驱动脚本在 `scripts/`。
 
 ## 重跑
 

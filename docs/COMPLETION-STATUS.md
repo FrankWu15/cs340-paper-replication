@@ -63,7 +63,7 @@ minimal 为准。依据与命令见 `code/cases/real-repo-notes.md`。
 | 15 | 内置死锁检测器                  | Table 8，2/21   | `docs/P5-CHECKLIST.md` + `results/data/p5_checklist.csv`                                | 🟡 6/13 检出（见 §3） |
 | 16 | non-blocking 致因分布        | Table 9        | 同脚本，6×6 逐格一致                                                                            | ✅                |
 | 17 | non-blocking 修复策略 + lift | Table 10 / 11  | Table 10、Table 11 逐格一致；lift anon.×Data Private **2.23**、chan×Moves **2.21** 与论文同值       | ✅                |
-| 18 | `-race` 检出率              | Table 12，10/20 | 5 条已测、3 条检出                                                                             | 🟡 3/6（见 §3）     |
+| 18 | `-race` 检出率              | Table 12，10/20 | 9 条已测、5 条检出（上游 4 条、检出 1）                                                        | 🟡 5/9（上游 1/4，见 §3） |
 | 19 | 自研匿名函数检测器                | §7，无数字         | 无                                                                                       | ❌ 不在范围           |
 
 
@@ -89,7 +89,7 @@ minimal 为准。依据与命令见 `code/cases/real-repo-notes.md`。
 
 grpc 五条的死锁**成立**（SIGQUIT 栈可证），但不报的原因已实测确认：`checkdead()` 要求全体 goroutine 睡死且 timers 为空、netpoll 无事件，真实 server 永远有 IO/select 协程存活。证据在 `results/logs/p5-1118/`。
 
-### Table 12（`-race`，10 个 non-blocking 点，已测 8 条 + 1 条单列）
+### Table 12（`-race`，已测 9 条 = 上游 4 + minimal 5）
 
 | bug               | 形态                                      | 运行次数 |  检出 | 首次命中 |
 | ----------------- | --------------------------------------- | ---: | --: | ---: |
@@ -98,9 +98,11 @@ grpc 五条的死锁**成立**（SIGQUIT 栈可证），但不报的原因已实
 | grpc#1667         | map 并发读写                                |   10 |  10 |    1 |
 | boltdb `7fb06fee` | 读事务共享 `db.meta`                         |   20 |   0 |    — |
 | grpc#1687         | send on closed channel（order violation） |    3 |   0 |    — |
-| boltdb#341        | Close 不等写事务                             |   未跑 |   — |    — |
+| boltdb#341        | Close 不等写事务（生命周期）                        |  9 |   0 |    — |
 
-实测 **3/6**，方向与论文一致：纯 data race 能报，order/atomicity 类天然检不到（论文 lib 0/2、chan 0/1 同理）。
+实测 **5 / 9**（上游口径 **1 / 4**），方向与论文一致：纯 data race 能报，order/atomicity 类天然检不到（论文 lib 0/2、chan 0/1 同理）。
+
+`boltdb#341` 是 2026-11-28 补跑的（证据 `code/cases/non-blocking/boltdb-341/logs/vm-1128/`）：A 原样 / B 并发 Put / C Close 后 Commit 三探针各 3 轮，**0 条 `DATA RACE`**；探针 C 的 buggy 侧 3/3 SIGSEGV（`bucket.go:692` 读已 munmap 的页），fixed 侧 3/3 正常。它属于对象生命周期问题，`munmap` 不在 TSan 的插桩范围，且崩溃早于报告——**不在检测器定义域内**，因此记「实测、未检出」。
 
 11-21 新增的 3 条 non-blocking（`moby-28682`、`kubernetes-36377`、`cockroachdb-17112`）原先**没跑
 `-race`**：本机 `go build -race` 能过，但产物启动即 `0xC0000139`（race 运行时 DLL 缺失），
@@ -116,8 +118,8 @@ grpc 五条的死锁**成立**（SIGQUIT 栈可证），但不报的原因已实
 
 口径三条：
 
-1. 这三条的形态是 **minimal**，不是上游源码，所以**单独列，不并进上表**；上表的 3/6 与这里的 2/2 不是一回事。
-2. 若把两者合成一句可说的话：`-race` 实测 **5/8**（上表 6 条里的 3 条 + 这里 2 条）。
+1. 上表 6 条 + 11-25 补跑 3 条 = **已测 9 条**；其中上游源码 4 条（`grpc#1667`、`grpc#1687`、`boltdb 7fb06fee`、`boltdb#341`）、minimal 5 条。**主数字 `5/9` 只描述我们自己的案例集**，跨研究可比只看上游子集 **1/4**——论文 `10/20` 全部是上游程序，minimal 不并进去。
+2. 别把 `5/9 ≈ 56%` 与论文 `10/20 = 50%` 读成"复现了论文的检出率"：两者构成不同（我们 9 条里 5 条是 minimal），数字接近是巧合。
 3. `moby#28682` 的 0/100 **不是检测失败**：它是 `select` 在两个 case 同时就绪时等概率随机，导致漏发
    close stdin，全程有 mutex 保护，不存在未同步访问——正是论文「并非所有非阻塞型缺陷都是数据竞争」
    那条原因的实例，跑多少次都不该报。

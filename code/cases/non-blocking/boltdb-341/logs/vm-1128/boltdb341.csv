@@ -1,0 +1,13 @@
+side,probe,run,race,sigsegv,verdict
+buggy,A,1,0,0,"VERDICT=BUG close_returned_early closeMs=0"
+buggy,A,2,0,0,"VERDICT=BUG close_returned_early closeMs=0"
+buggy,A,3,0,0,"VERDICT=BUG close_returned_early closeMs=0"
+buggy,B,1,0,0,"VERDICT=RAN puts=971116"
+buggy,B,2,0,0,"VERDICT=RAN puts=1001420"
+buggy,B,3,0,0,"VERDICT=RAN puts=998498"
+fixed,A,1,0,0,"VERDICT=OK close_waited closeMs=160"
+fixed,A,2,0,0,"VERDICT=OK close_waited closeMs=160"
+fixed,A,3,0,0,"VERDICT=OK close_waited closeMs=160"
+fixed,B,1,0,0,"VERDICT=RAN puts=1088198"
+fixed,B,2,0,0,"VERDICT=RAN puts=1195899"
+fixed,B,3,0,0,"VERDICT=RAN puts=1362688"
